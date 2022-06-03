@@ -11,7 +11,7 @@ export class Navbar extends Component {
           <span />
         </label>
         
-        <ol className="odd px-96 place-items-center pt-52">
+        <ol className="odd px-96  pt-52">
           <li className="hex">
             <div className="hex-content text-center">Home</div>
           </li>
