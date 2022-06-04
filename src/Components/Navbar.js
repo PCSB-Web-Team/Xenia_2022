@@ -2,13 +2,21 @@ import React, { Component } from 'react'
 import "../Components/Navbar.css";
 
 export class Navbar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {current: false};
+  }
+
+  handleChange = e => this.setState({ current: e.target.checked });
   render() {
     return (
         <div className="hamburger-menu">
-    <input id="menu__toggle" type="checkbox" />
-    <label className="menu__btn" for="menu__toggle">
-      <span></span>
-    </label>
+        <input id="menu__toggle" type="checkbox" checked={this.state.current} 
+                  onChange={this.handleChange} />
+        <label className="menu__btn" for="menu__toggle">
+          <span></span>
+        </label>
+      {this.state.current?  
         <main className="site-wrapper">
         <div className="pt-table desktop-768">
         <div className="pt-tablecell page-home relative justify-center px-40">
@@ -175,7 +183,11 @@ export class Navbar extends Component {
           </div>
         </div>
       </main>
-      </div>)
+      
+      : <p></p>
+      }
+      </div>
+    )
     
     
   }
