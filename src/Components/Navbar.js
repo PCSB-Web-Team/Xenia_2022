@@ -42,7 +42,8 @@ export class Navbar extends Component {
                       <a className="hex-content">
                         <span className="hex-content-inner">
                           <span className="icon">
-                            <i className="fa fa-universal-access" />
+                          
+                          <i class='fa fa-home'></i>
                           </span>
                           <span className="title">Home</span>
                         </span>
@@ -63,7 +64,7 @@ export class Navbar extends Component {
                       <a className="hex-content">
                         <span className="hex-content-inner">
                           <span className="icon">
-                            <i className="fa fa-bullseye" />
+                            <i className="fa fa-calendar" />
                           </span>
                           <span className="title">Schedule</span>
                         </span>
@@ -84,7 +85,7 @@ export class Navbar extends Component {
                       <a className="hex-content">
                         <span className="hex-content-inner">
                           <span className="icon">
-                            <i className="fa fa-braille" />
+                            <i className="fa fa-trophy" />
                           </span>
                           <span className="title">Events</span>
                         </span>
@@ -105,9 +106,9 @@ export class Navbar extends Component {
                       <a className="hex-content">
                         <span className="hex-content-inner">
                           <span className="icon">
-                            <i className="fa fa-id-badge" />
+                            <i className="fa fa-camera" />
                           </span>
-                          <span className="title">Build-up Events</span>
+                          <span className="title">Buildup Events</span>
                         </span>
                         <svg viewBox="0 0 173.20508075688772 200" height={200} width={174} version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530" /></svg>
                       </a>
@@ -126,7 +127,7 @@ export class Navbar extends Component {
                       <a className="hex-content">
                         <span className="hex-content-inner">
                           <span className="icon">
-                            <i className="fa fa-life-ring" />
+                          <i class="fas fa-podium"></i> 
                           </span>
                           <span className="title">Industry Talks</span>
                         </span>
@@ -147,7 +148,7 @@ export class Navbar extends Component {
                       <a className="hex-content">
                         <span className="hex-content-inner">
                           <span className="icon">
-                            <i className="fa fa-clipboard" />
+                            <i className="fa fa-handshake-o" />
                           </span>
                           <span className="title">Sponsers</span>
                         </span>
@@ -168,7 +169,7 @@ export class Navbar extends Component {
                       <a className="hex-content">
                         <span className="hex-content-inner">
                           <span className="icon">
-                            <i className="fa fa-map-signs" />
+                            <i className="fa fa-id-badge" />
                           </span>
                           <span className="title">Profile</span>
                         </span>
@@ -182,11 +183,16 @@ export class Navbar extends Component {
             </div>
           </div>
         </div>
+        
       </main>
       
       : <p></p>
       }
+      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
+      <link rel='stylesheet' href='https://pro.fontawesome.com/releases/v5.11.2/css/all.css'/>
+      
       </div>
+      
     )
     
     
