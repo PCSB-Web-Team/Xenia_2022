@@ -69,7 +69,7 @@ logo:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-R
         {teamDetails.map((member, i) => (
           <div
             key={`member${i}`}
-            className="w-[300px] transition-all p-3 hover:bg-purple-600 hover:bg-opacity-40 inline-block m-4 cursor-pointer rounded-xl "
+            className="w-[300px] transition-all p-3 hover:bg-black hover:bg-opacity-40 inline-block m-4 cursor-pointer rounded-xl "
           >
             
               <div className="relative  hover:animate-none ">
