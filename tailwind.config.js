@@ -3,8 +3,9 @@ module.exports = {
   theme: {
     extend: {
       animation:{
-   'bounce': 'bounce 2.4s linear infinite'},
+   'bounce': 'bounce 3s linear infinite'},
 },
+
   },
   plugins: [],
 }
