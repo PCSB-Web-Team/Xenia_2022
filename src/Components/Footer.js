@@ -13,7 +13,7 @@ export class Footer extends Component {
             </div>
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                 <div>
-                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">VRAJ BSDK</h2>
+                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">PCSB_XENIA</h2>
                     <ul class="text-gray-600 dark:text-gray-400">
                         <li class="mb-4">
                             <a href="https://flowbite.com" class="hover:underline">Flowbite</a>
@@ -24,7 +24,7 @@ export class Footer extends Component {
                     </ul>
                 </div>
                 <div>
-                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
+                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">EVENTS</h2>
                     <ul class="text-gray-600 dark:text-gray-400">
                         <li class="mb-4">
                             <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Github</a>
@@ -35,7 +35,7 @@ export class Footer extends Component {
                     </ul>
                 </div>
                 <div>
-                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">USEFUL LINKS</h2>
                     <ul class="text-gray-600 dark:text-gray-400">
                         <li class="mb-4">
                             <a href="#" class="hover:underline">Privacy Policy</a>
