@@ -1,5 +1,5 @@
 import React from "react";
-// import "./Events.scss"
+import "./Events.css"
 
 
 const Events = () => {
@@ -60,7 +60,7 @@ logo:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-R
 
   return (
     
-      <body className="bg-indigo-600">
+      <body className="bg-black">
        
        
     <div className="Events">
@@ -70,25 +70,25 @@ logo:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-R
       >
        Events
       </h1>
-      <div className="Shiny">
       
-      <div className="Events-main flex justify-evenly flex-wrap w-full xl:w-6/5 xl:mx-auto ">
+      
+      <div className=" flex justify-evenly flex-wrap w-full xl:w-6/5 xl:mx-auto ">
         {teamDetails.map((member, i) => (
           <div
             key={`member${i}`}
-            className="w-[300px] transition-all p-3 hover:bg-white hover:bg-opacity-5 inline-block m-4 cursor-pointer rounded-xl   "
+            className="card w-[310px] h-[320px] transition-all p-3  inline-block m-4 cursor-pointer rounded-xl   "
           >
             
               <div className="relative   ">
                 
               <img
-                  className="max-h-full max-w-full absolute px-12  z-20 hover:animate-bounce  "
+                  className="Logo max-h-full max-w-full absolute px-12  z-20   "
                   src={member.logo}
                   alt="Logo1"
                 />
        
               <img
-                  className="max-h-full max-w-full z-10 pt-16  static animate-none "
+                  className="base max-h-full max-w-full z-10 pt-16  static animate-none "
                   src={member.img}
                   alt="Events"
                 />
@@ -111,7 +111,7 @@ logo:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-R
         ))}
       </div>
       
-      </div>
+      
       
     </div>
     
