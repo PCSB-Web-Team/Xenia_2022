@@ -12,7 +12,8 @@ logo:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-R
     },
     {
       EventName: "Event2",
-      img:"https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-" ,logo:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
+      img:"https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-" ,
+      logo:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
     },
     {
       EventName: "Event3",
@@ -30,30 +31,30 @@ logo:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-R
       img:"https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
 logo:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",    },
     {
-      EventName: "Event6",
+      EventNameNT: "Event6",
     
-      img: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
-logo:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",    },
+      imgNT: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
+logoNT:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",    },
     {
-      EventName: "Event7",
+      EventNameNT: "Event7",
     
-      img:"https://drive.google.com/uc?export=view&id=1kqyU7WUULqPKL8_1TvWt3IuKrWV9akcA",
-logo:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",    },
+      imgNT:"https://drive.google.com/uc?export=view&id=1kqyU7WUULqPKL8_1TvWt3IuKrWV9akcA",
+logoNT:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",    },
     {
-      EventName: "Event8 ",
+      EventNameNT: "Event8 ",
     
-      img: "https://drive.google.com/uc?export=view&id=1kqyU7WUULqPKL8_1TvWt3IuKrWV9akcA",
-logo:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",    },
+      imgNT: "https://drive.google.com/uc?export=view&id=1kqyU7WUULqPKL8_1TvWt3IuKrWV9akcA",
+logoNT:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",    },
     {
-      EventName: "Event9",
+      EventNameNT: "Event9",
    
-      img:"https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
-logo:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",    },
+      imgNT:"https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
+logoNT:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",    },
     {
-      EventName: "Event10",
+      EventNameNT: "Event10",
    
-    img: "https://drive.google.com/uc?export=view&id=1kqyU7WUULqPKL8_1TvWt3IuKrWV9akcA",
-logo:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",    },
+    imgNT: "https://drive.google.com/uc?export=view&id=1kqyU7WUULqPKL8_1TvWt3IuKrWV9akcA",
+logoNT:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",    },
     
     
   ];
@@ -78,9 +79,9 @@ logo:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-R
             key={`member${i}`}
             className="card w-[310px] h-[320px] transition-all p-3  inline-block m-4 cursor-pointer rounded-xl   "
           >
-            
+          <div className="grid grid-cols-2">
               <div className="relative   ">
-                
+            <div className="">
               <img
                   className="Logo max-h-full max-w-full absolute px-12  z-20   "
                   src={member.logo}
@@ -88,8 +89,22 @@ logo:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-R
                 />
        
               <img
-                  className="base max-h-full max-w-full z-10 pt-16  static animate-none "
+                  className="base max-h-full max-w-full z-10 pt-16   "
                   src={member.img}
+                  alt="Events"
+                />
+                         
+              </div>
+              <div className="">
+              <img
+                  className="Logo max-h-full max-w-full absolute px-12  z-20   "
+                  src={member.logoNT}
+                  alt="Logo1"
+                />
+       
+              <img
+                  className="base max-h-full max-w-full z-10 pt-16   "
+                  src={member.imgNT}
                   alt="Events"
                 />
                          
@@ -104,12 +119,15 @@ logo:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-R
                 </p>
                 
               </div>
+              </div>
             
             
+          </div>
           </div>
           
         ))}
       </div>
+      
       
       
       

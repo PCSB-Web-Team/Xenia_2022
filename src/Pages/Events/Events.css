@@ -25,10 +25,10 @@
     /* hover:bg-white hover:bg-opacity-5 */
     background: rgba(255, 255, 255, 0);
     /* opacity: 75%; */
-    animation: glow 5s ease-in-out infinite;
+    animation: glowgreen 5s ease-in-out infinite;
     
 }
-.Logo:hover{
+.card:hover .Logo{
 	/* width: 150px;
 	height: 150px; */
 	/* box-sizing: border-box;
@@ -42,17 +42,25 @@
 	/* img { width: 100%; height: auto; }
 */
 }
-.base:hover{
+.card:hover .base{
     /* animation: glowbase 5s infinite alternate-reverse; */
     /* animation: float 5s ease-in-out infinite; */
     animation: glowbase 5s ease-in-out infinite
 }
-@keyframes glow {
+@keyframes glowpink {
 	0%,100% {
-		box-shadow: 1px 1px #8c09a7, 0 0 20px 5px #850353, inset 2px 2px #ea18c7;
+		box-shadow:1px 1px #8d09a75c, 0 0 20px 5px #8503535f, inset 2px 2px #ea18c75b;
 	}
 	50% {
-		box-shadow: 1px 1px #f109de, 0 0 16px 6.5px #f45aef, inset 2px 2px #ea18c7;
+		box-shadow: 1px 1px #8c09a7, 0 0 20px 5px #850353, inset 2px 2px #ea18c7;
+	}
+}
+@keyframes glowgreen {
+	0%,100% {
+		box-shadow:1px 1px #09a7115c, 0 0 20px 5px #0385175f, inset 2px 2px #18ea385b;
+	}
+	50% {
+		box-shadow: 1px 1px #09a711, 0 0 20px 5px #038517, inset 2px 2px #18ea38;
 	}
 }
 
