@@ -27,6 +27,16 @@
     /* opacity: 75%; */
     animation: glowgreen 5s ease-in-out infinite;
     
+} 
+.cardpink:hover{
+    /* hover:bg-white hover:bg-opacity-5 */
+    background: rgba(255, 255, 255, 0);
+    /* opacity: 75%; */
+    animation: glowpink 5s ease-in-out infinite;
+    
+}
+.cardpink:hover .Logo{
+	animation: float 5s ease-in-out infinite;
 }
 .card:hover .Logo{
 	/* width: 150px;
