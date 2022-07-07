@@ -1,11 +1,10 @@
-//import component over herte
+import Schedule from './Pages/Schedule/Schedule';
 import './App.css';
 function App() {
   return (
-     //first import component
-              <div>
-    <Component Name/>
-    </div>     
+    <div>
+      <Schedule />
+    </div>
   );
 }
 

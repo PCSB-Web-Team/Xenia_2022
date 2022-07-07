@@ -1,0 +1,184 @@
+.schedule-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: white;
+  background: black;
+}
+
+.c {
+  position: absolute;
+  z-index: 0;
+}
+
+.schedule-background-1 {
+  transform: translate(-45%, -40%);
+}
+
+.schedule-background-2 {
+  transform: translate(125%, 10%);
+}
+
+.schedule-background-3 {
+  transform: translate(-25%, 80%);
+}
+
+.schedule-page-title {
+  text-align: center;
+  font-size: 72px;
+  padding: 30px;
+  z-index: 1;
+}
+
+.schedule-page .events-schedule {
+  width: 100%;
+  margin: 18px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 70px;
+  z-index: 1;
+}
+
+.events-schedule .event-day {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+}
+
+.event-day .event-date-hex {
+  position: relative;
+  left: -5.4%;
+  top: -116px;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.event-date-hex .hex,
+.event-date-hex-bg {
+  position: absolute;
+  width: 100px;
+  height: 173.2050807569px;
+  opacity: 0.5;
+}
+
+.event-date-hex .hex:first-child {
+  opacity: 1;
+  transform: scale(0.6);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  z-index: 3;
+}
+
+.event-date-hex .hex:last-child {
+  transform: scale(0.8);
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: 2;
+}
+
+.event-date-hex .hex div {
+  position: absolute;
+  width: 100px;
+  height: 173.2050807569px;
+}
+
+.event-date-hex .hex div:before,
+.event-date-hex .hex div:after {
+  content: " ";
+  position: absolute;
+  background: rgba(255, 255, 255, 1);
+  width: 100%;
+  height: 1px;
+}
+
+.event-date-hex .hex div:before {
+  top: 0;
+}
+
+.event-date-hex .hex div:after {
+  bottom: 0;
+}
+
+.event-date-hex .hex div:nth-child(1) {
+  width: 2px; /*Removes top and bottom edges of hexagon*/
+  transform: rotate(0deg);
+}
+
+.event-date-hex .hex div:nth-child(2) {
+  transform: rotate(60deg);
+}
+
+.event-date-hex .hex div:nth-child(3) {
+  transform: rotate(120deg);
+}
+
+.event-date-hex:hover .hex div:nth-child(1) {
+  width: 100px; /*Making hexagon by resetting the width*/
+}
+
+.event-date-hex:hover .hex:last-child,
+.event-date-hex .event-date-hex-bg {
+  opacity: 1;
+  transform: scale(0.9);
+}
+
+.event-date-hex:hover .hex:first-child {
+  opacity: 1;
+  transform: scale(0.8);
+}
+
+.event-date-hex:hover .hex:first-child div:before,
+.event-date-hex:hover .hex:first-child div:after {
+  height: 10px;
+}
+
+.event-date-hex .event-date-hex-bg:before,
+.event-date-hex .event-date-hex-bg:after {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  background: inherit;
+  content: "";
+}
+
+.event-date-hex .event-date-hex-bg:before {
+  transform: rotate(60deg);
+}
+
+.event-date-hex .event-date-hex-bg:after {
+  transform: rotate(-60deg);
+}
+
+.event-date-hex:hover .event-date-hex-bg {
+  z-index: 1;
+  -moz-backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.event-day .event-day-date {
+  padding: 20px 0;
+  z-index: 2;
+}
+
+.event-day .events-row {
+  display: flex;
+  justify-content: space-around;
+  margin: -20px 0 0;
+  padding: 80px 0 20px;
+  /* z-index: ; */
+  background-color: rgba(17, 25, 40, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  -moz-backdrop-filter: blur(4px) saturate(180%);
+  -webkit-backdrop-filter: blur(4px) saturate(180%);
+  backdrop-filter: blur(4px) saturate(180%);
+}
+
+.events-row .each-event {
+  text-align: center;
+  min-width: 100px;
+  max-width: 30%;
+}
