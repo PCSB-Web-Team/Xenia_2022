@@ -1,11 +1,11 @@
-//import component over herte
+import Homepage from './Pages/Home/Home';
 import './App.css';
+
 function App() {
   return (
-     //first import component
-              <div>
-    <Component Name/>
-    </div>     
+    <div>
+      <Homepage />
+    </div>
   );
 }
 
