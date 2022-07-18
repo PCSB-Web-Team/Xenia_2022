@@ -1,6 +1,10 @@
 import React from 'react';
-import EventDay from './Schedule-Components/EventDay';
+import Timer from '../../Components/CountdownTimer';
+import EventDay from './Schedule-Components/EventDay.tsx';
 import './assets/style.css';
+import event1Image from './assets/images/xenia.png';
+import event2Image from './assets/images/xenia.png';
+import event3Image from './assets/images/xenia.png';
 
 function Schedule() {
     React.useEffect(() => {
@@ -12,7 +16,7 @@ function Schedule() {
 
         var c1 = document.getElementById("c1"),
             w1 = c1.width = document.body.clientWidth,
-            h1 = c1.height = document.body.clientHeight,
+            h1 = c1.height = document.body.clientHeight / 2,
             ctx1 = c1.getContext('2d'),
 
             opts1 = {
@@ -125,7 +129,7 @@ function Schedule() {
         window.addEventListener('resize', function () {
 
             w1 = c1.width = window.innerWidth;
-            h1 = c1.height = window.innerHeight;
+            h1 = c1.height = window.innerHeight / 2;
             // ctx1.fillStyle = 'black';
             ctx1.fillRect(0, 0, w1, h1);
 
@@ -138,7 +142,7 @@ function Schedule() {
 
         var c2 = document.getElementById("c2"),
             w2 = c2.width = 700,
-            h2 = c2.height =1200,
+            h2 = c2.height = 1200,
             ctx2 = c2.getContext('2d'),
 
             opts2 = {
@@ -251,7 +255,7 @@ function Schedule() {
         window.addEventListener('resize', function () {
 
             w2 = c2.width = window.innerWidth;
-            h2 = c2.height = window.innerHeight;
+            h2 = c2.height = window.innerHeight / 2;
             // ctx2.fillStyle = 'black';
             ctx2.fillRect(0, 0, w2, h2);
 
@@ -391,33 +395,36 @@ function Schedule() {
 
     const eventsSchedule = [
         [
-            { name: "Event 1", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
-            { name: "Event 2", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." }
+            { name: "Event 1", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", image: event1Image },
+            { name: "Event 2", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", image: event2Image }
         ],
         [
-            { name: "Event 3", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
-            { name: "Event 4", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
-            { name: "Event 5", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." }
+            { name: "Event 3", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", image: event1Image },
+            { name: "Event 4", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", image: event2Image },
+            { name: "Event 5", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", image: event3Image }
         ],
         [
-            { name: "Event 6", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
-            { name: "Event 7", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." }
+            { name: "Event 6", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", image: event1Image },
+            { name: "Event 7", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", image: event2Image }
         ],
         [
-            { name: "Event 7", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
-            { name: "Event 8", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
-            { name: "Event 9", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." }
+            { name: "Event 7", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", image: event1Image },
+            { name: "Event 8", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", image: event2Image },
+            { name: "Event 9", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", image: event3Image }
         ]
     ]
 
     const renderSchedule = eventsSchedule.map((eventDay, index) =>
-        <EventDay dayNumber={index + 1} eventsArray={eventDay} />
+        <EventDay key={index + 1} dayNumber={index + 1} eventsArray={eventDay} />
     )
 
     return (
         <div className="schedule-page">
             <canvas id="c1" className="c schedule-background-1"></canvas>
-            <h2 className="schedule-page-title">Schedule</h2>
+            <div className="schedule-page-title">
+                <p>COMING SOON</p>
+                <Timer />
+            </div>
             <canvas id="c2" className="c schedule-background-2"></canvas>
             <div className="events-schedule">
                 {renderSchedule}
