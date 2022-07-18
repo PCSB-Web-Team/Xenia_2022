@@ -693,5 +693,59 @@ body {
     
   }
   
+/*   
+  #menu__toggle:checked ~ .hexagon-item:nth-last-child(1){
+    animation: appearing 0.1s ease;
+  visibility: visible;
+  }
+  #menu__toggle:checked ~ .hexagon-item:nth-last-child(2){
+    animation: appearing 0.2s ease;
+  visibility: visible;
+  } 
+  #menu__toggle:checked ~ .hexagon-item:nth-last-child(3){
+    animation: appearing 0.3s ease;
+  visibility: visible;
+  }
+   #menu__toggle:checked ~ .hexagon-item:nth-last-child(4){
+    animation: appearing 0.4s ease;
+  visibility: visible;
+  } #menu__toggle:checked ~ .hexagon-item:nth-last-child(5){
+    animation: appearing 0.5s ease;
+  visibility: visible;
+  } #menu__toggle:checked ~ .hexagon-item:nth-last-child(6){
+    animation: appearing 0.6s ease;
+  visibility: visible;
+  } #menu__toggle:checked ~ .hexagon-item:nth-last-child(7){
+    animation: appearing 0.7s ease;
+  visibility: visible;
+  } */
+
+  @keyframes appearing {
+    from {
+              visibility:hidden;
+              opacity: 0;
+           }
+       50% {
+              visibility:hidden;
+              opacity: 0;
+           }
+       to {
+              visibility:visible;
+              opacity: 1;
+        }
+  }
   
+  @keyframes disappear {
+    from {
+              visibility:visible;
+              opacity: 1;
+           }
+       50% {
+              visibility:visible;
+              opacity: 1;
+           }
+       to {
+              visibility:hidden;                               opacity: 0;
+        }
+  }
   
