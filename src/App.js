@@ -1,11 +1,11 @@
-import Homepage from './Pages/Home/Home';
+//import component over herte
 import './App.css';
-
 function App() {
   return (
-    <div>
-      <Homepage />
-    </div>
+     //first import component
+              <div>
+    <Component Name/>
+    </div>     
   );
 }
 
