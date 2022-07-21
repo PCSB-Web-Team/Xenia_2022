@@ -217,12 +217,14 @@ body {
   display: flex;
   background-color: #fff;
   margin-top: auto;
+  position: -webkit-sticky;
   position: sticky;
   bottom: 0;
   left: 0;
 
   button {
     flex: 1 1 auto;
+    -webkit-user-select: none;
     user-select: none;
     background: 0;
     font-size: 13px;
