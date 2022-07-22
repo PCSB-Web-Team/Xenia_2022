@@ -5,7 +5,7 @@ import Homepage from './Pages/Home/Home';
 import Footer from './Components/Footer';
 import Schedule from './Pages/Schedule/Schedule';
 import Events from './Pages/Events/Events';
-import EventDetails from './Components/Eventdetails';
+import EventDetails from './Components/EventDetails';
 // import Auth from './Components/Login';  //missing component in src/component
 import Profile from './Pages/Profile/Profile';
 import Cart from './Components/Cart';
