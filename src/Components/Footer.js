@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import xenialogo from src\Components\CSI Logo blue.png
+// import xenialogo from src\Components\CSI Logo blue.png
 export class Footer extends Component {
   render() {
     return (
