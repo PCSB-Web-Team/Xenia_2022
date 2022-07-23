@@ -3,20 +3,20 @@
 * {
   box-sizing: border-box;
 }
-body {
-  color: #2b2c48;
-  font-family: "Jost", sans-serif;
-  background-image: url(https://images.unsplash.com/photo-1566738780863-f9608f88f3a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2378&q=80);
+// body {
+//   color: #2b2c48;
+//   font-family: "Jost", sans-serif;
+//   // background-image: url(https://images.unsplash.com/photo-1566738780863-f9608f88f3a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2378&q=80);
 
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  min-height: 100vh;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 20px;
-}
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: center;
+//   background-attachment: fixed;
+//   min-height: 100vh;
+//   display: flex;
+//   flex-wrap: wrap;
+//   padding: 20px;
+// }
 
 .card {
   max-width: 340px;
