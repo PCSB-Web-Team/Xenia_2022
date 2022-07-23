@@ -693,10 +693,10 @@ body {
     
   }
   
-/*   
+  
   #menu__toggle:checked ~ .hexagon-item:nth-last-child(1){
     animation: appearing 0.1s ease;
-  visibility: visible;
+  visibility: hidden;
   }
   #menu__toggle:checked ~ .hexagon-item:nth-last-child(2){
     animation: appearing 0.2s ease;
@@ -718,7 +718,7 @@ body {
   } #menu__toggle:checked ~ .hexagon-item:nth-last-child(7){
     animation: appearing 0.7s ease;
   visibility: visible;
-  } */
+  }
 
   @keyframes appearing {
     from {
