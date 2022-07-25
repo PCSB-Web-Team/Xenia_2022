@@ -1,11 +1,12 @@
-//import component over herte
+
 import './App.css';
+import LoginApp from './Pages/login/LoginApp';
 function App() {
   return (
      //first import component
               <div>
-    <Component Name/>
-    </div>     
+    <LoginApp />
+    </div>
   );
 }
 
