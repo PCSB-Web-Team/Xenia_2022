@@ -7,12 +7,15 @@ export class Navbar extends Component {
     this.state = {current: false};
   }
 
-  handleChange = e => this.setState({ current: e.target.checked });
+  handleChange = (e) => this.setState({ current: e.target.checked });
   render() {
     return (
         <div className="hamburger-menu">
         <input id="menu__toggle" type="checkbox" checked={this.state.current} 
                   onChange={this.handleChange} />
+                  {
+                    console.log(this.handleChange)
+                  }
         <label className="menu__btn" for="menu__toggle">
           <span></span>
         </label>

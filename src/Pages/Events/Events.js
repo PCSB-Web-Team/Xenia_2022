@@ -128,7 +128,7 @@ logo:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-R
         {Details.map((member, i) => (
           <div
             key={`member${i}`}
-            className="card w-[310px] h-[320px] transition-all p-3  inline-block m-4 cursor-pointer rounded-xl   "
+            className="cardgreen w-[310px] h-[320px] transition-all p-3  inline-block m-4 cursor-pointer rounded-xl   "
           >
           <a className="">
                         <span className=" ">
