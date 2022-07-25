@@ -15,6 +15,9 @@
     top: 0;
     transform: rotate(90deg);
   }
+  .hamburger-menu{
+    margin-top: -25px;
+  }
   /* #menu__toggle:checked ~.hex-item:nth-child(1) {
     animation: appearing 0.1s ease;
     visibility: visible;

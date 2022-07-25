@@ -39,7 +39,7 @@ export class Navbar extends Component {
                         <div />
                         <div />
                       </div>
-                      <a className="hex-content">
+                      <a className="hex-content" href="/">
                         <span className="hex-content-inner">
                           <span className="icon">
                           
@@ -61,7 +61,7 @@ export class Navbar extends Component {
                         <div />
                         <div />
                       </div>
-                      <a className="hex-content">
+                      <a className="hex-content" href="/schedule">
                         <span className="hex-content-inner">
                           <span className="icon">
                             <i className="fa fa-calendar" />
@@ -82,7 +82,7 @@ export class Navbar extends Component {
                         <div />
                         <div />
                       </div>
-                      <a className="hex-content">
+                      <a className="hex-content" href="/events">
                         <span className="hex-content-inner">
                           <span className="icon">
                             <i className="fa fa-trophy" />
@@ -103,7 +103,7 @@ export class Navbar extends Component {
                         <div />
                         <div />
                       </div>
-                      <a className="hex-content">
+                      <a className="hex-content" href="/">
                         <span className="hex-content-inner">
                           <span className="icon">
                             <i className="fa fa-camera" />
@@ -124,7 +124,7 @@ export class Navbar extends Component {
                         <div />
                         <div />
                       </div>
-                      <a className="hex-content">
+                      <a className="hex-content" href="/">
                         <span className="hex-content-inner">
                           <span className="icon">
                           <i class="fas fa-podium"></i> 
@@ -145,7 +145,7 @@ export class Navbar extends Component {
                         <div />
                         <div />
                       </div>
-                      <a className="hex-content">
+                      <a className="hex-content" href="/">
                         <span className="hex-content-inner">
                           <span className="icon">
                             <i className="fa fa-handshake-o" />
@@ -166,7 +166,7 @@ export class Navbar extends Component {
                         <div />
                         <div />
                       </div>
-                      <a className="hex-content">
+                      <a className="hex-content" href="/profile">
                         <span className="hex-content-inner">
                           <span className="icon">
                             <i className="fa fa-id-badge" />
