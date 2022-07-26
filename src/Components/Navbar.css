@@ -1,6 +1,7 @@
 
 #menu__toggle {
     opacity: 0;
+    z-index: 1;
    
   }
   

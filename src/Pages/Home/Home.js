@@ -1,13 +1,13 @@
 import React from "react";
 import "./Home.css";
-import hex_2xblock_left from "../../assets/images/Block_x2_Left_shadow.png";
-import hex_2xblock_right from "../../assets/images/Block_x2_Right_shadowless.png";
-import hex_3xblock_left from "../../assets/images/Block_x3_Left_shadow.png";
-import hex_3xblock_right from "../../assets/images/Block_x3_Right_shadowless.png";
-import ethereum from "../../assets/images/ethereum-block-floating.png";
-import binance from "../../assets/images/binance-block-floating.png";
-import chain_icon from "../../assets/images/chain-block-floating.png";
-import binance_stack from "../../assets/images/binance-stack-block-floating.png";
+import hex_2xblock_left from "../../Assets/Images/Block_x2_Left_shadow.png";
+import hex_2xblock_right from "../../Assets/Images/Block_x2_Right_shadowless.png";
+import hex_3xblock_left from "../../Assets/Images/Block_x3_Left_shadow.png";
+import hex_3xblock_right from "../../Assets/Images/Block_x3_Right_shadowless.png";
+import ethereum from "../../Assets/Images/ethereum-block-floating.png";
+import binance from "../../Assets/Images/binance-block-floating.png";
+import chain_icon from "../../Assets/Images/chain-block-floating.png";
+import binance_stack from "../../Assets/Images/binance-stack-block-floating.png";
 
 function Homepage() {
 
