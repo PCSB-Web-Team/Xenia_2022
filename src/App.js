@@ -23,7 +23,8 @@ function App() {
     <div>
       <BrowserRouter>
         <Navbar />
-        <Sidebar />
+        
+        {/* <Sidebar /> */}
         <ContactPanel />
         <Routes>
           <Route path="/" element={<Homepage />} loader={<PreLoader />} />

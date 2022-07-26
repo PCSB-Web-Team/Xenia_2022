@@ -18,6 +18,9 @@
   .hamburger-menu{
     margin-top: -25px;
   }
+  /* .site-wrapper{
+    z-index: index 999;
+  } */
   /* #menu__toggle:checked ~.hex-item:nth-child(1) {
     animation: appearing 0.1s ease;
     visibility: visible;
@@ -86,15 +89,16 @@
     top: 8px;
   }
   
-body {
+/* body {
     font-family: "Libre Baskerville", serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 30px;
     background-color: #0c0f15;
+    opacity: 50%;
     overflow-x:hidden;
     color: #ababab; }
-    
+     */
   
   /* ::-webkit-scrollbar {
       width: 10px;
@@ -421,6 +425,7 @@ body {
     vertical-align: middle; }
     .page-home .overlay {
       background-color: rgba(14, 17, 24, 0.97);
+      opacity: 75%;
   }
   
   /* End of container */
