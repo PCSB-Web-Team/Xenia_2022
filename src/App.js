@@ -15,12 +15,16 @@ import WebTeam from './Pages/WebTeam/WebTeam';
 import ErrorPage from './Pages/404/404';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import ContactPanel from './Components/ContactPanel';
+import Sidebar from './Components/Sidebar';
 
 function App() {
   return (
     <div>
       <BrowserRouter>
         <Navbar />
+        <Sidebar />
+        <ContactPanel />
         <Routes>
           <Route path="/" element={<Homepage />} loader={<PreLoader />} />
           <Route path="/schedule" element={<Schedule />} loader={<Loader />} />

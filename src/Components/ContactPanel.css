@@ -1,0 +1,45 @@
+.contact-panel{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 50px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    /* background: red; */
+    z-index: 1;
+}
+
+.contact-panel-inner{
+    width: 100%;
+    transition: ease-in-out 200ms;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.contact-panel-inner a{
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    font-family: 'SansBold';
+    color: rgb(0, 153, 255);
+    transition: ease-in-out 200ms;
+}
+
+.contact-panel-inner div{
+    margin: 0px;
+    padding: 0px;
+}
+
+.contact-panel-inner:hover{
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.contact-panel-inner a:hover{
+    color: rgb(0, 195, 255);
+}
+
+@media (max-width: 1200px) {
+    .contact-panel{
+        display: none;
+    }
+}
