@@ -148,7 +148,7 @@ export class Navbar extends Component {
                         <div />
                         <div />
                       </div>
-                      <a className="hex-content" href="/">
+                      <a className="hex-content" href="/sponsors">
                         <span className="hex-content-inner">
                           <span className="icon">
                             <i className="fa fa-handshake-o" />
