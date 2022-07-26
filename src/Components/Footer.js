@@ -11,7 +11,7 @@ export class Footer extends Component {
                             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">PCSB</span>
                         </a>
                     </div>
-                    <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+                    <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
                         <div>
                             <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">PCSB_XENIA</h2>
                             <ul class="text-gray-600 dark:text-gray-400">

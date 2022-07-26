@@ -18,7 +18,7 @@
 //   padding: 20px;
 // }
 
-.card {
+.cardie {
   max-width: 340px;
   margin: auto;
   overflow-y: auto;
@@ -33,32 +33,32 @@
   box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
 }
 
-.card[data-state="About"] {
+.cardie[data-state="About"] {
   height: 450px;
-  .card-main {
+  .cardie-main {
     padding-top: 0;
   }
 }
 
-.card[data-state="Contact"] {
+.cardie[data-state="Contact"] {
   height: 430px;
 }
 
-.card[data-state="Details"] {
+.cardie[data-state="Details"] {
   height: 550px;
 }
 
-.card.is-active {
-  .card-header {
+.cardie.is-active {
+  .cardie-header {
     height: 80px;
   }
 
-  .card-cover {
+  .cardie-cover {
     height: 100px;
     top: -50px;
   }
 
-  .card-avatar {
+  .cardie-avatar {
     transform: none;
     left: 20px;
     width: 50px;
@@ -66,25 +66,25 @@
     bottom: 10px;
   }
 
-  .card-fullname,
-  .card-jobtitle {
+  .cardie-fullname,
+  .cardie-jobtitle {
     left: 86px;
     transform: none;
   }
 
-  .card-fullname {
+  .cardie-fullname {
     bottom: 18px;
     font-size: 19px;
   }
 
-  .card-jobtitle {
+  .cardie-jobtitle {
     bottom: 16px;
     letter-spacing: 1px;
     font-size: 10px;
   }
 }
 
-.card-header {
+.cardie-header {
   position: relative;
   display: flex;
   height: 200px;
@@ -97,7 +97,7 @@
   }
 }
 
-.card-cover {
+.cardie-cover {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -112,7 +112,7 @@
   transition: 0.5s;
 }
 
-.card-avatar {
+.cardie-avatar {
   width: 100px;
   height: 100px;
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
@@ -125,7 +125,7 @@
   transform: translateX(-50%) translateY(-64px);
 }
 
-.card-fullname {
+.cardie-fullname {
   position: absolute;
   bottom: 0;
   font-size: 22px;
@@ -136,7 +136,7 @@
   left: 50%;
 }
 
-.card-jobtitle {
+.cardie-jobtitle {
   position: absolute;
   bottom: 0;
   font-size: 11px;
@@ -150,7 +150,7 @@
   transform: translateX(-50%) translateY(-7px);
 }
 
-.card-main {
+.cardie-main {
   position: relative;
   flex: 1;
   display: flex;
@@ -158,17 +158,17 @@
   flex-direction: column;
 }
 
-.card-subtitle {
+.cardie-subtitle {
   font-weight: 700;
   font-size: 13px;
   margin-bottom: 8px;
 }
 
-.card-content {
+.cardie-content {
   padding: 20px;
 }
 
-.card-desc {
+.cardie-desc {
   line-height: 1.6;
   color: #636b6f;
   font-size: 14px;
@@ -177,7 +177,7 @@
   font-family: "DM Sans", sans-serif;
 }
 
-.card-social {
+.cardie-social {
   display: flex;
   align-items: center;
   padding: 0 20px;
@@ -213,7 +213,7 @@
   }
 }
 
-.card-buttons {
+.cardie-buttons {
   display: flex;
   background-color: #fff;
   margin-top: auto;
@@ -252,7 +252,7 @@
   }
 }
 
-.card-section {
+.cardie-section {
   display: none;
   &.is-active {
     display: block;
@@ -270,7 +270,7 @@
   }
 }
 
-.card-timeline {
+.cardie-timeline {
   margin-top: 30px;
   position: relative;
   &:after {
@@ -289,7 +289,7 @@
   }
 }
 
-.card-item {
+.cardie-item {
   position: relative;
   padding-left: 60px;
   padding-right: 20px;
@@ -321,24 +321,24 @@
   }
 }
 
-.card-item-title {
+.cardie-item-title {
   font-weight: 500;
   font-size: 14px;
   margin-bottom: 5px;
 }
 
-.card-item-desc {
+.cardie-item-desc {
   font-size: 13px;
   color: #6f6f7b;
   line-height: 1.5;
   font-family: "DM Sans", sans-serif;
 }
 
-.card-contact-wrapper {
+.cardie-contact-wrapper {
   margin-top: 20px;
 }
 
-.card-contact {
+.cardie-contact {
   display: flex;
   align-items: center;
   font-size: 13px;

@@ -124,7 +124,8 @@ logo:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-R
          
           
         ))}</div>
-        <div className=""><h1 className="text-white text-center text-2xl text-bold">Non-Technical</h1>
+        <div className="text-center">
+          <h1 className="text-white text-center text-2xl text-bold">Non-Technical</h1>
         {Details.map((member, i) => (
           <div
             key={`member${i}`}
