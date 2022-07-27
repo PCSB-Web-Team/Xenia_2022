@@ -21,9 +21,9 @@
 	}
 }
 
-.Events{
-	z-index: -1;
-}
+/* .Events{
+	z-index: inherit;
+} */
 .cardgreen:hover{
     /* hover:bg-white hover:bg-opacity-5 */
     background: rgba(255, 255, 255, 0);
