@@ -4,8 +4,8 @@ import "./login2.css"
 const Index2 = () => {
   return (
     <div>
-        <div class="body">
-	        <div class="main">
+        <div class="body-lg">
+	        <div class="main-lg">
 		        <input type="checkbox" id="chk-lg" aria-hidden="true"/>
 
 			        <div class="signup">
