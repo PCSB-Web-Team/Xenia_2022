@@ -14,9 +14,34 @@ import ContactUs from './Pages/AboutUs/AboutUs';
 import WebTeam from './Pages/WebTeam/WebTeam';
 import ErrorPage from './Pages/404/404';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './Pages/login/login';
 import './App.css';
 import ContactPanel from './Components/ContactPanel';
 import Sidebar from './Components/Sidebar';
+
+//** Leave App.js untouched
+//!!!Remove this commented code in App.js before the next commit, it creates merge conflicts
+// import './App.css';
+
+// get()
+// let mobile=null;
+// function handleChange(e){
+//   // mobile=e.target.value;
+//   console.log(e);console.log(e.target.value);console.log(mobile);
+// }
+// function App() {
+//   return (
+     
+//                 <div>
+//                   {/* hello */}
+//                 <input type="number" id="mobile" placeholder="Mobile Number" onChange={handleChange}/> 
+//                 <input type="password" id="password" placeholder="password"  /> 
+//                 </div>
+                   
+//   );
+// }
+
+// export default App;
 
 //** Leave App.js untouched
 //!!!Remove this commented code in App.js before the next commit, it creates merge conflicts
@@ -52,6 +77,7 @@ function App() {
         <ContactPanel />
         <Routes>
           <Route path="/" element={<Homepage />} loader={<PreLoader />} />
+          <Route path="/Login" element={<Login loader={<Loader />} />} />
           <Route path="/schedule" element={<Schedule />} loader={<Loader />} />
           <Route path="/events" element={<Events />} loader={<Loader />} />
           <Route path="/event-details" element={<EventDetails />} loader={<Loader />} />
@@ -62,6 +88,7 @@ function App() {
           <Route path="/contact-us" element={<ContactUs loader={<Loader />} />} />
           <Route path="/web-team" element={<WebTeam loader={<Loader />} />} />
           <Route path="*" element={<ErrorPage />} />
+          {/* <Route path="/Login" element={<login loader={<Loader />} />} /> */}
         </Routes>
         <Footer />
       </BrowserRouter>
