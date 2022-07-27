@@ -1,18 +1,21 @@
-import PreLoader from './Components/preloader';
-import Loader from './Components/Loader';
-import Navbar from './Components/Navbar';
-import Homepage from './Pages/Home/Home';
-import Footer from './Components/Footer';
-import Schedule from './Pages/Schedule/Schedule';
-import Events from './Pages/Events/Events';
-import EventDetails from './Components/EventDetails';
-// import Auth from './Components/Login';  //missing component in src/component
-import Profile from './Pages/Profile/Profile';
-import Cart from './Components/Cart';
-import Sponsors from './Pages/Sponsers/Sponsers';
-import ContactUs from './Pages/AboutUs/AboutUs';
-import WebTeam from './Pages/WebTeam/WebTeam';
-import ErrorPage from './Pages/404/404';
+import PreLoader from './components/preloader';
+import Loader from './components/loader';
+import Navbar from './components/navbar';
+import Homepage from './pages/home/home';
+import Login from './pages/login/login';
+import Footer from './components/footer';
+import ContactPanel from './components/contactPanel';
+import Sidebar from './components/sidebar';
+import Schedule from './pages/schedule/schedule';
+import Events from './pages/events/events';
+import EventDetails from './pages/eventDetails/eventDetails';
+import Profile from './pages/profile/profile';
+import Cart from './pages/cart/cart';
+import ContactUs from './components/contactPanel';
+import AboutUs from './pages/aboutUs/aboutUs';
+import Sponsors from './pages/sponsors/sponsors';
+import WebTeam from './pages/webTeam/webTeam';
+import ErrorPage from './pages/404/404';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 
@@ -21,12 +24,14 @@ function App() {
     <div>
       <BrowserRouter>
         <Navbar />
+        <Sidebar />
+        <ContactPanel />
         <Routes>
           <Route path="/" element={<Homepage />} loader={<PreLoader />} />
+          <Route path="/login" element={<Login loader={<Loader />} />} />
           <Route path="/schedule" element={<Schedule />} loader={<Loader />} />
           <Route path="/events" element={<Events />} loader={<Loader />} />
           <Route path="/event-details" element={<EventDetails />} loader={<Loader />} />
-          {/* <Route path="/auth" element={<Auth />} loader={<Loader />}/> */}
           <Route path="/profile" element={<Profile loader={<Loader />} />} />
           <Route path="/cart" element={<Cart loader={<Loader />} />} />
           <Route path="/sponsors" element={<Sponsors loader={<Loader />} />} />
