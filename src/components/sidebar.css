@@ -1,0 +1,67 @@
+.social-links-panel {
+  position: fixed;
+  top: 0px;
+  left: 5px;
+  width: 50px;
+  height: 80vh;
+  display: flex;
+  margin: 20vh 0;
+  align-items: center;
+  /* background: red; */
+  z-index: 9999;
+}
+
+.panel-container {
+  width: 100%;
+  color: white;
+  font-size: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+
+.panel-container a:hover {
+  color: unset;
+}
+
+.fb-logo {
+  color: rgb(0, 81, 255);
+}
+
+.ig-logo {
+  color: purple;
+}
+
+.in-logo {
+  color: rgb(0, 140, 255);
+}
+
+.yt-logo {
+  color: red;
+}
+
+.csi-logo-social img {
+  width: 100%;
+  height: auto;
+  transition: ease-out 200ms;
+}
+
+.csi-logo-social img:hover {
+  transform: scale(1.1);
+}
+
+.panel-container .fa {
+  cursor: pointer;
+  font-size: 32px;
+  transition: ease-out 200ms;
+  margin-block: 10px;
+}
+
+.panel-container .fa:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 450px) {
+  .social-links-panel {
+    display: none;
+  }
+}
