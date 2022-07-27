@@ -6,27 +6,27 @@ const Index2 = () => {
     <div>
         <div class="body">
 	        <div class="main">
-		        <input type="checkbox" id="chk" aria-hidden="true"/>
+		        <input type="checkbox" id="chk-lg" aria-hidden="true"/>
 
 			        <div class="signup">
 				        <form className='lodu'>
-					        <label for="chk" aria-hidden="true">Sign up</label>
-					        <input type="text" name="txt" placeholder="Full Name" required=""/>
-					        <input type="email" name="email" placeholder="Email" required=""/>
-					        <input type="password" name="pswd" placeholder="Password" required=""/>
-                            <input type="password" name="cnf pswd" placeholder="Confirm Password" required=""/>
-                            <input type="text" name="wno." placeholder="Whatsapp Number" required=""/>
-                            <input type="text" name="clg" placeholder="College" required=""/>
-					        <button>Sign up</button>
+					        <label className='label-lg' for="chk-lg" aria-hidden="true">Sign up</label>
+					        <input className='input-lg' type="text" name="txt" placeholder="Full Name" required=""/>
+					        <input className='input-lg' type="email" name="email" placeholder="Email" required=""/>
+					        <input className='input-lg' type="password" name="pswd" placeholder="Password" required=""/>
+                            <input className='input-lg' type="password" name="cnf pswd" placeholder="Confirm Password" required=""/>
+                            <input className='input-lg' type="text" name="wno." placeholder="Whatsapp Number" required=""/>
+                            <input className='input-lg' type="text" name="clg" placeholder="College" required=""/>
+					        <button className='btn69'>Sign up</button>
 				        </form>
 			        </div>
 
 			<div class="login">
 				<form>
-					<label for="chk" aria-hidden="true">Login</label>
-					<input type="email" name="email" placeholder="Email" required=""/>
-					<input type="password" name="pswd" placeholder="Password" required=""/>
-					<button>Login</button>
+					<label className='label-lg' for="chk-lg" aria-hidden="true">Login</label>
+					<input className='input-lg' type="email" name="email" placeholder="Email" required=""/>
+					<input className='input-lg' type="password" name="pswd" placeholder="Password" required=""/>
+					<button className='btn69'>Login</button>
 				</form>
 			</div>
 	    </div>
