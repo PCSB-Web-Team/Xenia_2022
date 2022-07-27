@@ -71,7 +71,7 @@ color: rgb(255, 255, 255);
 .cardgreen:hover .base{
     /* animation: glowbase 5s infinite alternate-reverse; */
     /* animation: float 5s ease-in-out infinite; */
-    animation: glowbase 5s ease-in-out infinite
+    animation: glowbase 5s ease-in-out infinite;
 }
 @keyframes glowpink {
 	0%,100% {
@@ -106,16 +106,11 @@ color: rgb(255, 255, 255);
 }
 
 
-/* .iconcart{
-	
-	visibility: hidden;
-} */
-
-/* .iconcart:hover
+.cardgreen:hover .iconcart
 {
 	visibility: visible;
 	transform: translate(0, -5px);
-	transition: all .3s ease-in; */
+	transition: all .3s ease-in;}
 	
 	/* display: inline-block; */
         /* margin: 4px; */

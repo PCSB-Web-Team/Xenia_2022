@@ -343,9 +343,9 @@
   /*------------------------------------------------
       Start Styling
   -------------------------------------------------*/
-  /* .mt20{margin-top:20px;}
   .site-wrapper {
-    border-top: 4px solid #000; } */
+    z-index: 9997;}
+  /* .mt20{margin-top:20px;}
   
   /* .page-close {
     font-size: 30px;

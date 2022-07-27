@@ -131,7 +131,7 @@ logo:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-R
             key={`member${i}`}
             className="cardgreen w-[310px] h-[320px] transition-all p-3  inline-block m-4 cursor-pointer rounded-xl   "
           >
-          <a >
+          <a>
                         <span className=" ">
                           <span className="iconcart">
                           <i className="far fa-shopping-cart text-white text-2xl px-64"></i>
