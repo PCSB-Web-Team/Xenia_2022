@@ -1,10 +1,10 @@
 import React from 'react';
-import Timer from '../../Components/CountdownTimer';
-import EventDay from './Schedule-Components/EventDay.tsx';
-import './assets/style.css';
-import event1Image from './assets/images/xenia.png';
-import event2Image from './assets/images/xenia.png';
-import event3Image from './assets/images/xenia.png';
+import Timer from '../../components/countdownTimer';
+import EventDay from './scheduleComponents/eventDay.tsx';
+import './schedule.css';
+import event1Image from '../../assets/images/xeniaLogo.png';
+import event2Image from '../../assets/images/xeniaLogo.png';
+import event3Image from '../../assets/images/xeniaLogo.png';
 
 function Schedule() {
     React.useEffect(() => {

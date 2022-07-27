@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './assets/Common/CountDownTimer.styles.css';
+import './countdownTimer.css';
 
 function Timer() {
     const remainingTime = () => {

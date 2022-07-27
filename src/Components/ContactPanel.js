@@ -1,4 +1,4 @@
-import './ContactPanel.css';
+import './contactPanel.css';
 import { Link } from 'react-router-dom';
 
 const ContactPanel = () => {
