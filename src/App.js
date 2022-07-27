@@ -8,7 +8,7 @@ import Events from './Pages/Events/Events';
 import EventDetails from './Components/EventDetails';
 // import Auth from './Components/Login';  //missing component in src/component
 import Profile from './Pages/Profile/Profile';
-import Cart from './Components/Cart';
+import Cart from './Pages/Cart/cart';
 import Sponsors from './Pages/Sponsers/Sponsers';
 import ContactUs from './Pages/AboutUs/AboutUs';
 import WebTeam from './Pages/WebTeam/WebTeam';
