@@ -48,7 +48,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         
-        {/* <Sidebar /> */}
+        <Sidebar />
         <ContactPanel />
         <Routes>
           <Route path="/" element={<Homepage />} loader={<PreLoader />} />
@@ -70,3 +70,5 @@ function App() {
 }
 
 export default App;
+
+// bool p=false;

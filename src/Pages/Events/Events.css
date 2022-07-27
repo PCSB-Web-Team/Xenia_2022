@@ -31,6 +31,19 @@
     animation: glowgreen 5s ease-in-out infinite;
     
 } 
+.iconcart{
+	visibility: hidden;
+}
+.cardgreen:hover.iconcart{
+	
+color: rgb(255, 255, 255);
+	visibility: visible;
+	/* transform: translate(0, -5px); */
+	/* animation: float 5s ease-in-out infinite; */
+	/* transition: all .3s ease-in; */
+} 
+
+
 .cardpink:hover{
     /* hover:bg-white hover:bg-opacity-5 */
     background: rgba(255, 255, 255, 0);
@@ -91,3 +104,29 @@
 .icon{
 	fill: #fff;
 }
+
+
+/* .iconcart{
+	
+	visibility: hidden;
+} */
+
+/* .iconcart:hover
+{
+	visibility: visible;
+	transform: translate(0, -5px);
+	transition: all .3s ease-in; */
+	
+	/* display: inline-block; */
+        /* margin: 4px; */
+        /* color: #fff; */
+        /* width: 25px; */
+        /* height: 25px; */
+        /* border-radius: 50%; */
+        /* background: rgba(255, 255, 255, 0.9); */
+        /* text-align: center;
+        line-height: 1.7rem;
+        font-size: 12px; */
+        /* transition: all .3s ease;
+        transform: translateX(500%); */
+		/* transition-delay: .2s; */

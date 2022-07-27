@@ -76,7 +76,7 @@ logo:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-R
       </h1>
       
       
-      <div className="  justify-evenly flex-wrap w-full xl:w-6/5 xl:mx-auto grid grid-cols-2 gap-2">
+      <div className="  justify-evenly flex-wrap w-full xl:w-6/5 xl:mx-auto lg:grid lg:grid-cols-2 lg:gap-2">
         <div className="text-center">
           <h1 className="text-white text-center text-2xl text-bold">Technical</h1>
         {teamDetails.map((member, i) => (
@@ -131,10 +131,10 @@ logo:"https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-R
             key={`member${i}`}
             className="cardgreen w-[310px] h-[320px] transition-all p-3  inline-block m-4 cursor-pointer rounded-xl   "
           >
-          <a className="">
+          <a >
                         <span className=" ">
-                          <span className="icon">
-                          <i class="far fa-shopping-cart text-white text-2xl px-64"></i>
+                          <span className="iconcart">
+                          <i className="far fa-shopping-cart text-white text-2xl px-64"></i>
                           </span>
                           {/* <span className=" px-20 text-white ">Add to cart</span> */}
                         </span>

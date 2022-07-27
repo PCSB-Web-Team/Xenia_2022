@@ -1,8 +1,12 @@
 
 #menu__toggle {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 26px;
+  height: 26px;
     opacity: 0;
-    z-index: 1;
-   
+    z-index: 9999;
   }
   
   #menu__toggle:checked ~ .menu__btn > span {
@@ -17,7 +21,12 @@
     transform: rotate(90deg);
   }
   .hamburger-menu{
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
     margin-top: -25px;
+    z-index: 2125;
   }
   /* .site-wrapper{
     z-index: index 999;
@@ -122,7 +131,7 @@
       letter-spacing: 3px;
       color: white;
   }
-  a {
+  /* a {
     color: inherit;
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
@@ -144,7 +153,7 @@
     margin-bottom: 20px; }
     p:last-child {
       margin-bottom: 0; }
-  
+   */
   /*
    * Selection color
    */
