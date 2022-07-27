@@ -1,7 +1,7 @@
 import React from 'react'
-import "./login2.css"
+import "./login.css"
 
-const Index2 = () => {
+const Login = () => {
 	return (
 		<div>
 			<div class="body-lg">
@@ -35,4 +35,4 @@ const Index2 = () => {
 	)
 }
 
-export default Index2
+export default Login;

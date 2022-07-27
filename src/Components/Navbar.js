@@ -14,7 +14,7 @@ export class Navbar extends Component {
         <input id="menu__toggle" type="checkbox" checked={this.state.current}
           onChange={this.handleChange} />
         {
-          console.log(this.state)
+          // console.log(this.state)
         }
         <label className="menu__btn" for="menu__toggle">
           <span></span>
