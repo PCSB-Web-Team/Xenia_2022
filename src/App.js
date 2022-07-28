@@ -8,6 +8,7 @@ import ContactPanel from './components/contactPanel';
 import Sidebar from './components/sidebar';
 import Schedule from './pages/schedule/schedule';
 import Events from './pages/events/events';
+// import SideEvents from './pages/sideEvents/sideEvents';
 import EventDetails from './pages/eventDetails/eventDetails';
 import Profile from './pages/profile/profile';
 import Cart from './pages/cart/cart';
@@ -31,6 +32,7 @@ function App() {
           <Route path="/login" element={<Login loader={<Loader />} />} />
           <Route path="/schedule" element={<Schedule />} loader={<Loader />} />
           <Route path="/events" element={<Events />} loader={<Loader />} />
+          {/* <Route path="/side-events" element={<SideEvents />} loader={<Loader />} /> */}
           <Route path="/event-details" element={<EventDetails />} loader={<Loader />} />
           <Route path="/profile" element={<Profile loader={<Loader />} />} />
           <Route path="/cart" element={<Cart loader={<Loader />} />} />
