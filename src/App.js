@@ -13,7 +13,7 @@ import EventDetails from './pages/eventDetails/eventDetails';
 // import Profile from './pages/profile/profile';
 // import Cart from './pages/cart/cart';
 // import ContactUs from './components/contactPanel';
-import AboutUs from './pages/aboutUs/aboutUs';
+// import AboutUs from './pages/aboutUs/aboutUs';
 import Sponsors from './pages/sponsors/sponsors';
 // import WebTeam from './pages/webTeam/webTeam';
 // import ErrorPage from './pages/404/404';
