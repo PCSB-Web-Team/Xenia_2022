@@ -1,4 +1,12 @@
 {
+<<<<<<< HEAD
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#06360A",
+        "titleBar.activeBackground": "#084B0E",
+        "titleBar.activeForeground": "#F1FDF2"
+    }
+}
+=======
   "cSpell.words": ["logincomp", "PCSB"],
   "workbench.colorCustomizations": {
     "activityBar.background": "#06360A",
@@ -6,3 +14,4 @@
     "titleBar.activeForeground": "#F1FDF2"
   }
 }
+>>>>>>> 7f8ec812a7d3b089d18c8c3941d3ec3972092621
