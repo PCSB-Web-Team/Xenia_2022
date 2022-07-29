@@ -1,0 +1,80 @@
+
+.side-events {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  
+  .eventContent {
+      display: block;
+      width: 75%;
+      padding: 3rem;
+    }
+    
+    .event-info {
+      font-size: 20px;
+      width: 85%;
+    }
+    
+    .event-info h3 {
+      font-family: SansBold;
+      font-size: 32px;
+      color: #ffffff;
+    }
+    
+    .event-info p {
+      font-family: Barlow;
+      color: #ffffff;
+    }
+  
+    .build-up-registered{
+      font-family: 'SansBold';
+      color: rgb(0, 255, 0);
+      font-size: 32px;
+    }
+  
+    .build-up-registrations-closed{
+      font-family: 'SansBold';
+      color: rgb(255, 0, 0);
+      font-size: 32px;
+    }
+  
+    .build-up-moreinfo{
+      color: lightseagreen;
+      cursor: pointer;
+      font-size: 20px;
+      transition: ease 500ms;
+      margin-bottom: 10px;
+    }
+  
+    .build-up-moreinfo:hover{
+      opacity: 0.5;
+    }
+  
+    @media (max-width: 676px) {
+      .eventContent {
+        padding: 5px !important;
+        margin: 0px 20px !important;
+        width: 90%;
+      }
+      .event-info {
+        width: 100%;
+      }
+      .event-info p {
+        text-align: justify;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .content h1 {
+        font-size: 40px;
+      }
+      .content {
+        margin-top: 10px;
+        padding: 5px !important;
+      }
+      .content .firstChild {
+        font-size: 70px;
+      }
+    }
