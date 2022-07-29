@@ -1,6 +1,6 @@
 import './sidebar.css';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import CSILogo from "../assets/images/csi.png";
+import CSILogo from "../Assets/Images/csi.png";
 
 const Sidebar = () => {
     return (
