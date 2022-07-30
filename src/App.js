@@ -8,6 +8,7 @@ import ContactPanel from "./components/contactPanel";
 import Sidebar from "./components/sidebar";
 import Schedule from "./pages/schedule/schedule";
 import Events from "./pages/events/events";
+
 // import SideEvents from './pages/sideEvents/sideEvents';
 import EventDetails from "./pages/eventDetails/eventDetails";
 // import Profile from './pages/profile/profile';
@@ -16,7 +17,7 @@ import EventDetails from "./pages/eventDetails/eventDetails";
 // import AboutUs from './pages/aboutUs/aboutUs';
 import Sponsors from "./pages/sponsors/sponsors";
 // import WebTeam from './pages/webTeam/webTeam';
-// import ErrorPage from './pages/404/404';
+import ErrorPage from './pages/404/Error';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -43,7 +44,7 @@ function App() {
           <Route path="/sponsors" element={<Sponsors loader={<Loader />} />} />
           {/* <Route path="/contact-us" element={<ContactUs loader={<Loader />} />} /> */}
           {/* <Route path="/web-team" element={<WebTeam loader={<Loader />} />} /> */}
-          {/* <Route path="*" element={<ErrorPage />} /> */}
+          <Route path="/Error" element={<ErrorPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>
