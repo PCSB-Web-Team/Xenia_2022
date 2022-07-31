@@ -1,9 +1,7 @@
 .sponsors-card {
-  /* top: 0%; */
-  /* transform: translateY(-50%); */
   display: inline-block;
   position: relative;
-  margin: 20px 10px ;
+  margin: 10px 5px ;
   width: 240px;
   background-color: rgb(17, 17, 17);
 }
@@ -25,8 +23,6 @@
   color: white;
   top: 10px;
   left: 20px;
-  /* top: -190psx; */
-  /* padding-left: 5%; */
   position: absolute;
   text-align: center;
 }
@@ -34,7 +30,6 @@
 .logo {
   height: 150px;
   width: 200px;
-  /* width: 95%; */
 }
 .sponsors-card:hover .shape {
   stroke-width: 3px;
