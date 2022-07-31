@@ -157,7 +157,7 @@ export default function Sponsors() {
 
                       <div className="design">
                         <img src={each_sponsor.url} alt="" className="logo" />
-                        <a href={each_sponsor.reference} className="hover:bg-white hover:text-black">{each_sponsor.name}</a>
+                        <a href={each_sponsor.reference}>{each_sponsor.name}</a>
                       </div>
                     </div>
                   )

@@ -11,7 +11,7 @@
   stroke-dashoffset: -550;
   stroke-width: 6px;
   fill: transparent;
-  stroke: #19f6e8;
+  stroke: rgb(29, 235, 249);
   border-bottom: 5px solid black;
   transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
 }
@@ -36,3 +36,13 @@
   stroke-dashoffset: 0;
   stroke-dasharray: 3000;
 }
+
+.sponsors-card:hover .design{
+  font-size: 20px;
+}
+
+.sponsors-card:hover{
+  box-shadow: rgb(29, 235, 249) 0px 20px 30px -10px;
+}
+
+/* rgb(240, 46, 170) */
