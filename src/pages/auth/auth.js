@@ -1,16 +1,23 @@
-import React, { useState } from "react";
-import "./auth.css";
-import Requests from "../../utils/requests";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Validators } from "../../utils";
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
+import Requests from "../../utils/requests";
+import { useDispatch } from "react-redux/es/exports";
+import { setUserReducer, clearUserReducer } from "../../store/userSlice";
 import { calcLength } from "framer-motion";
+import "./auth.css";
 
 const Login = () => {
   const [mode, setMode] = useState("login");
 
+  const dispatch = useDispatch() //hook returning a reference to the dispatch function from redux store, dispatch action when needed
+
+  const navigate = useNavigate()
+
   const toggleMode = () => {
-    setMode((initial) => (initial == "login" ? "signup" : "login"));
+    setMode((initial) => (initial === "login" ? "signup" : "login"));
   };
 
   return (
@@ -19,7 +26,7 @@ const Login = () => {
         <div class="main-lg">
           <input type="checkbox" id="chk-lg" aria-hidden="true" />
 
-          {mode == "login" ? (
+          {mode === "login" ? (
             <>
               <Formik
                 initialValues={{
@@ -103,18 +110,20 @@ const Login = () => {
                 email: Validators.emailRequired,
                 password: Validators.stringRequired,
               })}
-              onSubmit={async (values) => {
-                console.log(values);
-                await Requests.login(values)
-                  .then((res) => {
-                    console.log(res);
-                  })
-                  .catch((err) => {
-                    console.log(err);
-                  });
-
-                // TODO: store data in redux
-              }}
+              onSubmit={
+                async (values) => {
+                  dispatch(setUserReducer({ "name": "Av", "mobile": "234" }))
+                  navigate(-1, { replace: true }) // replace option - if the user clicks the back button, they won't be able to navigate to the previous page
+                  await Requests.login(values)
+                    .then((res) => {
+                      dispatch(setUserReducer(res.data || null));
+                      console.log(res);
+                    })
+                    .catch((err) => {
+                      console.log(err);
+                    })
+                }
+              }
             >
               {(formik) => {
                 return (

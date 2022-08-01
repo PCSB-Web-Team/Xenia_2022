@@ -3,12 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     loggedIn: false,
     userDetails: {
-        "name": 'Abhishek',
+        "name": '',
         "mobile": ''
     }
 }
 
-const userSlice = createSlice({
+export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
@@ -16,17 +16,17 @@ const userSlice = createSlice({
             return ({
                 ...state,
                 loggedIn: true,
-                [state.userDetails]: { ...action.payload } || null
+                [state.userDetails]: { ...action.payload }
             })
         },
         clearUserReducer: (state) => {
             return ({
-                [state.userDetails]: {},
-                loggedIn: false
+                loggedIn: false,
+                [state.userDetails]: {}
             })
         },
     }
 })
 
-export default userSlice.reducer;
+export const userSelector = state => state.user;
 export const { setUserReducer, clearUserReducer } = userSlice.actions;
