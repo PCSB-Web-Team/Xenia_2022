@@ -27,14 +27,14 @@ function App() {
 
   useEffect(() => {
     // const preloader = document.getElementById("preloader")
-    async function fetchToken() {
-      // preloader.style.display = "none";
-      await AuthVerify()
-      // preloader.style.display = "unset"; //reset to default browser's stylesheet
-    }
-    fetchToken()
+    // async function fetchToken() {
+    //   preloader.style.display = "none";
+    //   await AuthVerify({ "getCall": false, "forward": false })
+    //   preloader.style.display = "unset"; //reset to default browser's stylesheet
+    // }
+    // fetchToken()
     // setTimeout(() => {
-      // preloader.style.display = "none";
+    // preloader.style.display = "none";
     // }, 3000)
   }, [])
 

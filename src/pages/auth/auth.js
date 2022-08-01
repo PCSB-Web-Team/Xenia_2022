@@ -112,12 +112,12 @@ const Login = () => {
               })}
               onSubmit={
                 async (values) => {
-                  dispatch(setUserReducer({ "name": "Av", "mobile": "234" }))
-                  navigate(-1, { replace: true }) // replace option - if the user clicks the back button, they won't be able to navigate to the previous page
+                  // dispatch(setUserReducer({ "name": "test username", "mobile": "1234567890" }))
                   await Requests.login(values)
                     .then((res) => {
                       dispatch(setUserReducer(res.data || null));
                       console.log(res);
+                      navigate(-1, { replace: true }) // replace option - if the user clicks the back button, they won't be able to navigate to the previous page
                     })
                     .catch((err) => {
                       console.log(err);

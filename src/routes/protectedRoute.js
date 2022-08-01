@@ -4,7 +4,7 @@ import { userSelector } from "../store/userSlice";
 
 function ProtectedRoute({ children }) {
     const {loggedIn} = useSelector(userSelector);
-    console.log('s')
+    console.log(loggedIn)
 
     return loggedIn ? children : <Navigate to="/auth" />;
 }
