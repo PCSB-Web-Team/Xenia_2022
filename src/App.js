@@ -17,6 +17,7 @@ import AboutUs from './pages/aboutUs/aboutUs';
 import Sponsors from './pages/sponsors/sponsors';
 import WebTeam from './pages/webTeam/webTeam';
 import ErrorPage from './pages/404/404';
+import SideEvents from './pages/sideEvents/sideEvents';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 
@@ -40,6 +41,7 @@ function App() {
           <Route path="/contact-us" element={<ContactUs loader={<Loader />} />} />
           <Route path="/web-team" element={<WebTeam loader={<Loader />} />} />
           <Route path="*" element={<ErrorPage />} />
+          <Route path="/sideEvent" element={<SideEvents />} loader={<Loader />} />
         </Routes>
         <Footer />
       </BrowserRouter>
