@@ -1,16 +1,23 @@
-import React, { useState } from "react";
-import "./auth.css";
-import Requests from "../../utils/requests";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Validators } from "../../utils";
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
-import { calcLength } from "framer-motion";
+import Requests from "../../utils/requests";
+import { useDispatch } from "react-redux/es/exports";
+import { setUserReducer, clearUserReducer } from "../../store/userSlice";
+import "./auth.css";
+import axios from "axios";
 
 const Login = () => {
   const [mode, setMode] = useState("login");
 
+  const dispatch = useDispatch(); //hook returning a reference to the dispatch function from redux store, dispatch action when needed
+
+  const navigate = useNavigate();
+
   const toggleMode = () => {
-    setMode((initial) => (initial == "login" ? "signup" : "login"));
+    setMode((initial) => (initial === "login" ? "signup" : "login"));
   };
 
   return (
@@ -19,7 +26,7 @@ const Login = () => {
         <div class="main-lg">
           <input type="checkbox" id="chk-lg" aria-hidden="true" />
 
-          {mode == "login" ? (
+          {mode == "login" && (
             <Formik
               initialValues={{
                 name: "",
@@ -149,7 +156,8 @@ const Login = () => {
                 );
               }}
             </Formik>
-          ) : (
+          )}
+          {mode == "signup" && (
             <Formik
               initialValues={{
                 email: "",
@@ -160,16 +168,18 @@ const Login = () => {
                 password: Validators.stringRequired,
               })}
               onSubmit={async (values) => {
-                console.log(values);
-                await Requests.login(values)
-                  .then((res) => {
-                    console.log(res);
-                  })
-                  .catch((err) => {
-                    console.log(err);
-                  });
-
-                // TODO: store data in redux
+                console.log("Sending Login Request");
+                const res1 = await axios.post(
+                  // process.env.REACT_APP_API_URL+"/auth/login",
+                  "http://localhost:4000/api/auth/login",
+                  values
+                );
+                console.log(res1);
+                Requests.login(values).then((res) => {
+                  if (res.data.status) {
+                    navigate("/");
+                  }
+                });
               }}
             >
               {(formik) => {
@@ -195,7 +205,7 @@ const Login = () => {
                         className="w-full rounded border bg-gray-100 border-gray-200 p-2"
                         placeholder={"Password"}
                         name={"password"}
-                        type={"text"}
+                        type={"password"}
                         onChange={formik.handleChange}
                       />
                       {formik.errors.password && (
@@ -206,6 +216,7 @@ const Login = () => {
                     </div>
                     <button
                       className="btn69 mb-4"
+                      type="submit"
                       onClick={formik.handleSubmit}
                     >
                       Login
