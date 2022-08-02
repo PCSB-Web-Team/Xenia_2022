@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const backend = axios.create({
-  baseURL: "http://localhost:4000/api",
+  baseURL: "https://xenia-2022/herokuapp.com/api",
 });
 
 const signUp = (data) => backend.post("/auth/signup", data);
