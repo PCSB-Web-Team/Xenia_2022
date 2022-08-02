@@ -170,8 +170,7 @@ const Login = () => {
               onSubmit={async (values) => {
                 console.log("Sending Login Request");
                 const res1 = await axios.post(
-                  // process.env.REACT_APP_API_URL+"/auth/login",
-                  "http://localhost:4000/api/auth/login",
+                  "https://xenia-2022.herokuapp.com/api/auth/login",
                   values
                 );
                 console.log(res1);
