@@ -1,129 +1,17 @@
-.body-sd{
-  background-color: rgb(2, 12, 30);
-  margin: 0;
-  padding: 0;
-}
-.event-info{
-  font-size: 50px;
-}
-
-.event-heading{
-  color: #ffffff;
-  font-family:Georgia, 'Times New Roman', Times, serif;
-  font-weight: bold;
-}
-
-/* .event-heading h1{
-  font-size: 40 px;
-} */
-
-.event-desc{
-  color: #ffffff;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size:larger;
-}
-
-.img-sd{
-  
-}
-
-.obj-flexing{
-  display: flex;
-  justify-content:center;
-  max-width: 75%;
-}
-
-.page-headers{
-  text-align: center;
-  font-size: 40px;
-  color: #ffffff;
-  font-family: monospace;
-  padding: 16px 0 8px 8px;
-}
-
-.date-header-events{
-  text-align: center;
-  font-size: 22px;
-  color: #ffffff;
-  font-family: cursive;
-}
-
-.side-events {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    overflow-y: hidden;
+@keyframes glowgreen {
+  0%,
+  100% {
+    box-shadow: 1px 1px #09a7115c, 0 0 20px 5px #0385175f,
+      inset 2px 2px #18ea385b;
   }
-  
-  .eventContent {
-      display: block;
-      width: 75%;
-      padding: 3rem;
-    }
-    
-    .event-info {
-      font-size: 20px;
-      width: 85%;
-    }
-    
-    .event-info h3 {
-      font-family: SansBold;
-      font-size: 32px;
-      color: #ffffff;
-    }
-    
-    .event-info p {
-      font-family: Barlow;
-      color: #ffffff;
-    }
-  
-    .build-up-registered{
-      font-family: 'SansBold';
-      color: rgb(0, 255, 0);
-      font-size: 32px;
-    }
-  
-    .build-up-registrations-closed{
-      font-family: 'SansBold';
-      color: rgb(255, 0, 0);
-      font-size: 32px;
-    }
-  
-    .build-up-moreinfo{
-      color: lightseagreen;
-      cursor: pointer;
-      font-size: 20px;
-      transition: ease 500ms;
-      margin-bottom: 10px;
-    }
-  
-    .build-up-moreinfo:hover{
-      opacity: 0.5;
-    }
-  
-    @media (max-width: 676px) {
-      .eventContent {
-        padding: 5px !important;
-        margin: 0px 20px !important;
-        width: 90%;
-      }
-      .event-info {
-        width: 100%;
-      }
-      .event-info p {
-        text-align: justify;
-      }
-    }
+  50% {
+    box-shadow: 1px 1px #09a711, 0 0 20px 5px #038517, inset 2px 2px #18ea38;
+  }
+}
 
-    @media (max-width: 360px) {
-      .content h1 {
-        font-size: 40px;
-      }
-      .content {
-        margin-top: 10px;
-        padding: 5px !important;
-      }
-      .content .firstChild {
-        font-size: 70px;
-      }
-    }
+
+.vedant_great_hai {
+  
+  
+  animation: glowgreen 5s ease-in-out infinite;
+}
