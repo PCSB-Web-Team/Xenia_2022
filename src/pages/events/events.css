@@ -420,9 +420,9 @@ position: absolute ;
  
   
   /* color: white; */
-  display: flex;
+  /* display: flex; */
   /* align-items: ; */
-  justify-content: right;
+  /* justify-content: right; */
 }
   /* margin:auto; */
   /* padding: 72px; */
@@ -430,33 +430,41 @@ position: absolute ;
   /* height: fit-content;} */
 
 
-.with-tooltip {
+/* .with-tooltip {
   position: relative;
-}
+} */
 
 .with-tooltip::after {
-  content: attr(data-tooltip-content);
-  padding: 6px;
-  /* border-radius: 4px; */
-  /* position: absolute; */
-  color: white;
+  /*content: attr(data-tooltip-content);
+  *//*padding: 6px;
+  *//*border-radius: 4px;
+  *//*position: absolute;
+  */color: white;
   bottom: 115%;
-  /* right: 50%; */
-  /* left: 50%; */
-  /* width: max-content; */
-  background-color: rgb(255, 0, 0);
-  opacity: 0;
-  font-size: 0.8rem;
-  visibility: hidden;
-  transform: translate(-50%, 18px) scale(0.8);
-  transition: visibility, opacity, transform 200ms;
+  /*right: 50%;
+  *//*left: 50%;
+  *//*width: max-content;
+  *//*background-color: rgb(255, 0, 0);
+  *//*opacity: 0;
+  *//*font-size: 0.8rem;
+  *//*visibility: hidden;
+  *//*transform: translate(-50%, 18px) scale(0.8);
+  /* */transition: visibility, opacity, transform 200ms; 
+  /* -webkit-transition: visibility, opacity, transform 200ms; */
+  /* -moz-transition: visibility, opacity, transform 200ms; */
+  /* -ms-transition: visibility, opacity, transform 200ms; */
+  /* -o-transition: visibility, opacity, transform 200ms; */
 }
 
-.with-tooltip:hover::after {
+/* .with-tooltip:hover::after {
   visibility: visible;
   opacity: 1;
   transform: translate(-50%, 0);
-}
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+} */
 
     
   

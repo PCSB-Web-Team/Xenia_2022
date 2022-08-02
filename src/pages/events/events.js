@@ -123,7 +123,7 @@ const Events = () => {
 
         <div className="  justify-evenly flex-wrap w-full xl:w-6/5 xl:mx-auto  text-center">
           <div className="text-center">
-            <h1 className="text-white text-center text-2xl text-bold">
+            <h1 className="text-purple-400 text-center text-2xl text-sebold">
               Technical
             </h1>
             {teamDetails.map((member, i) => (
@@ -160,7 +160,7 @@ const Events = () => {
                 className="cardpink w-[320px] h-auto transition-all p-3  inline-block m-4 cursor-pointer rounded-xl   "
               >
                 <div className="app_tooltip">
-                <a className="with-tooltip" data-tooltip-content="This is a tooltip" >
+                <a className="with-tooltip" data-tooltip-content="Add to cart" >
 
                   
                     <span className="icon">
@@ -204,7 +204,7 @@ const Events = () => {
             ))}
           </div>
           <div className="text-center">
-            <h1 className="text-white text-center text-2xl text-bold">
+            <h1 className="text-lime-400 text-center text-2xl text-bold">
               Non-Technical
             </h1>
             {Details.map((member, i) => (
