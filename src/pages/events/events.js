@@ -5,7 +5,7 @@ const Events = () => {
   const teamDetails = [
     {
       EventName: "Event1",
-      Eventdate: "25th Aug",
+      Eventdate: "25",
       img: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
       logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
       team_info:
@@ -13,7 +13,7 @@ const Events = () => {
     },
     {
       EventName: "Event2",
-Eventdate: "25th Aug",
+Eventdate: "25",
       img: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
       logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
       team_info:
@@ -21,7 +21,7 @@ Eventdate: "25th Aug",
     },
     {
       EventName: "Event3",
-Eventdate: "25th Aug",
+Eventdate: "25",
       img: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
       logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
       team_info:
@@ -29,7 +29,7 @@ Eventdate: "25th Aug",
     },
     {
       EventName: "Event4 ",
-Eventdate: "25th Aug",
+Eventdate: "25",
       img: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
       logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
       team_info:
@@ -37,7 +37,7 @@ Eventdate: "25th Aug",
     },
     {
       EventName: "Event5",
-Eventdate: "25th Aug",
+Eventdate: "25",
       img: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
       logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
       team_info:
@@ -45,7 +45,7 @@ Eventdate: "25th Aug",
     },
     {
       EventName: "Event6",
-Eventdate: "25th Aug",
+Eventdate: "25",
       img: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
       logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
       team_info:
@@ -53,7 +53,7 @@ Eventdate: "25th Aug",
     },
     {
       EventName: "Event7",
-Eventdate: "25th Aug",
+Eventdate: "25",
       img: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
       logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
       team_info:
@@ -64,7 +64,7 @@ Eventdate: "25th Aug",
     
     {
       EventName: "Event8 ",
-Eventdate: "25th Aug",
+Eventdate: "25",
       img: "https://drive.google.com/uc?export=view&id=1kqyU7WUULqPKL8_1TvWt3IuKrWV9akcA",
       logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
       team_info:
@@ -72,7 +72,7 @@ Eventdate: "25th Aug",
     },
     {
       EventName: "Event9",
-Eventdate: "25th Aug",
+Eventdate: "25",
       img: "https://drive.google.com/uc?export=view&id=1kqyU7WUULqPKL8_1TvWt3IuKrWV9akcA",
       logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
       team_info:
@@ -80,7 +80,7 @@ Eventdate: "25th Aug",
     },
     {
       EventName: "Event10",
-Eventdate: "25th Aug",
+Eventdate: "25",
       img: "https://drive.google.com/uc?export=view&id=1kqyU7WUULqPKL8_1TvWt3IuKrWV9akcA",
       logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
       team_info:
@@ -122,50 +122,26 @@ Eventdate: "25th Aug",
 
         <div className="  justify-evenly flex-wrap w-full xl:w-6/5 xl:mx-auto  text-center">
           <div className="text-center">
-            <h1 className="text-white text-center text-2xl text-bold">
+            <h1 className="text-purple-400 text-center text-2xl text-sebold">
               Technical
             </h1>
             {teamDetails.map((member, i) => (
-              //      <div class="card__collection clear-fix">
-              //    <div key={`member${i}`} className="card_pink cards--three">
-              //    <img
-              //           className="Logo max-h-full max-w-full absolute px-12  z-20   "
-              //           src={member.logo}
-              //           alt="Logo1"
-              //         />
-              //          <img
-              //           className="base max-h-full max-w-full z-10 pt-16   "
-              //           src={member.img}
-              //           alt="Events"
-              //         />
-              //      <span class="cards--three__rect-1">
-              //        <span class="shadow-1"></span>
-              //        <p className="eventkanaam">{member.EventName}</p>
-              //      </span>
-              //      <span class="cards--three__rect-2">
-              //        <span class="shadow-2"></span>
-              //      </span>
-              //      <span class="cards--three__circle"></span>
-              //      <ul class="cards--three__list ">
-              //        <li className="carti">
-              //          <i class="far fa-shopping-cart "></i>
-              //        </li>
-              //      </ul>
-              //    </div>
-              //  </div>
               <div
                 key={`member${i}`}
                 className="cardpink w-[320px] h-auto transition-all p-3  inline-block m-4 cursor-pointer rounded-xl   "
               >
                 <div className="app_tooltip">
-                  <a className="">
-                    <span className="icon">
-                      <li className="carti">
-                        <i class="far fa-shopping-cart  "></i>
-                      </li>
-                    </span>
-                    {/* <span className=" px-20 text-white ">Add to cart</span> */}
-                  </a>
+                  <span className="icon">
+                    <li className="carti">
+                      <article id="date">
+                        <aside className="asidepink">
+                          <span className="day">{member.Eventdate}</span>
+                          <span className="month">Aug</span>
+                        </aside>
+                      </article>
+                    </li>
+                  </span>
+                  {/* <span className=" px-20 text-white ">Add to cart</span> */}
                 </div>
                 <div className="relative   ">
                   <div className="">
@@ -195,7 +171,7 @@ Eventdate: "25th Aug",
             ))}
           </div>
           <div className="text-center">
-            <h1 className="text-white text-center text-2xl text-bold">
+            <h1 className="text-lime-400 text-center text-2xl text-bold">
               Non-Technical
             </h1>
             {Details.map((member, i) => (
@@ -203,12 +179,18 @@ Eventdate: "25th Aug",
                 key={`member${i}`}
                 className="cardgreen w-[320px] h-auto transition-all p-3  inline-block m-4 cursor-pointer rounded-xl   "
               >
-                <a className="">
+                
                   <span className="icon ">
-                    <li className="carti  ">{member.Eventdate}</li>
+                    <li className="carti  ">
+                      <article id="date">
+                        <aside className="asidegreen">
+                          <span className="day">{member.Eventdate}</span>
+                          <span className="month">Aug</span>
+                        </aside>
+                      </article>
+                    </li>
                   </span>
-                  {/* <span className=" px-20 text-white ">Add to cart</span> */}
-                </a>
+                
                 <div className="relative   ">
                   <div className="">
                     <img
