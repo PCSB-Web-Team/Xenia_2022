@@ -1,10 +1,8 @@
 import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux/es/exports";
-import { userSelector } from "../store/userSlice";
 
 function ProtectedRoute({ children }) {
-    const {loggedIn} = useSelector(userSelector);
-    console.log(loggedIn)
+    const { loggedIn } = useSelector(({ user }) => user);
 
     return loggedIn ? children : <Navigate to="/auth" />;
 }

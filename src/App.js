@@ -19,12 +19,14 @@ import Sponsors from "./pages/sponsors/sponsors";
 // import ErrorPage from './pages/404/404';
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AuthVerify } from "./utils/authVerify";
-import ProtectedRoute from "./routes/protectedRoute";     //* Middleware
+// import { AuthVerify } from "./utils/authVerify";  //! Don't import now, it's broken
+import ProtectedRoute from "./routes/protectedRoute";
 import "./App.css";
+import { useSelector } from "react-redux";
 
 function App() {
 
+  const userState = useSelector(({ user }) => user)
   useEffect(() => {
     // const preloader = document.getElementById("preloader")
     // async function fetchToken() {
@@ -36,7 +38,7 @@ function App() {
     // setTimeout(() => {
     // preloader.style.display = "none";
     // }, 3000)
-  }, [])
+  }, [userState])
 
   return (
     <div>
@@ -47,20 +49,20 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage />} loader={<PreLoader />} />
           <Route path="/auth" element={<Auth loader={<Loader />} />} />
-          <Route path="/schedule" element={
-            <ProtectedRoute> {/*//! Just testing new middleware */}
-              <Schedule />
-            </ProtectedRoute>
-          } loader={<Loader />} />
+          <Route path="/schedule" element={<Schedule />} loader={<Loader />} />
           <Route path="/events" element={<Events />} loader={<Loader />} />
           {/* <Route path="/side-events" element={<SideEvents />} loader={<Loader />} /> */}
-          <Route
-            path="/event-details"
-            element={<EventDetails />}
-            loader={<Loader />}
-          />
-          {/* <Route path="/profile" element={<Profile loader={<Loader />} />} /> */}
-          {/* <Route path="/cart" element={<Cart loader={<Loader />} />} /> */}
+          <Route path="/event-details" element={<EventDetails />} loader={<Loader />} />
+          {/* <Route path="/profile" element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          } loader={<Loader />} /> */}
+          {/* <Route path="/cart" element={
+            <ProtectedRoute>
+              <Cart />
+            </ProtectedRoute>
+          } loader={<Loader />} /> */}
           <Route path="/sponsors" element={<Sponsors loader={<Loader />} />} />
           {/* <Route path="/contact-us" element={<ContactUs loader={<Loader />} />} /> */}
           {/* <Route path="/web-team" element={<WebTeam loader={<Loader />} />} /> */}

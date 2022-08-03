@@ -3,9 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { Validators } from "../../utils";
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
-import Requests from "../../utils/requests";
 import { useDispatch } from "react-redux/es/exports";
-import { setUserReducer, clearUserReducer } from "../../store/userSlice";
+import { loginUser, registerUser, logoutUser } from "../../store/middleware";
 import { calcLength } from "framer-motion";
 import "./auth.css";
 
@@ -31,8 +30,22 @@ const Login = () => {
               <Formik
                 initialValues={{
                   email: "",
+                  name: "",
+                  mobile: "",
                   password: "",
                 }}
+                onSubmit={
+                  async (values) => {
+                    // const requestBody = {}
+                    // Object.assign(requestBody, { email, name, mobile, password })
+                    await dispatch(registerUser(values || null)).unwrap().then(({ data: { error } }) => (
+                      !error ? navigate(-1, { replace: true }) : console.log(error) // replace option - if the user clicks the back button, they won't be able to navigate to the previous page
+                    )).catch((err) => {
+                      console.log(err);
+                    })
+                    // await dispatch(logoutUser()) //! working, but just we need is a logout button to display in Navbar
+                  }
+                }
               >
                 {(formik) => {
                   return (
@@ -48,9 +61,10 @@ const Login = () => {
                         <input
                           className="input-lg"
                           type="text"
-                          name="txt"
+                          name="name"
                           placeholder="Full Name"
                           required=""
+                          onChange={formik.handleChange}
                         />
                         <input
                           className="input-lg"
@@ -58,13 +72,15 @@ const Login = () => {
                           name="email"
                           placeholder="Email"
                           required=""
+                          onChange={formik.handleChange}
                         />
                         <input
                           className="input-lg"
                           type="password"
-                          name="pswd"
+                          name="password"
                           placeholder="Password"
                           required=""
+                          onChange={formik.handleChange}
                         />
                         <input
                           className="input-lg"
@@ -72,13 +88,15 @@ const Login = () => {
                           name="cnf pswd"
                           placeholder="Confirm Password"
                           required=""
+                          onChange={formik.handleChange}
                         />
                         <input
                           className="input-lg"
                           type="text"
-                          name="wno."
+                          name="mobile"
                           placeholder="Whatsapp Number"
                           required=""
+                          onChange={formik.handleChange}
                         />
                         <input
                           className="input-lg"
@@ -86,8 +104,9 @@ const Login = () => {
                           name="clg"
                           placeholder="College"
                           required=""
+                          onChange={formik.handleChange}
                         />
-                        <button className="btn69">Submit</button>
+                        <button className="btn69" onClick={formik.handleSubmit}>Submit</button>
                         <button
                           onClick={toggleMode}
                           className="mx-auto p-2 bg-sky-600 px-4 m-auto rounded-md text-white font-bold"
@@ -112,16 +131,12 @@ const Login = () => {
               })}
               onSubmit={
                 async (values) => {
-                  // dispatch(setUserReducer({ "name": "test username", "mobile": "1234567890" }))
-                  await Requests.login(values)
-                    .then((res) => {
-                      dispatch(setUserReducer(res.data || null));
-                      console.log(res);
-                      navigate(-1, { replace: true }) // replace option - if the user clicks the back button, they won't be able to navigate to the previous page
-                    })
-                    .catch((err) => {
-                      console.log(err);
-                    })
+                  await dispatch(loginUser(values || null)).unwrap().then(({ data: { error } }) => (
+                    !error ? navigate(-1, { replace: true }) : console.log(error)
+                  )).catch((err) => {
+                    console.log(err);
+                  })
+                  // await dispatch(logoutUser()) //! working, but just we need is a logout button to display in Navbar
                 }
               }
             >
@@ -175,7 +190,7 @@ const Login = () => {
           )}
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
