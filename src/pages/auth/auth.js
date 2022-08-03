@@ -11,9 +11,9 @@ import "./auth.css";
 const Login = () => {
   const [mode, setMode] = useState("login");
 
-  const dispatch = useDispatch() //hook returning a reference to the dispatch function from redux store, dispatch action when needed
+  const dispatch = useDispatch(); //hook returning a reference to the dispatch function from redux store, dispatch action when needed
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const toggleMode = () => {
     setMode((initial) => (initial === "login" ? "signup" : "login"));
@@ -144,32 +144,37 @@ const Login = () => {
                 return (
                   <div class="px-4 space-y-4">
                     <label className="label-lg">Login</label>
-                    <Field
-                      className="w-full rounded border bg-gray-100 border-gray-200 p-2"
-                      placeholder={"Email"}
-                      name={"email"}
-                      type={"text"}
-                      onChange={formik.handleChange}
-                    />
-                    {formik.errors.email && (
-                      <div className="text-red-500 font-bold">
-                        {formik.errors.email}
-                      </div>
-                    )}
-                    <Field
-                      className="w-full rounded border bg-gray-100 border-gray-200 p-2"
-                      placeholder={"Password"}
-                      name={"password"}
-                      type={"text"}
-                      onChange={formik.handleChange}
-                    />
-                    {formik.errors.password && (
-                      <div className="text-red-500 font-bold">
-                        {formik.errors.password}
-                      </div>
-                    )}
+                    <div>
+                      <Field
+                        className="w-full rounded border bg-gray-100 border-gray-200 p-2"
+                        placeholder={"Email"}
+                        name={"email"}
+                        type={"text"}
+                        onChange={formik.handleChange}
+                      />
+                      {formik.errors.email && (
+                        <div className="text-red-500 font-light text-sm">
+                          {formik.errors.email}
+                        </div>
+                      )}
+                    </div>
+                    <div>
+                      <Field
+                        className="w-full rounded border bg-gray-100 border-gray-200 p-2"
+                        placeholder={"Password"}
+                        name={"password"}
+                        type={"password"}
+                        onChange={formik.handleChange}
+                      />
+                      {formik.errors.password && (
+                        <div className="text-red-500 font-light text-sm">
+                          {formik.errors.password}
+                        </div>
+                      )}
+                    </div>
                     <button
                       className="btn69 mb-4"
+                      type="submit"
                       onClick={formik.handleSubmit}
                     >
                       Login
