@@ -179,18 +179,18 @@ Eventdate: "25",
                 key={`member${i}`}
                 className="cardgreen w-[320px] h-auto transition-all p-3  inline-block m-4 cursor-pointer rounded-xl   "
               >
-                
-                  <span className="icon ">
-                    <li className="carti  ">
-                      <article id="date">
+                <span className="icon ">
+                  <li className="carti  ">
+                    {/* <article id="date">
                         <aside className="asidegreen">
                           <span className="day">{member.Eventdate}</span>
                           <span className="month">Aug</span>
                         </aside>
-                      </article>
-                    </li>
-                  </span>
-                
+                      </article> */}
+                    <i class="far fa-shopping-cart text-3xl"></i>
+                  </li>
+                </span>
+
                 <div className="relative   ">
                   <div className="">
                     <img

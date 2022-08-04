@@ -51,7 +51,7 @@
   transform: translateX(235%);
 } */
 
-.cardgreen:hover .icon .carti #date {
+.cardgreen:hover .icon .carti  {
   color: rgb(255, 255, 255);
   visibility: visible;
   display: inline-block;
@@ -63,10 +63,11 @@
   height: 50px;
   border-radius: 50%;
   /* background: #57ccfd; */
-  background: rgba(216, 26, 26, 0);
+  background: rgb(15, 204, 8);
   text-align: center;
+
   /* line-height: 1.7rem; */
-  font-size: 18px;
+  font-size: 30px;
   font-family: cursive;
   /* text-decoration: ; */
   transition: all 0.5s ease;
