@@ -19,6 +19,7 @@ import Sponsors from "./pages/sponsors/sponsors";
 // import ErrorPage from './pages/404/404';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import Profile from "./pages/profile/profile";
 
 function App() {
   return (
@@ -38,7 +39,7 @@ function App() {
             element={<EventDetails />}
             loader={<Loader />}
           />
-          {/* <Route path="/profile" element={<Profile loader={<Loader />} />} /> */}
+          <Route path="/profile" element={<Profile loader={<Loader />} />} />
           {/* <Route path="/cart" element={<Cart loader={<Loader />} />} /> */}
           <Route path="/sponsors" element={<Sponsors loader={<Loader />} />} />
           {/* <Route path="/contact-us" element={<ContactUs loader={<Loader />} />} /> */}
