@@ -1,15 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-// TODO: to be taken from redux
-const userData = {
-  name: "Vedant Daigavane",
-  email: "daigavane70@gmail.com",
-  mobile: "+919172953517",
-  college: "PICT",
-  branch: "IT",
-};
-
 // TODO: to be fetched from backend in useEffect
 const registeredEvents = [
   {
@@ -71,7 +62,7 @@ function RegisteredEventCard(eve) {
           })}
       </div>
       {details.link && (
-        <div>
+        <div className="w-min">
           <Link to={details.link}>
             <div className=" text-sky-400">Link</div>
           </Link>
@@ -82,6 +73,15 @@ function RegisteredEventCard(eve) {
 }
 
 export default function Profile() {
+  // TODO: to be taken from redux
+  const [userData, setUserData] = useState({
+    name: "Vedant Daigavane",
+    email: "daigavane70@gmail.com",
+    mobile: "+919172953517",
+    college: "PICT",
+    branch: "IT",
+  });
+
   return (
     <div className=" md:p-4 bg-gray-600">
       <div className="min-h-screen max-w-6xl mx-auto my-8 p-4 md:p-8 space-y-8 text-gray-200 tracking-widest">
