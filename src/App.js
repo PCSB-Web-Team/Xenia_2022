@@ -10,13 +10,13 @@ import Schedule from "./pages/schedule/schedule";
 import Events from "./pages/events/events";
 // import SideEvents from './pages/sideEvents/sideEvents';
 import EventDetails from "./pages/eventDetails/eventDetails";
-// import Profile from './pages/profile/profile';
+import Profile from "./pages/profile/profile";
 // import Cart from './pages/cart/cart';
-// import ContactUs from './components/contactPanel';
-// import AboutUs from './pages/aboutUs/aboutUs';
+import ContactUs from "./components/contactPanel";
+// import AboutUs from './pages/AboutUs/aboutUs';
 import Sponsors from "./pages/sponsors/sponsors";
-// import WebTeam from './pages/webTeam/webTeam';
-// import ErrorPage from './pages/404/404';
+import WebTeam from "./pages/webTeam/webTeam";
+import ErrorPage from "./pages/404/404";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -38,7 +38,7 @@ function App() {
             element={<EventDetails />}
             loader={<Loader />}
           />
-          {/* <Route path="/profile" element={<Profile loader={<Loader />} />} /> */}
+          <Route path="/profile" element={<Profile loader={<Loader />} />} />
           {/* <Route path="/cart" element={<Cart loader={<Loader />} />} /> */}
           <Route path="/sponsors" element={<Sponsors loader={<Loader />} />} />
           {/* <Route path="/contact-us" element={<ContactUs loader={<Loader />} />} /> */}
