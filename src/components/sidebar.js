@@ -7,7 +7,7 @@ const Sidebar = () => {
         <div className='social-links-panel'>
             <div className='panel-container'>
                 <div><a href='https://www.pictcsi.com/' target='_blank' className='csi-logo-social'><img src={CSILogo} alt='' /></a></div>
-                <div><a href='http://www.facebook.com/csipict' target='_blank' className='fb-logo'>< i className='fa-brands fa-linkedin fa-lg' /></a></div>
+                <div><a href='http://www.facebook.com/csipict' target='_blank' className='far fb-logo text-white'>< i className='fa-brands fa-linkedin fa-lg' /></a></div>
                 <div><a href='http://www.instagram.com/csipict' target='_blank' className='ig-logo'><i className="fa-instagram-i" /></a></div>
                 <div><a href='http://www.linkedin.com/company/pict-csi' target='_blank' className='in-logo'><i className='fa-brands fa-linkedin fa-lg' /></a></div>
                 <div><a href='https://www.youtube.com/channel/UC_lcyqJpGxd7XWBMrcbpgpw/featured' target='_blank' className='yt-logo'><i className='fa fa-youtube fa-lg' /></a></div>
