@@ -1,92 +1,97 @@
-import React from "react";
+import React, { useState } from "react";
 import "./events.css";
-
+import { Link } from "react-router-dom";
 const Events = () => {
-  const teamDetails = [
-    {
-      EventName: "Event1",
-      Eventdate: "25",
-      img: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
-      logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
-      team_info:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print",
-    },
-    {
-      EventName: "Event2",
-Eventdate: "25",
-      img: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
-      logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
-      team_info:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print",
-    },
-    {
-      EventName: "Event3",
-Eventdate: "25",
-      img: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
-      logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
-      team_info:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print",
-    },
-    {
-      EventName: "Event4 ",
-Eventdate: "25",
-      img: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
-      logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
-      team_info:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print",
-    },
-    {
-      EventName: "Event5",
-Eventdate: "25",
-      img: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
-      logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
-      team_info:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print",
-    },
-    {
-      EventName: "Event6",
-Eventdate: "25",
-      img: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
-      logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
-      team_info:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print",
-    },
-    {
-      EventName: "Event7",
-Eventdate: "25",
-      img: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
-      logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
-      team_info:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print",
-    },
-  ];
-  const Details = [
+  const[status,setStatus]=useState(1);
+  const events = {
+    Technical: [
+      {
+        EventName: "Event1",
+        Eventdate: "25",
+        img: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
+        logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
+        team_info:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print",
+      },
+      {
+        EventName: "Event2",
+        Eventdate: "25",
+        img: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
+        logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
+        team_info:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print",
+      },
+      {
+        EventName: "Event3",
+        Eventdate: "25",
+        img: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
+        logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
+        team_info:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print",
+      },
+      {
+        EventName: "Event4 ",
+        Eventdate: "25",
+        img: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
+        logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
+        team_info:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print",
+      },
+      {
+        EventName: "Event5",
+        Eventdate: "25",
+        img: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
+        logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
+        team_info:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print",
+      },
+      {
+        EventName: "Event6",
+        Eventdate: "25",
+        img: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
+        logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
+        team_info:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print",
+      },
+      {
+        EventName: "Event7",
+        Eventdate: "25",
+        img: "https://drive.google.com/uc?export=view&id=1sWjtBMDAZsLxkOAVZ35o8fGLK0CYaVj-",
+        logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
+        team_info:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print",
+      },
+    ],
+    NonTechnical: [
+      {
+        EventName: "Event8 ",
+        Eventdate: "25",
+        img: "https://drive.google.com/uc?export=view&id=1kqyU7WUULqPKL8_1TvWt3IuKrWV9akcA",
+        logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
+        team_info:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print",
+      },
+      {
+        EventName: "Event9",
+        Eventdate: "25",
+        img: "https://drive.google.com/uc?export=view&id=1kqyU7WUULqPKL8_1TvWt3IuKrWV9akcA",
+        logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
+        team_info:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print",
+      },
+      {
+        EventName: "Event10",
+        Eventdate: "25",
+        img: "https://drive.google.com/uc?export=view&id=1kqyU7WUULqPKL8_1TvWt3IuKrWV9akcA",
+        logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
+        team_info:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print",
+      },
+    ],
+  };
     
-    {
-      EventName: "Event8 ",
-Eventdate: "25",
-      img: "https://drive.google.com/uc?export=view&id=1kqyU7WUULqPKL8_1TvWt3IuKrWV9akcA",
-      logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
-      team_info:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print",
-    },
-    {
-      EventName: "Event9",
-Eventdate: "25",
-      img: "https://drive.google.com/uc?export=view&id=1kqyU7WUULqPKL8_1TvWt3IuKrWV9akcA",
-      logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
-      team_info:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print",
-    },
-    {
-      EventName: "Event10",
-Eventdate: "25",
-      img: "https://drive.google.com/uc?export=view&id=1kqyU7WUULqPKL8_1TvWt3IuKrWV9akcA",
-      logo: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
-      team_info:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print",
-    },
-  ];
+
+ 
   return (
     <body className="bg-black">
       <div className="Events">
@@ -97,127 +102,135 @@ Eventdate: "25",
           Events
         </h1>
 
-        {/* <div class="card__collection clear-fix"> */}
-        {/* <div class="cards cards--three">
-            <img
-              src="https://images.unsplash.com/photo-1480408144303-d874c5e12201?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=575213599ae24b3dbdfd84be79425c50&auto=format&fit=crop&w=634&q=80"
-              class="img-responsive"
-              alt=""
-            />
-            <span class="cards--three__rect-1">
-              <span class="shadow-1"></span>
-              <p>Chris Levnon</p>
-            </span>
-            <span class="cards--three__rect-2">
-              <span class="shadow-2"></span>
-            </span>
-            <span class="cards--three__circle"></span>
-            <ul class="cards--three__list ">
-              <li className="carti">
-                <i class="far fa-shopping-cart "></i>
-              </li>
-            </ul>
-          </div>
-        </div> */}
-
+        <button
+          type="button"
+          onClick={() => {
+            setStatus(1);
+          }}
+          className="text-white"
+        >
+          Technical
+        </button>
+        <br></br>
+        <button
+          type="button"
+          onClick={() => {
+            setStatus(2);
+          }}
+          className="text-white"
+        >
+          Non- Technical
+        </button>
         <div className="  justify-evenly flex-wrap w-full xl:w-6/5 xl:mx-auto  text-center">
-          <div className="text-center">
-            <h1 className="text-purple-400 text-center text-2xl text-sebold">
-              Technical
-            </h1>
-            {teamDetails.map((member, i) => (
-              <div
-                key={`member${i}`}
-                className="cardpink w-[320px] h-auto transition-all p-3  inline-block m-4 cursor-pointer rounded-xl   "
-              >
-                <div className="app_tooltip">
-                  <span className="icon">
-                    <li className="carti">
-                      <article id="date">
-                        <aside className="asidepink">
-                          <span className="day">{member.Eventdate}</span>
-                          <span className="month">Aug</span>
-                        </aside>
-                      </article>
-                    </li>
-                  </span>
-                  {/* <span className=" px-20 text-white ">Add to cart</span> */}
-                </div>
-                <div className="relative   ">
-                  <div className="">
-                    <img
-                      className="Logo max-h-full max-w-full absolute px-12  z-20   "
-                      src={member.logo}
-                      alt="Logo1"
-                    />
+          {status === 1 ? (
+            <div className="text-center">
+              <h1 className="text-purple-400 text-center text-2xl text-sebold">
+                Technical
+              </h1>
+              {events.Technical.map((member, i) => (
+                <div
+                  key={`member${i}`}
+                  className="cardpink w-[320px] h-auto transition-all p-3  inline-block m-4 cursor-pointer rounded-xl   "
+                >
+                  <Link
+                    to={`/event-details/`}
+                    onClick={() => console.log("heloo")}
+                  >
+                    <div className="app_tooltip">
+                      <span className="icon">
+                        <li className="carti">
+                          <article id="date">
+                            <aside className="asidepink">
+                              <span className="day">{member.Eventdate}</span>
+                              <span className="month">Aug</span>
+                            </aside>
+                          </article>
+                        </li>
+                      </span>
+                      {/* <span className=" px-20 text-white ">Add to cart</span> */}
+                    </div>
+                    <div className="relative   ">
+                      <div className="">
+                        <img
+                          className="Logo max-h-full max-w-full absolute px-12  z-20   "
+                          src={member.logo}
+                          alt="Logo1"
+                        />
 
-                    <img
-                      className="base max-h-full max-w-full z-10 pt-16   "
-                      src={member.img}
-                      alt="Events"
-                    />
-                  </div>
-                </div>
-                <p className="text_event">
-                  <p className="text-white  text-center  p-text-white text-allign:center  rounded-2xl font-bold  cursor-pointer   ">
-                    {member.EventName}
-                  </p>
+                        <img
+                          className="base max-h-full max-w-full z-10 pt-16   "
+                          src={member.img}
+                          alt="Events"
+                        />
+                      </div>
+                    </div>
+                    <p className="text_event">
+                      <p className="text-white  text-center  p-text-white text-allign:center  rounded-2xl font-bold  cursor-pointer   ">
+                        {member.EventName}
+                      </p>
 
-                  <p className=" text-white text-center pt-5  p-text-white text-allign:center   font-semibold  cursor-pointer   ">
-                    {member.team_info}
-                  </p>
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className="text-center">
-            <h1 className="text-lime-400 text-center text-2xl text-bold">
-              Non-Technical
-            </h1>
-            {Details.map((member, i) => (
-              <div
-                key={`member${i}`}
-                className="cardgreen w-[320px] h-auto transition-all p-3  inline-block m-4 cursor-pointer rounded-xl   "
-              >
-                <span className="icon ">
-                  <li className="carti  ">
-                    {/* <article id="date">
+                      <p className=" text-white text-center pt-5  p-text-white text-allign:center   font-semibold  cursor-pointer   ">
+                        {member.team_info}
+                      </p>
+                    </p>
+                  </Link>{" "}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center">
+              {/* <h1 className="text-lime-400 text-center text-2xl text-bold">
+                Non-Technical
+              </h1> */}
+              {events.NonTechnical.map((member, i) => (
+                <div
+                  key={`member${i}`}
+                  className="cardgreen w-[320px] h-auto transition-all p-3  inline-block m-4 cursor-pointer rounded-xl   "
+                >
+                  <span className="icon ">
+                    <li className="carti  ">
+                      {/* <article id="date">
                         <aside className="asidegreen">
                           <span className="day">{member.Eventdate}</span>
                           <span className="month">Aug</span>
                         </aside>
                       </article> */}
-                    <i class="far fa-shopping-cart text-3xl"></i>
-                  </li>
-                </span>
+                      {/* <button onClick={() => console.log("clicked")} className="border-2 border-white"> */}
+                      <i class="far fa-shopping-cart text-3xl">
+                        {/* console.log("clicked") */}
+                      </i>
+                      {/* </button> */}
+                    </li>
+                  </span>
 
-                <div className="relative   ">
-                  <div className="">
-                    <img
-                      className="Logo max-h-full max-w-full absolute px-12  z-20   "
-                      src={member.logo}
-                      alt="Logo1"
-                    />
+                  <div className="relative   ">
+                    <div className="">
+                      <img
+                        className="Logo max-h-full max-w-full absolute px-12  z-20   "
+                        src={member.logo}
+                        alt="Logo1"
+                      />
 
-                    <img
-                      className="base max-h-full max-w-full z-10 pt-16   "
-                      src={member.img}
-                      alt="Events"
-                    />
+                      <img
+                        className="base max-h-full max-w-full z-10 pt-16   "
+                        src={member.img}
+                        alt="Events"
+                      />
+                    </div>
                   </div>
-                </div>
-                <p className="text_event">
-                  <p className="text-white  text-center  p-text-white text-allign:center  rounded-2xl font-bold  cursor-pointer   ">
-                    {member.EventName}
-                  </p>
+                  <p className="text_event">
+                    <p className="text-white  text-center  p-text-white text-allign:center  rounded-2xl font-bold  cursor-pointer   ">
+                      {member.EventName}
+                    </p>
 
-                  <p className=" text-white text-center pt-5  p-text-white text-allign:center   font-semibold  cursor-pointer   ">
-                    {member.team_info}
+                    <p className=" text-white text-center pt-5  p-text-white text-allign:center   font-semibold  cursor-pointer   ">
+                      {member.team_info}
+                    </p>
                   </p>
-                </p>
-              </div>
-            ))}{" "}
-          </div>
+                </div>
+              ))}{" "}
+            </div>
+          )}
         </div>
       </div>
       <link
