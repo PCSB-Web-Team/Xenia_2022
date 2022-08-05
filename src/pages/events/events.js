@@ -101,32 +101,34 @@ const Events = () => {
         >
           Events
         </h1>
-
-        <button
-          type="button"
-          onClick={() => {
-            setStatus(1);
-          }}
-          className="text-white"
-        >
-          Technical
-        </button>
-        <br></br>
-        <button
-          type="button"
-          onClick={() => {
-            setStatus(2);
-          }}
-          className="text-white"
-        >
-          Non- Technical
-        </button>
+        <div className="tabs">
+          
+          <button
+            type="button1"
+            onClick={() => {
+              setStatus(1);
+            }}
+            className={status === 1  ? "tabs-btn active-tab1" : "tabs-btn"}
+            >
+            Technical
+          </button>
+          
+          <button
+            type="button2"
+            onClick={() => {
+              setStatus(2);
+            }}
+            className={status === 2  ? "tabs-btn active-tab2" : "tabs-btn"}
+          >
+            Non- Technical
+          </button>
+        </div>
         <div className="  justify-evenly flex-wrap w-full xl:w-6/5 xl:mx-auto  text-center">
           {status === 1 ? (
             <div className="text-center">
-              <h1 className="text-purple-400 text-center text-2xl text-sebold">
+              {/* <h1 className="text-purple-400 text-center text-2xl text-sebold">
                 Technical
-              </h1>
+              </h1> */}
               {events.Technical.map((member, i) => (
                 <div
                   key={`member${i}`}
@@ -147,6 +149,11 @@ const Events = () => {
                           </article>
                         </li>
                       </span>
+                      {/* <span className="icon ">
+                        <li className="carti  ">
+                          <i class="far fa-shopping-cart text-3xl"></i>
+                        </li>
+                      </span> */}
                       {/* <span className=" px-20 text-white ">Add to cart</span> */}
                     </div>
                     <div className="relative   ">
@@ -179,59 +186,58 @@ const Events = () => {
             </div>
           ) : (
             <div className="text-center">
-              <h1 className="text-lime-400 text-center text-2xl text-bold">
+              {/* <h1 className="text-lime-400 text-center text-2xl text-bold">
                 Non-Technical
-              </h1>
-              {
-                events.NonTechnical.map((member, i) => (
+              </h1> */}
+              {events.NonTechnical.map((member, i) => (
                 <div
                   key={`member${i}`}
                   className="cardgreen w-[320px] h-auto transition-all p-3  inline-block m-4 cursor-pointer rounded-xl   "
                 >
-                <Link
+                  <Link
                     to={`/event-details/`}
                     onClick={() => console.log("heloo")}
-                  >  
-                  <span className="icon ">
-                    <li className="carti  ">
-                      {/* <article id="date">
+                  >
+                    <span className="icon ">
+                      <li className="carti  ">
+                        {/* <article id="date">
                         <aside className="asidegreen">
                           <span className="day">{member.Eventdate}</span>
                           <span className="month">Aug</span>
                         </aside>
                       </article> */}
-                      {/* <button onClick={() => console.log("clicked")} className="border-2 border-white"> */}
-                      <i class="far fa-shopping-cart text-3xl">
-                        {/* console.log("clicked") */}
-                      </i>
-                      {/* </button> */}
-                    </li>
-                  </span>
+                        {/* <button onClick={() => console.log("clicked")} className="border-2 border-white"> */}
+                        <i class="far fa-shopping-cart text-3xl">
+                          {/* console.log("clicked") */}
+                        </i>
+                        {/* </button> */}
+                      </li>
+                    </span>
 
-                  <div className="relative   ">
-                    <div className="">
-                      <img
-                        className="Logo max-h-full max-w-full absolute px-12  z-20   "
-                        src={member.logo}
-                        alt="Logo1"
-                      />
+                    <div className="relative   ">
+                      <div className="">
+                        <img
+                          className="Logo max-h-full max-w-full absolute px-12  z-20   "
+                          src={member.logo}
+                          alt="Logo1"
+                        />
 
-                      <img
-                        className="base max-h-full max-w-full z-10 pt-16   "
-                        src={member.img}
-                        alt="Events"
-                      />
+                        <img
+                          className="base max-h-full max-w-full z-10 pt-16   "
+                          src={member.img}
+                          alt="Events"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <p className="text_event">
-                    <p className="text-white  text-center  p-text-white text-allign:center  rounded-2xl font-bold  cursor-pointer   ">
-                      {member.EventName}
-                    </p>
+                    <p className="text_event">
+                      <p className="text-white  text-center  p-text-white text-allign:center  rounded-2xl font-bold  cursor-pointer   ">
+                        {member.EventName}
+                      </p>
 
-                    <p className=" text-white text-center pt-5  p-text-white text-allign:center   font-semibold  cursor-pointer   ">
-                      {member.team_info}
+                      <p className=" text-white text-center pt-5  p-text-white text-allign:center   font-semibold  cursor-pointer   ">
+                        {member.team_info}
+                      </p>
                     </p>
-                  </p>
                   </Link>
                 </div>
               ))}{" "}

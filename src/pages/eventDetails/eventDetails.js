@@ -12,7 +12,7 @@ const EventDetails = (props) => {
     rules:["Google not allowed"],
     prizes:["Cash prize"],
     contacts:[9876543210],
-    fees:"free"
+    fees:"registration fees"
   });
   
   console.log(details);
