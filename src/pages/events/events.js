@@ -3,7 +3,6 @@ import "./events.css";
 import purple1 from "../../assets/images/purple_base.png";
 import green1 from "../../assets/images/green_base.png";
 import codestrike from "../../assets/images/code_strike.png";
-import cricwars from "../../assets/images/cricwars.png";
 import stars1 from "../../assets/images/stars1.png";
 import stars2 from "../../assets/images/stars2.png";
 
@@ -67,28 +66,28 @@ const Events = () => {
         EventName: "CricWars",
 
         img: { green1 },
-        logo: { cricwars },
+        logo: { codestrike },
         event_slogan: "Lorem Ipsum is simply dummy text ",
       },
       {
         EventName: "Fandom",
 
         img: { purple1 },
-        logo: { cricwars },
+        logo: { codestrike },
         event_slogan: "Lorem Ipsum is simply dummy text ",
       },
       {
         EventName: "Treasure Hunt",
 
         img: { green1 },
-        logo: { cricwars },
+        logo: { codestrike },
         event_slogan: "Lorem Ipsum is simply dummy text ",
       },
     ],
   };
 
   return (
-    <body className="bg-slate-800">
+    <body className="bg-slate-900">
       <div className="Events">
         <h1
           className="title text-6xl font-semibold text-center text-white pb-12 "
@@ -136,7 +135,7 @@ const Events = () => {
                       <img src={stars1} alt="str1" className="str1 absolute" />
                       <img src={stars2} alt="str2" className="str2 absolute" />
                     </div>
-                    <div className="logo">
+                    <div className="logo pt-12">
                       <img src={codestrike} alt="logo" />
                     </div>
                     <div className="base">
@@ -170,9 +169,9 @@ const Events = () => {
                       <img src={stars1} alt="str1" className="str1 absolute" />
                       <img src={stars2} alt="str2" className="str2 absolute" />
                     </div>
-                    <div className="logo ">
+                    <div className="logo pt-12">
                       <img
-                        src={cricwars}
+                        src={codestrike}
                         alt="logo"
                       />
                     </div>

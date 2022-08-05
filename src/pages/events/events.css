@@ -4,7 +4,14 @@ animation: float 2.5s ease-in-out infinite;
 .Eventcard:hover .base {
   animation: glowbase 2.5s ease-in-out infinite;
 }
-
+.logo{
+  max-width: 65%;
+  max-height: 65%;
+  vertical-align: middle;
+    display: inline-block;
+    position: relative;
+  
+}
 
 .Eventcard:hover .str1{
   visibility: visible;
