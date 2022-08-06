@@ -1,8 +1,10 @@
 import "./sideEvent.css";
 
 import React from 'react'
+import Modal from "./Modals/modals"
 
 export default function SideEvents() {
+      
 
         const data = [
           {
@@ -20,7 +22,6 @@ export default function SideEvents() {
         ];
 
 
-
 const EventsInfo = data.map(event =>
   <div className="bg-white bg-opacity-0 rounded-lg shadow-2xl md:flex">
     <img src={event.img} alt="Laptop on Desk" className="md:w-1/3 rounded-t-lg md:rounded-l-lg md:rounded-t-none w-[210px] h-[220px]" />
@@ -28,6 +29,7 @@ const EventsInfo = data.map(event =>
       <h2 className="font-bold text-xl md:text-3xl mb-2 text-white">{event.eventTitle}</h2>
       <p className="text-white">
       {event.desc}
+    <Modal />
       </p>
     </div>
 
@@ -43,4 +45,11 @@ return(
 </div>
 
 )
+
+
 }
+
+
+
+
+
