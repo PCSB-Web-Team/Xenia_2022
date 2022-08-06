@@ -41,7 +41,7 @@ function App() {
           <Route path="/contact-us" element={<ContactUs loader={<Loader />} />} />
           {/* <Route path="/web-team" element={<webTeam loader={<Loader />} />} /> */}
           <Route path="*" element={<ErrorPage />} />
-          <Route path="/sideEvent" element={<SideEvents />} loader={<Loader />} />
+          <Route path="/side-event" element={<SideEvents />} loader={<Loader />} />
         </Routes>
         <Footer />
       </BrowserRouter>
