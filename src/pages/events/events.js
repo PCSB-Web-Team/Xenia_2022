@@ -131,7 +131,7 @@ const Events = () => {
                     to={`/event-details/`}
                     onClick={() => console.log("heloo")}
                   >
-                    <div className="Eventcard_stars pb-32">
+                    <div className="Eventcard_stars pb-16">
                       <img src={stars1} alt="str1" className="str1 absolute" />
                       <img src={stars2} alt="str2" className="str2 absolute" />
                     </div>
@@ -165,7 +165,7 @@ const Events = () => {
                     to={`/event-details/`}
                     onClick={() => console.log("heloo")}
                   >
-                    <div className="Eventcard_stars pb-32">
+                    <div className="Eventcard_stars pb-20">
                       <img src={stars1} alt="str1" className="str1 absolute" />
                       <img src={stars2} alt="str2" className="str2 absolute" />
                     </div>
