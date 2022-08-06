@@ -1,47 +1,46 @@
-import React, { Component } from 'react'
-import "./Error.css"
+import React from 'react'
+import "./Error.scss"
 
-const Error = () => {
-    return (
-      <div className='ErrorPage'>
-        <div className="rail">
-  <div className="stamp four">4</div>
-  <div className="stamp zero">0</div>
-  <div className="stamp four">4</div>
-  <div className="stamp zero">0</div>
-  <div className="stamp four">4</div>
-  <div className="stamp zero">0</div>
-  <div className="stamp four">4</div>
-  <div className="stamp zero">0</div>
-  <div className="stamp four">4</div>
-  <div className="stamp zero">0</div>
-  <div className="stamp four">4</div>
-  <div className="stamp zero">0</div>
-  <div className="stamp four">4</div>
-  <div className="stamp zero">0</div>
-  <div className="stamp four">4</div>
-  <div className="stamp zero">0</div>
-  <div className="stamp four">4</div>
-  <div className="stamp zero">0</div>
-  <div className="stamp four">4</div>
-  <div className="stamp zero">0</div>
-</div>
-<div className="world">
-  <div className="forward">
-    <div className="box">
-      <div className="wall"></div>
-      <div className="wall"></div>
-      <div className="wall"></div>
-      <div className="wall"></div>
-      <div className="wall"></div>
-      <div className="wall"></div>
-    </div>
-  </div>
-</div>
-
+const Error = ()=>{
+  return(
+    <div className="error-page">
+      <div class="rail">
+        <div class="stamp four">4</div>
+        <div class="stamp zero">0</div>
+        <div class="stamp four">4</div>
+        <div class="stamp zero">0</div>
+        <div class="stamp four">4</div>
+        <div class="stamp zero">0</div>
+        <div class="stamp four">4</div>
+        <div class="stamp zero">0</div>
+        <div class="stamp four">4</div>
+        <div class="stamp zero">0</div>
+        <div class="stamp four">4</div>
+        <div class="stamp zero">0</div>
+        <div class="stamp four">4</div>
+        <div class="stamp zero">0</div>
+        <div class="stamp four">4</div>
+        <div class="stamp zero">0</div>
+        <div class="stamp four">4</div>
+        <div class="stamp zero">0</div>
+        <div class="stamp four">4</div>
+        <div class="stamp zero">0</div>
       </div>
-    )
-  }
+      <div class="world">
+        <div class="forward">
+          <div class="box">
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 
 export default Error;
