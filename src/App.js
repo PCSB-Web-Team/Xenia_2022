@@ -1,5 +1,6 @@
 import PreLoader from "./components/preloader";
 import Loader from "./components/loader";
+import PageBackground from "./components/pageBackground";
 import Navbar from "./components/navbar";
 import Homepage from "./pages/home/home";
 import Auth from "./pages/auth/auth";
@@ -12,8 +13,7 @@ import Events from "./pages/events/events";
 import EventDetails from "./pages/eventDetails/eventDetails";
 // import Profile from './pages/profile/profile';
 // import Cart from './pages/cart/cart';
-// import ContactUs from './components/contactPanel';
-// import AboutUs from './pages/aboutUs/aboutUs';
+import ContactUs from './pages/contactUs/contactUs';
 import Sponsors from "./pages/sponsors/sponsors";
 // import WebTeam from './pages/webTeam/webTeam';
 // import ErrorPage from './pages/404/404';
@@ -43,6 +43,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+        <PageBackground />
         <Navbar />
         <Sidebar />
         <ContactPanel />
@@ -60,7 +61,7 @@ function App() {
           <Route path="/profile" element={<Profile loader={<Loader />} />} />
           {/* <Route path="/cart" element={<Cart loader={<Loader />} />} /> */}
           <Route path="/sponsors" element={<Sponsors loader={<Loader />} />} />
-          {/* <Route path="/contact-us" element={<ContactUs loader={<Loader />} />} /> */}
+          <Route path="/contact-us" element={<ContactUs loader={<Loader />} />} />
           {/* <Route path="/web-team" element={<WebTeam loader={<Loader />} />} /> */}
           {/* <Route path="*" element={<ErrorPage />} /> */}
         </Routes>
