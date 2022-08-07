@@ -123,10 +123,7 @@ const Events = () => {
                 Technical
               </h1> */}
               {events.Technical.map((member, i) => (
-                <div
-                  key={`member${i}`}
-                  className="Eventcard w-[320px] h-auto transition-all   inline-block m-4 cursor-pointer rounded-xl   "
-                >
+                <div key={`member${i}`}  className="Eventcard w-[320px] h-auto transition-all   inline-block m-4 cursor-pointer rounded-xl">
                   <Link
                     to={`/event-details/`}
                     onClick={() => console.log("heloo")}

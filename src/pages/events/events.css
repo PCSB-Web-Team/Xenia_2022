@@ -1,9 +1,13 @@
-.Eventcard:hover .logo{
-animation: float 2.5s ease-in-out infinite;
-}
+
 .Eventcard:hover .base {
   animation: glowbase 2.5s ease-in-out infinite;
 }
+.Eventcard:hover .logo {
+  animation: float 2.5s ease-in-out infinite;
+}
+/* .Eventcard:hover .logo::after {
+  animation: float 2.5s ease-in-out infinite;
+} */
 .logo{
   max-width: 65%;
   max-height: 65%;
@@ -31,16 +35,18 @@ animation: float 2.5s ease-in-out infinite;
 
 @keyframes float {
   0% {
-    /* box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6); */
+    
     transform: translatey(0px);
   }
 
-  /* 33.33% {
-       transform: translatey(-20px);
-     } */
+  
   50% {
     transform: translatey(-20px);
   }
+    100% {
+      
+      transform: translatey(0px);
+    }
 }
 
 @keyframes glowbase {
