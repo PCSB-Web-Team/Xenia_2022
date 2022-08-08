@@ -29,7 +29,7 @@ const EventsInfo = data.map(event =>
       <h2 className="font-bold text-xl md:text-3xl mb-2 text-white">{event.eventTitle}</h2>
       <p className="text-white">
       {event.desc}
-    <Modal />
+    <Modal  />
       </p>
     </div>
 

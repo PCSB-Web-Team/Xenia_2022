@@ -21,20 +21,37 @@ export default function Modal(props) {
       </button>
 
       {modal && (
-        <div className="modal">
+        <div className="modal ">
           <div onClick={toggleModal} className="overlay"></div>
-          <div className="modal-content  my-6">
-            <h2 className="mt-8">Hello Modal</h2>
-            <p>
-
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-              perferendis suscipit officia recusandae, eveniet quaerat assumenda
-              id fugit, dignissimos maxime non natus placeat illo iusto!
-              Sapiente dolorum id maiores dolores? Illum pariatur possimus
-              quaerat ipsum quos molestiae rem aspernatur dicta tenetur. Sunt
-              placeat tempora vitae enim incidunt porro fuga ea.
-
-            </p>
+          <div className="modal-content  my-6 ">
+            <h1 className="modalshd-sde mt-8 text-4xl ">Rules</h1>
+            <hr />
+              <ul className="modalsp-sde ">
+                <li className="pt-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimuslique nostrum nulla libero natus.</li>
+                <li className="pt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimuslique nostrum nulla libero natus.</li>
+                <li className="pt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimuslique nostrum nulla libero natus.</li>
+                <li className="pt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimuslique nostrum nulla libero natus.</li>
+                <li className="pt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimuslique nostrum nulla libero natus.</li>
+              </ul>
+              <h1 className="modalshd-sde mt-8 text-4xl">Prizes</h1>
+            <hr />
+              <ul className="modalsp-sde ">
+                <li className="pt-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimuslique nostrum nulla libero natus.</li>
+                <li className="pt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimuslique nostrum nulla libero natus.</li>
+              </ul>
+              <h1 className="modalshd-sde mt-8 text-4xl">Benifits</h1>
+            <hr />
+              <ul className="modalsp-sde ">
+                <li className="pt-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimuslique nostrum nulla libero natus.</li>
+                <li className="pt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimuslique nostrum nulla libero natus.</li>
+              </ul>
+              <h1 className="modalshd-sde mt-8 text-4xl">Contact Us</h1>
+            <hr />
+              <ul className="modalsp-sde ">
+                <li className="pt-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimuslique nostrum nulla libero natus.</li>
+                <li className="pt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimuslique nostrum nulla libero natus.</li>
+              </ul>
+            
             <button className="close-modal " onClick={toggleModal}>
               X
             </button>

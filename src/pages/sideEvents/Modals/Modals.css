@@ -54,3 +54,20 @@ body.active-modal {
     right: 10px;
     padding: 5px 7px;
   }
+
+  .modalshd-sde{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  }
+
+  .modalsp-sde{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    list-style-type:square;
+  }
+
+  .modal-content{
+    width:fit-content;
+    height:max-content;
+    overflow-y:scroll;
+    scrollbar-color: rebeccapurple green;
+    scrollbar-width:thin;
+  }
