@@ -1,13 +1,19 @@
-
-.Eventcard:hover .base {
-  animation: glowbase 2.5s ease-in-out infinite;
+.Eventcard {
+  transition:  2.5s ease-in-out;
 }
+
+.Eventcard:hover .base{
+  animation: glowbase 2.5s ease-in-out infinite;
+  
+}
+
 .Eventcard:hover .logo {
   animation: float 2.5s ease-in-out infinite;
 }
 /* .Eventcard:hover .logo::after {
   animation: float 2.5s ease-in-out infinite;
 } */
+
 .logo{
   max-width: 65%;
   max-height: 65%;
