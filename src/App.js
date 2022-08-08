@@ -9,11 +9,11 @@ import ContactPanel from "./components/contactPanel";
 import Sidebar from "./components/sidebar";
 import Schedule from "./pages/schedule/schedule";
 import Events from "./pages/events/events";
-// import SideEvents from './pages/sideEvents/sideEvents';
 import EventDetails from "./pages/eventDetails/eventDetails";
+import IndustryTalks from "./pages/industryTalks/industryTalks";
 // import Profile from './pages/profile/profile';
 // import Cart from './pages/cart/cart';
-import ContactUs from './pages/contactUs/contactUs';
+import ContactUs from "./pages/contactUs/contactUs";
 import Sponsors from "./pages/sponsors/sponsors";
 // import WebTeam from './pages/webTeam/webTeam';
 // import ErrorPage from './pages/404/404';
@@ -52,7 +52,7 @@ function App() {
           <Route path="/auth" element={<Auth loader={<Loader />} />} />
           <Route path="/schedule" element={<Schedule />} loader={<Loader />} />
           <Route path="/events" element={<Events />} loader={<Loader />} />
-          {/* <Route path="/side-events" element={<SideEvents />} loader={<Loader />} /> */}
+          <Route path="/industry-talks" element={<IndustryTalks />} loader={<Loader />} />
           <Route
             path="/event-details"
             element={<EventDetails />}
