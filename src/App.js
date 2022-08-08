@@ -8,7 +8,6 @@ import ContactPanel from "./components/contactPanel";
 import Sidebar from "./components/sidebar";
 import Schedule from "./pages/schedule/schedule";
 import Events from "./pages/events/events";
-
 // import SideEvents from './pages/sideEvents/sideEvents';
 import EventDetails from "./pages/eventDetails/eventDetails";
 // import Profile from './pages/profile/profile';
@@ -44,7 +43,7 @@ function App() {
           <Route path="/sponsors" element={<Sponsors loader={<Loader />} />} />
           {/* <Route path="/contact-us" element={<ContactUs loader={<Loader />} />} /> */}
           {/* <Route path="/web-team" element={<WebTeam loader={<Loader />} />} /> */}
-          <Route path="/Error" element={<ErrorPage />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>

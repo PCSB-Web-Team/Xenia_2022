@@ -1,8 +1,7 @@
-import React from 'react'
-import "./Error.scss"
+import "./Error.scss";
 
-const Error = ()=>{
-  return(
+const Error = () => {
+  return (
     <div className="error-page">
       <div class="rail">
         <div class="stamp four">4</div>
@@ -41,6 +40,5 @@ const Error = ()=>{
     </div>
   )
 }
-
 
 export default Error;
