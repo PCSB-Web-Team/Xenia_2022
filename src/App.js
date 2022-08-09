@@ -11,7 +11,6 @@ import Events from './pages/events/events';
 // import SideEvents from './pages/sideEvents/sideEvents';
 import EventDetails from './pages/eventDetails/eventDetails';
 // import Profile from './pages/profile/profile';
-<<<<<<< HEAD
 import Cart from './pages/cart/cart';
 import ContactUs from './components/contactPanel';
 // import AboutUs from './pages/aboutUs/aboutUs';
