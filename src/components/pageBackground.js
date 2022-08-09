@@ -7,7 +7,7 @@ import SimplexNoise from "https://cdn.skypack.dev/simplex-noise@3.0.0";
 import hsl from "https://cdn.skypack.dev/hsl-to-hex";
 import debounce from "https://cdn.skypack.dev/debounce";
 
-function PageBackground() {
+function PageBackground({ children }) {
     useEffect(() => {
         // return a random number within a range
         function random(min, max) {
@@ -225,6 +225,7 @@ function PageBackground() {
     return (
         <div>
             <canvas className="orb-canvas"></canvas>
+            {children}
         </div>
     )
 }

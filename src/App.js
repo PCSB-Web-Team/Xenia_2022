@@ -44,20 +44,22 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <PageBackground />
         <Navbar />
         <Sidebar />
         <ContactPanel />
         <Routes>
-          <Route path="/" element={<Homepage />} loader={<PreLoader />} />
+          <Route path="/" element={<Homepage loader={<PreLoader />} />} />
           <Route path="/auth" element={<Auth loader={<Loader />} />} />
-          <Route path="/schedule" element={<Schedule />} loader={<Loader />} />
-          <Route path="/events" element={<Events />} loader={<Loader />} />
-          <Route path="/industry-talks" element={<IndustryTalks />} loader={<Loader />} />
+          <Route path="/schedule" element={<Schedule loader={<Loader />} />} />
+          <Route path="/events" element={<Events loader={<Loader />} />} />
+          <Route path="/industry-talks" element={
+            <PageBackground>
+              <IndustryTalks loader={<Loader />} />
+            </PageBackground>
+          } />
           <Route
             path="/event-details"
-            element={<EventDetails />}
-            loader={<Loader />}
+            element={<EventDetails loader={<Loader />} />}
           />
           <Route path="/profile" element={<Profile loader={<Loader />} />} />
           {/* <Route path="/cart" element={<Cart loader={<Loader />} />} /> */}
