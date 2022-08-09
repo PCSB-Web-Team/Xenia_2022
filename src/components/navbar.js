@@ -24,7 +24,7 @@ export class Navbar extends Component {
           <span></span>
         </label>
         {this.state.current ? (
-          <main className="site-wrapper">
+          <main className={`site-wrapper ${!this.state.current && "close-site-wrapper"}`  }>
             <div>
               
             <div className="pt-table desktop-768">

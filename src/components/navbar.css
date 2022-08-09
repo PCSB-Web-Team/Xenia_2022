@@ -728,6 +728,10 @@ label {
   animation: 0.75s ease-out 0s 1 slideInFromTop;
   
 }
+.close-site-wrapper {
+  animation: 0.75s ease-out 0s 1 slideOutFromBottom;
+
+}
 
 
 @keyframes slideInFromTop {
@@ -737,5 +741,14 @@ label {
 
   100% {
     transform: translateY(0);
+  }
+}
+@keyframes slideOutFromBottom {
+  0% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(-100%);
   }
 }
