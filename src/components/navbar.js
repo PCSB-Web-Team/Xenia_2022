@@ -30,7 +30,7 @@ export class Navbar extends Component {
             <div className="pt-table desktop-768">
               <div className="pt-tablecell page-home relative justify-center px-56">
                 {/* <div className="pt-tablecell page-home relative" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80)', backgroundPosition: 'center', backgroundSize: 'cover'}}> */}
-                <div className="overlay" />
+                <div className="overlay_nav" />
                 
                   
                     
