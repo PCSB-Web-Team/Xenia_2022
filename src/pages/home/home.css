@@ -242,10 +242,11 @@
     var(--complimentary2),
     var(--complimentary1) 60%
   );
-  /* -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
   -moz-background-clip: text;
-  -moz-text-fill-color: transparent; */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
 }
 
 .homepage .homepage-content {

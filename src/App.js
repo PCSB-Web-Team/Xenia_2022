@@ -10,21 +10,20 @@ import Sidebar from "./components/sidebar";
 import Schedule from "./pages/schedule/schedule";
 import Events from "./pages/events/events";
 import IndustryTalks from "./pages/industryTalks/industryTalks";
-
-// import SideEvents from './pages/sideEvents/sideEvents';
-import EventDetails from "./pages/eventDetails/eventDetails";
+import Profile from "./pages/profile/profile";
+import SideEvents from './pages/sideEvents/sideEvents';
+// import EventDetails from "./pages/eventDetails/eventDetails";  //! react-reveal deprecated after react v16, we can use framer-motion for the same
 // import Cart from './pages/cart/cart';
 import ContactUs from "./pages/contactUs/contactUs";
 import Sponsors from "./pages/sponsors/sponsors";
-import WebTeam from './pages/webTeam/webTeam';
+// import WebTeam from './pages/webTeam/webTeam';
 import ErrorPage from './pages/404/Error';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import { AuthVerify } from "./utils/authVerify";  //! Don't import now, it's broken
 import ProtectedRoute from "./routes/protectedRoute";
-import "./App.css";
-import Profile from "./pages/profile/profile";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import "./App.css";
 
 function App() {
   const userState = useSelector(({ user }) => user);
@@ -48,19 +47,24 @@ function App() {
         <Sidebar />
         <ContactPanel />
         <Routes>
-          <Route path="/" element={<Homepage loader={<PreLoader />} />} />
+          <Route path="/" element={
+            <PageBackground>
+              <Homepage loader={<PreLoader />} />
+            </PageBackground>
+          } />
           <Route path="/auth" element={<Auth loader={<Loader />} />} />
           <Route path="/schedule" element={<Schedule loader={<Loader />} />} />
           <Route path="/events" element={<Events loader={<Loader />} />} />
+          <Route path="/side-events" element={<SideEvents loader={<Loader />} />} />
           <Route path="/industry-talks" element={
             <PageBackground>
               <IndustryTalks loader={<Loader />} />
             </PageBackground>
           } />
-          <Route
+          {/* <Route
             path="/event-details"
             element={<EventDetails loader={<Loader />} />}
-          />
+          /> */}
           <Route path="/profile" element={<Profile loader={<Loader />} />} />
           {/* <Route path="/cart" element={<Cart loader={<Loader />} />} /> */}
           <Route path="/sponsors" element={<Sponsors loader={<Loader />} />} />

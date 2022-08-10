@@ -103,25 +103,24 @@
 }
 
 .more-info .platform {
-  font-family: 'SansBold';
+  font-family: "SansBold";
   color: rgba(0, 255, 255, 0.6);
-
 }
 
-.more-info .platform-details{
+.more-info .platform-details {
   color: rgba(0, 255, 255, 0.4);
   width: 100%;
   font-size: 20px;
   font-weight: 500;
 }
-.more-info .fees{
+.more-info .fees {
   color: rgba(0, 255, 255, 0.4);
   width: 100%;
   font-size: 20px;
   font-weight: 500;
 }
-.more-info .date{
-  font-family: 'SansBold';
+.more-info .date {
+  font-family: "SansBold";
   font-size: 20px;
   margin-bottom: 5px;
   color: rgba(255, 255, 255, 0.8);
@@ -151,14 +150,13 @@
 }
 
 .MoreInfo .suggestion {
-  
   margin: 0px;
   top: 0px;
   right: 0px;
 
   display: inline-block;
   position: absolute;
-  
+
   width: 50%;
   height: 100vh;
 
@@ -214,34 +212,32 @@
   margin-bottom: 20px;
 }
 
-.suggestion .suggestion-text{
+.suggestion .suggestion-text {
   font-family: SansBold;
   color: white;
   font-size: 16px;
   margin-bottom: 20px;
 }
 
-
-.already-registered{
-
+.already-registered {
+  -webkit-user-select: none;
   user-select: none;
-  font-family: 'SansBold';
+  font-family: "SansBold";
   color: rgb(0, 255, 0);
   font-weight: 600;
   font-size: 32px;
-
 }
 
-.registrations-closed{
+.registrations-closed {
+  -webkit-user-select: none;
   user-select: none;
-  font-family: 'SansBold';
+  font-family: "SansBold";
   color: rgb(255, 0, 0);
   font-weight: 600;
   font-size: 32px;
 }
 
 @media (max-width: 800px) {
-  
   .MoreInfo .more-info {
     width: 100%;
   }
@@ -266,5 +262,4 @@
     margin-block: 10px;
     height: fit-content;
   }
-
 }
