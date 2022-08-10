@@ -1,0 +1,14 @@
+@keyframes glowgreen {
+  0%,
+  100% {
+    box-shadow: 1px 1px #09a7115c, 0 0 20px 5px #0385175f,
+      inset 2px 2px #18ea385b;
+  }
+  50% {
+    box-shadow: 1px 1px #09a711, 0 0 20px 5px #038517, inset 2px 2px #18ea38;
+  }
+}
+
+.vedant_great_hai {
+  animation: glowgreen 5s ease-in-out infinite;
+}

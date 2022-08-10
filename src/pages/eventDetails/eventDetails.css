@@ -1,0 +1,265 @@
+/* @font-face {
+  src: url(../../../Assets/Fonts/Barlow-Light.ttf);
+  font-family: Barlow;
+}
+
+@font-face {
+  src: url(../../../Assets/Fonts/PTSans-Bold.ttf);
+  font-family: SansBold;
+} */
+
+.MoreInfo {
+  background: none;
+  background: radial-gradient(circle, rgba(15, 104, 131, 0.2), black);
+  position: relative;
+}
+
+.MoreInfo .more-info {
+  width: 50%;
+  display: inline-block;
+  background: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.MoreInfo .more-info .jumbotron {
+  background: none;
+  min-height: 100vh;
+  box-shadow: none;
+}
+
+.jumbotron {
+  animation-name: apear;
+  animation-duration: 1s;
+  transition: ease-out;
+  animation-iteration-count: 1;
+}
+
+@keyframes apear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.more-info .name {
+  width: 100%;
+  font-size: 2em;
+  font-family: SansBold;
+}
+
+.more-info .lead {
+  font-family: Barlow;
+}
+
+.more-info .jumbotron .logo {
+  width: 25%;
+  height: 200px;
+  min-width: 200px;
+  min-height: 200px;
+  transition: ease;
+}
+
+.more-info .jumbotron .logo {
+  animation-name: logoScaling;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  transition: ease-in-out;
+}
+
+@keyframes logoScaling {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.nav-link,
+.nav-link:hover {
+  outline: black;
+  border: black;
+  color: white;
+  background-color: black;
+  outline: none;
+}
+
+.more-info,
+.active {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.more-info.jumbotron .tab-pane {
+  margin-top: 10px;
+  min-height: 200px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.more-info .platform {
+  font-family: "SansBold";
+  color: rgba(0, 255, 255, 0.6);
+}
+
+.more-info .platform-details {
+  color: rgba(0, 255, 255, 0.4);
+  width: 100%;
+  font-size: 20px;
+  font-weight: 500;
+}
+.more-info .fees {
+  color: rgba(0, 255, 255, 0.4);
+  width: 100%;
+  font-size: 20px;
+  font-weight: 500;
+}
+.more-info .date {
+  font-family: "SansBold";
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.back-container {
+  overflow: hidden;
+  height: 30px;
+  width: 30px;
+  margin-top: 20px;
+  padding: 0px;
+  margin-left: 20px;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  z-index: 1;
+}
+
+.back-container:hover {
+  transition: ease-in 200ms;
+  transform: scale(1.5);
+}
+
+.back-container img {
+  height: 100%;
+  width: 100%;
+}
+
+.MoreInfo .suggestion {
+  margin: 0px;
+  top: 0px;
+  right: 0px;
+
+  display: inline-block;
+  position: absolute;
+
+  width: 50%;
+  height: 100vh;
+
+  padding: 32px;
+  padding-block: 5px;
+
+  /* padding-inline: 5vh; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.suggestion .card {
+  cursor: pointer;
+
+  background: black;
+  text-align: center;
+
+  width: 100%;
+
+  max-width: 500px;
+
+  /* width: 75%; */
+  /* height: 45vh; */
+
+  margin-block: 15px;
+
+  /* margin-block: 1.5vh;
+  margin-inline: 12.5%; */
+}
+
+.suggestion .card:hover {
+  transition: ease 1s;
+  scale: 1.2;
+  box-shadow: 0px 0px 0px 0px rgba(0, 255, 255, 0.2),
+    0 2px 50px 0px rgba(0, 255, 255, 0.2);
+}
+
+.suggestion .card .img-container {
+  background: linear-gradient(rgba(0, 238, 255, 0.377), rgb(0, 0, 0));
+  /* height: 50%; */
+  height: 200px;
+}
+
+.suggestion .card img {
+  height: 100%;
+  width: auto;
+}
+
+.suggestion h3 {
+  color: rgba(0, 255, 255, 0.8);
+  margin-bottom: 20px;
+}
+
+.suggestion .suggestion-text {
+  font-family: SansBold;
+  color: white;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.already-registered {
+  -webkit-user-select: none;
+  user-select: none;
+  font-family: "SansBold";
+  color: rgb(0, 255, 0);
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.registrations-closed {
+  -webkit-user-select: none;
+  user-select: none;
+  font-family: "SansBold";
+  color: rgb(255, 0, 0);
+  font-weight: 600;
+  font-size: 32px;
+}
+
+@media (max-width: 800px) {
+  .MoreInfo .more-info {
+    width: 100%;
+  }
+
+  .more-info {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+  }
+
+  .MoreInfo .suggestion {
+    width: 100%;
+    margin: 0px;
+    height: fit-content;
+    position: relative;
+  }
+
+  .suggestion .card {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    margin-block: 10px;
+    height: fit-content;
+  }
+}

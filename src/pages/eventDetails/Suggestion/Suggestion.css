@@ -1,0 +1,13 @@
+/* @font-face {
+    src: url(../../../../Assets/Fonts/PTSans-Bold.ttf);
+    font-family: SansBold;
+  }
+  
+  @font-face {
+    src: url(../../../../Assets/Fonts/Barlow-Light.ttf);
+    font-family: Barlow;
+  }
+   */
+  .card-body h3 {
+    font-family: SansBold;
+  }

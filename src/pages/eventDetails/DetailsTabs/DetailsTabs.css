@@ -1,0 +1,68 @@
+.mi-container{
+    margin-top: 10px;
+}
+
+.mi-details{
+    margin-top: 5px;
+    overflow-y: scroll;
+    min-height: 300px;
+    background-color: rgba(0,0,0,0.5);
+    text-align: justify;
+    padding: 20px;
+    padding-inline: 40px;
+    height: 400px;
+}
+
+.mi-container .mi-head{
+    display: flex;
+    background-color: black;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.mi-container .head-items{
+
+    transition: ease-in-out 500ms;
+
+    font-size: 20px;
+    padding-block: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 255, 255, 0);
+    width: 100%;
+}
+
+.mi-container .active-item{
+    color: aqua;
+    border-bottom: 1px solid aqua;
+}
+
+.mi-details .mi-content{
+    display: none;
+}
+
+.mi-details .active{
+    background: none;
+    display: block;
+}
+
+.mi-details::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* .mi-details::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.mi-details::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 247, 255, 0.418);
+} */
+
+.mi-details .details-tag{
+    font-family: 'SansBold';
+    color: rgba(0, 255, 255, 0.8);
+    margin-bottom: 10px;
+    font-size: 24px;
+    border-bottom: 1px solid aqua;
+}
