@@ -13,7 +13,7 @@ import IndustryTalks from "./pages/industryTalks/industryTalks";
 import Profile from "./pages/profile/profile";
 import SideEvents from './pages/sideEvents/sideEvents';
 // import EventDetails from "./pages/eventDetails/eventDetails";  //! react-reveal deprecated after react v16, we can use framer-motion for the same
-// import Cart from './pages/cart/cart';
+// import Cart from './pages/cart/cart';  //! Contains jquery, won't work
 import ContactUs from "./pages/contactUs/contactUs";
 import Sponsors from "./pages/sponsors/sponsors";
 // import WebTeam from './pages/webTeam/webTeam';

@@ -1,6 +1,11 @@
 import BlockchainSession from "../../assets/images/industry-talk-cover-blockchain-session.jpg";
 import CloudSession from "../../assets/images/industry-talk-cover-blockchain-session.jpg";
 import InternshipSession from "../../assets/images/industry-talk-cover-blockchain-session.jpg";
+import { useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Mousewheel, Pagination, Scrollbar } from "swiper";
 import "./industryTalks.css";
 
 function IndustryTalks() {
@@ -41,6 +46,27 @@ function IndustryTalks() {
         }
     ]
 
+    useEffect(() => {
+        const tooltips = document.querySelectorAll('.card_tooltip');
+        const talk_cards = document.querySelectorAll('.talk_card'); //returns NodeList, not an common array but iterable
+
+        Array.prototype.map.call(talk_cards, (talk_card, index) => (talk_card.addEventListener('mousemove', function (e) { moveTooltip(e, index) }, false)))
+
+        function moveTooltip(e, index) {
+            const tooltipDimensions = tooltips[index].getBoundingClientRect();
+            const actualTopLeftCorner = {
+                left: e.x - 370,
+                top: e.y - 270
+            }
+
+            if ((actualTopLeftCorner.left > tooltipDimensions.width * 0.001 && actualTopLeftCorner.top < 350 - tooltipDimensions.height)) { //* Additional conditions - (&& (actualTopLeftCorner.left < 800 - tooltipDimensions.width && actualTopLeftCorner.top > tooltipDimensions.height * 0.001))
+                //* but causes stuck rendering
+                tooltips[index].style.left = actualTopLeftCorner.left + 'px';
+                tooltips[index].style.top = actualTopLeftCorner.top + 'px';
+            }
+        }
+    })
+
     return (
         <div className="industry-talks-page">
             <h1 className="industry-talks-title">INDUSTRY TALKS</h1>
@@ -72,6 +98,69 @@ function IndustryTalks() {
                         </div>
                     </div>
                     <div className="blur_back card_back" style={{ "backgroundImage": `url(${importedCoverImages[talkData.coverImage]})` }}></div>
+                    <span className="card_tooltip">
+                        <Swiper
+                            className="mySwiper1 swiper-h"
+                            direction={"horizontal"}
+                            slidesPerView={"auto"}
+                            centeredSlides={true}
+                            spaceBetween={30}
+                            mousewheel={true}
+                            grabCursor={true}
+                            pagination={{
+                                clickable: true
+                            }}
+                            modules={[Mousewheel, Pagination]}
+                        >
+                            <SwiperSlide>
+                                <h2 className="company_tabs_header">Company Details</h2>
+                                <a className="company_link" href="https://ethereum.org/en/" target="_blank" rel="noreferrer">
+                                    <h3>Blockchain Technology</h3>
+                                    <p className="company_details">As a blockchain network, Ethereum is a decentralized public ledger for verifying and recording transactions. The network's users can create, publish, monetize, and use applications on the platform, and use its Ether cryptocurrency as payment.</p>
+                                </a>
+                                <h3 className="company_social_link">Social Links</h3>
+                                <a className="social_handle_icon" href="https://ethereum.org/en/" target="_blank" rel="noreferrer">🌐</a>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <h2 className="company_tabs_header">Speaker's Info</h2>
+                                <a href="https://linkedin.com/in/" target="_blank" rel="noreferrer">
+                                    <img className="speaker_img" alt="speaker" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXd6EJkQahFb4SIb7OeTVPTJGIJ8H8R2kRmA&usqp=CAU" />
+                                    <h3 className="speaker_name">Dr. Awesome Speaker</h3>
+                                    <h4 className="speaker_designation">Consulting Partner & Digital Solutions Head Wipro Ltd</h4>
+                                </a>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <h2 className="company_tabs_header">Speaker's Info</h2>
+                                <h3 className="speaker_achievements_experiences">Achievements
+                                    <p>Patent on dynamic content creation (Patent number:10939143)</p>
+                                    <p>Built Platforms & Solutions in areas such as Fan engagement platform; Service assurance platform</p>
+                                    <p>Published thought papers in Wipro site and ICTAA</p>
+                                </h3>
+                                <h3 className="speaker_achievements_experiences">Experiences
+                                    <p>26+ years of global IT experience in solution sales, consulting, practice & delivery in key industry verticals</p>
+                                    <p>Experience in Strategy & Consulting</p>
+                                </h3>
+                            </SwiperSlide>
+                            {/* <SwiperSlide>
+                                <Swiper
+                                    className="mySwiper2 swiper-v"
+                                    direction={"vertical"}
+                                    spaceBetween={30}
+                                    mousewheel={true}
+                                    scrollbar={{
+                                        hide: false,
+                                    }}
+                                    modules={[Mousewheel, Scrollbar]}
+                                >
+                                    <SwiperSlide>
+                                        <h2 className="company_tabs_header">Speaker's Info</h2>
+                                        <img className="speaker_img" alt="speaker" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXd6EJkQahFb4SIb7OeTVPTJGIJ8H8R2kRmA&usqp=CAU" />
+                                        <h3 className="speaker_name">Awesome Speaker</h3>
+                                    </SwiperSlide>
+                                </Swiper>
+                            </SwiperSlide> */}
+                        </Swiper>
+                    </span>
                 </div>
             ))}
             <div className="industry-talks-bottom-image"></div>
