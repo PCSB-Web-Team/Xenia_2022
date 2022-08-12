@@ -1,6 +1,6 @@
-.industry-talks-page * {
-  /* border: 1px solid RED; */
-}
+/* .industry-talks-page * {
+  /* border: 1px solid RED;} */
+
 
 .industry-talks-page {
   position: relative;
@@ -245,8 +245,8 @@
   font-weight: 700;
 }
 
-.card_tooltip .swiper .swiper-slide .social_handle_icon {
-}
+/* .card_tooltip .swiper .swiper-slide .social_handle_icon {
+} */
 
 .card_tooltip .swiper .swiper-slide .speaker_img {
   margin: auto;

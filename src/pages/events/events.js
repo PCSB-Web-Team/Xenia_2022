@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./events.css";
 import purple1 from "../../assets/images/purple_base.png";
 import green1 from "../../assets/images/green_base.png";
@@ -7,85 +7,106 @@ import stars1 from "../../assets/images/stars1.png";
 import stars2 from "../../assets/images/stars2.png";
 
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { async } from "q";
 const Events = () => {
   const [status, setStatus] = useState(1);
-  const events = {
-    Technical: [
-      {
-        EventName: "Codestrike",
+ const [events, setEvents] = useState();
+  // const events = {
+  //   Technical: [
+  //     {
+  //       EventName: "Codestrike",
 
-        img: { purple1 },
-        logo: { codestrike },
-        event_slogan: "Lorem Ipsum is simply dummy text ",
-      },
-      {
-        EventName: "Ninja Coding",
+  //       img: { purple1 },
+  //       logo: { codestrike },
+  //       event_slogan: "Lorem Ipsum is simply dummy text ",
+  //     },
+  //     {
+  //       EventName: "Ninja Coding",
 
-        img: { green1 },
-        logo: { codestrike },
-        event_slogan: "Lorem Ipsum is simply dummy text ",
-      },
-      {
-        EventName: "Xenathon",
+  //       img: { green1 },
+  //       logo: { codestrike },
+  //       event_slogan: "Lorem Ipsum is simply dummy text ",
+  //     },
+  //     {
+  //       EventName: "Xenathon",
 
-        img: { purple1 },
-        logo: { codestrike },
-        event_slogan: "Lorem Ipsum is simply dummy text ",
-      },
-      {
-        EventName: "Hacker House",
+  //       img: { purple1 },
+  //       logo: { codestrike },
+  //       event_slogan: "Lorem Ipsum is simply dummy text ",
+  //     },
+  //     {
+  //       EventName: "Hacker House",
 
-        img: { green1 },
-        logo: { codestrike },
-        event_slogan: "Lorem Ipsum is simply dummy text ",
-      },
-      {
-        EventName: "Data Cup",
+  //       img: { green1 },
+  //       logo: { codestrike },
+  //       event_slogan: "Lorem Ipsum is simply dummy text ",
+  //     },
+  //     {
+  //       EventName: "Data Cup",
 
-        img: { purple1 },
-        logo: { codestrike },
-        event_slogan: "Lorem Ipsum is simply dummy text ",
-      },
-      {
-        EventName: "Campus to Corporate",
+  //       img: { purple1 },
+  //       logo: { codestrike },
+  //       event_slogan: "Lorem Ipsum is simply dummy text ",
+  //     },
+  //     {
+  //       EventName: "Campus to Corporate",
 
-        img: { green1 },
-        logo: { codestrike },
-        event_slogan: "Lorem Ipsum is simply dummy text ",
-      },
-      {
-        EventName: "Xe-Natus",
+  //       img: { green1 },
+  //       logo: { codestrike },
+  //       event_slogan: "Lorem Ipsum is simply dummy text ",
+  //     },
+  //     {
+  //       EventName: "Xe-Natus",
 
-        img: { purple1 },
-        logo: { codestrike },
-        event_slogan: "Lorem Ipsum is simply dummy text ",
-      },
-    ],
-    NonTechnical: [
-      {
-        EventName: "CricWars",
+  //       img: { purple1 },
+  //       logo: { codestrike },
+  //       event_slogan: "Lorem Ipsum is simply dummy text ",
+  //     },
+  //   ],
+  //   NonTechnical: [
+  //     {
+  //       EventName: "CricWars",
 
-        img: { green1 },
-        logo: { codestrike },
-        event_slogan: "Lorem Ipsum is simply dummy text ",
-      },
-      {
-        EventName: "Fandom",
+  //       img: { green1 },
+  //       logo: { codestrike },
+  //       event_slogan: "Lorem Ipsum is simply dummy text ",
+  //     },
+  //     {
+  //       EventName: "Fandom",
 
-        img: { purple1 },
-        logo: { codestrike },
-        event_slogan: "Lorem Ipsum is simply dummy text ",
-      },
-      {
-        EventName: "Treasure Hunt",
+  //       img: { purple1 },
+  //       logo: { codestrike },
+  //       event_slogan: "Lorem Ipsum is simply dummy text ",
+  //     },
+  //     {
+  //       EventName: "Treasure Hunt",
 
-        img: { green1 },
-        logo: { codestrike },
-        event_slogan: "Lorem Ipsum is simply dummy text ",
-      },
-    ],
-  };
+  //       img: { green1 },
+  //       logo: { codestrike },
+  //       event_slogan: "Lorem Ipsum is simply dummy text ",
+  //     },
+  //   ],
+  // };
+const headers = {
+  "Content-Type": "application/json",
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': '*',
 
+  
+};
+  useEffect(()=>{
+   axios
+     .get('https://xenia-2022.herokuapp.com/api/events'
+       
+     )
+     .then((res) => {
+       console.log("After get request:", res.data);
+     })
+     .catch((err) => {
+       console.log("Error in get req:", err);
+     });
+},[])
   return (
     <body className="bg-slate-900">
       <div className="Events">
@@ -122,7 +143,7 @@ const Events = () => {
               {/* <h1 className="text-purple-400 text-center text-2xl text-sebold">
                 Technical
               </h1> */}
-              {events.Technical.map((member, i) => (
+              {/* {events.Technical.map((member, i) => (
                 <div key={`member${i}`}  className="Eventcard w-[320px] h-auto transition-all   inline-block m-4 cursor-pointer rounded-xl">
                   <Link
                     to={`/event-details/`}
@@ -146,14 +167,14 @@ const Events = () => {
                     </h4>
                   </Link>{" "}
                 </div>
-              ))}
+              ))} */}
             </div>
           ) : (
             <div className="text-center">
               {/* <h1 className="text-lime-400 text-center text-2xl text-bold">
                 Non-Technical
               </h1> */}
-              {events.NonTechnical.map((member, i) => (
+              {/* {events.NonTechnical.map((member, i) => (
                 <div
                   key={`member${i}`}
                   className="Eventcard w-[320px] h-auto transition-all p-3  inline-block m-4 cursor-pointer rounded-xl   "
@@ -183,7 +204,7 @@ const Events = () => {
                     </h4>
                   </Link>
                 </div>
-              ))}{" "}
+              ))}{" "} */}
             </div>
           )}
         </div>
