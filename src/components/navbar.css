@@ -752,3 +752,25 @@ label {
     transform: translateY(-100%);
   }
 }
+.hexagon-menu-mobile{
+  display: none;
+  z-index:9999;
+  
+}
+@media (max-width:768px){
+  .hexagon-menu{
+    /* display:flex;
+    flex-direction: column;
+    width:100%;
+    margin: auto;
+    justify-content: center; */
+    visibility: hidden;
+  }
+  .hexagon-menu-mobile{
+    display: block;
+    margin: 0;
+    
+
+  }
+}
+

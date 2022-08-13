@@ -31,11 +31,15 @@ export class Navbar extends Component {
           >
             <div>
               <div className="pt-table desktop-768">
-                <div className="pt-tablecell page-home relative justify-center px-56">
+                <div className="pt-tablecell page-home relative justify-center lg:pl-44 lg:pr-32 md:pl-8 md:pr-4 ">
                   {/* <div className="pt-tablecell page-home relative" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80)', backgroundPosition: 'center', backgroundSize: 'cover'}}> */}
                   <div className="overlay_nav" />
 
-                  <div className="hexagon-menu clear justify-items-center col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+                  <div className="hexagon-menu-mobile text-white text-4xl text-center font-mono font-extrabold ">
+                    Hello world
+                  </div>
+
+                  <div className="hexagon-menu clear m-auto  justify-items-center justify-center col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
                     <div className="hexagon-item">
                       <div className="hex-item">
                         <div />
