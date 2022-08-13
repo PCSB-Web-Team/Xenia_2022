@@ -22,15 +22,16 @@ export const userSlice = createSlice({
             [state.loading]: true
         }))
         builder.addCase(loginUser.fulfilled, (state, { payload: { data } }) => {
-            if (data.status) localStorage.setItem(process.env.REACT_APP_LOGIN_ID, data.data._id) //! temporarily setting token as mongo _id, because user.token is not getting sent in response object
+            if (data.status)
+                localStorage.setItem(process.env.REACT_APP_LOGIN_ID, data.data._id) //! temporarily setting token as mongo _id, because user.token is not getting sent in response object
             return {
                 loading: false,
                 userDetails: {
-                    "name": data.data.name || null,
-                    "mobile": data.data.mobile || null
+                    "name": data.data?.name || null,
+                    "mobile": data.data?.mobile || null
                 },
                 loggedIn: true,
-                error: data.error || null
+                error: data?.error || null
             }
         })
         builder.addCase(loginUser.rejected, state => {
@@ -51,11 +52,11 @@ export const userSlice = createSlice({
             return {
                 loading: false,
                 userDetails: {
-                    "name": data.data.name || null,
-                    "mobile": data.data.mobile || null
+                    "name": data.data?.name || null,
+                    "mobile": data.data?.mobile || null
                 },
                 loggedIn: true,
-                error: data.error || null
+                error: data?.error || null
             }
         })
         builder.addCase(registerUser.rejected, state => {
