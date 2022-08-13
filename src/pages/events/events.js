@@ -11,7 +11,9 @@ import axios from "axios";
 import { async } from "q";
 const Events = () => {
   const [status, setStatus] = useState(1);
- const [events, setEvents] = useState();
+//  const [events, setEvents] = useState([]);
+ const [techEvents, setTechEvents] = useState([]);
+ const [nonTechEvents, setNonTechEvents] = useState([]);
   // const events = {
   //   Technical: [
   //     {
@@ -97,15 +99,26 @@ const headers = {
 };
   useEffect(()=>{
    axios
-     .get('https://xenia-2022.herokuapp.com/api/events'
+     .get('https://xenia-2022.herokuapp.com/api/events')
        
-     )
+     
      .then((res) => {
        console.log("After get request:", res.data);
+      //  setEvents(res.data.data)
+       let tech = [];
+        let nonTech = [];
+
+        tech = res.data.data.filter((eve) => eve.isTechnical);
+        nonTech = res.data.data.filter((eve) => !eve.isTechnical);
+
+        setTechEvents(tech);
+        setNonTechEvents(nonTech);
+      
      })
      .catch((err) => {
        console.log("Error in get req:", err);
      });
+
 },[])
   return (
     <body className="bg-slate-900">
@@ -143,8 +156,11 @@ const headers = {
               {/* <h1 className="text-purple-400 text-center text-2xl text-sebold">
                 Technical
               </h1> */}
-              {/* {events.Technical.map((member, i) => (
-                <div key={`member${i}`}  className="Eventcard w-[320px] h-auto transition-all   inline-block m-4 cursor-pointer rounded-xl">
+              {techEvents.map((event) => (
+                <div
+                  key={event._id}
+                  className="Eventcard w-[320px] h-auto transition-all   inline-block m-4 cursor-pointer rounded-xl"
+                >
                   <Link
                     to={`/event-details/`}
                     onClick={() => console.log("heloo")}
@@ -154,29 +170,29 @@ const headers = {
                       <img src={stars2} alt="str2" className="str2 absolute" />
                     </div>
                     <div className="logo pt-12">
-                      <img src={codestrike} alt="logo" />
+                      <img src={event.logo} alt="logo" />
                     </div>
                     <div className="base">
                       <img src={purple1} alt="base" />
                     </div>
                     <h3 className="event_heading text-white text-3xl pt-5">
-                      {member.EventName}
+                      {event.name}
                     </h3>
                     <h4 className="event_discription text-white pt-1">
-                      {member.event_slogan}
+                      {event.name}
                     </h4>
                   </Link>{" "}
                 </div>
-              ))} */}
+              ))}
             </div>
           ) : (
             <div className="text-center">
               {/* <h1 className="text-lime-400 text-center text-2xl text-bold">
                 Non-Technical
               </h1> */}
-              {/* {events.NonTechnical.map((member, i) => (
+              {nonTechEvents.map((event) => (
                 <div
-                  key={`member${i}`}
+                  key={event._id}
                   className="Eventcard w-[320px] h-auto transition-all p-3  inline-block m-4 cursor-pointer rounded-xl   "
                 >
                   <Link
@@ -188,23 +204,20 @@ const headers = {
                       <img src={stars2} alt="str2" className="str2 absolute" />
                     </div>
                     <div className="logo pt-12">
-                      <img
-                        src={codestrike}
-                        alt="logo"
-                      />
+                      <img src={event.logo} alt="logo" />
                     </div>
                     <div className="base">
                       <img src={green1} alt="base" />
                     </div>
                     <h3 className="event_heading text-white text-3xl pt-5">
-                      {member.EventName}
+                      {event.name}
                     </h3>
                     <h4 className="event_discription text-white pt-1">
-                      {member.event_slogan}
+                      {event.details}
                     </h4>
                   </Link>
                 </div>
-              ))}{" "} */}
+              ))}{" "}
             </div>
           )}
         </div>
