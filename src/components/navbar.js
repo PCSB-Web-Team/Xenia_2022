@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import "./navbar.css";
 
 export class Navbar extends Component {
@@ -35,8 +35,77 @@ export class Navbar extends Component {
                   {/* <div className="pt-tablecell page-home relative" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80)', backgroundPosition: 'center', backgroundSize: 'cover'}}> */}
                   <div className="overlay_nav" />
 
-                  <div className="hexagon-menu-mobile text-white text-4xl text-center font-mono font-extrabold ">
-                    Hello world
+                  <div className="hexagon-menu-mobile text-white text-3xl  font-mono font-bold pt-12  ">
+                    
+                      <ul class="fa-ul">
+                        <li>
+                          <a className="" href="/">
+                            <span class="fa-li">
+                              <i class="fas fa-home"></i>
+                            </span>
+                            Home
+                          </a>
+                        </li>
+                        <li className="pt-4">
+                          <a className="" href="/schedule">
+                            <span class="fa-li">
+                              <i class="fas fa-calendar-alt pt-4"></i>
+                            </span>
+                            Schedule{" "}
+                          </a>
+                        </li>
+                        <li className="pt-4">
+                          <a className="" href="/events">
+                            <span class="fa-li">
+                              <i class="fa fa-trophy pt-4"></i>
+                            </span>
+                            Events
+                          </a>
+                        </li>
+                        <li className="pt-4">
+                          <a className="" href="/side-events">
+                            <span class="fa-li">
+                              <i class="fas fa-camera pt-4"></i>
+                            </span>
+                            BuildUp Events
+                          </a>
+                        </li>
+                        <li className="pt-4">
+                          <a className="" href="/industry-talks">
+                            <span class="fa-li">
+                              <i class="fas fa-microphone-stand pt-4"></i>
+                            </span>
+                            Industry Talks
+                          </a>
+                        </li>
+
+                        <li className="pt-4">
+                          <a className="" href="/sponsors">
+                            <span class="fa-li">
+                              <i class="fas fa-handshake pt-4"></i>
+                            </span>
+                            Sponsors
+                          </a>
+                        </li>
+
+                        <li className="pt-4">
+                          <a className="" href="/profile">
+                            <span class="fa-li">
+                              <i class="fas fa-id-badge pt-4"></i>
+                            </span>
+                            Profile
+                          </a>
+                        </li>
+                        <li className="pt-4">
+                          <a className="" href="/contact-us">
+                            <span class="fa-li">
+                              <i class="fas fa-phone pt-4"></i>
+                            </span>
+                            Contact-us
+                          </a>
+                        </li>
+                      </ul>
+                  
                   </div>
 
                   <div className="hexagon-menu clear m-auto  justify-items-center justify-center col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
@@ -147,7 +216,7 @@ export class Navbar extends Component {
                         <div />
                         <div />
                       </div>
-                      <a className="hex-content" href="/">
+                      <a className="hex-content" href="/side-events">
                         <span className="hex-content-inner">
                           <span className="icon">
                             <i className="fa fa-camera" />
@@ -282,10 +351,7 @@ export class Navbar extends Component {
         />
       </div>
     );
-
-
   }
 }
 
-export default Navbar
-
+export default Navbar;

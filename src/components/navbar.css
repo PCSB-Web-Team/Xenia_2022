@@ -178,6 +178,7 @@ label {
 .overlay_nav {
   position: fixed;
   left: 0;
+  right: 0;
   top: 0;
   /* bottom: -10px; */
   /* bottom: 50px; */
@@ -773,4 +774,7 @@ label {
 
   }
 }
-
+/* .hexagon-menu-mobile:hover {
+  color: rgb(9, 211, 252);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(86, 7, 223, 0.9);
+} */
