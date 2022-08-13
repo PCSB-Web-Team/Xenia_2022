@@ -87,7 +87,8 @@ const headers = {
                 >
                   <Link
                     to={`/events/${event._id}`}
-                    onClick={() => console.log("heloo")}
+                    // onClick={() => console.log("heloo")}
+                    onClick={() => (document.documentElement.scrollTop = 0)}
                   >
                     <div className="Eventcard_stars pb-16">
                       <img src={stars1} alt="str1" className="str1 absolute" />
@@ -121,7 +122,8 @@ const headers = {
                 >
                   <Link
                     to={`/events/${event._id}`}
-                    onClick={() => console.log("heloo")}
+                    // onClick={() => console.log("heloo")}
+                    onClick={() => (document.documentElement.scrollTop = 0)}
                   >
                     <div className="Eventcard_stars pb-20">
                       <img src={stars1} alt="str1" className="str1 absolute" />

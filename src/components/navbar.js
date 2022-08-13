@@ -25,9 +25,10 @@ export class Navbar extends Component {
         </label>
         {this.state.current ? (
           <main
-            className={`site-wrapper ${
-              !this.state.current && "close-site-wrapper"
-            }`}
+            className="site-wrapper"
+            // this.state.current === false
+            //   ? "close-site-wrapper"
+            //   : "site-wrapper"
           >
             <div>
               <div className="pt-table desktop-768">
@@ -36,76 +37,74 @@ export class Navbar extends Component {
                   <div className="overlay_nav" />
 
                   <div className="hexagon-menu-mobile text-white text-3xl  font-mono font-bold pt-12  ">
-                    
-                      <ul class="fa-ul">
-                        <li>
-                          <a className="" href="/">
-                            <span class="fa-li">
-                              <i class="fas fa-home"></i>
-                            </span>
-                            Home
-                          </a>
-                        </li>
-                        <li className="pt-4">
-                          <a className="" href="/schedule">
-                            <span class="fa-li">
-                              <i class="fas fa-calendar-alt pt-4"></i>
-                            </span>
-                            Schedule{" "}
-                          </a>
-                        </li>
-                        <li className="pt-4">
-                          <a className="" href="/events">
-                            <span class="fa-li">
-                              <i class="fa fa-trophy pt-4"></i>
-                            </span>
-                            Events
-                          </a>
-                        </li>
-                        <li className="pt-4">
-                          <a className="" href="/side-events">
-                            <span class="fa-li">
-                              <i class="fas fa-camera pt-4"></i>
-                            </span>
-                            BuildUp Events
-                          </a>
-                        </li>
-                        <li className="pt-4">
-                          <a className="" href="/industry-talks">
-                            <span class="fa-li">
-                              <i class="fas fa-microphone-stand pt-4"></i>
-                            </span>
-                            Industry Talks
-                          </a>
-                        </li>
+                    <ul class="fa-ul">
+                      <li>
+                        <a className="" href="/">
+                          <span class="fa-li">
+                            <i class="fas fa-home"></i>
+                          </span>
+                          Home
+                        </a>
+                      </li>
+                      <li className="pt-4">
+                        <a className="" href="/schedule">
+                          <span class="fa-li">
+                            <i class="fas fa-calendar-alt pt-4"></i>
+                          </span>
+                          Schedule{" "}
+                        </a>
+                      </li>
+                      <li className="pt-4">
+                        <a className="" href="/events">
+                          <span class="fa-li">
+                            <i class="fa fa-trophy pt-4"></i>
+                          </span>
+                          Events
+                        </a>
+                      </li>
+                      <li className="pt-4">
+                        <a className="" href="/side-events">
+                          <span class="fa-li">
+                            <i class="fas fa-camera pt-4"></i>
+                          </span>
+                          BuildUp Events
+                        </a>
+                      </li>
+                      <li className="pt-4">
+                        <a className="" href="/industry-talks">
+                          <span class="fa-li">
+                            <i class="fas fa-microphone-stand pt-4"></i>
+                          </span>
+                          Industry Talks
+                        </a>
+                      </li>
 
-                        <li className="pt-4">
-                          <a className="" href="/sponsors">
-                            <span class="fa-li">
-                              <i class="fas fa-handshake pt-4"></i>
-                            </span>
-                            Sponsors
-                          </a>
-                        </li>
+                      <li className="pt-4">
+                        <a className="" href="/sponsors">
+                          <span class="fa-li">
+                            <i class="fas fa-handshake pt-4"></i>
+                          </span>
+                          Sponsors
+                        </a>
+                      </li>
 
-                        <li className="pt-4">
-                          <a className="" href="/profile">
-                            <span class="fa-li">
-                              <i class="fas fa-id-badge pt-4"></i>
-                            </span>
-                            Profile
-                          </a>
-                        </li>
-                        <li className="pt-4">
-                          <a className="" href="/contact-us">
-                            <span class="fa-li">
-                              <i class="fas fa-phone pt-4"></i>
-                            </span>
-                            Contact-us
-                          </a>
-                        </li>
-                      </ul>
-                  
+                      <li className="pt-4">
+                        <a className="" href="/profile">
+                          <span class="fa-li">
+                            <i class="fas fa-id-badge pt-4"></i>
+                          </span>
+                          Profile
+                        </a>
+                      </li>
+                      <li className="pt-4">
+                        <a className="" href="/contact-us">
+                          <span class="fa-li">
+                            <i class="fas fa-phone pt-4"></i>
+                          </span>
+                          Contact-us
+                        </a>
+                      </li>
+                    </ul>
                   </div>
 
                   <div className="hexagon-menu clear m-auto  justify-items-center justify-center col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">

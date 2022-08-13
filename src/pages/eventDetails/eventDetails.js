@@ -37,12 +37,12 @@ const fetchData = async (props) => {
   try {
     const response = await axios.get(`https://xenia-2022.herokuapp.com/api/events/${id}`);
 
-    console.log("after fetch is: ",response.data);
+    // console.log("after fetch is: ",response.data);
 
     if (response.data.status) {
-      console.log("data response is:",response.data.data[0]);
+      // console.log("data response is:",response.data.data[0]);
       setDetails(() => response.data.data[0]);
-      console.log("details is: ",details);
+      // console.log("details is: ",details);
     }
   } catch (error) {
     console.log(error);
