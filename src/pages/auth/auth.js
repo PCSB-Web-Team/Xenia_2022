@@ -1,3 +1,4 @@
+import "./auth.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Validators } from "../../utils";
@@ -6,7 +7,6 @@ import * as Yup from "yup";
 import { useDispatch } from "react-redux/es/exports";
 import { loginUser, registerUser, logoutUser } from "../../store/middleware";
 import { calcLength } from "framer-motion";
-import "./auth.css";
 
 const Login = () => {
   const [mode, setMode] = useState("login");

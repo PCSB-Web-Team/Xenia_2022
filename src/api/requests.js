@@ -9,11 +9,17 @@ backend.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getI
 
 const signUp = async (data) => await backend.post("/auth/signup", data)
 
-const login = (data) => backend.post("/auth/login", data);
+const login = (data) => backend.post("/auth/login", data)
 
 //! Remain to be created at backend
 const getUserByToken = async () => await backend.get("/auth/token")
 //!
 
-const Requests = { signUp, login, getUserByToken }
+const getEvents = async () => await backend.get("/events")
+
+const getEventById = async (id) => await backend.get(`/events/${id}`)
+
+const createOrder = async (id) => await backend.get(`/events/createOrder/${id}`)  //* Check for Authentication header to authenticate every createOrder request
+
+const Requests = { signUp, login, getUserByToken, getEvents, getEventById, createOrder }
 export default Requests;

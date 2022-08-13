@@ -1,4 +1,3 @@
-import React from "react";
 import "./home.css";
 import hex_2xblock_left from "../../assets/images/Block_x2_Left_shadow.png";
 import hex_2xblock_right from "../../assets/images/Block_x2_Right_shadowless.png";

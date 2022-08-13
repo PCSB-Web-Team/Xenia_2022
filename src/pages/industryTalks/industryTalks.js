@@ -1,12 +1,12 @@
+import "./industryTalks.css";
+import "swiper/css";
 import BlockchainSession from "../../assets/images/industry-talk-cover-blockchain-session.jpg";
 import CloudSession from "../../assets/images/industry-talk-cover-blockchain-session.jpg";
 import InternshipSession from "../../assets/images/industry-talk-cover-blockchain-session.jpg";
 import { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 import "swiper/css/pagination";
 import { Mousewheel, Pagination, Scrollbar } from "swiper";
-import "./industryTalks.css";
 
 function IndustryTalks() {
     const isLive = false; //? test values
