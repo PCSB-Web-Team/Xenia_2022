@@ -1,72 +1,91 @@
 body.active-modal {
-    overflow-y: hidden;
-  }
-  
-  .btn-modal {
-    padding: 5px 15px;
-    display: block;
-    /* margin: 100px auto 0; */
-    margin: 30 px auto 0;
-    font-size: 18px;
-  }
-
-  .modal, .overlay {
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: fixed;
-  }
-
-
-  .overlay {
-    background: rgba(49,49,49,0.8);
-  }
-  .modal-content {
-    color: #fff;
-    position: absolute;
-    top: 47%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    line-height: 1.4;
-    background: #000;
-    padding: 14px 28px;
-    border-radius: 5px;
-    max-width:max-content;
-    min-width:min-content;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    opacity: 85%;
+  overflow-y: hidden;
 }
 
-  .close-modal {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 5px 7px;
+.btn-modal {
+  padding: 5px 15px;
+  display: block;
+  /* margin: 100px auto 0; */
+  margin: 30 px auto 0;
+  font-size: 18px;
+}
+
+.modal,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background: rgba(49, 49, 49, 0.8);
+}
+.modal-content {
+  color: #fff;
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #000;
+  padding: 14px 28px;
+  border-radius: 5px;
+  max-width: max-content;
+  min-width: min-content;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  opacity: 85%;
+}
+
+@media (max-width: 767px) {
+  .modal {
+    padding: 0 2rem;
   }
 
-  .modalshd-sde{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  .modal-content {
+    top: 0;
+    transform: translate(-50%, 0%);
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    max-height: 100vh !important;
+    height: 100vh !important;
+    width: 100% !important;
+    padding: 3rem 2rem 0 !important;
   }
+}
 
-  .modalsp-sde{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    list-style-type:square;
-  }
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 7px;
+}
 
-  .modal-content{
-    width:fit-content;
-    max-height:680px;
-    overflow-y:scroll;
-    scrollbar-color: rebeccapurple green;
-    scrollbar-width:unset;
-  }
+.modalshd-sde {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.modalsp-sde {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  list-style-type: square;
+}
+
+.modal-content {
+  width: fit-content;
+  max-height: 680px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: unset;
+}
