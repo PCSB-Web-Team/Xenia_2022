@@ -7,90 +7,80 @@ import Suggestion from "./Suggestion/Suggestion";
 import DetailsTab from "./DetailsTabs/DetailsTabs";
 import { useParams, Link, useHistory } from "react-router-dom";
 const EventDetails = (props) => {
-  const [details, setDetails] = useState();
-
+  const [details, setDetails] = useState({});
+  const [loading, setLoading] = useState(true);
   let { id } = useParams();
   // let history = useHistory();
-  console.log("Im here");
-  // axios
-  //   .get("https://xenia-2022.herokuapp.com/api/events/62e3ee205046b9fbe30f0326")
-  //   .then((res) => {
-  //     console.log("After get request:", res.data);
-  //     //  setEvents(res.data.data)
-  //     // const respons  e = res;
-  //   });
-  // useEffect(() => {
-  //   fetchData();
-  // }, [id]);
-  // const fetchData = async (props) => {
-  // try {
+  console.log("Im here",id);
 
-  // const response = await getEventDetails(id);
-
-  // console.log(response.data);
-
-  // if (response.data.ok) {
-  //   setDetails(() => response.data.data);
-  //   // console.log(details);
-  // }
-  // } catch (error) {
-  //   console.log(error);
-  //   // history.push("/events");
-  // }
-
-  // setLoading(false);
-  // });
-  const getEventDetails = (id) => {
-    return axios.get(
-      `https://xenia-2022.herokuapp.com/api/events/62e3ee205046b9fbe30f0326`
-    );
-  };
-
-  useEffect(() => {
-    fetchData();
-    // checkRegistered();
-  }, [id]);
-
-  const fetchData = async (props) => {
-    try {
-      const response = await getEventDetails(id);
-
-      console.log(response.data);
-
-      if (response.status) {
-        setDetails(() => response.data);
-        console.log(details);
-      }
-    } catch (error) {
-      // console.log(error);
-      // history.push("/events");
-    }
-
-    // setLoading(false);
-  };
-
+useEffect(() => {
+  fetchData();
   
+}, [id]);
 
-  console.log(details);
+const fetchData = async (props) => {
+  // axios.get(`https://xenia-2022.herokuapp.com/api/events/${id}`)
+  // .then((response)=>{
+  //   console.log(response);
+
+  //   if (response.data.status) {
+  //     console.log(response.data.data[0]);
+  //     let detail=response.data.data[0];
+  //     setDetails(detail);
+  //     console.log(details);
+  //   }
+  // })
+  // .catch (error =>{
+  //   console.log(error);
+  // })
+  // setLoading(false);
+  try {
+    const response = await axios.get(`https://xenia-2022.herokuapp.com/api/events/${id}`);
+
+    console.log("after fetch is: ",response.data);
+
+    if (response.data.status) {
+      console.log("data response is:",response.data.data[0]);
+      setDetails(() => response.data.data[0]);
+      console.log("details is: ",details);
+    }
+  } catch (error) {
+    console.log(error);
+    // history.push("/events");
+  }
+
+  setLoading(false);
+
+
+};
+
+
+  // console.log(details);
   return (
     <div className="MoreInfo">
-      {
+    {
+      loading ? (
+        <Loader />
+      ) : 
+      (
         <div className="more-info">
           <div className="jumbotron text-center py-2" id="main-detail">
+          <img className="logo" src={details.logo} alt="logo"></img>
             <h3 className="name">{details.name}</h3>
-            <h5 className="platform"> Platform </h5>
-            <div className="platform-details"> {details.platform} </div>
+            {/* <h5 className="platform"> Platform </h5>
+            <div className="platform-details"> {details.platform} </div> */}
             <p className="lead">{details.details}</p>
-            <button>Add to cart</button>
+            <button className="border-4 border-solid">Click here to Register</button>
 
             <hr className="my-1" />
             <DetailsTab details={details} />
-            <div className="fees"> {details.fees} </div>
+            <div className="fees"> Fees is {details.fees} </div>
           </div>
-          <Suggestion suggestions={details.suggestions}></Suggestion>
+          {/* <Suggestion suggestions={details.suggestions}></Suggestion> */}
         </div>
-      }
+      )}
     </div>
+  // <div>HELOO{details.name}</div>
   );
 };
 

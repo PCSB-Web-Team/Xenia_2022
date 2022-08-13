@@ -10,9 +10,9 @@ export default function DetailsTab(props) {
   const tab = "head-items";
   const det = "mi-content";
   const activeDet = "mi-content active";
-
+  console.log(props);
   return (
-
+    
     <div className='mi-container'>
       <div className='mi-head'>
         {/* <Zoom cascade> */}
@@ -23,21 +23,21 @@ export default function DetailsTab(props) {
       </div>
       <div className='mi-details'>
         {/* <Fade> */}
-          <div className={activeDetail === 0 ? activeDet : det}>
+          {/* <div className={activeDetail === 0 ? activeDet : det}>
             {props.details.rules.map((rule, i) => <p key={i}>{rule}</p>)}
-          </div>
-          <div className={activeDetail === 1 ? activeDet : det}>
+          </div> */}
+          {/* <div className={activeDetail === 1 ? activeDet : det}> */}
             {/* {props.details.dateDescription.split('&').map((date,i) => <p key={i}>{date}</p>)} */}
-            <hr/>
-            <div className='details-tag'> Contact </div>
-            {props.details.contacts.map((contact,i) => <p key={i}>{contact}</p>)}
-          </div>
-          <div className={activeDetail === 2 ? activeDet : det}>
+            {/* <hr/> */}
+            {/* <div className='details-tag'> Contact </div> */}
+            {/* {props.details.contacts.map((contact,i) => <p key={i}>{contact}</p>)} */}
+          {/* </div> */}
+          {/* <div className={activeDetail === 2 ? activeDet : det}>
             {props.details.prizes.map((prizes,i) => <p key={i}>{prizes}</p>)}
-          </div> 
+          </div>  */}
         {/* </Fade> */}
       </div>
     </div>
-
+    // <div>{props.details.details}</div>
   );
 }
