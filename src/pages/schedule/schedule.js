@@ -1,13 +1,13 @@
-import React from 'react';
+import './schedule.css';
+import { useEffect } from "react";
 import Timer from '../../components/countdownTimer';
 import EventDay from './scheduleComponents/eventDay.tsx';
-import './schedule.css';
 import event1Image from '../../assets/images/xeniaLogo.png';
 import event2Image from '../../assets/images/xeniaLogo.png';
 import event3Image from '../../assets/images/xeniaLogo.png';
 
 function Schedule() {
-    React.useEffect(() => {
+    useEffect(() => {
         document.getElementsByClassName('schedule-page-title')[0].addEventListener('mouseover', function (e) {
             var rXP = (e.pageX - this.offsetLeft - this.style.width / 2);
             var rYP = (e.pageY - this.offsetTop - this.style.height / 2);

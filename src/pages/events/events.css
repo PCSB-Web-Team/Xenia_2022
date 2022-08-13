@@ -1,10 +1,9 @@
 .Eventcard {
-  transition:  2.5s ease-in-out;
+  transition: 2.5s ease-in-out;
 }
 
-.Eventcard:hover .base{
+.Eventcard:hover .base {
   animation: glowbase 2.5s ease-in-out infinite;
-  
 }
 
 .Eventcard:hover .logo {
@@ -13,57 +12,50 @@
 /* .Eventcard:hover .logo::after {
   animation: float 2.5s ease-in-out infinite;
 } */
-
-.logo{
+.Eventcard .logo {
   max-width: 65%;
   max-height: 65%;
   vertical-align: middle;
-    display: inline-block;
-    position: relative;
-  
+  display: inline-block;
+  position: relative;
 }
 
-.Eventcard:hover .str1{
+.Eventcard:hover .str1 {
   visibility: visible;
   animation: fadeOut2 2.5s ease-in-out infinite;
 }
+
 .Eventcard:hover .st {
   visibility: visible;
   animation: fadeOut1 2.5s ease-in-out infinite;
 }
 
-.str1{
+.str1 {
   visibility: hidden;
 }
-.str2{
+.str2 {
   opacity: 0.75;
 }
 
 @keyframes float {
   0% {
-    
     transform: translatey(0px);
   }
-
-  
   50% {
     transform: translatey(-20px);
   }
-    100% {
-      
-      transform: translatey(0px);
-    }
+  100% {
+    transform: translatey(0px);
+  }
 }
 
 @keyframes glowbase {
   0% {
     filter: brightness(1);
   }
-
   50% {
     filter: brightness(1.25);
   }
-
   100% {
     filter: brightness(1);
   }
@@ -73,11 +65,10 @@
   0% {
     opacity: 1;
   }
-
   50% {
     opacity: 0;
   }
-  100%{
+  100% {
     opacity: 1;
   }
 }
@@ -86,29 +77,18 @@
   0% {
     opacity: 0;
   }
-
   50% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
   }
 }
 
-
-
-
-
-
-
-
 .tabs {
   top: 10px;
   padding: 5px;
-
   font-family: SansBold;
-
   margin: auto;
   margin-top: 10px;
   width: 100%;
@@ -150,4 +130,3 @@
   color: rgb(9, 211, 252);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(86, 7, 223, 0.9);
 }
-
