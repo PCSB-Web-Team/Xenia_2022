@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './DetailsTabs.css';
-import { Fade, Zoom } from 'react-reveal';
+// import { Fade, Zoom } from 'react-reveal';
 
 export default function DetailsTab(props) {
 
@@ -15,14 +15,14 @@ export default function DetailsTab(props) {
 
     <div className='mi-container'>
       <div className='mi-head'>
-        <Zoom cascade>
+        {/* <Zoom cascade> */}
           <div className={activeDetail === 0 ? activeTab : tab} onClick={() => { setactiveDetail(0) }}>Rules</div>
           <div className={activeDetail === 1 ? activeTab : tab} onClick={() => { setactiveDetail(1) }}>Schedule</div>
           <div className={activeDetail === 2 ? activeTab : tab} onClick={() => { setactiveDetail(2) }}>Prizes</div>
-        </Zoom>
+        {/* </Zoom> */}
       </div>
       <div className='mi-details'>
-        <Fade>
+        {/* <Fade> */}
           <div className={activeDetail === 0 ? activeDet : det}>
             {props.details.rules.map((rule, i) => <p key={i}>{rule}</p>)}
           </div>
@@ -35,7 +35,7 @@ export default function DetailsTab(props) {
           <div className={activeDetail === 2 ? activeDet : det}>
             {props.details.prizes.map((prizes,i) => <p key={i}>{prizes}</p>)}
           </div> 
-        </Fade>
+        {/* </Fade> */}
       </div>
     </div>
 

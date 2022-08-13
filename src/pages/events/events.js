@@ -162,7 +162,7 @@ const headers = {
                   className="Eventcard w-[320px] h-auto transition-all   inline-block m-4 cursor-pointer rounded-xl"
                 >
                   <Link
-                    to={`/event-details/`}
+                    to={`/events/${event._id}`}
                     onClick={() => console.log("heloo")}
                   >
                     <div className="Eventcard_stars pb-16">
@@ -196,7 +196,7 @@ const headers = {
                   className="Eventcard w-[320px] h-auto transition-all p-3  inline-block m-4 cursor-pointer rounded-xl   "
                 >
                   <Link
-                    to={`/event-details/`}
+                    to={`/events/${event._id}`}
                     onClick={() => console.log("heloo")}
                   >
                     <div className="Eventcard_stars pb-20">
@@ -213,7 +213,7 @@ const headers = {
                       {event.name}
                     </h3>
                     <h4 className="event_discription text-white pt-1">
-                      {event.details}
+                      {event.name}
                     </h4>
                   </Link>
                 </div>
