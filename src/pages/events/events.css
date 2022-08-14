@@ -1,132 +1,22 @@
-.Eventcard {
-  transition: 2.5s ease-in-out;
+.event-card .event-card-body {
+  animation-name: shade;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  transition-delay: -3s;
 }
 
-.Eventcard:hover .base {
-  animation: glowbase 2.5s ease-in-out infinite;
-}
-
-.Eventcard:hover .logo {
-  animation: float 2.5s ease-in-out infinite;
-}
-/* .Eventcard:hover .logo::after {
-  animation: float 2.5s ease-in-out infinite;
-} */
-.Eventcard .logo {
-  max-width: 65%;
-  max-height: 65%;
-  vertical-align: middle;
-  display: inline-block;
-  position: relative;
-}
-
-.Eventcard:hover .str1 {
-  visibility: visible;
-  animation: fadeOut2 2.5s ease-in-out infinite;
-}
-
-.Eventcard:hover .st {
-  visibility: visible;
-  animation: fadeOut1 2.5s ease-in-out infinite;
-}
-
-.str1 {
-  visibility: hidden;
-}
-.str2 {
-  opacity: 0.75;
-}
-
-@keyframes float {
+@keyframes shade {
   0% {
-    transform: translatey(0px);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+      0 6px 100px 0 rgba(0, 255, 255, 0);
   }
+
   50% {
-    transform: translatey(-20px);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 100px 0 #007a93;
   }
+
   100% {
-    transform: translatey(0px);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+      0 6px 100px 0 rgba(0, 255, 255, 0);
   }
-}
-
-@keyframes glowbase {
-  0% {
-    filter: brightness(1);
-  }
-  50% {
-    filter: brightness(1.25);
-  }
-  100% {
-    filter: brightness(1);
-  }
-}
-
-@keyframes fadeOut1 {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut2 {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-.tabs {
-  top: 10px;
-  padding: 5px;
-  font-family: SansBold;
-  margin: auto;
-  margin-top: 10px;
-  width: 100%;
-  text-align: center;
-  background: none;
-}
-
-.tabs .active-tab1 {
-  transition: ease 500ms;
-  color: #00b4d8;
-  border: 2px solid #00b4d8;
-}
-
-.tabs .active-tab2 {
-  transition: ease 500ms;
-  color: #00b4d8;
-  border: 2px solid #00b4d8;
-}
-
-.tabs button {
-  margin-inline: 2%;
-  transition: ease 500ms;
-  min-width: 200px;
-  color: rgb(119, 119, 119);
-  font-size: 1.5em;
-  background: none;
-  outline: none;
-  border: none;
-  border-radius: 20px;
-  width: 25%;
-  border: 1px solid rgb(0, 124, 128);
-}
-
-.tabs button:focus {
-  outline: none;
-}
-
-.tabs button:hover {
-  color: rgb(9, 211, 252);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(86, 7, 223, 0.9);
 }

@@ -69,33 +69,31 @@ const Events = () => {
           Non-Technical
         </button>
       </div>
-      <div className="justify-evenly flex-wrap w-full xl:w-6/5 xl:mx-auto text-center">
-        <div className="text-center grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center">
-          {events.map((event) => (
-            <Link
-              to={`/events/${event._id}`}
-              onClick={() => (document.documentElement.scrollTop = 0)}
+      <div className="text-center grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center mx-auto md:w-5/6 p-4 gap-4">
+        {events.map((event) => (
+          <Link
+            to={`/events/${event._id}`}
+            onClick={() => (document.documentElement.scrollTop = 0)}
+          >
+            <div
+              key={event._id}
+              className="event-card group w-[450px] grid grid-cols-3 items-center h-auto min-h-[200px] backdrop-blur-md transition-all cursor-pointer overflow-hidden hover:scale-105 ease-in-out"
             >
-              <div
-                key={event._id}
-                className="group w-[450px] grid grid-cols-3 items-center h-auto min-h-[200px] backdrop-blur-md transition-all m-4 cursor-pointer overflow-hidden hover:scale-110 ease-in-out"
-              >
-                <div className=" p-4 h-full col-span-1 flex items-center bg-black/10">
-                  <img src={event.logo} className="max-h-full max-w-full"></img>
-                </div>
-                <div className=" p-4 h-full col-span-2 text-left bg-gradient-to-br from-cyan-800/10 to-black/80 space-y-2 text-gray-400 group-hover:bg-cyan-700 ">
-                  <div className="border-b border-slate-600 text-cyan-300 font-bold text-lg pb-2 group-hover:text-black">
-                    {event.name}
-                  </div>
-                  <div className="font-light text-sm h-[100px] overflow-auto group-hover:text-white">
-                    {event.details}
-                  </div>
-                  <div>{event.date}</div>
-                </div>
+              <div className=" p-4 col-span-1 flex items-center bg-black/10 h-[150px]">
+                <img src={event.logo} className="max-h-full max-w-full"></img>
               </div>
-            </Link>
-          ))}
-        </div>
+              <div className=" event-card-body p-4 h-full col-span-2 text-left bg-gradient-to-br from-cyan-800/10 to-black/80 space-y-2 text-gray-400 group-hover:bg-cyan-700 ">
+                <div className="border-b border-slate-600 text-cyan-400 font-bold text-lg pb-2 group-hover:text-black">
+                  {event.name}
+                </div>
+                <div className="font-light text-sm h-[100px] overflow-auto group-hover:text-white">
+                  {event.details}
+                </div>
+                <div>{event.date}</div>
+              </div>
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );
