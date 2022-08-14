@@ -1,9 +1,5 @@
 import "./events.css";
 import { useEffect, useState } from "react";
-import purple1 from "../../assets/images/purple_base.png";
-import green1 from "../../assets/images/green_base.png";
-import stars1 from "../../assets/images/stars1.png";
-import stars2 from "../../assets/images/stars2.png";
 import { Link } from "react-router-dom";
 import Request from "../../api/requests";
 
@@ -49,7 +45,6 @@ const Events = () => {
       </h1>
       <div className="flex space-x-8 justify-center  text-2xl font-thin tracking-widest text-gray-400 mb-2">
         <button
-          type="button1"
           onClick={() => {
             setEvents(techEvents);
             setStatus(1);
@@ -59,7 +54,6 @@ const Events = () => {
           Technical
         </button>
         <button
-          type="button2"
           onClick={() => {
             setEvents(nonTechEvents);
             setStatus(2);
