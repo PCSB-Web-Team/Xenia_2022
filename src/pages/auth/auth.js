@@ -19,9 +19,21 @@ const Login = () => {
     setMode((initial) => (initial === "login" ? "signup" : "login"));
   };
 
+  const validate = Yup.object({
+    email: Validators.emailRequired,
+    password: Yup.string().required("Password is required"),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref("password"), null], "Passwords must match")
+      .required("Enter Password"),
+    name: Validators.nameRequired,
+    mobile: Validators.mobileRequired,
+    branch: Validators.name,
+    college: Validators.name,
+  });
+
   return (
     <div class="h-screen w-full flex justify-center items-center">
-      <div className="w-[400px] p-4 bg-gray-500 space-y-2 font-thin">
+      <div className=" w-80 md:w-[400px] p-4 bg-gray-600/20 backdrop-blur-md space-y-2 font-thin">
         {mode === "login" ? (
           <Formik
             initialValues={{
@@ -31,6 +43,7 @@ const Login = () => {
               password: "",
               confirmPassword: "",
             }}
+            validationSchema={validate}
             onSubmit={async (values) => {
               // const requestBody = {}
               // Object.assign(requestBody, { email, name, mobile, password })
