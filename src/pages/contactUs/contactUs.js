@@ -1,9 +1,9 @@
+import "./contactUs.css";
 import PageBackground from "../../components/pageBackground";
 import { useSelector } from "react-redux/es/exports";
 import { Validators } from "../../utils";
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
-import "./contactUs.css";
 
 function ContactUs() {
     const { userDetails: { name, mobile } } = useSelector(({ user }) => user);

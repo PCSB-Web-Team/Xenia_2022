@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import Request from "../utils/requests";
+import Request from "../api/requests";
 
 const loginUser = createAsyncThunk('user/loginUser', async requestBody => {
     return await Request.login(requestBody)
