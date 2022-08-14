@@ -101,7 +101,7 @@ export class Navbar extends Component {
                           <span class="fa-li">
                             <i class="fas fa-phone pt-4"></i>
                           </span>
-                          Contact-us
+                          Contact-Us
                         </a>
                       </li>
                     </ul>
