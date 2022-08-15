@@ -1,7 +1,8 @@
 import PreLoader from "./components/preloader";
 import Loader from "./components/loader";
 import PageBackground from "./components/pageBackground";
-import Navbar from "./components/navbar";
+// import Navbar from "./components/navbar";
+import Navbarnew from "./components/Navbarnew";
 import Homepage from "./pages/home/home";
 import Auth from "./pages/auth/auth";
 import Footer from "./components/footer";
@@ -43,7 +44,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Navbar />
+        <Navbarnew />
         <Sidebar />
         <ContactPanel />
         <Routes>
