@@ -23,7 +23,7 @@ export const userSlice = createSlice({
         }))
         builder.addCase(loginUser.fulfilled, (state, { payload: { data } }) => {
             if (data.status)
-                localStorage.setItem(process.env.REACT_APP_LOGIN_ID, data.data._id) //! temporarily setting token as mongo _id, because user.token is not getting sent in response object
+                localStorage.setItem(process.env.REACT_APP_TOKEN_NAME, data.data.token)
             return {
                 loading: false,
                 userDetails: {
@@ -35,7 +35,7 @@ export const userSlice = createSlice({
             }
         })
         builder.addCase(loginUser.rejected, state => {
-            localStorage.removeItem(process.env.REACT_APP_LOGIN_ID)
+            localStorage.removeItem(process.env.REACT_APP_TOKEN_NAME)
             return {
                 state: {},
                 [state.loggedIn]: false,
@@ -48,7 +48,7 @@ export const userSlice = createSlice({
             [state.loading]: true
         }))
         builder.addCase(registerUser.fulfilled, (state, { payload: { data } }) => {
-            if (data.status) localStorage.setItem(process.env.REACT_APP_LOGIN_ID, data.data._id) //! temporarily setting token as mongo _id, because user.token is not getting sent in response object
+            if (data.status) localStorage.setItem(process.env.REACT_APP_TOKEN_NAME, data.data._id) //! temporarily setting token as mongo _id, because user.token is not getting sent in response object
             return {
                 loading: false,
                 userDetails: {
@@ -60,7 +60,7 @@ export const userSlice = createSlice({
             }
         })
         builder.addCase(registerUser.rejected, state => {
-            localStorage.removeItem(process.env.REACT_APP_LOGIN_ID)
+            localStorage.removeItem(process.env.REACT_APP_TOKEN_NAME)
             return {
                 state: {},
                 [state.loggedIn]: false,

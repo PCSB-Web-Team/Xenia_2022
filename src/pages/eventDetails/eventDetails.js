@@ -60,7 +60,8 @@ const EventDetails = () => {
                       className="border-4 border-solid"
                       eventId={id}
                       userDetails={userState?.userDetails}
-                      eventName={details.name}
+                      eventDetails={details}
+                      buttonName="Register and Pay"
                     />
                 }
                 <hr className="my-1" />

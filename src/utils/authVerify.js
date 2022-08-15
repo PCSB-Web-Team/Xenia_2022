@@ -1,17 +1,16 @@
-import Request from "../utils/requests";
+import Request from "../api/requests";
 import { loginUser } from "../store/middleware";
-import { useDispatch } from "react-redux/es/exports";
+import store from "../store"
 
 export const AuthVerify = async ({ getCall }) => {
-    const token = localStorage.getItem(process.env.REACT_APP_LOGIN_ID) || null
-    const dispatchLoginReducer = useDispatch()
+    const token = localStorage.getItem(process.env.REACT_APP_TOKEN_NAME) || null
 
     if (token) {
-        return getCall ? (await Request.getUserByToken(token).then((res) => {
-            dispatchLoginReducer(loginUser(res.data.user)) //! Remain to be created at backend
+        return getCall ? (await Request.getUserByToken().then((res) => {
+            store.dispatch(loginUser(res.data.user)) //! Remain to be created at backend
             return res.data.user
         }).catch(error => {
-            console.error(error.message)
+            console.error(error)
             return false
         })) : true
     }
