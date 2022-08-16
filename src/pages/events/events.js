@@ -36,7 +36,7 @@ const Events = () => {
   }, []);
 
   return (
-    <div className="Events bg-gradient-to-bl from-black to-slate-800">
+    <div className="Events bg-gradient-to-bl">
       <h1
         className="title text-6xl font-semibold text-center text-white pb-12 "
         style={{ fontFamily: "Quicksand" }}
@@ -75,7 +75,7 @@ const Events = () => {
               </div>
               <div
                 key={event._id}
-                className="event-card w-[450px] grid grid-cols-3 items-center h-auto min-h-[200px] backdrop-blur-md cursor-pointer overflow-hidden"
+                className="event-card w-96 md:w-[450px] grid grid-cols-3 items-center h-auto min-h-[200px] backdrop-blur-md cursor-pointer overflow-hidden"
               >
                 <div className=" p-4 col-span-1 flex items-center bg-black/60 h-[150px]">
                   <img src={event.logo} className="max-h-full max-w-full"></img>
