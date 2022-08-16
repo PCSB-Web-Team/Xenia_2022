@@ -1,7 +1,8 @@
 import PreLoader from "./components/preloader";
 import Loader from "./components/loader";
 import PageBackground from "./components/pageBackground";
-import Navbar from "./components/navbar";
+// import Navbar from "./components/navbar";
+import Navbarnew from "./components/Navbarnew";
 import Homepage from "./pages/home/home";
 import Auth from "./pages/auth/auth";
 import Footer from "./components/footer";
@@ -45,16 +46,17 @@ function App() {
     <div>
       <BrowserRouter>
         <Background></Background>
-        <Navbar />
+        {/* <Navbar /> */}
+        <Navbarnew />
         <Sidebar />
         <ContactPanel />
         <Routes>
           <Route
             path="/"
             element={
-              <PageBackground>
+              // <PageBackground>
                 <Homepage loader={<PreLoader />} />
-              </PageBackground>
+              // {/* </PageBackground> */}
             }
           />
           <Route path="/auth" element={<Auth loader={<Loader />} />} />
