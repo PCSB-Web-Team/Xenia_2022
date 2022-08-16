@@ -55,7 +55,7 @@ function App() {
             path="/"
             element={
               // <PageBackground>
-                <Homepage loader={<PreLoader />} />
+              <Homepage loader={<PreLoader />} />
               // {/* </PageBackground> */}
             }
           />
