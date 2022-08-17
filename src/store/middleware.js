@@ -10,7 +10,7 @@ const registerUser = createAsyncThunk('user/registerUser', async requestBody => 
 })
 
 const logoutUser = createAsyncThunk('user/logoutUser', async () => {
-    localStorage.removeItem(process.env.REACT_APP_LOGIN_ID)
+    localStorage.removeItem(process.env.REACT_APP_TOKEN_NAME)
 })
 
 export { loginUser, registerUser, logoutUser };

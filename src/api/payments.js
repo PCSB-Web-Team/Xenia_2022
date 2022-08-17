@@ -4,25 +4,25 @@ import { useEffect } from "react";
 const PayByRazor = (props) => {
 
     const openPaymentModal = async () => {
-        const { data: { key, amount, id } } = await Request.createOrder(props.eventId).then(res => res.data).catch(error => {
+        const { data: { amount, id, userId } } = await Request.createOrder(props?.eventId || "").then(res => res.data).catch(error => {
             console.error(error)
         })
 
         const options = {
-            key,
+            key: process.env.REACT_APP_RAZORPAY_KEY,
             amount,
             currency: "INR",
             name: "PCSB Xenia 2022",
-            description: "Registration payment for the event " + props.eventName,
+            description: "Registration payment for the event " + props.eventDetails?.eventName || "",
             order_id: id,
-            callback_url: `${process.env.REACT_APP_API_URL}/event/payment-verification`, //* request to this endpoint containing this object {razorpay_order_id, razorpay_payment_id, razorpay_signature}
+            callback_url: `${process.env.REACT_APP_API_URL}/event/payment-verification`, //* razorpay's server request to this endpoint containing this req.body:{razorpay_order_id, razorpay_payment_id, razorpay_signature}
             prefill: {
-                name: props.userDetails.name,
-                contact: props.userDetails.mobile
+                name: props.userDetails?.name || "",
+                contact: props.userDetails?.mobile || ""
             },
             notes: {
-                "address": "PICT, Dhankawadi, Pune",
-                "contact": "Satyajit Roy | Vedant Daigavane"
+                eventId: props?.eventID || "",
+                userId
             },
             theme: {
                 "color": "#A020F0"
@@ -42,7 +42,7 @@ const PayByRazor = (props) => {
 
     return (
         <>
-            <button className={props.className} onClick={openPaymentModal}>Register</button>
+            <button className={props.className} onClick={openPaymentModal}>{props.buttonName}</button>
         </>
     )
 }
