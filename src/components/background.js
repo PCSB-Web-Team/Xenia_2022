@@ -10,9 +10,9 @@ export default function Background() {
     <div className=" h-screen w-full top-0 left-0 fixed -z-10">
       <div className="main-bg h-screen top-0 left-0 w-full overflow-hidden relative">
         <div className="fixed top-0 left-0 -z-10 bg-gradient-to-r from-gray-700 via-gray-900 to-black">
-          <div class="bg"></div>
-          <div class="bg bg2"></div>
-          <div class="bg bg3"></div>
+          <div className="bg"></div>
+          <div className="bg bg2"></div>
+          <div className="bg bg3"></div>
         </div>
         <div className="bounce-1 opacity-80">
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/800px-Ethereum-icon-purple.svg.png"></img>

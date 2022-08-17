@@ -1,6 +1,11 @@
 import PreLoader from "./components/preloader";
 import Loader from "./components/loader";
-import PageBackground from "./components/pageBackground";
+
+// import PageBackground from "./components/pageBackground";
+// import PageBackground from "./components/pageBackgroundNew";
+// import PageBackground from "./components/pageBackgroundNewNew";
+import PageBackground from "./components/pageBackgroundNewNewNew";
+
 // import Navbar from "./components/navbar";
 import Navbarnew from "./components/Navbarnew";
 import Homepage from "./pages/home/home";
@@ -13,19 +18,20 @@ import Events from "./pages/events/events";
 import IndustryTalks from "./pages/industryTalks/industryTalks";
 import Profile from "./pages/profile/profile";
 import SideEvents from "./pages/sideEvents/sideEvents";
-import EventDetails from "./pages/eventDetails/eventDetails"; //! react-reveal deprecated after react v16, we can use framer-motion for the same
+import EventDetails from "./pages/eventDetails/eventDetails";
 // import Cart from './pages/cart/cart';  //! Contains jquery, won't work
 import ContactUs from "./pages/contactUs/contactUs";
 import Sponsors from "./pages/sponsors/sponsors";
 // import WebTeam from './pages/webTeam/webTeam';
 import ErrorPage from "./pages/404/Error";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AuthVerify } from "./utils/authVerify"; //! Don't import now, it's broken
+import { AuthVerify } from "./utils/authVerify";
 import ProtectedRoute from "./routes/protectedRoute";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
-import "./App.css";
 import Background from "./components/background";
+import IndustryTalkDetail from "./pages/industryTalks/industryTalksDetail/industryTalkDetail";
+import "./App.css";
 
 function App() {
   const userState = useSelector(({ user }) => user);
@@ -45,7 +51,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Background></Background>
+        {/* <Background></Background> */}
         {/* <Navbar /> */}
         <Navbarnew />
         <Sidebar />
@@ -54,9 +60,9 @@ function App() {
           <Route
             path="/"
             element={
-              // <PageBackground>
-              <Homepage loader={<PreLoader />} />
-              // {/* </PageBackground> */}
+              <PageBackground>
+                <Homepage loader={<PreLoader />} />
+              </PageBackground>
             }
           />
           <Route path="/auth" element={<Auth loader={<Loader />} />} />
@@ -73,6 +79,11 @@ function App() {
                 <IndustryTalks loader={<Loader />} />
               </PageBackground>
             }
+          />
+          <Route
+            path="/industry-talks/:id"
+            element={<IndustryTalkDetail />}
+            loader={<Loader />}
           />
           <Route
             path="/events/:id"

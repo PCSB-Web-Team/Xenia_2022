@@ -1,12 +1,10 @@
 import "./industryTalks.css";
-import "swiper/css";
 import BlockchainSession from "../../assets/images/industry-talk-cover-blockchain-session.jpg";
 import CloudSession from "../../assets/images/industry-talk-cover-blockchain-session.jpg";
 import InternshipSession from "../../assets/images/industry-talk-cover-blockchain-session.jpg";
 import { useEffect } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css/pagination";
-import { Mousewheel, Pagination, Scrollbar } from "swiper";
+import { Link } from "react-router-dom";
+
 
 function IndustryTalks() {
   const isLive = false; //? test values
@@ -135,6 +133,17 @@ function IndustryTalks() {
                     <li>{point}</li>
                   ))}
                 </ul>
+                <Link to={`/industry-talks/0`}>
+                  <div
+                    className="more-info"
+                    onClick={() => {
+                      document.documentElement.scrollTop = 0;
+                    }}
+                  >
+                    {" "}
+                    MoreInfo {"> > >"}{" "}
+                  </div>{" "}
+                </Link>
               </div>
               <div className="talk_social">
                 <ul>

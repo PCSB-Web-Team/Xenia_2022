@@ -7,6 +7,8 @@ import ethereum from "../../assets/images/ethereum-block-floating.png";
 import binance from "../../assets/images/binance-block-floating.png";
 import chain_icon from "../../assets/images/chain-block-floating.png";
 import binance_stack from "../../assets/images/binance-stack-block-floating.png";
+import Modal from "../../components/modal";
+import Auth from "../auth/auth";
 
 function Homepage() {
 
@@ -201,59 +203,59 @@ function Homepage() {
                 <div id="div1" className="homepage-title-marquee">XENIA</div>
                 <div id="div2" className="homepage-title-marquee">XENIA</div>
             </header>
-            <div className="homepage-container-background overlay"></div>
-                <header className="homepage">
-                    <h1 title="Xenia 2022" className="homepage-header overlay__btn--colors">
-                        Xenia'22
-                    </h1>
-                    <div className="homepage-content">
-                        21st July - 24th July
-                    </div>
-                    <button className="homepage-button">
-                        Register
-                    </button>
-                    <div className="homepage-blocks-container">
-                        <div className="homepage-blocks">
-                            {ThreexBlocksOnLeftWithShadow}
-                            {ThreexBlocksOnRightWithoutShadow}
-                            {TwoxBlocksOnLeftWithShadow}
-                            {TwoxBlocksOnRightWithoutShadow}
-                            <svg className="homepage-blocks-lines" preserveAspectRatio="xMinYMin">
-                                <defs>
-                                    <linearGradient id="linearGradient" x1="50%" y1="0%" x2="50%" y2="100%">
-                                        <stop offset="0%" stopColor="rgb(255,255,0)" stopOpacity="1">
-                                            <animate attributeName="stopColor" values="lightblue;orange;purple;red;lightblue" dur="12s" repeatCount="indefinite" />
-                                            <animate attributeName="offset" values=".95;.80;.60;.40;.20;0;.20;.40;.60;.80;.95" dur="14s" repeatCount="indefinite" />
-                                        </stop>
-                                        <stop offset="100%" stopColor="rgb(255,0,0)" stopOpacity="1">
-                                            <animate attributeName="stopColor" values="purple;blue;lightblue;orange;purple" dur="12s" repeatCount="indefinite" />
-                                            <animate attributeName="offset" values=".95;.80;.60;.40;.20;0;.20;.40;.60;.80;.95" dur="14s" repeatCount="indefinite" />
-                                        </stop>
-                                    </linearGradient>
-                                </defs>
-                                {PolylineTags}
-                                {AnimatedIconsAlongBlockLines}
-                            </svg>
-                            <svg className="light-rays-from-centre">
-                                <polygon points="20 15, 80 15, 50 75" />
-                            </svg>
-                            <div className="eth">
-                                <div className="bottom">
-                                    <div className="left"></div>
-                                    <div className="right"></div>
-                                    <div className="up"></div>
-                                    <div className="down"></div>
-                                </div>
-                                <div className="top">
-                                    <div className="left"></div>
-                                    <div className="right"></div>
-                                    <div className="up"></div>
-                                    <div className="down"></div>
-                                </div>
+            <div className="homepage-container-background-overlay"></div>
+            <header className="homepage">
+                <h1 title="Xenia 2022" className="homepage-header overlay__btn--colors">
+                    Xenia'22
+                </h1>
+                <div className="homepage-content">
+                    21st July - 24th July
+                </div>
+                <Modal className="homepage-button" buttonName="Register">
+                    <Auth />
+                </Modal>
+                <div className="homepage-blocks-container">
+                    <div className="homepage-blocks">
+                        {ThreexBlocksOnLeftWithShadow}
+                        {ThreexBlocksOnRightWithoutShadow}
+                        {TwoxBlocksOnLeftWithShadow}
+                        {TwoxBlocksOnRightWithoutShadow}
+                        <svg className="homepage-blocks-lines" preserveAspectRatio="xMinYMin">
+                            <defs>
+                                <linearGradient id="linearGradient" x1="50%" y1="0%" x2="50%" y2="100%">
+                                    <stop offset="0%" stopColor="rgb(255,255,0)" stopOpacity="1">
+                                        <animate attributeName="stopColor" values="lightblue;orange;purple;red;lightblue" dur="12s" repeatCount="indefinite" />
+                                        <animate attributeName="offset" values=".95;.80;.60;.40;.20;0;.20;.40;.60;.80;.95" dur="14s" repeatCount="indefinite" />
+                                    </stop>
+                                    <stop offset="100%" stopColor="rgb(255,0,0)" stopOpacity="1">
+                                        <animate attributeName="stopColor" values="purple;blue;lightblue;orange;purple" dur="12s" repeatCount="indefinite" />
+                                        <animate attributeName="offset" values=".95;.80;.60;.40;.20;0;.20;.40;.60;.80;.95" dur="14s" repeatCount="indefinite" />
+                                    </stop>
+                                </linearGradient>
+                            </defs>
+                            {PolylineTags}
+                            {AnimatedIconsAlongBlockLines}
+                        </svg>
+                        <svg className="light-rays-from-centre">
+                            <polygon points="20 15, 80 15, 50 75" />
+                        </svg>
+                        <div className="eth">
+                            <div className="bottom">
+                                <div className="left"></div>
+                                <div className="right"></div>
+                                <div className="up"></div>
+                                <div className="down"></div>
+                            </div>
+                            <div className="top">
+                                <div className="left"></div>
+                                <div className="right"></div>
+                                <div className="up"></div>
+                                <div className="down"></div>
                             </div>
                         </div>
                     </div>
-                </header>
+                </div>
+            </header>
         </div>
     )
 }

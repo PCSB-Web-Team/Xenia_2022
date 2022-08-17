@@ -1,6 +1,7 @@
 .navbar-wrapper .hamRotate.active {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
+  background: none;
 }
 
 .navbar-mobile {

@@ -1,41 +1,17 @@
-import "./Error.scss";
+import React from "react";
+import bitcoin from "../../assets/images/bitcoin.png";
+import "./Error.css";
 
 const Error = () => {
   return (
     <div className="error-page">
-      <div class="rail">
-        <div class="stamp four">4</div>
-        <div class="stamp zero">0</div>
-        <div class="stamp four">4</div>
-        <div class="stamp zero">0</div>
-        <div class="stamp four">4</div>
-        <div class="stamp zero">0</div>
-        <div class="stamp four">4</div>
-        <div class="stamp zero">0</div>
-        <div class="stamp four">4</div>
-        <div class="stamp zero">0</div>
-        <div class="stamp four">4</div>
-        <div class="stamp zero">0</div>
-        <div class="stamp four">4</div>
-        <div class="stamp zero">0</div>
-        <div class="stamp four">4</div>
-        <div class="stamp zero">0</div>
-        <div class="stamp four">4</div>
-        <div class="stamp zero">0</div>
-        <div class="stamp four">4</div>
-        <div class="stamp zero">0</div>
-      </div>
-      <div class="world">
-        <div class="forward">
-          <div class="box">
-            <div class="wall"></div>
-            <div class="wall"></div>
-            <div class="wall"></div>
-            <div class="wall"></div>
-            <div class="wall"></div>
-            <div class="wall"></div>
-          </div>
-        </div>
+      <h1>OOPS!</h1>
+      <h5>Something went wrong :(</h5>
+      <p>Error 404 Page not found</p>
+      <div>
+        <span>4</span>
+        <img src={bitcoin} alt="404" />
+        <span>4</span>
       </div>
     </div>
   )
