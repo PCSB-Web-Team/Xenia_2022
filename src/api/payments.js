@@ -22,9 +22,7 @@ const PayByRazor = (props) => {
             },
             notes: {
                 eventId: props?.eventID || "",
-                userId,
-                name: props?.userDetails.name || "",
-                eventName: props?.eventDetails.eventName || "",
+                userId
             },
             theme: {
                 "color": "#A020F0"

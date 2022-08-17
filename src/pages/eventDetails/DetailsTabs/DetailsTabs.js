@@ -1,41 +1,67 @@
 import "./DetailsTabs.css";
 import { useState } from "react";
-// import { Fade, Zoom } from 'react-reveal';
 
-export default function DetailsTab(props) {
-  const [activeDetail, setActiveDetail] = useState(0);
+export function Tabs({ children }) {
+  function findActiveTab(a) {
+    return a.reduce((accumulator, currentValue, i) => {
+      if (currentValue.props.active) {
+        return i;
+      }
 
-  const activeTab = "head-items active-item";
-  const tab = "head-items";
-  const det = "mi-content";
-  const activeDet = "mi-content active";
+      return accumulator;
+    }, 0);
+  }
 
+  function tabValidator(tab) {
+    return tab.type.displayName === "Tab" ? true : false;
+  }
+
+  const [activeTab, setActiveTab] = useState(findActiveTab(children));
   return (
-    <div className='mi-container'>
-      <div className='mi-head'>
-        {/* <Zoom cascade> */}
-        <div className={activeDetail === 0 ? activeTab : tab} onClick={() => { setActiveDetail(0) }}>Rules</div>
-        <div className={activeDetail === 1 ? activeTab : tab} onClick={() => { setActiveDetail(1) }}>Schedule</div>
-        <div className={activeDetail === 2 ? activeTab : tab} onClick={() => { setActiveDetail(2) }}>Prizes</div>
-        {/* </Zoom> */}
+    <>
+      <div className="tabs-headings-container flex gap-2 p-2">
+        {children.map((item, i) => {
+          return (
+            <>
+              {tabValidator(item) && (
+                <Tab
+                  key={`tab-{i}`}
+                  currentTab={i}
+                  activeTab={activeTab}
+                  setActiveTab={setActiveTab}
+                >
+                  {item.props.children}
+                </Tab>
+              )}
+            </>
+          );
+        })}
       </div>
-      <div className='mi-details'>
-        {/* <Fade> */}
-        {/* <div className={activeDetail === 0 ? activeDet : det}>
-            {props.details.rules.map((rule, i) => <p key={i}>{rule}</p>)}
-          </div> */}
-        {/* <div className={activeDetail === 1 ? activeDet : det}> */}
-        {/* {props.details.dateDescription.split('&').map((date,i) => <p key={i}>{date}</p>)} */}
-        {/* <hr/> */}
-        {/* <div className='details-tag'> Contact </div> */}
-        {/* {props.details.contacts.map((contact,i) => <p key={i}>{contact}</p>)} */}
-        {/* </div> */}
-        {/* <div className={activeDetail === 2 ? activeDet : det}>
-            {props.details.prizes.map((prizes,i) => <p key={i}>{prizes}</p>)}
-          </div>  */}
-        {/* </Fade> */}
+      <div className="tabs-body-container">
+        {children.map((item, i) => {
+          return (
+            <div className={` ${i === activeTab ? "visible" : "hidden"}`}>
+              {item.props.component}
+            </div>
+          );
+        })}
       </div>
-    </div>
-    // <div>{props.details.details}</div>
-  )
+    </>
+  );
 }
+
+export function Tab({ children, activeTab, currentTab, setActiveTab }) {
+  return (
+    <>
+      <div
+        className={`px-5 py-3 rounded-lg cursor-pointer
+      ${activeTab === currentTab ? "bg-zinc-400/50 text-black" : "text-white"}`}
+        onClick={() => setActiveTab(currentTab)}
+      >
+        {children}
+      </div>
+    </>
+  );
+}
+
+Tab.displayName = "Tab";
