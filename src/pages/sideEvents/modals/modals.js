@@ -1,64 +1,84 @@
-import "./modals.css";
-import { useState } from "react";
-
-export default function Modal(props) {
-  const [modal, setModal] = useState(false);
-
-  const toggleModal = () => {
-    setModal(!modal);
-  };
-
-  if (modal) {
-    document.body.classList.add('active-modal')
-  } else {
-    document.body.classList.remove('active-modal')
-  }
-
+export default function Modal({ modal, toggleModal, details, ...props }) {
   return (
-    <div>
-      <button onClick={toggleModal} className="btn-modal  rounded-lg my-4">
-       View More >>>
-      </button>
-
-      {modal && (
-        <div className="modal">
-          <div onClick={toggleModal} className="overlay"></div>
-          <div className="modal-content  my-6 ">
-            <h1 className="modalshd-sde mt-8 text-4xl ">Rules</h1>
-            <hr />
-            <ul className="modalsp-sde ">
-              <li className="pt-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimuslique nostrum nulla libero natus.</li>
-              <li className="pt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimuslique nostrum nulla libero natus.</li>
-              <li className="pt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimuslique nostrum nulla libero natus.</li>
-              <li className="pt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimuslique nostrum nulla libero natus.</li>
-              <li className="pt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimuslique nostrum nulla libero natus.</li>
-            </ul>
-            <h1 className="modalshd-sde mt-8 text-4xl">Prizes</h1>
-            <hr />
-            <ul className="modalsp-sde ">
-              <li className="pt-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimuslique nostrum nulla libero natus.</li>
-              <li className="pt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimuslique nostrum nulla libero natus.</li>
-            </ul>
-            <h1 className="modalshd-sde mt-8 text-4xl">Benifits</h1>
-            <hr />
-            <ul className="modalsp-sde ">
-              <li className="pt-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimuslique nostrum nulla libero natus.</li>
-              <li className="pt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimuslique nostrum nulla libero natus.</li>
-            </ul>
-            <h1 className="modalshd-sde mt-8 text-4xl">Contact Us</h1>
-            <hr />
-            <ul className="modalsp-sde ">
-              <li className="pt-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimuslique nostrum nulla libero natus.</li>
-              <li className="pt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimuslique nostrum nulla libero natus.</li>
-            </ul>
-
-            <button className="close-modal " onClick={toggleModal}>
-              X
-            </button>
+    modal && (
+      <div className="fixed z-10 top-0 left-0 h-screen w-full flex items-center justify-center transition ease-in-out">
+        <div
+          onClick={toggleModal}
+          className="absolute top-0 left-0 bg-black/10 h-screen w-full z-0 backdrop-blur"
+        ></div>
+        <div className="z-10 backdrop-blur-sm h-[80vh] p-4 bg-black/60 rounded-md overflow-auto font-light">
+          <div className="mt-8 text-3xl pb-0 border-b border-cyan-400 text-cyan-400">
+            Rules
           </div>
+          <ul className="text-white">
+            <li className="pt-3">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Possimuslique nostrum nulla libero natus.
+            </li>
+            <li className="pt-2">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Possimuslique nostrum nulla libero natus.
+            </li>
+            <li className="pt-2">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Possimuslique nostrum nulla libero natus.
+            </li>
+            <li className="pt-2">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Possimuslique nostrum nulla libero natus.
+            </li>
+            <li className="pt-2">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Possimuslique nostrum nulla libero natus.
+            </li>
+          </ul>
+          <div className="mt-8 text-3xl pb-0 border-b border-cyan-400 text-cyan-400">
+            Prizes
+          </div>
+          <ul className="">
+            <li className="pt-3">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Possimuslique nostrum nulla libero natus.
+            </li>
+            <li className="pt-2">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Possimuslique nostrum nulla libero natus.
+            </li>
+          </ul>
+          <div className="mt-8 text-3xl pb-0 border-b border-cyan-400 text-cyan-400">
+            Benifits
+          </div>
+          <ul className="modalsp-sde ">
+            <li className="pt-3">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Possimuslique nostrum nulla libero natus.
+            </li>
+            <li className="pt-2">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Possimuslique nostrum nulla libero natus.
+            </li>
+          </ul>
+          <div className="mt-8 text-3xl pb-0 border-b border-cyan-400 text-cyan-400">
+            Contact Us
+          </div>
+          <ul className="modalsp-sde ">
+            <li className="pt-3">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Possimuslique nostrum nulla libero natus.
+            </li>
+            <li className="pt-2">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Possimuslique nostrum nulla libero natus.
+            </li>
+          </ul>
+          <button
+            className=" absolute top-4 right-4 text-red-600 font-extrabold text-lg"
+            onClick={toggleModal}
+          >
+            X
+          </button>
         </div>
-      )}
-
-    </div>
+      </div>
+    )
   );
 }

@@ -1,7 +1,8 @@
 import PreLoader from "./components/preloader";
 import Loader from "./components/loader";
 import PageBackground from "./components/pageBackground";
-import Navbar from "./components/navbar";
+// import Navbar from "./components/navbar";
+import Navbarnew from "./components/Navbarnew";
 import Homepage from "./pages/home/home";
 import Auth from "./pages/auth/auth";
 import Footer from "./components/footer";
@@ -11,19 +12,20 @@ import Schedule from "./pages/schedule/schedule";
 import Events from "./pages/events/events";
 import IndustryTalks from "./pages/industryTalks/industryTalks";
 import Profile from "./pages/profile/profile";
-import SideEvents from './pages/sideEvents/sideEvents';
-import EventDetails from "./pages/eventDetails/eventDetails";  //! react-reveal deprecated after react v16, we can use framer-motion for the same
+import SideEvents from "./pages/sideEvents/sideEvents";
+import EventDetails from "./pages/eventDetails/eventDetails"; //! react-reveal deprecated after react v16, we can use framer-motion for the same
 // import Cart from './pages/cart/cart';  //! Contains jquery, won't work
 import ContactUs from "./pages/contactUs/contactUs";
 import Sponsors from "./pages/sponsors/sponsors";
 // import WebTeam from './pages/webTeam/webTeam';
-import ErrorPage from './pages/404/Error';
+import ErrorPage from "./pages/404/Error";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AuthVerify } from "./utils/authVerify";  //! Don't import now, it's broken
+import { AuthVerify } from "./utils/authVerify"; //! Don't import now, it's broken
 import ProtectedRoute from "./routes/protectedRoute";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import "./App.css";
+import Background from "./components/background";
 
 function App() {
   const userState = useSelector(({ user }) => user);
@@ -31,10 +33,10 @@ function App() {
     // const preloader = document.getElementById("preloader")
     async function fetchToken() {
       // preloader.style.display = "none";
-      await AuthVerify({ getCall: false })
+      await AuthVerify({ getCall: false });
       // preloader.style.display = "unset"; //reset to default browser's stylesheet
     }
-    fetchToken()
+    fetchToken();
     // setTimeout(() => {
     // preloader.style.display = "none";
     // }, 3000)
@@ -43,16 +45,18 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Navbar />
+        <Background></Background>
+        {/* <Navbar /> */}
+        <Navbarnew />
         <Sidebar />
         <ContactPanel />
         <Routes>
           <Route
             path="/"
             element={
-              <PageBackground>
-                <Homepage loader={<PreLoader />} />
-              </PageBackground>
+              // <PageBackground>
+              <Homepage loader={<PreLoader />} />
+              // {/* </PageBackground> */}
             }
           />
           <Route path="/auth" element={<Auth loader={<Loader />} />} />

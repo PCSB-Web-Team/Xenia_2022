@@ -1,4 +1,4 @@
-.social-links-panel {
+/* .social-links-panel {
   position: fixed;
   top: 0px;
   left: 5px;
@@ -7,7 +7,6 @@
   display: flex;
   margin: 20vh 0;
   align-items: center;
-  /* background: red; */
   z-index: 9999;
 }
 
@@ -60,8 +59,32 @@
   transform: scale(1.2);
 }
 
-@media (max-width: 450px) {
-  .social-links-panel {
-    display: none;
-  }
+*/
+
+.fa {
+  font-size: 30px;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+  color: rgb(0, 81, 255);
+}
+
+.fa-instagram {
+  color: purple;
+}
+
+.fa-linkedin {
+  color: rgb(0, 140, 255);
+}
+
+.fa-youtube {
+  color: rgb(215, 0, 0);
 }

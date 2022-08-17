@@ -20,12 +20,12 @@ function Timer() {
     const [timeLeft, setTimeLeft] = useState(remainingTime());
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setTimeLeft(remainingTime());
-        }, 1000);
+        // const timer = setTimeout(() => {
+        //     setTimeLeft(remainingTime());
+        // }, 1000);
 
-        return () => clearTimeout(timer);
-    }, [timeLeft])
+        // return () => clearTimeout(timer);
+    }, [])
 
     let countdownComponent = []
     const countdownDigits = []

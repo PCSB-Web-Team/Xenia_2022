@@ -36,13 +36,10 @@ const Events = () => {
   }, []);
 
   return (
-    <div className="Events bg-gradient-to-bl from-black to-slate-800">
-      <h1
-        className="title text-6xl font-semibold text-center text-white pb-12 "
-        style={{ fontFamily: "Quicksand" }}
-      >
+    <div className="Events bg-gradient-to-bl">
+      <div className="text-6xl font-semibold text-center text-white pb-12">
         Events
-      </h1>
+      </div>
       <div className="flex space-x-8 justify-center  text-2xl font-thin tracking-widest text-gray-400 mb-2">
         <button
           onClick={() => {
@@ -75,13 +72,13 @@ const Events = () => {
               </div>
               <div
                 key={event._id}
-                className="event-card w-[450px] grid grid-cols-3 items-center h-auto min-h-[200px] backdrop-blur-md cursor-pointer overflow-hidden"
+                className="event-card w-96 md:w-[450px] grid grid-cols-3 items-center h-auto min-h-[200px] backdrop-blur-md cursor-pointer overflow-hidden"
               >
                 <div className=" p-4 col-span-1 flex items-center bg-black/60 h-[150px]">
                   <img src={event.logo} className="max-h-full max-w-full"></img>
                 </div>
-                <div className=" event-card-body p-4 h-full col-span-2 text-left bg-gradient-to-br from-cyan-900 to-black/20  space-y-2 text-gray-400 group-hover:bg-cyan-700 ">
-                  <div className="border-b border-slate-600 text-cyan-400 font-bold text-lg pb-2 group-hover:text-black">
+                <div className=" event-card-body p-4 h-full col-span-2 text-left bg-gradient-to-br from-cyan-600 to-black/20  space-y-2 text-gray-400 group-hover:bg-cyan-700 ">
+                  <div className="border-b border-slate-600 text-cyan-400 font-bold text-lg pb-2 group-hover:text-white">
                     {event.name}
                   </div>
                   <div className="font-light text-sm h-[100px] overflow-auto group-hover:text-white">
