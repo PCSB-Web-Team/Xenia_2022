@@ -165,10 +165,10 @@
   }
 
   .screen-body-item.left {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
   }
 
-  .app-title {
+  .screen-body-item .app-title {
     flex-direction: row;
   }
 
@@ -176,17 +176,22 @@
     margin-right: 12px;
   }
 
-  .app-title:after {
+  .screen-body-item .app-title{
+    padding: 10px;
+  }
+
+  .screen-body-item .app-title:after {
     display: none;
   }
 }
 
 @media screen and (max-width: 600px) {
   .screen-body {
-    padding: 40px;
+    padding: 10px;
   }
 
-  .screen-body-item {
-    padding: 0;
+  .screen-body-item{
+    padding: 10px;
   }
+
 }

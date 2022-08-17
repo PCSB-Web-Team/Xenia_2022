@@ -26,6 +26,7 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import "./App.css";
 import Background from "./components/background";
+import IndustryTalkDetail from "./pages/industryTalks/industryTalksDetail/industryTalkDetail";
 
 function App() {
   const userState = useSelector(({ user }) => user);
@@ -73,6 +74,11 @@ function App() {
                 <IndustryTalks loader={<Loader />} />
               </PageBackground>
             }
+          />
+          <Route
+            path="/industry-talks/:id"
+            element={<IndustryTalkDetail />}
+            loader={<Loader />}
           />
           <Route
             path="/events/:id"
