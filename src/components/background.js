@@ -14,13 +14,13 @@ export default function Background() {
           <div class="bg bg2"></div>
           <div class="bg bg3"></div>
         </div>
-        <div className="bounce-1 opacity-10">
+        <div className="bounce-1 opacity-80">
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/800px-Ethereum-icon-purple.svg.png"></img>
         </div>
         {/* <div className="">
           <img src={Architecture}></img>
         </div> */}
-        <div className=" absolute -bottom-[100px] right-0 w-[800px] mx-auto opacity-20">
+        <div className=" absolute -bottom-[100px] right-0 w-[800px] mx-auto opacity-40">
           <img src={Earth}></img>
         </div>
         {/* <div className="">
