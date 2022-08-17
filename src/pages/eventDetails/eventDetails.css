@@ -60,6 +60,9 @@
   min-width: 200px;
   min-height: 200px;
   transition: ease;
+  display: block;
+  margin-left: auto ;
+  margin-right: auto;
 }
 
 .more-info .jumbotron .logo {
@@ -74,8 +77,12 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.2);
-  }
+    transform: scale(1.11);
+    -webkit-transform: scale(1.11);
+    -moz-transform: scale(1.11);
+    -ms-transform: scale(1.11);
+    -o-transform: scale(1.11);
+}
   100% {
     transform: scale(1);
   }

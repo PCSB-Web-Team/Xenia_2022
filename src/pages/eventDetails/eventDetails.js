@@ -48,7 +48,7 @@ const EventDetails = () => {
           (
             <div className="more-info">
               <div className="jumbotron text-center py-2" id="main-detail">
-                <img className="logo" src={details.logo} alt="logo"></img>
+                <img className="logo " src={details.logo} alt="logo"></img>
                 <h3 className="name">{details.name}</h3>
                 {/* <h5 className="platform"> Platform </h5>
             <div className="platform-details"> {details.platform} </div> */}
