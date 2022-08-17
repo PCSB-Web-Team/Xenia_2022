@@ -45,7 +45,7 @@ const Events = () => {
           onClick={() => {
             setStatus(1);
           }}
-          className={status === 1 ? "tabs-btn active-tab1" : "tabs-btn"}
+          className={status === 1 ? "tabs-btn active-tab1 mb-4" : "tabs-btn "} 
         >
           Technical
         </button>
@@ -54,7 +54,7 @@ const Events = () => {
           onClick={() => {
             setStatus(2);
           }}
-          className={status === 2 ? "tabs-btn active-tab2" : "tabs-btn"}
+          className={status === 2 ? "tabs-btn active-tab2 mt-4" : "tabs-btn"}
         >
           Non- Technical
         </button>
