@@ -9,7 +9,7 @@ const Navbarnew = () => {
     <div className="navbar-wrapper">
       <svg
         className={`ham hamRotate ham1 ${navOpen ? "active" : ""}`}
-        width={"80"}
+        width={"36"}
         viewBox={"0 0 100 100"}
         onClick={() => setNavOpen((state) => !state)}
       >

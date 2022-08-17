@@ -109,6 +109,11 @@
   line-height: 1.5;
 }
 
+.talk_card .info_section .talk_desc .more-info{
+  background: none;
+  color: rgba(138, 138, 138, 0.8);
+}
+
 .talk_card .info_section .talk_desc .text {
   color: #cfd6e1;
 }
@@ -307,13 +312,13 @@
 }
 
 @media screen and (min-width: 768px) {
-  .info_section {
-    /* background: linear-gradient(
+  /* .info_section {
+    background: linear-gradient(
       to right,
       rgba(23, 23, 23, 0.95) 80%,
       transparent 100%
-    ); */
-  }
+    );
+  } */
   .card_back {
     width: 60%;
     background-position: 0% 20% !important;
@@ -360,7 +365,7 @@
   height: 320px;
   z-index: -1;
   filter: opacity(0.6);
-  background-image: url("../../assets/images/industry-talks-bottom-image.png");
+  /* background-image: url("../../assets/images/industry-talks-bottom-image.png"); */
   background-repeat: no-repeat;
   background-size: 100%;
 }
