@@ -22,7 +22,7 @@
 
 .event-details-container .event-desc .tabs-body-container div {
   max-height: 300px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .event-desc-lists {

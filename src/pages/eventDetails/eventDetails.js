@@ -93,6 +93,9 @@ const EventDetails = () => {
               <ol className="event-desc-lists">
                 <li>First Prize: Rs. </li>
                 <li>Second Prize Rs. </li>
+                <li>Second Prize Rs. </li>
+                <li>Second Prize Rs. </li>
+                <li>Second Prize Rs. </li>
                 <li>Third Price Rs. </li>
                 <li>Other Participants : Participation Certificate</li>
               </ol>

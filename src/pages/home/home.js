@@ -203,7 +203,7 @@ function Homepage() {
                 <div id="div1" className="homepage-title-marquee">XENIA</div>
                 <div id="div2" className="homepage-title-marquee">XENIA</div>
             </header>
-            <div className="homepage-container-background overlay"></div>
+            <div className="homepage-container-background-overlay"></div>
             <header className="homepage">
                 <h1 title="Xenia 2022" className="homepage-header overlay__btn--colors">
                     Xenia'22
