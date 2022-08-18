@@ -61,6 +61,6 @@
 
 .lines-svg image {
   width: 5%;
-  -webkit-filter: drop-shadow(5px 5px 15px #009FFD);
-  filter: drop-shadow(5px 5px 15px #009FFD);
+  -webkit-filter: drop-shadow(3px 3px 10px #009FFD);
+  filter: drop-shadow(3px 3px 10px #009FFD);
 }

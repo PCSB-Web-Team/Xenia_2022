@@ -1,10 +1,12 @@
 import "./home3.css";
 import HomepageBottomEarth from "../../assets/images/background/homepage-earth-background.jpg";
-import ethereum from "../../assets/images/ethereum-block-floating.png";
-import binance from "../../assets/images/binance-block-floating.png";
-import chain_icon from "../../assets/images/chain-block-floating.png";
-import binance_stack from "../../assets/images/binance-stack-block-floating.png";
-import coin from "../../assets/images/coin.png";
+import coin1 from "../../assets/images/coin 1.png";
+import coin2 from "../../assets/images/coin 2.png";
+import coin3 from "../../assets/images/coin 3.png";
+import coin4 from "../../assets/images/coin 4.png";
+import coin5 from "../../assets/images/coin 5.png";
+import coin6 from "../../assets/images/coin 6.png";
+import coin7 from "../../assets/images/coin 7.png";
 
 function Homepage() {
 
@@ -71,12 +73,12 @@ function Homepage() {
         PolylineTags.push(<polyline key={"Line no. " + (i + 1)} points={`${Object.values(endpointsOfPolyline[i]).toString()}`} />)
     }
 
-    const icons = [ethereum, binance, chain_icon, binance_stack]
+    const icons = [coin1, coin2, coin3, coin4, coin5, coin6, coin7]
     const floatingIcons = []
 
     for (let i = 0; i < endpointsOfPolyline.length; i++) {
         const upperPointOfLine = endpointsOfPolyline[i].A.split(" ")
-        floatingIcons.push(<image key={i} x={upperPointOfLine[0] - 35} y={upperPointOfLine[1] - 55} href={coin}></image>)
+        floatingIcons.push(<image key={i} x={upperPointOfLine[0] - 35} y={upperPointOfLine[1] - 55} href={icons[Math.floor(Math.random() * icons.length)]}></image>)
     }
 
     return (
