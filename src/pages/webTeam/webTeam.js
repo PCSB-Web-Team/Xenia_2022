@@ -67,13 +67,13 @@ let team2 = [
       pic: "https://www.instagram.com/p/CgsGxzgvF2Jv5_l_7Ton2JiH-ljfGeJn9c0vQY0/",
     },
     {
-      name: "Neha Pol",
+      name: "Atharva Kinikar",
       linkedIn: "https://www.linkedin.com/in/kshitij-deshpande/",
       pic: "https://www.instagram.com/p/CgsGxzgvF2Jv5_l_7Ton2JiH-ljfGeJn9c0vQY0/",
     },
   
     {
-      name: "Advait Naik",
+      name: "Raj Shende",
       linkedIn: "https://www.linkedin.com/in/kshitij-deshpande/",
       pic: "https://www.instagram.com/p/CgsGxzgvF2Jv5_l_7Ton2JiH-ljfGeJn9c0vQY0/",
     },
