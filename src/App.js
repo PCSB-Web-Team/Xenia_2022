@@ -1,6 +1,7 @@
 import PreLoader from "./components/preloader";
 import Loader from "./components/loader";
 import Home2 from "./pages/home2/home2";
+import Home3 from "./pages/home3/home3";
 
 import Navbar from "./components/Navbarnew";
 import Homepage from "./pages/home/home";
