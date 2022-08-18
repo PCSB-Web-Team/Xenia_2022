@@ -1,18 +1,23 @@
-import Request from "../api/requests";
-import { loginUser } from "../store/middleware";
-import store from "../store"
+import store from "../store";
+import { refreshUserState, setParticipations } from "../store/middleware";
 
-export const AuthVerify = async ({ getCall }) => {
+export const AuthVerify = async ({ getUserDetails, getParticipations }) => {
     const token = localStorage.getItem(process.env.REACT_APP_TOKEN_NAME) || null
 
-    if (token) {
-        return getCall ? (await Request.getUserByToken().then((res) => {
-            store.dispatch(loginUser(res.data.user)) //! Remain to be created at backend
-            return res.data.user
-        }).catch(error => {
-            console.error(error)
-            return false
-        })) : true
+    if (getUserDetails || getParticipations) {
+        await store.dispatch(refreshUserState())
+            .unwrap().then()
+            .catch(error => {
+                console.error(error)
+                return Promise.reject(error)
+            })
+        if (getParticipations) {
+            try {
+                await store.dispatch(setParticipations())
+            } catch (error) {
+                console.error(error);
+            }
+        }
     }
-    return false
+    return token ? true : false
 }
