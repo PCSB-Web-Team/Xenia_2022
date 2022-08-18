@@ -6,8 +6,7 @@ import Loader from "./components/loader";
 // import PageBackground from "./components/pageBackgroundNewNew";
 import PageBackground from "./components/pageBackgroundNewNewNew";
 
-// import Navbar from "./components/navbar";
-import Navbarnew from "./components/Navbarnew";
+import Navbar from "./components/Navbarnew";
 import Homepage from "./pages/home/home";
 import Auth from "./pages/auth/auth";
 import Footer from "./components/footer";
@@ -39,7 +38,7 @@ function App() {
     // const preloader = document.getElementById("preloader")
     async function fetchToken() {
       // preloader.style.display = "none";
-      await AuthVerify({ getCall: false });
+      await AuthVerify({ getCall: true });
       // preloader.style.display = "unset"; //reset to default browser's stylesheet
     }
     fetchToken();
@@ -51,9 +50,8 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        {/* <Background></Background> */}
-        {/* <Navbar /> */}
-        <Navbarnew />
+        <Background></Background>
+        <Navbar />
         <Sidebar />
         <ContactPanel />
         <Routes>

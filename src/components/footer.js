@@ -74,14 +74,10 @@ export class Footer extends Component {
                     </a>
                   </li>
                   <li class="mb-4">
-                    <a href="#" class="hover:underline">
-                      📭︎Support@pictcsi.com
-                    </a>
+                    <a href="#" class="hover:underline"></a>
                   </li>
                   <li class="mb-4">
-                    <a href="#" class="hover:underline">
-                      📞+917028929568
-                    </a>
+                    <a href="#" class="hover:underline"></a>
                   </li>
                 </ul>
               </div>
@@ -211,18 +207,34 @@ export class Footer extends Component {
                 </div>
                 <div className="w-full space-y-4">
                   <div className="font-bold pb-2 border-b border-gray-400 text-purple-400">
-                    PCSB Xenia
+                    Useful Links
                   </div>
-                  <div className=" font-thin">
-                    Where passion meets perfection.
+                  <div className="space-y-2">
+                    <div className=" font-thin">
+                      <Link to="/auth">Login</Link>
+                    </div>
+                    <div className=" font-thin">
+                      <Link to="/contact-us">Help</Link>
+                    </div>
                   </div>
                 </div>
                 <div className="w-full space-y-4">
                   <div className="font-bold pb-2 border-b border-gray-400 text-purple-400">
-                    PCSB Xenia
+                    Contact
                   </div>
-                  <div className=" font-thin">
-                    Where passion meets perfection.
+                  <div className="space-y-2">
+                    <div className=" font-thin space-x-2 flex">
+                      <div>🏠</div>
+                      <div>Dhankawadi,Katraj,Pune</div>
+                    </div>
+                    <div className=" font-thin space-x-2 flex">
+                      <div>📭︎</div>
+                      <div>Support@pictcsi.com</div>
+                    </div>
+                    <div className=" font-thin space-x-2 flex">
+                      <div>📞</div>
+                      <div>+917028929568</div>
+                    </div>
                   </div>
                 </div>
               </div>
