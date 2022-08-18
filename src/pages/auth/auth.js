@@ -185,7 +185,7 @@ const Login = () => {
                 .unwrap()
                 .then(({ data: { error } }) => {
                   if (!error) {
-                    // navigate(-1, { replace: true });
+                    navigate(-1, { replace: true });
                   } else {
                     setError(error.message);
                   }

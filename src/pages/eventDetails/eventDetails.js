@@ -58,7 +58,7 @@ const EventDetails = () => {
   }, [id]);
 
   return (
-    <div className="grid md:grid-cols-2 md:h-screen md:p-8 gap-8 backdrop-blur-xl bg-gradient-to-b from-gray-900/40 to-gray-600/80">
+    <div className="grid md:grid-cols-2 min-h-screen md:p-8 gap-8 backdrop-blur-xl bg-gradient-to-b from-gray-900/40 to-gray-600/80">
       <div className="my-auto text-center space-y-4 text-white md:h-full p-4 py-8  ">
         <div className=" w-full max-w-[400px] h-[400px] mx-auto">
           <img src={eventData?.logo} alt="event-logo" className="event-logo" />
@@ -137,7 +137,7 @@ const EventDetails = () => {
         )}
       </div>
       {/* event details description */}
-      <div className="space-y-4  p-8 h-full overflow-auto bg-black/20 shadow-lg border border-gray-700">
+      <div className="space-y-4  p-8 h-full overflow-auto bg-black/20 shadow-lg border border-gray-700 max-h-screen">
         <div className="text-center text-4xl font-bold text-purple-400">
           Description
         </div>

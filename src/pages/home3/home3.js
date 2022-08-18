@@ -1,6 +1,7 @@
 import "./home3.css";
 import HomepageTopGradient from "../../assets/images/background/gradient-bg-1.png";
 import HomepageBottomEarth from "../../assets/images/background/homepage-earth-background.jpg";
+import Xenia_Logo from "../../assets/images/xeniaLogoLight.png";
 import coin1 from "../../assets/images/coin 1.png";
 import coin2 from "../../assets/images/coin 2.png";
 import coin3 from "../../assets/images/coin 3.png";
@@ -22,55 +23,61 @@ function Homepage() {
     */
     const endpointsOfPolyline = [
         {
-            "A": "100 80",
-            "B": "101 280",
+            "A": "100 280",
+            "B": "101 450",
         },
         {
-            "A": "180 80",
-            "B": "181 360",
+            "A": "290 80",
+            "B": "291 300",
         },
         {
-            "A": "260 120",
-            "B": "261 340",
+            "A": "460 120",
+            "B": "461 340",
         },
         {
-            "A": "340 80",
-            "B": "341 360",
+            "A": "630 280",
+            "B": "631 460",
         },
         {
-            "A": "420 120",
-            "B": "421 500",
+            "A": "810 80",
+            "B": "811 250",
         },
         {
-            "A": "500 80",
-            "B": "501 360",
+            "A": "970 120",
+            "B": "971 300",
         },
         {
-            "A": "580 120",
-            "B": "581 500",
+            "A": "1130 170",
+            "B": "1131 400",
         },
         {
-            "A": "660 80",
-            "B": "661 360",
+            "A": "1290 80",
+            "B": "1291 360",
         },
     ]
-
-    let PolylineTags = []
-    for (let i = 0; i < endpointsOfPolyline.length; i++) {
-        PolylineTags.push(<polyline key={"Line no. " + (i + 1)} points={`${Object.values(endpointsOfPolyline[i]).toString()}`} />)
-    }
 
     const icons = [coin1, coin2, coin3, coin4, coin5, coin6, coin7, coin8, coin9, coin10, coin11, coin12, coin13]
     const floatingIcons = []
 
+    let PolylineTags = []
+    let ripples = []
     for (let i = 0; i < endpointsOfPolyline.length; i++) {
+        PolylineTags.push(<polyline key={"Line no. " + (i + 1)} points={`${Object.values(endpointsOfPolyline[i]).toString()}`} />)
         const upperPointOfLine = endpointsOfPolyline[i].A.split(" ")
+        const lowerPointsOfLine = endpointsOfPolyline[i].B.split(" ")
+        ripples.push(
+            <g>
+                <circle id="core" cx={lowerPointsOfLine[0]} cy={lowerPointsOfLine[1]} r="5"></circle>
+                <circle id="radar" cx={lowerPointsOfLine[0]} cy={lowerPointsOfLine[1]} r="10"></circle>
+            </g>
+        )
         floatingIcons.push(<image key={i} x={upperPointOfLine[0] - 35} y={upperPointOfLine[1] - 55} href={icons[Math.floor((Math.random() * icons.length))]}></image>)
     }
 
     return (
         <div className="homepage">
             <div className="homepage-background-container">
+                <div class="tso-rainbow"></div>
                 <img className="homepage-background-img gradient" src={HomepageTopGradient} alt="homepage-gradient" />
                 <div className="vertical-lines-container">
                     <svg className="lines-svg" preserveAspectRatio="xMinYMin">
@@ -90,11 +97,16 @@ function Homepage() {
                         </defs>
                         {PolylineTags}
                         {floatingIcons}
+                        {ripples}
                     </svg>
                 </div>
                 <img className="homepage-background-img earth" src={HomepageBottomEarth} alt="homepage-background" />
 
             </div>
+            <header className="homepage-contents">
+                <img className="xenia-logo" src={Xenia_Logo} alt="Xenia'22 logo" />
+                <h2><span>qwerty</span><span>uqwerty</span><span>iopwde</span><span>fgbhnl</span><span>kjhgfdsa</span></h2>
+            </header>
         </div>
     )
 }
