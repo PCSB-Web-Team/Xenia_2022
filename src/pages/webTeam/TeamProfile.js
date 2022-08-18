@@ -1,4 +1,5 @@
-import React from "react";
+
+import React from 'react';
 import "./webTeam.css";
 // import { Profiler } from 'react';
 // import logo from '../../Assets/Images/logo.svg';

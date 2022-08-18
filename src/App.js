@@ -1,6 +1,7 @@
 import PreLoader from "./components/preloader";
 import Loader from "./components/loader";
 import Home2 from "./pages/home2/home2";
+import Home3 from "./pages/home3/home3";
 
 import Navbar from "./components/Navbarnew";
 import Homepage from "./pages/home/home";
@@ -16,7 +17,7 @@ import SideEvents from "./pages/sideEvents/sideEvents";
 import EventDetails from "./pages/eventDetails/eventDetails";
 import ContactUs from "./pages/contactUs/contactUs";
 import Sponsors from "./pages/sponsors/sponsors";
-import WebTeam from "./pages/webTeam/webTeam";
+import WebTeam from './pages/webTeam/webTeam';
 import ErrorPage from "./pages/404/Error";
 import { AuthVerify } from "./utils/authVerify";
 import ProtectedRoute from "./routes/protectedRoute";
