@@ -1,27 +1,42 @@
 .homepage {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: relative;
+  width: (100vw);
+  height: 100vh;
+  z-index: 5;
   background-color: black;
   text-align: center;
 }
 
 .homepage-background-container {
   position: absolute;
-  bottom: 0;
+  top: 0;
   width: 100%;
+  height: 100%;
   overflow: hidden;
+  /* border: 1px solid red; */
 }
 
 .homepage-background-img {
+  position: relative;
   min-height: 200px;
-  height: 70vh;
   min-width: 500px;
   width: 100%;
+}
+
+.gradient {
+  position: absolute;
+  top: 0;
+  height: 60vh;
+  z-index: 2;
+}
+
+.earth {
+  position: absolute;
+  bottom: -30vh;
+  left: -25px;
+  height: 60vh;
   object-fit: cover;
-  transform: translateY(30vh);
+  z-index: 1;
 }
 
 .vertical-lines-container {
@@ -29,17 +44,15 @@
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  min-width: 1200px;
-  height: 80%;
-  border: 1px solid red;
+  min-width: 1400px;
+  height: 60%;
+  box-shadow: inset 0 -15px 15px -15px #04c0fa;
+  z-index: 3;
 }
 
 .lines-svg {
   min-width: 100%;
   height: 100%;
-}
-
-@media (max-width: 768px) {
 }
 
 .lines-svg polyline {
@@ -48,6 +61,7 @@
   stroke-dashoffset: 1000;
   stroke: url(#linearGradient);
   fill: none;
+  filter: blur(0.4px);
   animation: moving-dash 150s linear alternate infinite;
 }
 
@@ -57,5 +71,40 @@
   }
   to {
     stroke-dashoffset: 0;
+  }
+}
+
+.lines-svg image {
+  width: 5%;
+  -webkit-filter: drop-shadow(3px 3px 10px #009ffd);
+  filter: drop-shadow(3px 3px 10px #009ffd);
+}
+
+.lines-svg image:nth-child(odd) {
+  animation: 3s oscillate-blocks infinite ease-in-out;
+}
+
+.lines-svg image:nth-child(even) {
+  animation: 3.4s oscillate-blocks infinite ease-in-out;
+  animation-delay: 2s;
+}
+
+.lines-svg image:nth-child(3n) {
+  animation: 3.4s oscillate-blocks infinite ease-in-out;
+  animation-delay: 1.5s;
+}
+
+@keyframes oscillate-blocks {
+  0% {
+    -webkit-transform: translateY(-0.1%);
+    transform: translateY(-0.1%);
+  }
+  50% {
+    -webkit-transform: translateY(3%);
+    transform: translateY(3%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
   }
 }

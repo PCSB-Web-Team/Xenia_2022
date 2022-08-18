@@ -19,11 +19,9 @@ const getEvents = async () => await backend.get("/events")
 
 const getEventById = async (id) => await backend.get(`/events/${id}`)
 
-const getSideEvents = async () => await backend.get("/side-events")
-
 const createOrder = async (data) => await backend.post("/razorpay", data)
 
 const verifyPayment = async (data) => await backend.post("/razorpay/verification", data)
 
-const Requests = { signUp, login, getUserByToken, getUserParticipations, getEvents, getEventById, getSideEvents, createOrder, verifyPayment }
+const Requests = { signUp, login, getUserByToken, getUserParticipations, getEvents, getEventById, createOrder, verifyPayment }
 export default Requests;

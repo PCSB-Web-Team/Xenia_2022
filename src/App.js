@@ -1,6 +1,7 @@
 import PreLoader from "./components/preloader";
 import Loader from "./components/loader";
 import Home2 from "./pages/home2/home2";
+import Home3 from "./pages/home3/home3";
 
 import Navbar from "./components/Navbarnew";
 import Homepage from "./pages/home/home";
@@ -14,10 +15,9 @@ import IndustryTalks from "./pages/industryTalks/industryTalks";
 import Profile from "./pages/profile/profile";
 import SideEvents from "./pages/sideEvents/sideEvents";
 import EventDetails from "./pages/eventDetails/eventDetails";
-// import Cart from './pages/cart/cart';  //! Contains jquery, won't work
 import ContactUs from "./pages/contactUs/contactUs";
 import Sponsors from "./pages/sponsors/sponsors";
-import WebTeam from './pages/webTeam/WebTeam';
+import WebTeam from './pages/webTeam/webTeam';
 import ErrorPage from "./pages/404/Error";
 import { AuthVerify } from "./utils/authVerify";
 import ProtectedRoute from "./routes/protectedRoute";
@@ -49,12 +49,7 @@ function App() {
         <Sidebar />
         <ContactPanel />
         <Routes>
-          <Route
-            path="/"
-            element={
-                <Homepage loader={<PreLoader />} />
-            }
-          />
+          <Route path="/" element={<Homepage loader={<PreLoader />} />} />
           <Route path="/home2" element={<Home2 loader={<Loader />} />} />
           <Route path="/home3" element={<Home2 loader={<Loader />} />} />
           <Route path="/auth" element={<Auth loader={<Loader />} />} />
@@ -66,9 +61,7 @@ function App() {
           />
           <Route
             path="/industry-talks"
-            element={
-                <IndustryTalks loader={<Loader />} />
-            }
+            element={<IndustryTalks loader={<Loader />} />}
           />
           <Route
             path="/industry-talks/:id"

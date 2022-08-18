@@ -1,5 +1,5 @@
 import React from "react";
-import "./WebTeam.css";
+import "./webTeam.css";
 import ProfileCard from "./TeamProfile";
 // import Vedant from "../../Assets/Images/WebTeam/vedant.jpeg";
 // import Gaurav from "../../Assets/Images/WebTeam/gaurav.jpg";
