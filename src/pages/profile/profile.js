@@ -84,7 +84,7 @@ export default function Profile() {
 
   return (
     <div className="md:p-4">
-      <div className="min-h-screen max-w-6xl mx-auto my-8 p-4 md:p-16 space-y-8 text-gray-200 tracking-widest bg-black/40">
+      <div className="min-h-screen max-w-6xl mx-auto my-8 p-4 md:p-16 space-y-8 text-gray-200 tracking-widest bg-black/40 backdrop-blur-xl">
         <div className=" font-bold text-3xl md:text-6xl text-purple-600">
           {userData.name}
         </div>
