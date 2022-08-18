@@ -1,8 +1,10 @@
 import "./sideEvent.css";
 import Modal from "./modals/modals";
-import { useState } from "react";
+import Requests from "../../api/requests";
+import { useState, useEffect } from "react";
 
 export default function SideEvents() {
+  const [eventsData, setEventsData] = useState([]);
   const [modal, setModal] = useState(false);
   const [modalDetails, setModalDetails] = useState({});
 
@@ -10,40 +12,58 @@ export default function SideEvents() {
     setModal(!modal);
   };
 
-  const data = [
-    {
-      id: 1,
-      eventTitle: "EventName1",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur blanditiis sequi molestiae eaque fugit sit, reiciendis dolorem ullam modi! Repellendus quisquam ipsam laboriosam velit? Minima eveniet, eum nesciunt veniam excepturi possimus praesentium. Quasi sapiente ullam alias beatae mollitia incidunt cupiditate! Iusto, ",
-      img: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
-    },
-    {
-      id: 2,
-      eventTitle: "EventName2",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur blanditiis sequi molestiae eaque fugit sit, reiciendis dolorem ullam modi! Repellendus quisquam ipsam laboriosam velit? Minima eveniet, eum nesciunt veniam excepturi possimus praesentium. Quasi sapiente ullam alias beatae mollitia incidunt cupiditate! Iusto, ",
-      img: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
-    },
-  ];
+  useEffect(() => {
+    try {
+      Requests.getSideEvents().then(res => {
+        setEventsData(() => (res.data?.data))
+      }).catch(error => console.log(error))
+    } catch (error) {
+      console.log(error)
+    }
+  }, [])
 
-  const EventsInfo = data.map((event) => (
+  // const data = [
+  //   {
+  //     id: 1,
+  //     eventTitle: "EventName1",
+  //     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur blanditiis sequi molestiae eaque fugit sit, reiciendis dolorem ullam modi! Repellendus quisquam ipsam laboriosam velit? Minima eveniet, eum nesciunt veniam excepturi possimus praesentium. Quasi sapiente ullam alias beatae mollitia incidunt cupiditate! Iusto, ",
+  //     img: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
+  //   },
+  //   {
+  //     id: 2,
+  //     eventTitle: "EventName2",
+  //     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur blanditiis sequi molestiae eaque fugit sit, reiciendis dolorem ullam modi! Repellendus quisquam ipsam laboriosam velit? Minima eveniet, eum nesciunt veniam excepturi possimus praesentium. Quasi sapiente ullam alias beatae mollitia incidunt cupiditate! Iusto, ",
+  //     img: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
+  //   },
+  // ];
+
+  const EventsInfo = eventsData.map((event) => (
     <div className="bg-opacity-0 grid grid-cols-1 md:grid-cols-4 content-center backdrop-blur-lg bg-gradient-to-tr from-gray-600/20 via-purple-600/10 to-pink-600/20 border border-gray-600/20">
       <div className=" col-span-1 w-full">
         <img
-          src={event.img}
-          alt="Laptop on Desk"
+          src={event?.logo}
+          alt="event-logo"
           className="rounded-t-lg md:rounded-l-lg md:rounded-t-none w-[210px] h-[220px] w-full"
         />
       </div>
       <div className="p-6 col-span-3 space-y-4">
         <h2 className="font-bold text-xl md:text-3xl pb-2 border-b border-slate-700 text-gray-200 tracking-widest">
-          {event.eventTitle}
+          {event?.name}
         </h2>
         <div className="text-white font-light text-justify max-h-[150px] overflow-y-auto">
-          {event.desc}
+          {event?.description}
         </div>
         <div
           onClick={() => {
-            setModalDetails(event);
+            setModalDetails(previousState => ({
+                ...previousState,
+                contactUs: event?.contactUs,
+                prizes: event?.prizes,
+                rules: event?.rules[0].roundRules,
+                schedule: event?.schedule,
+                teamSize: event?.teamSize,
+                fees: event?.fees
+            }));
             toggleModal();
           }}
           className="text-green-400 px-4 inline-block border border-green-500/20 cursor-pointer hover:bg-green-400/40 transition-all ease-in-out"
