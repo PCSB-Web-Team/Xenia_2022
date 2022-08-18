@@ -1,5 +1,10 @@
 import "./home3.css";
 import HomepageBottomEarth from "../../assets/images/background/homepage-earth-background.jpg";
+import ethereum from "../../assets/images/ethereum-block-floating.png";
+import binance from "../../assets/images/binance-block-floating.png";
+import chain_icon from "../../assets/images/chain-block-floating.png";
+import binance_stack from "../../assets/images/binance-stack-block-floating.png";
+import coin from "../../assets/images/coin.png";
 
 function Homepage() {
 
@@ -16,6 +21,14 @@ function Homepage() {
     let PolylineTags = []
     for (let i = 0; i < endpointsOfPolyline.length; i++) {
         PolylineTags.push(<polyline key={"Line no. " + (i + 1)} points={`${Object.values(endpointsOfPolyline[i]).toString()}`} />)
+    }
+
+    const icons = [ethereum, binance, chain_icon, binance_stack]
+    const floatingIcons = []
+
+    for (let i = 0; i < endpointsOfPolyline.length; i++) {
+        const upperPointOfLine = endpointsOfPolyline[i].A.split(" ")
+        floatingIcons.push(<image key={i} x={upperPointOfLine[0] - 35} y={upperPointOfLine[1] - 55} href={coin}></image>)
     }
 
     return (
@@ -39,6 +52,7 @@ function Homepage() {
                             </linearGradient>
                         </defs>
                         {PolylineTags}
+                        {floatingIcons}
                     </svg>
                 </div>
 
