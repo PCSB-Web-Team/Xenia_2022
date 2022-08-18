@@ -56,12 +56,12 @@ const EventDetails = () => {
   }, [id]);
 
   return (
-    <div className="grid md:grid-cols-2 md:h-screen md:p-16 gap-8 bg-black/20">
-      <div className="my-auto text-center space-y-4 text-white bg-black/40 backdrop-blur-xl md:h-full p-4 py-8">
+    <div className="grid md:grid-cols-2 md:h-screen md:p-8 gap-8 backdrop-blur-xl bg-gradient-to-b from-gray-900/40 to-gray-600/80">
+      <div className="my-auto text-center space-y-4 text-white md:h-full p-4 py-8  ">
         <div className=" w-full max-w-[400px] h-[400px] mx-auto">
           <img src={eventData?.logo} alt="event-logo" className="event-logo" />
         </div>
-        <div className="text-5xl w-min mx-auto font-bold text-purple-600 border-gray-500 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+        <div className="text-6xl w-min mx-auto font-bold text-purple-600 border-gray-500 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
           {eventData.name}
         </div>
         <div className=" border-b border-gray-500"></div>
@@ -130,7 +130,7 @@ const EventDetails = () => {
         )}
       </div>
       {/* event details description */}
-      <div className="space-y-4  p-4 bg-black/20 backdrop-blur h-full overflow-auto">
+      <div className="space-y-4  p-8 h-full overflow-auto bg-black/20 shadow-lg border border-gray-700">
         <div className="text-center text-4xl font-bold text-purple-400">
           Description
         </div>
@@ -138,8 +138,8 @@ const EventDetails = () => {
           <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
             Prizes
           </div>
-          <div className="border-t pt-2">
-            <ol className="text-white bg-fixed list-decimal list-inside">
+          <div className="border-t pt-2 border-slate-600">
+            <ol className="text-gray-300 font-thin  list-decimal list-inside">
               <li>First Prize: Rs. </li>
               <li>Second Prize Rs. </li>
               <li>Second Prize Rs. </li>
@@ -155,8 +155,8 @@ const EventDetails = () => {
           <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
             Scedule
           </div>
-          <div className="border-t pt-2">
-            <ol className="text-white bg-fixed list-decimal list-inside">
+          <div className="border-t pt-2 border-slate-600">
+            <ol className="text-gray-300 font-thin  list-decimal list-inside">
               <li>
                 First Round : <date></date>{" "}
               </li>
@@ -174,8 +174,8 @@ const EventDetails = () => {
           <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
             Rules
           </div>
-          <div className="border-t pt-2">
-            <ol className="text-white bg-fixed list-decimal list-inside">
+          <div className="border-t pt-2 border-slate-600">
+            <ol className="text-gray-300 font-thin  list-decimal list-inside">
               <li>First Prize: Rs. </li>
               <li>Second Prize Rs. </li>
               <li>Second Prize Rs. </li>
@@ -191,8 +191,8 @@ const EventDetails = () => {
           <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
             Rules
           </div>
-          <div className="border-t pt-2">
-            <ol className="text-white bg-fixed list-decimal list-inside">
+          <div className="border-t pt-2 border-slate-600">
+            <ol className="text-gray-300 font-thin  list-decimal list-inside">
               <li>First Prize: Rs. </li>
               <li>Second Prize Rs. </li>
               <li>Second Prize Rs. </li>
