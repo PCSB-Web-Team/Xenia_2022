@@ -27,19 +27,18 @@ import ErrorPage from "./pages/404/Error";
 import { AuthVerify } from "./utils/authVerify";
 import ProtectedRoute from "./routes/protectedRoute";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import Background from "./components/background";
 import IndustryTalkDetail from "./pages/industryTalks/industryTalksDetail/industryTalkDetail";
 import "./App.css";
 
 function App() {
-  const userState = useSelector(({ user }) => user);
+
   useEffect(() => {
     // const preloader = document.getElementById("preloader")
     async function fetchToken() {
       // preloader.style.display = "none";
-      await AuthVerify({ getCall: false });
+      await AuthVerify({ getUserDetails: true });
       // preloader.style.display = "unset"; //reset to default browser's stylesheet
     }
     fetchToken();

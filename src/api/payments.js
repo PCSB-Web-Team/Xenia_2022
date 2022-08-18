@@ -4,25 +4,24 @@ import { useEffect } from "react";
 const PayByRazor = (props) => {
 
     const openPaymentModal = async () => {
-        const { data: { amount, id, userId } } = await Request.createOrder(props?.eventId || "").then(res => res.data).catch(error => {
-            console.error(error)
-        })
+        const reqBody = { id: "62f2a9ed2963089d93d01a9b", eventId: "62e3ee205046b9fbe30f0326" }
+        let { data } = await Request.createOrder(reqBody)
 
         const options = {
             key: process.env.REACT_APP_RAZORPAY_KEY,
-            amount,
+            amount: data?.amount.toString(),
             currency: "INR",
             name: "PCSB Xenia 2022",
             description: "Registration payment for the event " + props.eventDetails?.eventName || "",
-            order_id: id,
-            callback_url: `${process.env.REACT_APP_API_URL}/event/payment-verification`, //* razorpay's server request to this endpoint containing this req.body:{razorpay_order_id, razorpay_payment_id, razorpay_signature}
+            order_id: data?.id,
+            callback_url: `${process.env.REACT_APP_API_URL}/razorpay/verification`,
             prefill: {
                 name: props.userDetails?.name || "",
-                contact: props.userDetails?.mobile || ""
+                mobile: props.userDetails?.mobile.toString() || ""
             },
             notes: {
-                eventId: props?.eventID || "",
-                userId
+                eventId: props?.eventId || "",
+                userId: data?.userId || "",
             },
             theme: {
                 "color": "#A020F0"

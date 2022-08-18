@@ -4,15 +4,15 @@ import React from "react";
 function PageBackground({ children }) {
   const clicked = document.querySelectorAll('.blob');
 
-  React.useEffect(() => {
-    clicked.forEach((click) => {
-      click.addEventListener('click', () => {
-        click.classList.add('active');
-        setTimeout(function () {
-          click.classList.remove('active');
-        }, 1000);
-      })
+  clicked.forEach((click) => {
+    click.addEventListener('click', () => {
+      click.classList.add('active');
+      setTimeout(function () {
+        click.classList.remove('active');
+      }, 1000);
     })
+  })
+  React.useEffect(() => {
   })
 
   return (
