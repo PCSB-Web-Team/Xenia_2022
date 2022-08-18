@@ -18,7 +18,6 @@ import IndustryTalks from "./pages/industryTalks/industryTalks";
 import Profile from "./pages/profile/profile";
 import SideEvents from "./pages/sideEvents/sideEvents";
 import EventDetails from "./pages/eventDetails/eventDetails";
-// import Cart from './pages/cart/cart';  //! Contains jquery, won't work
 import ContactUs from "./pages/contactUs/contactUs";
 import Sponsors from "./pages/sponsors/sponsors";
 // import WebTeam from './pages/webTeam/webTeam';
