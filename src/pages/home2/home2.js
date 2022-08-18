@@ -1,28 +1,22 @@
-import React from "react";
-import createClass from "create-react-class";
-
-var Iframe = createClass({
-  render: function () {
-    return (
-      <div>
-        <iframe
-          src={this.props.src}
-          height={this.props.height}
-          width={this.props.width}
-        />
-      </div>
-    );
-  },
-});
+import React, { useEffect } from "react";
+import logo from "../../assets/images/xeniaLogoLight.png";
+import Cube from "../../components/cube";
+import "./home2.css";
 
 const Home2 = () => {
   return (
-    <div>
-      <Iframe
-        src="https://sd5ptr.csb.app/"
-        height="500"
-        width="500"
-      />
+    <div className="home2">
+      <div className="wrapper flex flex-col md:flex-row">
+        <div className="left">
+          <img src={logo} alt="logo" />
+          <p className="text-white">Where passion meets perfection</p>
+        </div>
+        <div className="right">
+          <div className="cube-wrapper">
+            <Cube />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
