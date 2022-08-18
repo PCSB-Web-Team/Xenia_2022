@@ -1,4 +1,5 @@
 export default function Modal({ modal, toggleModal, details, ...props }) {
+  console.log(details)
   return (
     modal && (
       <div className="fixed z-10 top-0 left-0 h-screen w-full flex items-center justify-center transition ease-in-out">

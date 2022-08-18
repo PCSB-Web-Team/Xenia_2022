@@ -21,12 +21,12 @@ const ContactUs = () => {
     .then((response) => {
       // console.log(response);
       if (response.data.success) {
-        window.alert("Thank You For Contacting");
+        window.alert("Thank You For Contacting Us");
         setName('');
         setPhone('');
         setEmail('');
         setMessage('');
-        navigate(-1);
+        navigate('/',{replace:true});
 		  }
     })
     .catch((error) => {
@@ -81,7 +81,7 @@ const ContactUs = () => {
 						onChange={(e) => setMessage(e.target.value)}
 					></textarea>
 
-					<button type="submit" className="themeButtCont text-white border-sky-500 border-solid border-2" >
+					<button type="submit" className="bg-transparent hover:bg-blue-500 text-cyan-100 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" >
 						{/* <ThemeButton value="Submit" /> */}
             Submit
 					</button>
@@ -99,13 +99,13 @@ const ContactUs = () => {
 					<p>Pune-411043</p>
 				</div>
 				<div className="phoneAndMail">
-					<p className='display-inline'>
-						<i className="fa fa-phone"></i>{' '}
-						<span >+91 7028929568 </span>
+					<p className='display: inline-block'>
+						<i className="fa fa-phone text-left text-lg">  <span className='text-lg' >+91 7028929568 </span> </i>
 					</p>
-					<p className='display-inline'>
-						<i className="fa fa-envelope"></i>{' '}
-						<span style={{ marginLeft: '5px' }}>support@pictcsi.com</span>
+          <br></br>
+					<p className='display: inline-block'>
+						<i className="fa fa-envelope text-left text-lg"><span style={{ marginLeft: '5px' }} className='text-lg'>support@pictcsi.com</span></i>{' '}
+						
 					</p>
 				</div>
 			</div>
