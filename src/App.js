@@ -1,10 +1,6 @@
 import PreLoader from "./components/preloader";
 import Loader from "./components/loader";
 import Home2 from "./pages/home2/home2";
-// import PageBackground from "./components/pageBackground";
-// import PageBackground from "./components/pageBackgroundNew";
-// import PageBackground from "./components/pageBackgroundNewNew";
-import PageBackground from "./components/pageBackgroundNewNewNew";
 
 import Navbar from "./components/Navbarnew";
 import Homepage from "./pages/home/home";
@@ -20,7 +16,7 @@ import SideEvents from "./pages/sideEvents/sideEvents";
 import EventDetails from "./pages/eventDetails/eventDetails";
 import ContactUs from "./pages/contactUs/contactUs";
 import Sponsors from "./pages/sponsors/sponsors";
-// import WebTeam from './pages/webTeam/webTeam';
+import WebTeam from "./pages/webTeam/webTeam";
 import ErrorPage from "./pages/404/Error";
 import { AuthVerify } from "./utils/authVerify";
 import ProtectedRoute from "./routes/protectedRoute";
@@ -52,15 +48,9 @@ function App() {
         <Sidebar />
         <ContactPanel />
         <Routes>
-          <Route
-            path="/"
-            element={
-              <PageBackground>
-                <Homepage loader={<PreLoader />} />
-              </PageBackground>
-            }
-          />
+          <Route path="/" element={<Homepage loader={<PreLoader />} />} />
           <Route path="/home2" element={<Home2 loader={<Loader />} />} />
+          {/* <Route path="/home3" element={<Home3 loader={<Loader />} />} /> */}
           <Route path="/auth" element={<Auth loader={<Loader />} />} />
           <Route path="/schedule" element={<Schedule loader={<Loader />} />} />
           <Route path="/events" element={<Events loader={<Loader />} />} />
@@ -70,11 +60,7 @@ function App() {
           />
           <Route
             path="/industry-talks"
-            element={
-              <PageBackground>
-                <IndustryTalks loader={<Loader />} />
-              </PageBackground>
-            }
+            element={<IndustryTalks loader={<Loader />} />}
           />
           <Route
             path="/industry-talks/:id"
@@ -92,7 +78,7 @@ function App() {
             path="/contact-us"
             element={<ContactUs loader={<Loader />} />}
           />
-          {/* <Route path="/web-team" element={<WebTeam loader={<Loader />} />} /> */}
+          <Route path="/web-team" element={<WebTeam loader={<Loader />} />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />

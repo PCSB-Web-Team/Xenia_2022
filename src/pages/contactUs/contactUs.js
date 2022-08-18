@@ -1,5 +1,4 @@
 import "./contactUs.css";
-import PageBackground from "../../components/pageBackground";
 import { useSelector } from "react-redux/es/exports";
 import { Validators } from "../../utils";
 import { Field, Formik } from "formik";
@@ -12,7 +11,6 @@ function ContactUs() {
 
   return (
     <div className="contact-us">
-      <PageBackground />
       <div className="container">
         <div className="screen">
           {/* <div className="screen-header">

@@ -10,7 +10,7 @@
       content="Web site created using create-react-app"
     />
     <style>
-      .preloader {
+      .preloader{
         height: 100vh;
         width: 100%;
         display: flex;
@@ -19,49 +19,49 @@
         background: #000;
         position: fixed;
         z-index: 99999999999999999999999;
-        display: none;
+        /* display: none; */
       }
-      .preloader-main {
+      .preloader-main{
         position: relative;
         width: 400px;
         height: 400px;
         display: grid;
         place-items: center;
       }
-      .preloader-main #block1 {
+      .preloader-main #block1{
         position: absolute;
         top: 0;
         left: 0;
         width: 140px;
         height: 140px;
       }
-      .preloader-main #block2 {
+      .preloader-main #block2{
         position: absolute;
         bottom: 0;
         left: 0;
         width: 140px;
         height: 140px;
       }
-      .preloader-main #block3 {
+      .preloader-main #block3{
         position: absolute;
         bottom: 0;
         right: 0;
         width: 140px;
         height: 140px;
       }
-      .preloader-main #block4 {
+      .preloader-main #block4{
         position: absolute;
         top: 0;
         right: 0;
         width: 140px;
         height: 140px;
       }
-      .preloader-main #logo {
+      .preloader-main #logo{
         width: 150px;
         height: 150px;
         animation: logo-reveal 1s ease 5s infinite alternate;
       }
-      .preloader-main #line1 {
+      .preloader-main #line1{
         position: absolute;
         width: 100px;
         background-color: rgb(25, 49, 228);
@@ -69,14 +69,14 @@
         transform: rotate(90deg);
         left: 5%;
       }
-      .preloader-main #line2 {
+      .preloader-main #line2{
         position: absolute;
         width: 100px;
         background-color: rgb(25, 49, 228);
         height: 2px;
         bottom: 17%;
       }
-      .preloader-main #line3 {
+      .preloader-main #line3{
         position: absolute;
         width: 100px;
         background-color: rgb(25, 49, 228);
@@ -84,7 +84,7 @@
         transform: rotate(90deg);
         right: 5%;
       }
-      .preloader-main #line4 {
+      .preloader-main #line4{
         position: absolute;
         width: 100px;
         background-color: rgb(25, 49, 228);
@@ -93,13 +93,13 @@
       }
 
       @keyframes logo-reveal {
-        0% {
+        0%{
           transform: scale(0);
-        }
-        100% {
+        }100%{
           transform: scale(1);
         }
       }
+      
     </style>
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/xenia22Logo.ico" />
     <!--
@@ -126,25 +126,24 @@
     />
     <title>XENIA'22 | PCSB</title>
   </head>
-  <body onload="disablePreloader()">
+  <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div class="cursor"></div>
-    <div class="cursor2"></div>
+<div class="cursor2"></div>
     <div class="preloader">
       <div class="preloader-main">
-        <img src="./block.png" alt="block" id="block1" />
-        <img src="./block.png" alt="block" id="block2" />
-        <img src="./block.png" alt="block" id="block3" />
-        <img src="./block.png" alt="block" id="block4" />
+        <img src="./block.png" alt="block" id="block1">
+        <img src="./block.png" alt="block" id="block2">
+        <img src="./block.png" alt="block" id="block3">
+        <img src="./block.png" alt="block" id="block4">
         <div class="line" id="line1"></div>
         <div class="line" id="line2"></div>
         <div class="line" id="line3"></div>
         <div class="line" id="line4"></div>
-        <img src="./xenia21Logo.ico" alt="logo" id="logo" />
+        <img src="./xenia21Logo.ico" alt="logo" id="logo">
       </div>
     </div>
     <div id="root"></div>
-
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
