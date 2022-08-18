@@ -1,6 +1,6 @@
 import PreLoader from "./components/preloader";
 import Loader from "./components/loader";
-
+import Home2 from "./pages/home2/home2";
 // import PageBackground from "./components/pageBackground";
 // import PageBackground from "./components/pageBackgroundNew";
 // import PageBackground from "./components/pageBackgroundNewNew";
@@ -26,19 +26,17 @@ import ErrorPage from "./pages/404/Error";
 import { AuthVerify } from "./utils/authVerify";
 import ProtectedRoute from "./routes/protectedRoute";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import Background from "./components/background";
 import IndustryTalkDetail from "./pages/industryTalks/industryTalksDetail/industryTalkDetail";
 import "./App.css";
 
 function App() {
-  const userState = useSelector(({ user }) => user);
   useEffect(() => {
     // const preloader = document.getElementById("preloader")
     async function fetchToken() {
       // preloader.style.display = "none";
-      await AuthVerify({ getCall: true });
+      await AuthVerify({ getUserDetails: true });
       // preloader.style.display = "unset"; //reset to default browser's stylesheet
     }
     fetchToken();
@@ -63,6 +61,7 @@ function App() {
               </PageBackground>
             }
           />
+          <Route path="/home2" element={<Home2 loader={<Loader />} />} />
           <Route path="/auth" element={<Auth loader={<Loader />} />} />
           <Route path="/schedule" element={<Schedule loader={<Loader />} />} />
           <Route path="/events" element={<Events loader={<Loader />} />} />

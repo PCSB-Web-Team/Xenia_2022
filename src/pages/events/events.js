@@ -60,19 +60,19 @@ const Events = () => {
           Non-Technical
         </button>
       </div>
-      <div className="text-center grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center mx-auto md:w-5/6 p-4 gap-4">
+      <div className="text-center place-items-center mx-auto md:w-5/6 p-4 gap-4">
         {events.map((event) => (
           <Link
             to={`/events/${event._id}`}
             onClick={() => (document.documentElement.scrollTop = 0)}
           >
-            <div className="group w-min h-min relative hover:scale-105 ease-in-out transition-all">
+            <div className="group w-min h-min relative hover:scale-105 ease-in-out transition-all inline-block m-4">
               <div className=" flex items-center absolute -top-2 z-20 rounded-full -right-4 px-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-extralight">
                 15 Aug
               </div>
               <div
                 key={event._id}
-                className="event-card w-96 md:w-[450px] grid grid-cols-3 items-center h-auto min-h-[200px] backdrop-blur-md cursor-pointer overflow-hidden"
+                className="event-card w-96 md:w-[400px] grid grid-cols-3 items-center h-auto min-h-[200px] backdrop-blur-md cursor-pointer overflow-hidden"
               >
                 <div className=" p-4 col-span-1 flex items-center bg-black/60 h-[150px]">
                   <img src={event.logo} className="max-h-full max-w-full"></img>

@@ -2,8 +2,9 @@ import "./eventDetails.css";
 import { Tabs, Tab } from "./DetailsTabs/DetailsTabs";
 import Request from "../../api/requests";
 import PayByRazor from "../../api/payments";
-import { useEffect, useState } from "react";
+import { AuthVerify } from "../../utils/authVerify";
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
 const EventDetails = () => {
@@ -25,16 +26,30 @@ const EventDetails = () => {
     async function fetchEventData() {
       try {
         const eventData = await Request.getEventById(id);
-        console.log(eventData);
 
-        if (eventData.data.status) {
-          setEventData(() => eventData.data.data[0]);
+        if (eventData.data?.status) {
+          setEventData(() => ({ ...eventData.data.data[0] }));
         }
       } catch (error) {
         console.error(error);
       }
     }
     fetchEventData();
+
+    async function fetchIsUserParticipated() {
+      try {
+        await AuthVerify({ getParticipations: true })
+        const participatedEvent = await userState?.participations.find(userParticipatedEvents => userParticipatedEvents.eventId === id)
+        if (participatedEvent) {
+          setEventData(previousEventData => ({ ...previousEventData, isParticipated: true }))
+          if (participatedEvent.teamId) setTeamCode(participatedEvent.teamId)
+        }
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
+    fetchIsUserParticipated();
   }, [id])
 
   return (
@@ -61,26 +76,30 @@ const EventDetails = () => {
                 {
                   !userState.loggedIn
                     ? <Link to='/auth'>Login to Register</Link>
-                    : eventData.teamSize > 1
-                      ? <>
-                        <PayByRazor
+                    : (eventData.teamSize > 1
+                      ? eventData.isParticipated ?
+                        <span style={{ color: "#16d616" }}>Already participated with Team Code : <code>{teamCode}</code></span>
+                        : <>
+                          <PayByRazor
+                            className="border-4 border-solid"
+                            eventId={id}
+                            userDetails={userState?.userDetails}
+                            eventDetails={eventData?.details}
+                            buttonName="Register as Team"
+                          />
+                          <span>OR</span>
+                          <input type="text" className="event-register-team-box" name="team-code" placeholder="Enter Team Code" onChange={handleInputChange} value={teamCode} maxLength="6" />
+                          <button onClick={handleJoinTeam}>Join Team</button>
+                        </>
+                      : eventData.isParticipated ?
+                        <span style={{ color: "#16d616" }}>Already registered for the event!</span>
+                        : <PayByRazor
                           className="border-4 border-solid"
                           eventId={id}
                           userDetails={userState?.userDetails}
                           eventDetails={eventData?.details}
-                          buttonName="Register as Team"
-                        />
-                        <span>OR</span>
-                        <input type="text" className="event-register-team-box" name="team-code" placeholder="Enter Team Code" onChange={handleInputChange} value={teamCode} maxLength="6" />
-                        <button onClick={handleJoinTeam}>Join Team</button>
-                      </>
-                      : <PayByRazor
-                        className="border-4 border-solid"
-                        eventId={id}
-                        userDetails={userState?.userDetails}
-                        eventDetails={eventData?.details}
-                        buttonName="Register and Pay"
-                      />
+                          buttonName="Register and Pay"
+                        />)
                 }
               </div>
               <h4 className="event-fees">Registration Fees : Rs. {eventData.fees}</h4>
