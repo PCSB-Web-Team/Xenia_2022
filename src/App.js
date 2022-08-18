@@ -4,7 +4,7 @@ import Home2 from "./pages/home2/home2";
 // import PageBackground from "./components/pageBackground";
 // import PageBackground from "./components/pageBackgroundNew";
 // import PageBackground from "./components/pageBackgroundNewNew";
-import PageBackground from "./components/pageBackgroundNewNewNew";
+// import PageBackground from "./components/pageBackgroundNewNewNew";
 
 // import Navbar from "./components/navbar";
 import Navbarnew from "./components/Navbarnew";
@@ -59,9 +59,7 @@ function App() {
           <Route
             path="/"
             element={
-              <PageBackground>
                 <Homepage loader={<PreLoader />} />
-              </PageBackground>
             }
           />
           <Route path="/home2" element={<Home2 loader={<Loader />} />} />
@@ -75,9 +73,7 @@ function App() {
           <Route
             path="/industry-talks"
             element={
-              <PageBackground>
                 <IndustryTalks loader={<Loader />} />
-              </PageBackground>
             }
           />
           <Route
