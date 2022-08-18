@@ -17,7 +17,7 @@ import EventDetails from "./pages/eventDetails/eventDetails";
 // import Cart from './pages/cart/cart';  //! Contains jquery, won't work
 import ContactUs from "./pages/contactUs/contactUs";
 import Sponsors from "./pages/sponsors/sponsors";
-import WebTeam from './pages/webTeam/WebTeam';
+import WebTeam from './pages/webTeam/webTeam';
 import ErrorPage from "./pages/404/Error";
 import { AuthVerify } from "./utils/authVerify";
 import ProtectedRoute from "./routes/protectedRoute";
