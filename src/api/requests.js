@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const backend = axios.create({
-  baseURL: "https://xenia-2022.herokuapp.com/api",
+  baseURL: process.env.REACT_APP_API_URL,
 });
 
 //axios interceptors - attaches default authorization headers (JWT token) to all requests except Login/Signup post requests

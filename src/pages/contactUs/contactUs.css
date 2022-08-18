@@ -1,197 +1,195 @@
-.contact-us {
+.contactUs {
   display: flex;
-  padding: 10% 0;
-  /* min-height: 100vh; */
+  justify-content: space-evenly;
+  width: 70%;
+  margin: 0 auto;
 }
 
-.contact-us .container {
-  flex: 0 1 90%;
-  margin: auto;
-  /* padding: 10px; */
-  position: relative;
-  color: #888;
+.contactUs input {
+  background-color: rgba(133, 133, 133, 0.1);
 }
 
-.contact-us .container .screen {
-  position: relative;
+.contactUs textarea {
+  background-color: rgba(133, 133, 133, 0.1);
+}
+
+.contactForm {
   display: flex;
-  flex-direction: column;
+  flex-flow: column;
+  width: 60%;
+  padding: 0 15px;
 }
 
-.container .screen .screen-header {
+.contactInfo {
+  width: 40%;
+  padding: 0 10px;
+}
+
+.contactForm form {
   display: flex;
-  align-items: center;
-  padding: 10px 20px;
-  background: #4d4d4f;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  flex-flow: column;
+  justify-content: space-between;
+  margin-top: 1.7rem;
 }
 
-.screen .screen-header .screen-header-left {
-  margin-right: auto;
+.contactForm h1,
+.contactInfo h1 {
+  color: white;
+  font-family: "SansBold";
 }
 
-.screen-header-button {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  margin-right: 3px;
-  border-radius: 8px;
-  background: white;
+.contactFill {
+  color: white;
+  height: 3rem;
+  background: rgba(0, 0, 0, 0);
+  outline: 0;
+  border: 0;
+  border-left: 2px aqua solid;
+  padding: 1rem 2.4rem;
+  font-size: 1.5rem;
+  line-height: 2.8rem;
+  margin-bottom: 1.5rem;
 }
 
-.screen-header-button.close {
-  background: #ed1c6f;
+textarea.contactFill {
+  resize: none;
+  min-height: 10rem;
+  line-height: 0.9;
 }
 
-.screen-header-button.maximize {
-  background: #e8e925;
-}
-
-.screen-header-button.minimize {
-  background: #74c54f;
-}
-
-.screen-header-right {
-  display: flex;
-}
-
-.screen-header-ellipsis {
-  width: 3px;
-  height: 3px;
-  margin-left: 2px;
-  border-radius: 8px;
-  background: #999;
-}
-
-.container .screen .screen-body {
-  display: flex;
-}
-
-.screen-body-item {
-  flex: 1;
-  flex-direction: column;
-  padding: 50px;
-  background: #3e3e3e;
-}
-
-.screen-body-item p {
-  letter-spacing: .8px;
-  text-transform: uppercase;
-  line-height: 30px;
-  font-weight: 500;
-  font-size: 16px;
-}
-
-.screen-body-item.left {
-  flex: 0.35;
-  display: flex;
-  flex-direction: column;
-  background: rgba(103, 103, 103, 0.286);
-}
-
-.screen-body-item .app-title {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  color: #ea1d6f;
-  color: #f35ef8;
-  font-size: 26px;
-}
-
-.screen-body-item .app-title:after {
-  content: "";
-  display: block;
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-  width: 25px;
-  height: 4px;
-  background: #ea1d6f;
-}
-
-.app-form-group {
-  margin-bottom: 15px;
-}
-
-.app-form-group.message {
-  margin-top: 40px;
-}
-
-.app-form-group.buttons {
-  margin-bottom: 0;
-  text-align: right;
-}
-
-.app-form-control {
-  width: 100%;
-  padding: 10px 0;
+#contactSubmit {
+  outline: 0;
+  margin-top: 30px;
+  width: 50%;
+  color: white;
+  font-size: 1.4rem;
   background: none;
-  border: none;
-  border-bottom: 1px solid #666;
-  color: #ddd;
-  font-size: 14px;
-  text-transform: uppercase;
-  outline: none;
-  transition: border-color 0.2s;
+  border-color: aqua;
+  transition: 100ms ease;
 }
 
-.app-form-control::placeholder {
-  color: #666;
+#contactSubmit:hover {
+  transform: scale(1.1);
 }
 
-.app-form-control:focus {
-  border-bottom-color: #f35ef8;
+.address {
+  margin-top: 1.7rem;
 }
 
-.app-form-button {
-  padding: 20px;
+.address h3,
+.phoneAndMail h3,
+.socialMedia h3 {
+  color: white;
+  font-family: "SansBold";
+}
+
+.address p,
+.phoneAndMail p,
+.socialMedia p {
+  color: white;
+  margin: 0;
+}
+
+.phoneAndMail,
+.socialMedia {
+  margin-top: 1.6rem;
+}
+
+.socialMedia .fa-instagram {
+  color: white;
+  font-size: xx-large !important;
+  transition: 100ms ease;
+}
+
+.socialMedia .fa-facebook-official {
+  color: white;
+  font-size: xx-large !important;
+  transition: 100ms ease;
+  margin-left: 20px;
+}
+
+.socialMedia .fa-linkedin {
+  color: white;
+  font-size: xx-large !important;
+  transition: 100ms ease;
+  margin-left: 20px;
+}
+
+input.contactFill:-webkit-autofill,
+input.contactFill:-webkit-autofill:hover,
+input.contactFill:-webkit-autofill:focus,
+textarea.contactFill:-webkit-autofill,
+textarea.contactFill:-webkit-autofill:hover,
+textarea.contactFill:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.contactUsForm .fa-facebook-official:hover,
+.fa-instagram:hover,
+.fa-linkedin:hover {
+  transform: scale(1.1);
+}
+
+.themeButtCont {
   background: none;
-  border: none;
-  color: #f35ef8;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
+  width: fit-content;
+  border: 0;
+}
+
+.themeButtCont:focus{
   outline: none;
+  border: none;
 }
 
-.app-form-button:hover {
-  color: #bf00c5;
-}
-
-@media screen and (max-width: 520px) {
-  .screen-body {
-    flex-direction: column;
-  }
-
-  .screen-body-item.left {
-    margin-bottom: 0px;
-  }
-
-  .screen-body-item .app-title {
-    flex-direction: row;
-  }
-
-  .app-title span {
-    margin-right: 12px;
-  }
-
-  .screen-body-item .app-title{
-    padding: 10px;
-  }
-
-  .screen-body-item .app-title:after {
-    display: none;
+@media (min-width:851px) and (max-width:100px){
+  .contactUs{
+    width: 90%;
   }
 }
 
-@media screen and (max-width: 600px) {
-  .screen-body {
-    padding: 10px;
+@media (max-width: 850px) {
+  .contactUs {
+    width: 100%;
+    flex-flow: column;
+    align-items: center;
+  }
+  .contactForm {
+    width: 100%;
+    align-items: center;
+  }
+  .contactInfo {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+  #contactSubmit {
+    margin: 30px auto 50px auto;
   }
 
-  .screen-body-item{
-    padding: 10px;
+  .socialMedia{
+    text-align: center;
   }
 
+  .contactFill {
+    font-size: 1rem;
+  }
+  .contactForm form {
+    width: 85%;
+  }
+  .address {
+    margin-top: 0.6rem;
+  }
+
+  .themeButtCont{
+    width: 100%;
+  }
+  /* .address p,
+  .phoneAndMail p,
+  .socialMedia {
+    text-align: center;
+  } */
+  
 }

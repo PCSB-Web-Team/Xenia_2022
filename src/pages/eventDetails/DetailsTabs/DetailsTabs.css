@@ -42,11 +42,10 @@
 
 .event-desc-lists li::before {
   content: counters(index, ".", decimal-leading-zero);
-  font-size: 1.8rem;
+  font-size: 14px;
   text-align: right;
   font-weight: bold;
   min-width: 50px;
-  padding-right: 12px;
   /*   font-variant-numeric: tabular-nums; */
   align-self: flex-start;
   background-image: linear-gradient(to bottom, aquamarine, orangered);
