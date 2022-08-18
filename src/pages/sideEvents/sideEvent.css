@@ -1,3 +1,38 @@
+.side-events-container {
+  padding: 0 12rem;
+}
+
+.content-sde {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: space-around;
+}
+
+.content-sde .side-event-img {
+  min-width: 180px;
+  min-height: 180px;
+  width: 50%;
+  height: auto;
+}
+
+@media (max-width: 767px) {
+  .side-events-container {
+    padding: 0 2rem;
+  }
+  
+  .content-sde {
+    padding: 0 2rem;
+    flex-direction: column;
+    align-items: center;
+    justify-items: space-around;
+  }
+
+  .content-sde .side-event-img {
+    width: 40%;
+  }
+}
+
 @keyframes glowgreen {
   0%,
   100% {
@@ -9,11 +44,6 @@
   }
 }
 
-
 .vedant_great_hai {
   animation: glowgreen 5s ease-in-out infinite;
 }
-
-
-
-
