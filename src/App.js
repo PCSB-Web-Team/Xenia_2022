@@ -15,7 +15,6 @@ import IndustryTalks from "./pages/industryTalks/industryTalks";
 import Profile from "./pages/profile/profile";
 import SideEvents from "./pages/sideEvents/sideEvents";
 import EventDetails from "./pages/eventDetails/eventDetails";
-// import Cart from './pages/cart/cart';  //! Contains jquery, won't work
 import ContactUs from "./pages/contactUs/contactUs";
 import Sponsors from "./pages/sponsors/sponsors";
 import WebTeam from './pages/webTeam/webTeam';
@@ -50,14 +49,9 @@ function App() {
         <Sidebar />
         <ContactPanel />
         <Routes>
-          <Route
-            path="/"
-            element={
-                <Homepage loader={<PreLoader />} />
-            }
-          />
+          <Route path="/" element={<Homepage loader={<PreLoader />} />} />
           <Route path="/home2" element={<Home2 loader={<Loader />} />} />
-          <Route path="/home3" element={<Home3 loader={<Loader />} />} />
+          {/* <Route path="/home3" element={<Home3 loader={<Loader />} />} /> */}
           <Route path="/auth" element={<Auth loader={<Loader />} />} />
           <Route path="/schedule" element={<Schedule loader={<Loader />} />} />
           <Route path="/events" element={<Events loader={<Loader />} />} />
@@ -67,9 +61,7 @@ function App() {
           />
           <Route
             path="/industry-talks"
-            element={
-                <IndustryTalks loader={<Loader />} />
-            }
+            element={<IndustryTalks loader={<Loader />} />}
           />
           <Route
             path="/industry-talks/:id"
