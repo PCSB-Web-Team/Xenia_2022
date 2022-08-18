@@ -66,7 +66,7 @@ const Events = () => {
             to={`/events/${event._id}`}
             onClick={() => (document.documentElement.scrollTop = 0)}
           >
-            <div className="group relative hover:scale-105 ease-in-out transition-all inline-block m-4">
+            <div className="group relative hover:scale-105 ease-in-out transition-all inline-block m-4 align-top">
               {/* <div className=" flex items-center absolute -top-2 z-20 rounded-full -right-4 px-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-extralight">
                 15 Aug
               </div> */}
