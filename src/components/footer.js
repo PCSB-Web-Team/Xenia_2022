@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export class Footer extends Component {
   render() {
     return (
-      <div className="w-full p-4 py-8 md:p-16 bg-gradient-to-br from-pink-600/20 via-purple-600/20 to-black backdrop-blur-lg z-0">
+      <div className="w-full p-4 py-8 md:p-16 bg-gradient-to-br from-pink-600/20 via-purple-600/20 to-black backdrop-blur-lg">
         <div className="grid md:grid-cols-3">
           <div className="w-full">
             <img className="mx-auto" src={xenialogo}></img>

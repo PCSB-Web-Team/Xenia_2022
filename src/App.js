@@ -17,7 +17,7 @@ import SideEvents from "./pages/sideEvents/sideEvents";
 import EventDetails from "./pages/eventDetails/eventDetails";
 import ContactUs from "./pages/contactUs/contactUs";
 import Sponsors from "./pages/sponsors/sponsors";
-import WebTeam from './pages/webTeam/webTeam';
+import WebTeam from "./pages/webTeam/webTeam";
 import ErrorPage from "./pages/404/Error";
 import { AuthVerify } from "./utils/authVerify";
 import ProtectedRoute from "./routes/protectedRoute";
@@ -46,8 +46,6 @@ function App() {
       <BrowserRouter>
         <Background></Background>
         <Navbar />
-        <Sidebar />
-        <ContactPanel />
         <Routes>
           <Route path="/" element={<Homepage loader={<PreLoader />} />} />
           <Route path="/home2" element={<Home2 loader={<Loader />} />} />
@@ -83,6 +81,8 @@ function App() {
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />
+        <Sidebar />
+        <ContactPanel />
       </BrowserRouter>
     </div>
   );

@@ -5,7 +5,7 @@ const backend = axios.create({
 });
 
 //axios interceptors - attaches default authorization headers (JWT token) to all requests except Login/Signup post requests
-backend.defaults.headers.common['authorization'] = 'Bearer ' + localStorage.getItem(process.env.REACT_APP_TOKEN_NAME) || ""
+backend.defaults.headers.common['authorization'] = 'Bearer ' + localStorage.getItem(process.env.REACT_APP_TOKEN_NAME) || "WEVOSUFfMjAyMl9BVVRIX1RPS0VO"
 
 const signUp = async (data) => await backend.post("/auth/signup", data)
 
