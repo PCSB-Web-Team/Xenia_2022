@@ -10,14 +10,14 @@ export default function SideEvents() {
         const data = [
           {
             id:1,
-            eventTitle: "EventName1",
+            eventTitle: "Photography",
             desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur blanditiis sequi molestiae eaque fugit sit, reiciendis dolorem ullam modi! Repellendus quisquam ipsam laboriosam velit? Minima eveniet, eum nesciunt veniam excepturi possimus praesentium. Quasi sapiente ullam alias beatae mollitia incidunt cupiditate! Iusto, ",
             img: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
             
           },
           {
             id:2,
-            eventTitle: "EventName2",
+            eventTitle: "DodgeBall",
             desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur blanditiis sequi molestiae eaque fugit sit, reiciendis dolorem ullam modi! Repellendus quisquam ipsam laboriosam velit? Minima eveniet, eum nesciunt veniam excepturi possimus praesentium. Quasi sapiente ullam alias beatae mollitia incidunt cupiditate! Iusto, ",
             img: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
           },
