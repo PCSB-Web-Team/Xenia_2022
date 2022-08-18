@@ -19,7 +19,7 @@
         background: #000;
         position: fixed;
         z-index: 99999999999999999999999;
-        display: none;
+        /* display: none; */
       }
       .preloader-main{
         position: relative;
@@ -59,22 +59,47 @@
       .preloader-main #logo{
         width: 150px;
         height: 150px;
+        animation: logo-reveal 1s ease 5s infinite alternate;
       }
       .preloader-main #line1{
         position: absolute;
-        width: 70px;
+        width: 100px;
         background-color: rgb(25, 49, 228);
         height: 2px;
+        transform: rotate(90deg);
+        left: 5%;
       }
       .preloader-main #line2{
         position: absolute;
+        width: 100px;
+        background-color: rgb(25, 49, 228);
+        height: 2px;
+        bottom: 17%;
       }
       .preloader-main #line3{
         position: absolute;
+        width: 100px;
+        background-color: rgb(25, 49, 228);
+        height: 2px;
+        transform: rotate(90deg);
+        right: 5%;
       }
       .preloader-main #line4{
         position: absolute;
+        width: 100px;
+        background-color: rgb(25, 49, 228);
+        height: 2px;
+        top: 17%;
       }
+
+      @keyframes logo-reveal {
+        0%{
+          transform: scale(0);
+        }100%{
+          transform: scale(1);
+        }
+      }
+      
     </style>
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/xenia22Logo.ico" />
     <!--
@@ -103,6 +128,8 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div class="cursor"></div>
+<div class="cursor2"></div>
     <div class="preloader">
       <div class="preloader-main">
         <img src="./block.png" alt="block" id="block1">

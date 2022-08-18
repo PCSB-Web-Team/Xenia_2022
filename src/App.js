@@ -1,13 +1,8 @@
 import PreLoader from "./components/preloader";
 import Loader from "./components/loader";
 import Home2 from "./pages/home2/home2";
-// import PageBackground from "./components/pageBackground";
-// import PageBackground from "./components/pageBackgroundNew";
-// import PageBackground from "./components/pageBackgroundNewNew";
-import PageBackground from "./components/pageBackgroundNewNewNew";
 
-// import Navbar from "./components/navbar";
-import Navbarnew from "./components/Navbarnew";
+import Navbar from "./components/Navbarnew";
 import Homepage from "./pages/home/home";
 import Auth from "./pages/auth/auth";
 import Footer from "./components/footer";
@@ -33,7 +28,6 @@ import IndustryTalkDetail from "./pages/industryTalks/industryTalksDetail/indust
 import "./App.css";
 
 function App() {
-
   useEffect(() => {
     // const preloader = document.getElementById("preloader")
     async function fetchToken() {
@@ -50,18 +44,15 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        {/* <Background></Background> */}
-        {/* <Navbar /> */}
-        <Navbarnew />
+        <Background></Background>
+        <Navbar />
         <Sidebar />
         <ContactPanel />
         <Routes>
           <Route
             path="/"
             element={
-              <PageBackground>
                 <Homepage loader={<PreLoader />} />
-              </PageBackground>
             }
           />
           <Route path="/home2" element={<Home2 loader={<Loader />} />} />
@@ -75,9 +66,7 @@ function App() {
           <Route
             path="/industry-talks"
             element={
-              <PageBackground>
                 <IndustryTalks loader={<Loader />} />
-              </PageBackground>
             }
           />
           <Route
