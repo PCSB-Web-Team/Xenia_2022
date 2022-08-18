@@ -1,5 +1,19 @@
 import "./home3.css";
+import HomepageTopGradient from "../../assets/images/background/gradient-bg-1.png";
 import HomepageBottomEarth from "../../assets/images/background/homepage-earth-background.jpg";
+import coin1 from "../../assets/images/coin 1.png";
+import coin2 from "../../assets/images/coin 2.png";
+import coin3 from "../../assets/images/coin 3.png";
+import coin4 from "../../assets/images/coin 4.png";
+import coin5 from "../../assets/images/coin 5.png";
+import coin6 from "../../assets/images/coin 6.png";
+import coin7 from "../../assets/images/coin 7.png";
+import coin8 from "../../assets/images/coin 8.png";
+import coin9 from "../../assets/images/coin 9.png";
+import coin10 from "../../assets/images/coin 10.png";
+import coin11 from "../../assets/images/coin 11.png";
+import coin12 from "../../assets/images/coin 12.png";
+import coin13 from "../../assets/images/coin 13.png";
 
 function Homepage() {
 
@@ -39,26 +53,6 @@ function Homepage() {
             "A": "660 80",
             "B": "661 360",
         },
-        {
-            "A": "740 120",
-            "B": "741 500",
-        },
-        {
-            "A": "820 80",
-            "B": "821 360",
-        },
-        {
-            "A": "900 120",
-            "B": "901 500",
-        },
-        {
-            "A": "980 80",
-            "B": "981 360",
-        },
-        {
-            "A": "1060 120",
-            "B": "1061 500",
-        },
     ]
 
     let PolylineTags = []
@@ -66,10 +60,18 @@ function Homepage() {
         PolylineTags.push(<polyline key={"Line no. " + (i + 1)} points={`${Object.values(endpointsOfPolyline[i]).toString()}`} />)
     }
 
+    const icons = [coin1, coin2, coin3, coin4, coin5, coin6, coin7, coin8, coin9, coin10, coin11, coin12, coin13]
+    const floatingIcons = []
+
+    for (let i = 0; i < endpointsOfPolyline.length; i++) {
+        const upperPointOfLine = endpointsOfPolyline[i].A.split(" ")
+        floatingIcons.push(<image key={i} x={upperPointOfLine[0] - 35} y={upperPointOfLine[1] - 55} href={icons[Math.floor((Math.random() * icons.length))]}></image>)
+    }
+
     return (
         <div className="homepage">
             <div className="homepage-background-container">
-                <img className="homepage-background-img" src={HomepageBottomEarth} alt="homepage-background" />
+                <img className="homepage-background-img gradient" src={HomepageTopGradient} alt="homepage-gradient" />
                 <div className="vertical-lines-container">
                     <svg className="lines-svg" preserveAspectRatio="xMinYMin">
                         <defs>
@@ -87,8 +89,10 @@ function Homepage() {
                             </linearGradient>
                         </defs>
                         {PolylineTags}
+                        {floatingIcons}
                     </svg>
                 </div>
+                <img className="homepage-background-img earth" src={HomepageBottomEarth} alt="homepage-background" />
 
             </div>
         </div>
