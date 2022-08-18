@@ -1,4 +1,4 @@
-import "./eventDetails.css";
+// import "./eventDetails.css";
 import { Tabs, Tab } from "./DetailsTabs/DetailsTabs";
 import Request from "../../api/requests";
 import PayByRazor from "../../api/payments";
@@ -8,19 +8,17 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
 const EventDetails = () => {
-  const [eventData, setEventData] = useState({})
-  const [teamCode, setTeamCode] = useState("")
+  const [eventData, setEventData] = useState({});
+  const [teamCode, setTeamCode] = useState("");
   let id = useParams().id;
 
-  const userState = useSelector(states => states.user)
+  const userState = useSelector((states) => states.user);
 
   const handleInputChange = (event) => {
-    setTeamCode(event.target.value)
-  }
+    setTeamCode(event.target.value);
+  };
 
-  const handleJoinTeam = () => {
-
-  }
+  const handleJoinTeam = () => {};
 
   useEffect(() => {
     async function fetchEventData() {
@@ -38,77 +36,101 @@ const EventDetails = () => {
 
     async function fetchIsUserParticipated() {
       try {
-        await AuthVerify({ getParticipations: true })
-        const participatedEvent = await userState?.participations.find(userParticipatedEvents => userParticipatedEvents.eventId === id)
+        await AuthVerify({ getParticipations: true });
+        const participatedEvent = await userState?.participations.find(
+          (userParticipatedEvents) => userParticipatedEvents.eventId === id
+        );
         if (participatedEvent) {
-          setEventData(previousEventData => ({ ...previousEventData, isParticipated: true }))
-          if (participatedEvent.teamId) setTeamCode(participatedEvent.teamId)
+          setEventData((previousEventData) => ({
+            ...previousEventData,
+            isParticipated: true,
+          }));
+          if (participatedEvent.teamId) setTeamCode(participatedEvent.teamId);
         }
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
     }
 
     fetchIsUserParticipated();
-  }, [id])
+  }, [id]);
 
   return (
-    <div className="event-details-page">
-      <header className="event-details-title">
-        <h1>{eventData?.name}</h1>
-        <h3
-          className="event-status"
-          style={{ color: eventData?.isLive ? "#16d616" : "#f63535" }}
-        >
-          Registrations {eventData?.isLive ? "Open" : "Closed"}
-        </h3>
-      </header>
-      <div className="event-details-container">
-        <h4 className="event-type">{eventData?.teamSize > 1 ? "Team Event" : "Individual Participation"}</h4>
-        <div className="event-abstract">
+    <div className="grid md:grid-cols-2 min-h-screen md:p-16 gap-8 bg-black/20">
+      <div className="my-auto text-center space-y-4 text-white bg-black/40 backdrop-blur-xl md:h-full p-4">
+        <div className=" w-full max-w-[400px] h-[400px] mx-auto">
           <img src={eventData?.logo} alt="event-logo" className="event-logo" />
-          <hr></hr>
-          <p className="event-details">{eventData?.details}</p>
-          {eventData?.isLive
-            ? <p className="event-register-buttons disabled">Registrations closed ! Try with other events.</p>
-            : <>
-              <div className="event-register-buttons">
-                {
-                  !userState.loggedIn
-                    ? <Link to='/auth'>Login to Register</Link>
-                    : (eventData.teamSize > 1
-                      ? eventData.isParticipated ?
-                        <span style={{ color: "#16d616" }}>Already participated with Team Code : <code>{teamCode}</code></span>
-                        : <>
-                          <PayByRazor
-                            className="border-4 border-solid"
-                            eventId={id}
-                            userDetails={userState?.userDetails}
-                            eventDetails={eventData?.details}
-                            buttonName="Register as Team"
-                          />
-                          <span>OR</span>
-                          <input type="text" className="event-register-team-box" name="team-code" placeholder="Enter Team Code" onChange={handleInputChange} value={teamCode} maxLength="6" />
-                          <button onClick={handleJoinTeam}>Join Team</button>
-                        </>
-                      : eventData.isParticipated ?
-                        <span style={{ color: "#16d616" }}>Already registered for the event!</span>
-                        : <PayByRazor
-                          className="border-4 border-solid"
-                          eventId={id}
-                          userDetails={userState?.userDetails}
-                          eventDetails={eventData?.details}
-                          buttonName="Register and Pay"
-                        />)
-                }
-              </div>
-              <h4 className="event-fees">Registration Fees : Rs. {eventData.fees}</h4>
-            </>
-          }
         </div>
-        <div className="event-desc">
-          <Tabs>
-            <Tab className="event-desc-tab" component={
+        <div className="text-5xl font-bold text-purple-600 border-b pb-4 border-gray-500">
+          {eventData.name}
+        </div>
+        <div className="text-left">{eventData?.details}</div>
+        {eventData?.isLive ? (
+          <p className="event-register-buttons disabled">
+            Registrations closed ! Try with other events.
+          </p>
+        ) : (
+          <>
+            <div className="event-register-buttons">
+              {!userState.loggedIn ? (
+                <Link to="/auth">
+                  <div className=" text-red-400 text-2xl hover:bg-red-300 inline-block mx-auto p-2">
+                    Login to participate
+                  </div>
+                </Link>
+              ) : eventData.teamSize > 1 ? (
+                eventData.isParticipated ? (
+                  <span style={{ color: "#16d616" }}>
+                    Already participated with Team Code :{" "}
+                    <code>{teamCode}</code>
+                  </span>
+                ) : (
+                  <>
+                    <PayByRazor
+                      className="border-4 border-solid"
+                      eventId={id}
+                      userDetails={userState?.userDetails}
+                      eventDetails={eventData?.details}
+                      buttonName="Register as Team"
+                    />
+                    <span>OR</span>
+                    <input
+                      type="text"
+                      className="event-register-team-box"
+                      name="team-code"
+                      placeholder="Enter Team Code"
+                      onChange={handleInputChange}
+                      value={teamCode}
+                      maxLength="6"
+                    />
+                    <button onClick={handleJoinTeam}>Join Team</button>
+                  </>
+                )
+              ) : eventData.isParticipated ? (
+                <span style={{ color: "#16d616" }}>
+                  Already registered for the event!
+                </span>
+              ) : (
+                <PayByRazor
+                  className="border-4 border-solid"
+                  eventId={id}
+                  userDetails={userState?.userDetails}
+                  eventDetails={eventData?.details}
+                  buttonName="Participate"
+                />
+              )}
+            </div>
+            <h4 className="event-fees">
+              Registration Fees : Rs. {eventData.fees}
+            </h4>
+          </>
+        )}
+      </div>
+      <div className="event-desc">
+        <Tabs>
+          <Tab
+            className="event-desc-tab"
+            component={
               <ol className="event-desc-lists">
                 <li>First Prize: Rs. </li>
                 <li>Second Prize Rs. </li>
@@ -118,40 +140,45 @@ const EventDetails = () => {
                 <li>Third Price Rs. </li>
                 <li>Other Participants : Participation Certificate</li>
               </ol>
-            }>Prizes</Tab>
-            <Tab className="event-desc-tab" component={
+            }
+          >
+            Prizes
+          </Tab>
+          <Tab
+            className="event-desc-tab"
+            component={
               <ol className="event-desc-lists">
-                <li>First Round : <date></date> </li>
-                <li>Second Round : <date></date> </li>
-                <li>Final Round : <date></date> </li>
+                <li>
+                  First Round : <date></date>{" "}
+                </li>
+                <li>
+                  Second Round : <date></date>{" "}
+                </li>
+                <li>
+                  Final Round : <date></date>{" "}
+                </li>
               </ol>
-            } active>Schedule</Tab>
-            <Tab className="event-desc-tab" component={
+            }
+            active
+          >
+            Schedule
+          </Tab>
+          <Tab
+            className="event-desc-tab"
+            component={
               <ul className="event-desc-lists">
-                {eventData?.rules?.map((rule) => <li>Rs. {rule}</li>)}
+                {eventData?.rules?.map((rule) => (
+                  <li>Rs. {rule}</li>
+                ))}
               </ul>
-            }>Rules</Tab>
-          </Tabs>
-        </div>
+            }
+          >
+            Rules
+          </Tab>
+        </Tabs>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default EventDetails;
-
-/**
-{
-    "_id": "62e3ee205046b9fbe30f0326",
-    "name": "Codestrike",
-    "details": "Codestrike is a Competitive Programming contest hosted online. Programmers may take up any language of their choice.",
-    "fees": 0,
-    "teamSize": 1,
-    "logo": "https://xeniabackend.herokuapp.com/logos/code-strike.png",
-    "isTechnical": true,
-    "prizes": [],
-    "schedule": [],
-    "rules": [],
-    "__v": 0
-}
- */
