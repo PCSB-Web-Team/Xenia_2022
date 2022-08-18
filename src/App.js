@@ -1,6 +1,6 @@
 import PreLoader from "./components/preloader";
 import Loader from "./components/loader";
-
+import Home2 from "./pages/home2/home2";
 // import PageBackground from "./components/pageBackground";
 // import PageBackground from "./components/pageBackgroundNew";
 // import PageBackground from "./components/pageBackgroundNewNew";
@@ -65,6 +65,7 @@ function App() {
               </PageBackground>
             }
           />
+          <Route path="/home2" element={<Home2 loader={<Loader />} />} />
           <Route path="/auth" element={<Auth loader={<Loader />} />} />
           <Route path="/schedule" element={<Schedule loader={<Loader />} />} />
           <Route path="/events" element={<Events loader={<Loader />} />} />
