@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const backend = axios.create({
-  baseURL: 'https://xenia-2022.herokuapp.com/api',
+  baseURL: process.env.REACT_APP_API_URL,
 });
 
 //axios interceptors - attaches default authorization headers (JWT token) to all requests except Login/Signup post requests
@@ -19,9 +19,11 @@ const getEvents = async () => await backend.get("/events")
 
 const getEventById = async (id) => await backend.get(`/events/${id}`)
 
+const getSideEvents = async () => await backend.get("/side-events")
+
 const createOrder = async (data) => await backend.post("/razorpay", data)
 
 const verifyPayment = async (data) => await backend.post("/razorpay/verification", data)
 
-const Requests = { signUp, login, getUserByToken, getUserParticipations, getEvents, getEventById, createOrder, verifyPayment }
+const Requests = { signUp, login, getUserByToken, getUserParticipations, getEvents, getEventById, getSideEvents, createOrder, verifyPayment }
 export default Requests;
