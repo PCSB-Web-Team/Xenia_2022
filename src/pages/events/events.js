@@ -78,7 +78,7 @@ const Events = () => {
                   <img src={event.logo} className="max-h-full max-w-full"></img>
                 </div>
                 <div className=" event-card-body p-4 h-full col-span-2 text-left bg-gradient-to-br from-black/10 to-black/50  space-y-2 text-gray-400 group-hover:bg-cyan-700 ">
-                  <div className="border-b border-slate-600 text-transparent font-bold text-lg pb-2 group-hover:text-white bg-clip-text bg-gradient-to-r bg-conic-to-bl bg-conic-to-l from-rose-500 to-indigo-700">
+                  <div className="border-b border-slate-600 text-transparent font-bold text-lg pb-2 group-hover:text-white bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-purple-600">
                     {event.name}
                   </div>
                   <div className="font-light text-sm h-[100px] overflow-auto group-hover:text-white text-gray-300">
