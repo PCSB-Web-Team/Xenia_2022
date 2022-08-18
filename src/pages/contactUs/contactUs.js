@@ -12,9 +12,6 @@ const ContactUs = () => {
 
 	const Submit = async (e) => {
 		e.preventDefault();
-
-		// const captchaToken = await reRef.current.executeAsync();
-		// reRef.current.reset();
     console.log(e);
 		const data = { name, phone, email, message};
     await axios.post('https://xenia-mailer.herokuapp.com/api/contact-us', data)
@@ -37,11 +34,6 @@ const ContactUs = () => {
 
 	return (
 		<div className="contactUs mb-4 mt-20">
-			{/* <ReCaptcha
-				sitekey="6LdP8iobAAAAAHHXrhWEJLuoQWruhsQiLq1AywMg"
-				size="invisible"
-				ref={reRef}
-			/> */}
 			<div className="contactForm mb-4">
 				<h1 className='text-4xl font-mono font-bold '>Send us a message</h1>
 				<form onSubmit={Submit} id="contactUsForm">
