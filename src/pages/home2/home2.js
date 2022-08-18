@@ -6,7 +6,7 @@ import "./home2.css";
 const Home2 = () => {
   return (
     <div className="home2">
-      <div className="wrapper flex flex-col md:flex-row">
+      <div className="wrapper flex flex-col">
         <div className="left">
           <img src={logo} alt="logo" />
           <p className="text-white">Where passion meets perfection</p>
