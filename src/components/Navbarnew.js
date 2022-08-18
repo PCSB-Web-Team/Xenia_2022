@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Navbarnew.css";
 
@@ -43,7 +44,11 @@ const Navbarnew = () => {
                     <div className="hex-item-inner"></div>
                     <div className="hex-item-inner"></div>
                   </div>
-                  <Link to={"/"} className="hex-content" onClick={() => setNavOpen(false)}>
+                  <Link
+                    to={"/"}
+                    className="hex-content"
+                    onClick={() => setNavOpen(false)}
+                  >
                     <span className="hex-content-inner">
                       <span className="icon">
                         <i className="fas fa-home"></i>
@@ -76,7 +81,11 @@ const Navbarnew = () => {
                     <div className="hex-item-inner"></div>
                     <div className="hex-item-inner"></div>
                   </div>
-                  <Link to={"/schedule"} className="hex-content" onClick={() => setNavOpen(false)}>
+                  <Link
+                    to={"/schedule"}
+                    className="hex-content"
+                    onClick={() => setNavOpen(false)}
+                  >
                     <span className="hex-content-inner">
                       <span className="icon">
                         <i className="fas fa-calendar"></i>
@@ -109,7 +118,11 @@ const Navbarnew = () => {
                     <div className="hex-item-inner"></div>
                     <div className="hex-item-inner"></div>
                   </div>
-                  <Link to={"/events"} className="hex-content" onClick={() => setNavOpen(false)}>
+                  <Link
+                    to={"/events"}
+                    className="hex-content"
+                    onClick={() => setNavOpen(false)}
+                  >
                     <span className="hex-content-inner">
                       <span className="icon">
                         <i className="fas fa-trophy"></i>
@@ -142,7 +155,11 @@ const Navbarnew = () => {
                     <div className="hex-item-inner"></div>
                     <div className="hex-item-inner"></div>
                   </div>
-                  <Link to={"/side-events"} className="hex-content" onClick={() => setNavOpen(false)}>
+                  <Link
+                    to={"/side-events"}
+                    className="hex-content"
+                    onClick={() => setNavOpen(false)}
+                  >
                     <span className="hex-content-inner">
                       <span className="icon">
                         <i className="fas fa-camera"></i>
@@ -177,7 +194,11 @@ const Navbarnew = () => {
                     <div className="hex-item-inner"></div>
                     <div className="hex-item-inner"></div>
                   </div>
-                  <Link to={"/industry-talks"} className="hex-content" onClick={() => setNavOpen(false)}>
+                  <Link
+                    to={"/industry-talks"}
+                    className="hex-content"
+                    onClick={() => setNavOpen(false)}
+                  >
                     <span className="hex-content-inner">
                       <span className="icon">
                         <i className="fas fa-podium"></i>
@@ -210,7 +231,11 @@ const Navbarnew = () => {
                     <div className="hex-item-inner"></div>
                     <div className="hex-item-inner"></div>
                   </div>
-                  <Link to={"/sponsors"} className="hex-content" onClick={() => setNavOpen(false)}>
+                  <Link
+                    to={"/sponsors"}
+                    className="hex-content"
+                    onClick={() => setNavOpen(false)}
+                  >
                     <span className="hex-content-inner">
                       <span className="icon">
                         <i className="fas fa-handshake"></i>
@@ -243,7 +268,11 @@ const Navbarnew = () => {
                     <div className="hex-item-inner"></div>
                     <div className="hex-item-inner"></div>
                   </div>
-                  <Link to={"/profile"} className="hex-content" onClick={() => setNavOpen(false)}>
+                  <Link
+                    to={"/profile"}
+                    className="hex-content"
+                    onClick={() => setNavOpen(false)}
+                  >
                     <span className="hex-content-inner">
                       <span className="icon">
                         <i className="fas fa-id-badge"></i>
@@ -275,59 +304,87 @@ const Navbarnew = () => {
         <div className={`wrapper ${navOpen ? "active" : ""}`}>
           <ul className="fa-ul">
             <li>
-              <Link to={"/"} onClick={() => setNavOpen(false)} style={{textDecoration:"none"}}>
-                  <span className="fa-li">
-                    <i className="fas fa-home"></i>
-                  </span>
-                  Home
+              <Link
+                to={"/"}
+                onClick={() => setNavOpen(false)}
+                style={{ textDecoration: "none" }}
+              >
+                <span className="fa-li">
+                  <i className="fas fa-home"></i>
+                </span>
+                Home
               </Link>
             </li>
             <li>
-              <Link to={"/schedule"} onClick={() => setNavOpen(false)} style={{textDecoration:"none"}}>
-                  <span className="fa-li">
-                    <i className="fas fa-calendar"></i>
-                  </span>
-                  Schedule
+              <Link
+                to={"/schedule"}
+                onClick={() => setNavOpen(false)}
+                style={{ textDecoration: "none" }}
+              >
+                <span className="fa-li">
+                  <i className="fas fa-calendar"></i>
+                </span>
+                Schedule
               </Link>
             </li>
             <li>
-              <Link to={"/events"} onClick={() => setNavOpen(false)} style={{textDecoration:"none"}}>
-                  <span className="fa-li">
-                    <i className="fas fa-trophy"></i>
-                  </span>
-                  Events
+              <Link
+                to={"/events"}
+                onClick={() => setNavOpen(false)}
+                style={{ textDecoration: "none" }}
+              >
+                <span className="fa-li">
+                  <i className="fas fa-trophy"></i>
+                </span>
+                Events
               </Link>
             </li>
             <li>
-              <Link to={"/side-events"} onClick={() => setNavOpen(false)} style={{textDecoration:"none"}}>
-                  <span className="fa-li">
-                    <i className="fas fa-camera"></i>
-                  </span>
-                  Buildup Events
+              <Link
+                to={"/side-events"}
+                onClick={() => setNavOpen(false)}
+                style={{ textDecoration: "none" }}
+              >
+                <span className="fa-li">
+                  <i className="fas fa-camera"></i>
+                </span>
+                Buildup Events
               </Link>
             </li>
             <li>
-              <Link to={"/industry-talks"} onClick={() => setNavOpen(false)} style={{textDecoration:"none"}}>
-                  <span className="fa-li">
-                    <i className="fas fa-podium"></i>
-                  </span>
-                  Industry Talks
+              <Link
+                to={"/industry-talks"}
+                onClick={() => setNavOpen(false)}
+                style={{ textDecoration: "none" }}
+              >
+                <span className="fa-li">
+                  <i className="fas fa-podium"></i>
+                </span>
+                Industry Talks
               </Link>
             </li>
             <li>
-              <Link to={"/sponsors"} onClick={() => setNavOpen(false)} style={{textDecoration:"none"}}>
-                  <span className="fa-li">
-                    <i className="fas fa-handshake"></i>
-                  </span>
-                  Sponsors
+              <Link
+                to={"/sponsors"}
+                onClick={() => setNavOpen(false)}
+                style={{ textDecoration: "none" }}
+              >
+                <span className="fa-li">
+                  <i className="fas fa-handshake"></i>
+                </span>
+                Sponsors
               </Link>
             </li>
             <li>
-              <Link to={"/profile"} onClick={() => setNavOpen(false)} style={{textDecoration:"none"}}>
-                  <span className="fa-li">
-                    <i className="fas fa-id-badge"></i>
-                  </span>
-                  Profile
+              <Link
+                to={"/profile"}
+                onClick={() => setNavOpen(false)}
+                style={{ textDecoration: "none" }}
+              >
+                <span className="fa-li">
+                  <i className="fas fa-id-badge"></i>
+                </span>
+                Profile
               </Link>
             </li>
           </ul>
