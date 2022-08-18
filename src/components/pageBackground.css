@@ -289,9 +289,9 @@ body {
   100% {}
 }
 
-.active {
+/* .active {
   animation: clicked 1s;
-}
+} */
 
 @keyframes clicked {
   0% {
