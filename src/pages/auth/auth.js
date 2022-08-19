@@ -1,6 +1,6 @@
 import "./auth.css";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { Validators } from "../../utils";
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
@@ -35,13 +35,9 @@ const Login = () => {
     college: Validators.string,
   });
 
-  useEffect(() => {
-    if (userState.loggedIn) {
-      navigate("/");
-    }
-  }, []);
-
-  return (
+  return userState.loggedIn ? (
+    navigate(-1, { replace: true })
+  ) : (
     <div class="h-screen w-full flex justify-center items-center">
       <div className=" w-80 md:w-[400px] p-4 bg-black/20 backdrop-blur-md space-y-2 font-light">
         {mode === "login" ? (

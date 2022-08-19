@@ -2,19 +2,9 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Requests from "../../api/requests";
+import { setParticipations } from "../../store/middleware";
 
 // TODO: to be fetched from backend in useEffect
-const registeredEvents = [
-  {
-    eventId: "1234",
-  },
-  {
-    eventId: "1234",
-  },
-  {
-    eventId: "1234",
-  },
-];
 
 function RegisteredEventCard(eve) {
   const [details, setDetails] = useState({
@@ -29,12 +19,18 @@ function RegisteredEventCard(eve) {
     link: "google.com",
   });
 
-  //   TODO: fetch the event details using the id from backend
-  // useEffect(() => {
-  // Requests.getEventDetails(eve.details.eventId).then((res) => {
-  //   setDetails(res.data);
-  // });
-  // }, []);
+  // TODO: fetch the event details using the id from backend
+  useEffect(() => {
+    Requests.getEventById(eve.details.eventId).then((res) => {
+      res = res.data;
+      if (res.status) {
+        console.log(res.data);
+        setDetails(res.data);
+      } else {
+        alert(res.error);
+      }
+    });
+  }, []);
 
   return (
     <div className="p-4 bg-gray-200/20 backdrop-blur space-y-4 hover:bg-gray-200/10 transition">
@@ -76,6 +72,7 @@ function RegisteredEventCard(eve) {
 
 export default function Profile() {
   const userState = useSelector(({ user }) => user);
+  const [registeredEvents, setRegisteredEvents] = useState([]);
 
   // TODO: to be taken from redux
   const [userData, setUserData] = useState({
@@ -97,6 +94,9 @@ export default function Profile() {
         // handle error
       }
     });
+    if (userState) {
+      setRegisteredEvents(userState?.participations);
+    }
   }, []);
 
   return (

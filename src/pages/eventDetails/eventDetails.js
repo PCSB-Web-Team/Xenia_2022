@@ -40,7 +40,7 @@ const EventDetails = () => {
     try {
       const eventData = await Request.getEventById(id);
       if (eventData?.data?.status) {
-        setEventData(() => ({ ...eventData.data.data[0] }));
+        setEventData(() => ({ ...eventData.data.data }));
       } else navigate("404");
     } catch (error) {
       navigate("404");
