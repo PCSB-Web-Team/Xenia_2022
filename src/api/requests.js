@@ -27,5 +27,5 @@ const createOrder = async (data) => await backend.post("/razorpay", data)
 
 const verifyPayment = async (data) => await backend.post("/razorpay/verification", data)
 
-const Requests = { signUp, login, getUserByToken, getUserParticipations, getEvents, getEventById, getSideEvents, createOrder, verifyPayment }
+const Requests = { signUp, login, getUserByToken, getUserParticipations, getEvents, getEventById, getSideEvents, createOrder, verifyPayment, joinTeam }
 export default Requests;
