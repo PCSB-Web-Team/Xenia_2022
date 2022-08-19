@@ -1,5 +1,7 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import Requests from "../../api/requests";
 
 // TODO: to be fetched from backend in useEffect
 const registeredEvents = [
@@ -29,9 +31,9 @@ function RegisteredEventCard(eve) {
 
   //   TODO: fetch the event details using the id from backend
   // useEffect(() => {
-  //   Requests.getEventDetails(eve.details.eventId).then((res) => {
-  //     setDetails(res.data);
-  //   });
+  // Requests.getEventDetails(eve.details.eventId).then((res) => {
+  //   setDetails(res.data);
+  // });
   // }, []);
 
   return (
@@ -73,6 +75,8 @@ function RegisteredEventCard(eve) {
 }
 
 export default function Profile() {
+  const userState = useSelector(({ user }) => user);
+
   // TODO: to be taken from redux
   const [userData, setUserData] = useState({
     name: "Vedant Daigavane",
@@ -81,6 +85,19 @@ export default function Profile() {
     college: "PICT",
     branch: "IT",
   });
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!userState.loggedIn) navigate("/auth");
+    Requests.getUserByToken().then(({ data: { status, error, data } }) => {
+      if (status) {
+        setUserData(data);
+      } else {
+        // handle error
+      }
+    });
+  }, []);
 
   return (
     <div className="md:p-4">

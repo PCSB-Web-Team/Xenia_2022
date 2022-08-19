@@ -12,7 +12,7 @@ export default function Modal({ modal, toggleModal, details, ...props }) {
             Rules
           </div>
           <ul className="text-white">
-            <li className="pt-3">
+            {/* <li className="pt-3">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               Possimuslique nostrum nulla libero natus.
             </li>
@@ -31,20 +31,22 @@ export default function Modal({ modal, toggleModal, details, ...props }) {
             <li className="pt-2">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               Possimuslique nostrum nulla libero natus.
-            </li>
+            </li> */}
+            {details.rules.map(rule =>
+              <l1>{rule}</l1>
+              )}
           </ul>
           <div className="mt-8 text-3xl pb-0 border-b border-cyan-400 text-cyan-400">
             Prizes
           </div>
           <ul className="">
             <li className="pt-3">
+              will be Updated Soon
+            </li>
+            {/* <li className="pt-2">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               Possimuslique nostrum nulla libero natus.
-            </li>
-            <li className="pt-2">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Possimuslique nostrum nulla libero natus.
-            </li>
+            </li> */}
           </ul>
           <div className="mt-8 text-3xl pb-0 border-b border-cyan-400 text-cyan-400">
             Benifits

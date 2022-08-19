@@ -1,16 +1,18 @@
 import "./auth.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Validators } from "../../utils";
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
-import { useDispatch } from "react-redux/es/exports";
+import { useDispatch, useSelector } from "react-redux/es/exports";
 import { loginUser, registerUser, logoutUser } from "../../store/middleware";
 import { calcLength } from "framer-motion";
 
 const Login = () => {
   const [mode, setMode] = useState("login");
   const [error, setError] = useState("");
+
+  const userState = useSelector(({ user }) => user);
 
   const dispatch = useDispatch(); //hook returning a reference to the dispatch function from redux store, dispatch action when needed
 
@@ -30,12 +32,18 @@ const Login = () => {
     name: Validators.nameRequired,
     mobile: Validators.mobileRequired,
     branch: Validators.name,
-    college: Validators.name,
+    college: Validators.string,
   });
+
+  useEffect(() => {
+    if (userState.loggedIn) {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <div class="h-screen w-full flex justify-center items-center">
-      <div className=" w-80 md:w-[400px] p-4 bg-gray-600/20 backdrop-blur-md space-y-2 font-light">
+      <div className=" w-80 md:w-[400px] p-4 bg-black/20 backdrop-blur-md space-y-2 font-light">
         {mode === "login" ? (
           <Formik
             initialValues={{
@@ -184,8 +192,9 @@ const Login = () => {
               await dispatch(loginUser(values || null))
                 .unwrap()
                 .then(({ data: { error } }) => {
-                  if (!error) navigate(-1, { replace: true });
-                  else {
+                  if (!error) {
+                    navigate(-1, { replace: true });
+                  } else {
                     setError(error.message);
                   }
                 })

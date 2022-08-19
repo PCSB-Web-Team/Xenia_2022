@@ -1,37 +1,37 @@
-import React, { useState, useRef } from 'react';
-import './contactUs.css';
+import React, { useState, useRef } from "react";
+import "./contactUs.css";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 // import FAQ from './FAQ/faq';
 const ContactUs = () => {
-	const [name, setName] = useState('');
-	const [phone, setPhone] = useState('');
-	const [email, setEmail] = useState('');
-	const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
-	const reRef = useRef();
+  const reRef = useRef();
 
-	const Submit = async (e) => {
-		e.preventDefault();
+  const Submit = async (e) => {
+    e.preventDefault();
     console.log(e);
-		const data = { name, phone, email, message};
-    await axios.post('https://xenia-mailer.herokuapp.com/api/contact-us', data)
-    .then((response) => {
-      // console.log(response);
-      if (response.data.success) {
-        window.alert("Thank You For Contacting Us");
-        setName('');
-        setPhone('');
-        setEmail('');
-        setMessage('');
-        navigate('/',{replace:true});
-		  }
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-		
-	};
+    const data = { name, phone, email, message };
+    await axios
+      .post("https://xenia-mailer.herokuapp.com/api/contact-us", data)
+      .then((response) => {
+        // console.log(response);
+        if (response.data.success) {
+          window.alert("Thank You For Contacting Us");
+          setName("");
+          setPhone("");
+          setEmail("");
+          setMessage("");
+          navigate("/", { replace: true });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const faq=[
     {
@@ -101,9 +101,9 @@ const ContactUs = () => {
 					<button type="submit" className="bg-transparent hover:bg-blue-500 text-cyan-100 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" >
 						
             Submit
-					</button>
-				</form>
-			</div>
+          </button>
+        </form>
+      </div>
 
 			<div className="contactInfo mb-2 mt-8">
 				<h1 className='text-2xl font-mono font-bold'>Contact info</h1>
