@@ -56,28 +56,28 @@ let prernaSthhall = [
 ];
 
 let team2 = [
-    {
-      name: "Renuka Saraf",
-      linkedIn: "https://www.linkedin.com/in/siddhesh-joshi-67615816b",
-      pic: "https://www.instagram.com/p/CgsGxzgvF2Jv5_l_7Ton2JiH-ljfGeJn9c0vQY0/",
-    },
-    {
-      name: "Dhiraj Thorat",
-      linkedIn: "https://www.linkedin.com/in/pranil-bhosale",
-      pic: "https://www.instagram.com/p/CgsGxzgvF2Jv5_l_7Ton2JiH-ljfGeJn9c0vQY0/",
-    },
-    {
-      name: "Atharva Kinikar",
-      linkedIn: "https://www.linkedin.com/in/kshitij-deshpande/",
-      pic: "https://www.instagram.com/p/CgsGxzgvF2Jv5_l_7Ton2JiH-ljfGeJn9c0vQY0/",
-    },
-  
-    {
-      name: "Raj Shende",
-      linkedIn: "https://www.linkedin.com/in/kshitij-deshpande/",
-      pic: "https://www.instagram.com/p/CgsGxzgvF2Jv5_l_7Ton2JiH-ljfGeJn9c0vQY0/",
-    },
-  ];
+  {
+    name: "Renuka Saraf",
+    linkedIn: "https://www.linkedin.com/in/siddhesh-joshi-67615816b",
+    pic: "https://www.instagram.com/p/CgsGxzgvF2Jv5_l_7Ton2JiH-ljfGeJn9c0vQY0/",
+  },
+  {
+    name: "Dhiraj Thorat",
+    linkedIn: "https://www.linkedin.com/in/pranil-bhosale",
+    pic: "https://www.instagram.com/p/CgsGxzgvF2Jv5_l_7Ton2JiH-ljfGeJn9c0vQY0/",
+  },
+  {
+    name: "Atharva Kinikar",
+    linkedIn: "https://www.linkedin.com/in/kshitij-deshpande/",
+    pic: "https://www.instagram.com/p/CgsGxzgvF2Jv5_l_7Ton2JiH-ljfGeJn9c0vQY0/",
+  },
+
+  {
+    name: "Raj Shende",
+    linkedIn: "https://www.linkedin.com/in/kshitij-deshpande/",
+    pic: "https://www.instagram.com/p/CgsGxzgvF2Jv5_l_7Ton2JiH-ljfGeJn9c0vQY0/",
+  },
+];
 
 const webTeam = (props) => {
   let team = teamDetails.map((member) => {
@@ -109,11 +109,11 @@ const webTeam = (props) => {
         <h1 className="header-name-wb">PCSB WEB TEAM</h1>
       </header>
       {team}
-      <br/>
+      <br />
       {teTeam}
       <br />
-       {seTeam}
-       <br />
+      {seTeam}
+      <br />
     </div>
   );
 };

@@ -90,7 +90,7 @@ const EventDetails = () => {
           {eventData.name}
         </div>
         <div className=" border-b border-gray-500"></div>
-        <div className="text-left font-light text-gray-400">
+        <div className="font-light text-gray-400 text-justify">
           {eventData?.details}
         </div>
         <div className="event-fees text-blue-400 text-xl font-bold tracking-wider text-left flex space-x-2">

@@ -14,13 +14,15 @@ export default function SideEvents() {
 
   useEffect(() => {
     try {
-      Requests.getSideEvents().then(res => {
-        setEventsData(() => (res.data?.data))
-      }).catch(error => console.log(error))
+      Requests.getSideEvents()
+        .then((res) => {
+          setEventsData(() => res.data?.data);
+        })
+        .catch((error) => console.log(error));
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }, [])
+  }, []);
 
   // const data = [
   //   {
@@ -55,14 +57,14 @@ export default function SideEvents() {
         </div>
         <div
           onClick={() => {
-            setModalDetails(previousState => ({
-                ...previousState,
-                contactUs: event?.contactUs,
-                prizes: event?.prizes,
-                rules: event?.rules[0].roundRules,
-                schedule: event?.schedule,
-                teamSize: event?.teamSize,
-                fees: event?.fees
+            setModalDetails((previousState) => ({
+              ...previousState,
+              contactUs: event?.contactUs,
+              prizes: event?.prizes,
+              rules: event?.rules[0].roundRules,
+              schedule: event?.schedule,
+              teamSize: event?.teamSize,
+              fees: event?.fees,
             }));
             toggleModal();
           }}
