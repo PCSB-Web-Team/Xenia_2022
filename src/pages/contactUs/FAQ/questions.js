@@ -1,17 +1,12 @@
 import React from "react";
 // import { Accordion, Card } from "react-bootstrap";
-import "./questions.css";
+// import "./questions.css";
 const Question = ({ question, answer, sr }) => {
   return (
-    <>
-      <div className="text-xl text-white ">
-            {question}
-            </div>
-            <div className="text-xl text-white ">
-            {answer}
-            </div>
-       
-    </>
+    <div>
+      <div className="text-xl text-white ">{question}</div>
+      <div className="text-xl text-white ">{answer}</div>
+    </div>
   );
 };
 
