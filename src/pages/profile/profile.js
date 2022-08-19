@@ -90,6 +90,13 @@ export default function Profile() {
 
   useEffect(() => {
     if (!userState.loggedIn) navigate("/auth");
+    Requests.getUserByToken().then(({ data: { status, error, data } }) => {
+      if (status) {
+        setUserData(data);
+      } else {
+        // handle error
+      }
+    });
   }, []);
 
   return (
