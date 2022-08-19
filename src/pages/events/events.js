@@ -36,7 +36,7 @@ const Events = () => {
   }, []);
 
   return (
-    <div className="Events bg-gradient-to-bl bg-black/40">
+    <div className="Events bg-gradient-to-bl bg-black/40 min-h-screen">
       <div className="text-6xl font-semibold text-center text-white pb-12">
         Events
       </div>

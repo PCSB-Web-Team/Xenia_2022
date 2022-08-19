@@ -35,7 +35,6 @@
 .contactForm h1,
 .contactInfo h1 {
   color: white;
-  font-family: "SansBold";
 }
 
 .contactFill {
@@ -80,7 +79,6 @@ textarea.contactFill {
 .phoneAndMail h3,
 .socialMedia h3 {
   color: white;
-  font-family: "SansBold";
 }
 
 .address p,
@@ -137,13 +135,13 @@ textarea.contactFill:-webkit-autofill:focus {
   border: 0;
 }
 
-.themeButtCont:focus{
+.themeButtCont:focus {
   outline: none;
   border: none;
 }
 
-@media (min-width:851px) and (max-width:100px){
-  .contactUs{
+@media (min-width: 851px) and (max-width: 100px) {
+  .contactUs {
     width: 90%;
   }
 }
@@ -169,7 +167,7 @@ textarea.contactFill:-webkit-autofill:focus {
     margin: 30px auto 50px auto;
   }
 
-  .socialMedia{
+  .socialMedia {
     text-align: center;
   }
 
@@ -183,7 +181,7 @@ textarea.contactFill:-webkit-autofill:focus {
     margin-top: 0.6rem;
   }
 
-  .themeButtCont{
+  .themeButtCont {
     width: 100%;
   }
   /* .address p,
@@ -193,3 +191,4 @@ textarea.contactFill:-webkit-autofill:focus {
   } */
   
 }
+

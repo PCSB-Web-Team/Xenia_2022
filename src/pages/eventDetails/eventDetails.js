@@ -3,7 +3,7 @@ import Request from "../../api/requests";
 import PayByRazor from "../../api/payments";
 import { AuthVerify } from "../../utils/authVerify";
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 const EventDetails = () => {
   const [eventData, setEventData] = useState({});
@@ -13,7 +13,10 @@ const EventDetails = () => {
     isParticipated: false
   });
   const [teamId, setTeamId] = useState("");
+  // const [joinTeamError, setJoinTeamError] = useState("");
+
   let id = useParams().id;
+  const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     setTeamId(event.target.value);
@@ -21,8 +24,16 @@ const EventDetails = () => {
 
   const handleJoinTeam = () => {
     Request.joinTeam({ eventId: id, teamId })
-      .then(res => console.log(res))
-      .catch(error => console.error(error));
+      .then((res) => {
+        if (res.data.status) {
+        } else {
+          // setJoinTeamError(res?.data?.error); //* Me bnata error handling ka component, pure website ke liye common
+        }
+      })
+      .catch((err) => {
+        alert(err);
+        // handle error
+      });
   };
 
   async function fetchEventData() {
@@ -30,8 +41,9 @@ const EventDetails = () => {
       const eventData = await Request.getEventById(id);
       if (eventData.data?.status) {
         setEventData(() => ({ ...eventData.data.data[0] }));
-      }
+      } else navigate("404");
     } catch (error) {
+      navigate("404");
       console.error(error);
     }
   }
@@ -83,7 +95,7 @@ const EventDetails = () => {
             <div className="event-register-buttons">
               {!userState.loggedIn ? (
                 <Link to="/auth">
-                  <div className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg px-5 py-2.5 text-center mx-auto text-lg inline-block">
+                  <div className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium  px-5 py-2.5 text-center mx-auto text-lg inline-block">
                     Login to participate
                   </div>
                 </Link>
@@ -98,7 +110,7 @@ const EventDetails = () => {
                     </span>
                   </div>
                 ) : (
-                  <>
+                  <div className="grid grid-cols-1 place-items-center gap-2">
                     <PayByRazor
                       className="border-4 border-solid"
                       eventId={id}
@@ -106,26 +118,32 @@ const EventDetails = () => {
                       eventDetails={eventData?.details}
                       buttonName="Register as Team"
                     />
-                    <span>OR</span>
-                    <input
-                      type="text"
-                      className="event-register-team-box"
-                      name="team-code"
-                      placeholder="Enter Team Code"
-                      onChange={handleInputChange}
-                      value={teamId}
-                      maxLength="6"
-                    />
-                    <button onClick={handleJoinTeam}>Join Team</button>
-                  </>
+                    <div className="text-gray-400 font-bold">OR</div>
+                    <div className="space-x-2 col-span-2">
+                      <input
+                        type="text"
+                        className="p-2 bg-black/20 outline-none"
+                        name="team-code"
+                        placeholder="Enter Team Code"
+                        onChange={handleInputChange}
+                        value={teamId}
+                      />
+                      <button
+                        className="col-span-2 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium  px-5 py-2.5 text-center text-lg"
+                        onClick={handleJoinTeam}
+                      >
+                        Join Team
+                      </button>
+                    </div>
+                  </div>
                 )
-              ) : eventData.isParticipated ? (
+              ) : userState.isParticipated ? (
                 <div className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-2xl tracking-widest">
                   Registered Successfully
                 </div>
               ) : (
                 <PayByRazor
-                  className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
+                  className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
                   eventId={id}
                   userDetails={userState?.userDetails}
                   eventDetails={eventData?.details}
@@ -137,81 +155,71 @@ const EventDetails = () => {
         )}
       </div>
       {/* event details description */}
-      <div className="space-y-4  p-8 h-full overflow-auto bg-black/20 shadow-lg border border-gray-700 max-h-screen">
-        <div className="text-center text-4xl font-bold text-purple-400">
+      <div className="space-y-4  p-8 h-full overflow-auto bg-black/20 shadow-lg border border-gray-700 max-h-screen font-thin text-gray-200">
+        <div className="text-4xl font-bold text-purple-400 mb-8 border-b border-purple-400/20 pb-2">
           Description
         </div>
-        <div className="">
-          <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
-            Prizes
+        <div className=" grid md:grid-cols-2 gap-4">
+          <div className="">
+            <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
+              Prizes
+            </div>
+            <div className="border-t pt-2 border-slate-600">
+              <ol className="text-white  ">
+                {eventData.prizes.length ? (
+                  eventData.prizes.map((data) => (
+                    <li>
+                      {data.position}: Rs.{data.prize}
+                    </li>
+                  ))
+                ) : (
+                  <div>Coming Soon...</div>
+                )}
+              </ol>
+            </div>
           </div>
-          <div className="border-t pt-2 border-slate-600">
-            <ol className="text-gray-300 font-thin  list-decimal list-inside">
-              <li>First Prize: Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Third Price Rs. </li>
-              <li>Other Participants : Participation Certificate</li>
-            </ol>
-          </div>
-        </div>
 
-        <div className="space-y-2">
-          <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
-            Scedule
+          <div className="">
+            <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
+              Schedule
+            </div>
+            <div className="border-t pt-2 border-slate-600">
+              <ol className="text-gray-300 font-thin  list-decimal list-inside">
+                <li>
+                  First Round : <date></date>{" "}
+                </li>
+                <li>
+                  Second Round : <date></date>{" "}
+                </li>
+                <li>
+                  Final Round : <date></date>{" "}
+                </li>
+              </ol>
+            </div>
           </div>
-          <div className="border-t pt-2 border-slate-600">
-            <ol className="text-gray-300 font-thin  list-decimal list-inside">
-              <li>
-                First Round : <date></date>{" "}
-              </li>
-              <li>
-                Second Round : <date></date>{" "}
-              </li>
-              <li>
-                Final Round : <date></date>{" "}
-              </li>
-            </ol>
-          </div>
-        </div>
 
-        <div className="space-y-2">
-          <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
-            Rules
-          </div>
-          <div className="border-t pt-2 border-slate-600">
-            <ol className="text-gray-300 font-thin  list-decimal list-inside">
-              <li>First Prize: Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Third Price Rs. </li>
-              <li>Other Participants : Participation Certificate</li>
-            </ol>
-          </div>
-        </div>
-
-        <div className="space-y-2">
-          <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
-            Rules
-          </div>
-          <div className="border-t pt-2 border-slate-600">
-            <ol className="text-gray-300 font-thin  list-decimal list-inside">
-              <li>First Prize: Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Third Price Rs. </li>
-              <li>Other Participants : Participation Certificate</li>
-            </ol>
+          <div className="space-y-2 col-span-2">
+            <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
+              Rules
+            </div>
+            <div className="border-t pt-2 border-slate-600 space-y-2 ">
+              {console.log(eventData)}
+              {eventData.rules.map((data) => (
+                <div>
+                  <p className="text-blue-300  font-bold font-xl">
+                    {data.roundName}
+                  </p>
+                  <ul className="text-white list-disc list-inside">
+                    {data.roundRules.map((s) => (
+                      <li>{s}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-      <div className="event-desc"></div>
     </div>
   );
 };
