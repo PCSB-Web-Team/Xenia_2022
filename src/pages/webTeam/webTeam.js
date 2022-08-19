@@ -1,13 +1,6 @@
 import React from "react";
 import "./webTeam.css";
 import ProfileCard from "./TeamProfile";
-// import Vedant from "../../Assets/Images/WebTeam/vedant.jpeg";
-// import Gaurav from "../../Assets/Images/WebTeam/gaurav.jpg";
-// import Amit from "../../Assets/Images/WebTeam/amit.jpg";
-// import Atharva from "../../Assets/Images/WebTeam/atharva.jpeg";
-// import Siddhesh from "../../Assets/Images/WebTeam/siddhesh.jpg";
-// import Pranil from "../../Assets/Images/WebTeam/pranil.jpeg";
-// import Kshitij from '../../Assets/Images/WebTeam/kshitij.jpg';
 
 let teamDetails = [
   {
@@ -25,12 +18,23 @@ let teamDetails = [
     linkedIn: "https://www.linkedin.com/in/abhishek-jadhav-292373203",
     pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1657451628937.png",
   },
-];
-let prernaSthhall = [
+
   {
     name: "Yash Pande",
     linkedIn: "https://www.linkedin.com/in/yash-pande-1a5812206",
     pic: "https://drive.google.com/uc?export=view&id=1LOq2Bb_04Yde_SfUtRs7AGZBekhnxony",
+  },
+];
+let prernaSthhall = [
+  {
+    name: "Mansi Gundre",
+    linkedIn: "https://www.linkedin.com/in/mansi-gundre-a6a722207",
+    pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1657483448750.jpg",
+  },
+  {
+    name: "Raj Shende",
+    linkedIn: "https://www.linkedin.com/in/raj-shende-350718204",
+    pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1657699545232.jpg",
   },
   {
     name: "Gaurav Somani",
@@ -63,14 +67,6 @@ let team2 = [
   },
 
   {
-    name: "Raj Shende",
-    linkedIn: "https://www.linkedin.com/in/raj-shende-350718204",
-    pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1657699545232.jpg",
-  },
-];
-
-let team3 = [
-  {
     name: "Vansh Teppalwar",
     linkedIn: "https://www.linkedin.com/in/vansh-teppalwar-0b60b0217/",
     pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1658743938457.jpg",
@@ -80,6 +76,9 @@ let team3 = [
     linkedIn: "https://www.linkedin.com/in/vaishnavi-katkar-0a61a9211",
     pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1658766834425.jpg",
   },
+];
+
+let team3 = [
   {
     name: "Devraj Shetake",
     linkedIn: "https://www.linkedin.com/in/devraj-shetake-439606206/1",
@@ -130,9 +129,14 @@ const webTeam = (props) => {
   });
 
   return (
-    <div className="webTeam-wb" id="webTeam-wb">
+    <div
+      className="min-h-screen text-center backdrop-blur-lg bg-gradient-to-b from-gray-900 to-gray-600 p-4 md:px-32"
+      id="webTeam-wb"
+    >
       {/* <header className="page-headers-wb"> */}
-      <h1 className="header-name-wb text-4xl p-6">PCSB WEB TEAM</h1>
+      <h1 className="header-name-wb text-xl md:text-6xl p-6 border-b  border-gray-600 mb-4 font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+        PCSB WEB TEAM
+      </h1>
       {/* </header> */}
       {team}
       <br />

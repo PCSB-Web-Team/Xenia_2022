@@ -10,7 +10,7 @@ const EventDetails = () => {
   const [userState, setUserState] = useState({
     loggedIn: false,
     participations: [],
-    isParticipated: false
+    isParticipated: false,
   });
   const [teamId, setTeamId] = useState("");
   // const [joinTeamError, setJoinTeamError] = useState("");
@@ -39,7 +39,7 @@ const EventDetails = () => {
   async function fetchEventData() {
     try {
       const eventData = await Request.getEventById(id);
-      if (eventData.data?.status) {
+      if (eventData?.data?.status) {
         setEventData(() => ({ ...eventData.data.data[0] }));
       } else navigate("404");
     } catch (error) {
@@ -50,13 +50,21 @@ const EventDetails = () => {
 
   async function fetchIsUserParticipated() {
     try {
-      let { loggedIn, participations } = await AuthVerify({ getParticipations: true })
+      let { loggedIn, participations } = await AuthVerify({
+        getParticipations: true,
+      });
 
-      const participatedEvent = participations.find((userParticipatedEvents) => userParticipatedEvents.eventId === id)
+      const participatedEvent = participations.find(
+        (userParticipatedEvents) => userParticipatedEvents.eventId === id
+      );
 
       if (participatedEvent) {
         setEventData((previousEventData) => ({ ...previousEventData }));
-        setUserState(previousUserState => ({ ...previousUserState, loggedIn, isParticipated: true }));
+        setUserState((previousUserState) => ({
+          ...previousUserState,
+          loggedIn,
+          isParticipated: true,
+        }));
         if (participatedEvent.teamId) setTeamId(participatedEvent.teamId);
       }
     } catch (error) {
@@ -99,7 +107,7 @@ const EventDetails = () => {
                     Login to participate
                   </div>
                 </Link>
-              ) : eventData.teamSize > 1 ? (
+              ) : eventData?.teamSize > 1 ? (
                 userState.isParticipated ? (
                   <div>
                     <div className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-2xl tracking-widest">
@@ -166,10 +174,10 @@ const EventDetails = () => {
             </div>
             <div className="border-t pt-2 border-slate-600">
               <ol className="text-white  ">
-                {eventData.prizes.length ? (
-                  eventData.prizes.map((data) => (
+                {eventData?.prizes?.length ? (
+                  eventData?.prizes?.map((data) => (
                     <li>
-                      {data.position}: Rs.{data.prize}
+                      {data?.position} : Rs.{data?.prize}
                     </li>
                   ))
                 ) : (
@@ -184,16 +192,14 @@ const EventDetails = () => {
               Schedule
             </div>
             <div className="border-t pt-2 border-slate-600">
-              <ol className="text-gray-300 font-thin  list-decimal list-inside">
-                <li>
-                  First Round : <date></date>{" "}
-                </li>
-                <li>
-                  Second Round : <date></date>{" "}
-                </li>
-                <li>
-                  Final Round : <date></date>{" "}
-                </li>
+              <ol className="text-gray-300 font-thin  list-disc list-inside">
+                {
+                  eventData?.schedule?.map((data) => (
+                    <li>
+                      Round {data.round} : <date>{data.datetime}</date>
+                    </li>
+                  ))
+                }
               </ol>
             </div>
           </div>
@@ -203,14 +209,13 @@ const EventDetails = () => {
               Rules
             </div>
             <div className="border-t pt-2 border-slate-600 space-y-2 ">
-              {console.log(eventData)}
-              {eventData.rules.map((data) => (
+              {eventData?.rules?.map((data) => (
                 <div>
                   <p className="text-blue-300  font-bold font-xl">
-                    {data.roundName}
+                    {data?.roundName}
                   </p>
                   <ul className="text-white list-disc list-inside">
-                    {data.roundRules.map((s) => (
+                    {data?.roundRules?.map((s) => (
                       <li>{s}</li>
                     ))}
                   </ul>
