@@ -5,7 +5,7 @@ export const AuthVerify = async ({ getUserDetails, getParticipations }) => {
     const token = localStorage.getItem(process.env.REACT_APP_TOKEN_NAME) || null
 
     if (getUserDetails || getParticipations) {
-        await store.dispatch(refreshUserState())
+        store.dispatch(refreshUserState())
             .unwrap().then()
             .catch(error => {
                 console.error(error)
@@ -13,9 +13,13 @@ export const AuthVerify = async ({ getUserDetails, getParticipations }) => {
             })
         if (getParticipations) {
             try {
-                await store.dispatch(setParticipations())
+                return store.dispatch(setParticipations())
+                    .unwrap().then(() => (
+                        store.getState().user
+                    ))
             } catch (error) {
-                console.error(error);
+                console.error(error)
+                return Promise.reject(error)
             }
         }
     }

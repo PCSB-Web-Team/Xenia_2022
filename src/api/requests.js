@@ -11,7 +11,7 @@ const signUp = async (data) => await backend.post("/auth/signup", data)
 
 const login = (data) => backend.post("/auth/login", data)
 
-const getUserByToken = async () => await backend.get("/auth/profile")  //! not sending res.data.data.token in /auth/profile/ route that's keeps localStorage outdated when site is refreshed
+const refreshToken = async () => await backend.get("/auth/refresh")
 
 const getUserParticipations = async () => await backend.get("/participant/by-user")
 
@@ -27,5 +27,5 @@ const createOrder = async (data) => await backend.post("/razorpay", data)
 
 const verifyPayment = async (data) => await backend.post("/razorpay/verification", data)
 
-const Requests = { signUp, login, getUserByToken, getUserParticipations, getEvents, getEventById, getSideEvents, createOrder, verifyPayment, joinTeam }
+const Requests = { signUp, login, refreshToken, getUserParticipations, joinTeam, getEvents, getEventById, getSideEvents, createOrder, verifyPayment }
 export default Requests;

@@ -26,12 +26,9 @@ import { useEffect, useState } from "react";
 import Background from "./components/background";
 import IndustryTalkDetail from "./pages/industryTalks/industryTalksDetail/industryTalkDetail";
 import "./App.css";
-import { useSelector } from "react-redux"
 
 function App() {
   const [loading, setLoading] = useState(false);
-
-  const userState = useSelector((user) => user.user)
 
   useEffect(() => {
     setLoading(true);
@@ -39,7 +36,6 @@ function App() {
     async function fetchToken() {
       // preloader.style.display = "none";
       await AuthVerify({ getUserDetails: true });
-      console.log("User state after refresh : ", userState)
       // preloader.style.display = "unset"; //reset to default browser's stylesheet
     }
     fetchToken();

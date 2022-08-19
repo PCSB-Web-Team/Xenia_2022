@@ -29,7 +29,6 @@ export const userSlice = createSlice({
       loading: true,
     }));
     builder.addCase(loginUser.fulfilled, (state, { payload: { data } }) => {
-      console.log("Login reducer", data)
       if (data.status) {
         localStorage.setItem(
           process.env.REACT_APP_TOKEN_NAME,
@@ -46,6 +45,7 @@ export const userSlice = createSlice({
           loading: false,
         };
       }
+      console.log("Login reducer resetting to initial state: ", data);
       return {
         ...initialState,
         error: data?.error?.message || null,
@@ -79,6 +79,7 @@ export const userSlice = createSlice({
           loading: false,
         };
       }
+      console.log("Register reducer resetting to initial state: ", data);
       return {
         ...initialState,
         error: data?.error?.message || null,
@@ -102,8 +103,7 @@ export const userSlice = createSlice({
       refreshUserState.fulfilled,
       (state, { payload: { data } }) => {
         if (data.status) {
-          console.log("Refresh Profile setting state: ", data);
-          // localStorage.setItem(process.env.REACT_APP_TOKEN_NAME, data.data?.token) //!will decide whether to reset the token with new one
+          localStorage.setItem(process.env.REACT_APP_TOKEN_NAME, data.data?.token)
           return {
             ...state,
             userDetails: {
@@ -117,7 +117,7 @@ export const userSlice = createSlice({
         }
         console.log("Refresh Profile resetting to initial state: ", data);
         return {
-          ...initialState,
+          ...state,
           error: data?.error?.message || null,
         };
       }
@@ -129,17 +129,16 @@ export const userSlice = createSlice({
       loading: true,
     }));
     builder.addCase(
-      setParticipations.fulfilled,
-      (state, { payload: { data } }) => {
-        console.log("SetParticipation: ",data);
+      setParticipations.fulfilled, (state, { payload: { data } }) => {
         if (data?.status) {
           return {
             ...state,
-            participations: data?.data?.data || [], //! validations are remaining here
+            participations: data?.data?.data || [],
             error: data?.error?.message || null,
             loading: false,
           };
         }
+        console.log("SetParticipation resetting to participation []: ");
         return {
           ...state,
           participations: [],
