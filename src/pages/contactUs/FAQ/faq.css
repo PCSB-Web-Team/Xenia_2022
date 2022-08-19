@@ -1,0 +1,14 @@
+
+.FAQ {
+    font-family: SansBold;
+  }
+  
+  .FAQ-container{
+    padding-inline: 20px;
+  }
+  
+  @media (max-width: 400px) {
+    .FAQ-container{
+      padding-inline: 5px;
+    }
+  }

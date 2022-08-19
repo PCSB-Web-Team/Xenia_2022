@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import './contactUs.css';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+// import FAQ from './FAQ/faq';
 const ContactUs = () => {
 	const [name, setName] = useState('');
 	const [phone, setPhone] = useState('');
@@ -32,9 +33,33 @@ const ContactUs = () => {
 		
 	};
 
+  const faq=[
+    {
+    questions:"What is Xenia?",
+    answer:"Xenia is an annual festival organised by PICT CSI Student Branch.",
+
+    },
+    {
+      questions:"Does Xenia consists of only technical events?",
+      answer:"No, Xenia consists of technical as well as non-technical events.",
+  
+      },
+      {
+        questions:"Is the festival going to be conducted in the college?",
+        answer:"Yes, the festival is going to be conduted in the college.",
+    
+        },
+        {
+          questions:"Are the events only for individual participation?",
+          answer:"Not exactly, some events have strictly individual participation while others have team participation. Kindly confirm the type of participation on the website.",
+      
+          },
+  ]
+
 	return (
-		<div className="contactUs mb-4 mt-20">
-			<div className="contactForm mb-4">
+    <div>
+		<div className="contactUs mb-4   mt-20">
+			<div className="contactForm mb-4  ">
 				<h1 className='text-4xl font-mono font-bold '>Send us a message</h1>
 				<form onSubmit={Submit} id="contactUsForm">
 					<input
@@ -74,7 +99,7 @@ const ContactUs = () => {
 					></textarea>
 
 					<button type="submit" className="bg-transparent hover:bg-blue-500 text-cyan-100 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" >
-						{/* <ThemeButton value="Submit" /> */}
+						
             Submit
 					</button>
 				</form>
@@ -86,7 +111,7 @@ const ContactUs = () => {
 					<h3 className='text-xl font-semibold'>Where to find us</h3>
 					<p>Survey no. 27, </p>
 					<p>Near Trimurti Chowk,</p>
-					{/* <p>Bharati Vidyapeeth Campus,</p> */}
+					<p>Bharati Vidyapeeth Campus,</p>
 					<p>Dhankawadi, </p>
 					<p>Pune-411043</p>
 				</div>
@@ -102,6 +127,38 @@ const ContactUs = () => {
 				</div>
 			</div>
 		</div>
+
+    <div>
+      <section class="text-gray-700">
+        <div class="container px-5 pt-24 mx-auto">
+          <div class="text-center mb-10">
+            <h1 class="sm:text-5xl text-4xl font-bold text-center font-mono text-white mb-2">
+              Frequently Asked Question
+            </h1>
+           
+          </div>
+          <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2 text-xl justify-center">
+          {faq.map((member, i) => (
+
+            <div class="w-full lg:w-1/2 px-4 py-2 " key={`member${i}`}>
+              <details class="mb-4  bg-gray-200 rounded-md py-2 px-4  bg-opacity-75 grid grid-cols-2 gap-3">
+                <summary class="font-semibold  ">
+                {member.questions}
+                </summary>
+
+                <span className=''>
+                {member.answer}
+                </span>
+              </details>
+              
+          </div>
+            
+          ))}</div>
+        </div>
+      </section>
+    </div>
+    </div>
+    
 	);
 };
 
