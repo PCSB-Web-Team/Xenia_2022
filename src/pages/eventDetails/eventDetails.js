@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
 const EventDetails = () => {
-  const [eventData, setEventData] = useState({});
+  const [eventData, setEventData] = useState({ rules: [], prizes: [] });
   const [teamCode, setTeamCode] = useState("");
   const [participated, setParticipated] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -164,21 +164,23 @@ const EventDetails = () => {
             Prizes
           </div>
           <div className="border-t pt-2 border-slate-600">
-            <ol className="text-gray-300 font-thin  list-decimal list-inside">
-              <li>First Prize: Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Third Price Rs. </li>
-              <li>Other Participants : Participation Certificate</li>
-            </ol>
+            <ol className="text-white  ">
+              
+              
+            
+            {eventData.prizes.map((data) => (
+              <li>
+                {data.position}:
+                Rs.{data.prize}
+              </li>
+            ))}
+            </ol> 
           </div>
         </div>
 
         <div className="space-y-2">
           <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
-            Scedule
+            Schedule
           </div>
           <div className="border-t pt-2 border-slate-600">
             <ol className="text-gray-300 font-thin  list-decimal list-inside">
@@ -199,16 +201,24 @@ const EventDetails = () => {
           <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
             Rules
           </div>
-          <div className="border-t pt-2 border-slate-600">
-            <ol className="text-gray-300 font-thin  list-decimal list-inside">
-              <li>First Prize: Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Third Price Rs. </li>
-              <li>Other Participants : Participation Certificate</li>
-            </ol>
+          <div className="border-t pt-2 border-slate-600 ">
+            {console.log(eventData)}
+            {eventData.rules.map((data) => (
+              <div>
+                <p className="text-blue-300  font-bold font-xl">
+                  {data.roundName}
+                </p>
+                <ol className="text-white    list-decimal list-inside">
+                  {data.roundRules.map((s) => (
+                    <li>{s}</li>
+                  ))}
+                </ol>
+              </div>
+            ))}
+
+            {/* {eventData.details} */}
+            {/* {console.log(eventData.rules)} */}
+            {/* {console.log(eventData.rules[0])} */}
           </div>
         </div>
 
