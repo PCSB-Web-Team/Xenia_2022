@@ -81,18 +81,22 @@ const EventDetails = () => {
     <div className="grid md:grid-cols-2 min-h-screen md:p-8 gap-8 backdrop-blur-xl bg-gradient-to-b from-gray-900/40 to-gray-600/80">
       <div className="my-auto text-center space-y-4 text-white md:h-full p-4 py-8  ">
         <div className=" w-full max-w-[400px] h-[400px] mx-auto">
-          <img src={eventData?.logo} alt="event-logo" className="event-logo" />
+          <img
+            src={eventData?.logo}
+            alt="event-logo"
+            className=" min-h-full min-w-full"
+          />
         </div>
-        <div className="text-6xl w-min mx-auto font-bold text-purple-600 border-gray-500 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+        <div className="text-6xl mx-auto font-bold text-purple-600 border-gray-500 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 py-2">
           {eventData?.name}
         </div>
         <div className=" border-b border-gray-500"></div>
         <div className="font-light text-gray-400 text-justify">
           {eventData?.details}
         </div>
-        <div className="event-fees text-blue-400 text-xl font-bold tracking-wider text-left flex space-x-2">
-          <div>Fees : Rs.</div>
-          <div>{eventData?.fees}</div>
+        <div className="event-fees text-blue-400 text-xl font-bold text-left flex space-x-2 tracking-widest">
+          <div className="text-gray-200 font-light">Fees: </div>
+          <div>Rs.{eventData?.fees}</div>
         </div>
         {eventData?.isLive ? (
           <p className="event-register-buttons disabled">
@@ -169,8 +173,14 @@ const EventDetails = () => {
         </div>
         <div className=" grid md:grid-cols-2 gap-4">
           <div className="">
-            <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
-              Prizes
+            <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 space-x-2">
+              <label>Prizes</label>
+              <img
+                className="h-[24px] w-[24px] inline-block"
+                src={
+                  "https://cdn-icons.flaticon.com/png/512/3113/premium/3113054.png?token=exp=1660933823~hmac=ef93725b2c80d5ff9d66a9ceeb1285ae"
+                }
+              ></img>
             </div>
             <div className="border-t pt-2 border-slate-600">
               <ol className="text-white  ">
@@ -188,25 +198,33 @@ const EventDetails = () => {
           </div>
 
           <div className="">
-            <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
-              Schedule
+            <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 space-x-2">
+              <label>Schedule</label>
+              <img
+                className="h-[24px] w-[24px] inline-block "
+                src={"https://cdn-icons-png.flaticon.com/512/3652/3652191.png"}
+              ></img>
             </div>
             <div className="border-t pt-2 border-slate-600">
               <ol className="text-gray-300 font-thin  list-disc list-inside">
-                {
-                  eventData?.schedule?.map((data) => (
-                    <li>
-                      Round {data.round} : <date>{data.datetime}</date>
-                    </li>
-                  ))
-                }
+                {eventData?.schedule?.map((data) => (
+                  <li>
+                    Round {data.round} : <date>{data.datetime}</date>
+                  </li>
+                ))}
               </ol>
             </div>
           </div>
 
           <div className="space-y-2 col-span-2">
-            <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
-              Rules
+            <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 space-x-2">
+              <label>Rules</label>
+              <img
+                className="h-[24px] w-[24px] inline-block "
+                src={
+                  "https://cdn-icons.flaticon.com/png/512/3251/premium/3251560.png?token=exp=1660934349~hmac=38e045e4a5d1f01823b2d0e41a3d8f17"
+                }
+              ></img>
             </div>
             <div className="border-t pt-2 border-slate-600 space-y-2 ">
               {eventData?.rules?.map((data) => (

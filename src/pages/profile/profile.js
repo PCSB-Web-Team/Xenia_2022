@@ -90,7 +90,7 @@ export default function Profile() {
 
   useEffect(() => {
     if (!userState.loggedIn) navigate("/auth");
-    Requests.getUserByToken().then(({ data: { status, error, data } }) => {
+    Requests.getUserProfile().then(({ data: { status, error, data } }) => {
       if (status) {
         setUserData(data);
       } else {
