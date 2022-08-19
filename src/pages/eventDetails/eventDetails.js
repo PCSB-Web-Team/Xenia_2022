@@ -175,9 +175,9 @@ const EventDetails = () => {
             <div className="border-t pt-2 border-slate-600">
               <ol className="text-white  ">
                 {eventData?.prizes?.length ? (
-                  eventData?.prizes.map((data) => (
+                  eventData?.prizes?.map((data) => (
                     <li>
-                      {data.position}: Rs.{data.prize}
+                      {data?.position} : Rs.{data?.prize}
                     </li>
                   ))
                 ) : (
@@ -192,16 +192,14 @@ const EventDetails = () => {
               Schedule
             </div>
             <div className="border-t pt-2 border-slate-600">
-              <ol className="text-gray-300 font-thin  list-decimal list-inside">
-                <li>
-                  First Round : <date></date>{" "}
-                </li>
-                <li>
-                  Second Round : <date></date>{" "}
-                </li>
-                <li>
-                  Final Round : <date></date>{" "}
-                </li>
+              <ol className="text-gray-300 font-thin  list-disc list-inside">
+                {
+                  eventData?.schedule?.map((data) => (
+                    <li>
+                      Round {data.round} : <date>{data.datetime}</date>
+                    </li>
+                  ))
+                }
               </ol>
             </div>
           </div>
@@ -211,14 +209,13 @@ const EventDetails = () => {
               Rules
             </div>
             <div className="border-t pt-2 border-slate-600 space-y-2 ">
-              {console.log(eventData)}
               {eventData?.rules?.map((data) => (
                 <div>
                   <p className="text-blue-300  font-bold font-xl">
-                    {data.roundName}
+                    {data?.roundName}
                   </p>
                   <ul className="text-white list-disc list-inside">
-                    {data.roundRules.map((s) => (
+                    {data?.roundRules?.map((s) => (
                       <li>{s}</li>
                     ))}
                   </ul>
