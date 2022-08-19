@@ -5,7 +5,7 @@ const backend = axios.create({
 });
 
 //axios interceptors - attaches default authorization headers (JWT token) to all requests except Login/Signup post requests
-backend.defaults.headers.common['authorization'] = 'Bearer ' + localStorage.getItem(process.env.REACT_APP_TOKEN_NAME) || "WEVOSUFfMjAyMl9BVVRIX1RPS0VO"
+backend.defaults.headers.common['authorization'] = 'Bearer ' + localStorage.getItem(process.env.REACT_APP_TOKEN_NAME) || null
 
 const signUp = async (data) => await backend.post("/auth/signup", data)
 
@@ -13,7 +13,9 @@ const login = (data) => backend.post("/auth/login", data)
 
 const getUserByToken = async () => await backend.get("/auth/profile")  //! not sending res.data.data.token in /auth/profile/ route that's keeps localStorage outdated when site is refreshed
 
-const getUserParticipations = async (userId="62f2a9ed2963089d93d01a9b") => await backend.get(`/participant/by-user/${userId}`)  //! hard coded userId in params, will remove after middleware is developed
+const getUserParticipations = async () => await backend.get("/participant/by-user")
+
+const joinTeam = async (data) => await backend.put("/participant/jointeam", data)
 
 const getEvents = async () => await backend.get("/events")
 

@@ -18,7 +18,9 @@ const EventDetails = () => {
     setTeamCode(event.target.value);
   };
 
-  const handleJoinTeam = () => {};
+  const handleJoinTeam = () => {
+    Request.joinTeam({ eventId: id, teamId: teamCode }).then(res => {console.log(res)})
+  };
 
   useEffect(() => {
     async function fetchEventData() {
@@ -35,9 +37,9 @@ const EventDetails = () => {
     fetchEventData();
 
     async function fetchIsUserParticipated() {
-      console.log("useEffect: fetchIsUserParticipated");
       try {
         await AuthVerify({ getParticipations: true });
+        console.log("setting participation state ", userState)
         const participatedEvent = await userState?.participations.find(
           (userParticipatedEvents) => userParticipatedEvents.eventId === id
         );
