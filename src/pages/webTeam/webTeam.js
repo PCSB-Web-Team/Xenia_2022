@@ -63,7 +63,7 @@ let team2 = [
   {
     name: "Dhiraj Thorat",
     linkedIn: "https://www.linkedin.com/in/dhiraj-thorat-073970215",
-    pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1658575296915.jpg",
+    pic: "https://drive.google.com/uc?export=view&id=1RsylnBWZoq3Qt9D0olutgO9_NsfdgJsS",
   },
 
   {
