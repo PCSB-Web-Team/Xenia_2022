@@ -94,9 +94,15 @@ const EventDetails = () => {
         <div className="font-light text-gray-400 text-justify">
           {eventData?.details}
         </div>
-        <div className="event-fees text-blue-400 text-xl font-bold text-left flex space-x-2 tracking-widest">
-          <div className="text-gray-200 font-light">Fees: </div>
-          <div>Rs.{eventData?.fees}</div>
+        <div className="event-fees text-blue-400 text-lg font-bold text-left  tracking-widest grid grid-cols-2 place-items-center">
+          <div className="flex space-x-2">
+            <div className="text-gray-200 font-thin">Fees: </div>
+            <div>Rs.{eventData?.fees}</div>
+          </div>
+          <div className="flex space-x-2">
+            <div className="text-gray-200 font-thin">Team Size: </div>
+            <div>{eventData?.teamSize}</div>
+          </div>
         </div>
         {eventData?.isLive ? (
           <p className="event-register-buttons disabled">
