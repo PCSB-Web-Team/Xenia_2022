@@ -1,5 +1,5 @@
 import React from "react";
-import "./webTeam.css";
+import "./WebTeam.css";
 import ProfileCard from "./TeamProfile";
 // import Vedant from "../../Assets/Images/WebTeam/vedant.jpeg";
 // import Gaurav from "../../Assets/Images/WebTeam/gaurav.jpg";
@@ -25,12 +25,19 @@ let teamDetails = [
     linkedIn: "https://www.linkedin.com/in/abhishek-jadhav-292373203",
     pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1657451628937.png",
   },
-];
-let prernaSthhall = [
+
   {
     name: "Yash Pande",
     linkedIn: "https://www.linkedin.com/in/yash-pande-1a5812206",
     pic: "https://drive.google.com/uc?export=view&id=1LOq2Bb_04Yde_SfUtRs7AGZBekhnxony",
+  },
+];
+let prernaSthhall = [
+  
+  {
+    name: "Raj Shende",
+    linkedIn: "https://www.linkedin.com/in/raj-shende-350718204",
+    pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1657699545232.jpg",
   },
   {
     name: "Gaurav Somani",
@@ -63,14 +70,6 @@ let team2 = [
   },
 
   {
-    name: "Raj Shende",
-    linkedIn: "https://www.linkedin.com/in/raj-shende-350718204",
-    pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1657699545232.jpg",
-  },
-];
-
-let team3 = [
-  {
     name: "Vansh Teppalwar",
     linkedIn: "https://www.linkedin.com/in/vansh-teppalwar-0b60b0217/",
     pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1658743938457.jpg",
@@ -79,6 +78,14 @@ let team3 = [
     name: "Vaishnavi Katkar",
     linkedIn: "https://www.linkedin.com/in/vaishnavi-katkar-0a61a9211",
     pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1658766834425.jpg",
+  },
+];
+
+let team3 = [
+  {
+    name: "Mansi Gundre",
+    linkedIn: "https://www.linkedin.com/in/mansi-gundre-a6a722207",
+    pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1657483448750.jpg",
   },
   {
     name: "Devraj Shetake",
