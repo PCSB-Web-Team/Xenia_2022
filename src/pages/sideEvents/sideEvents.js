@@ -22,7 +22,7 @@ export default function SideEvents() {
     } catch (error) {
       console.log(error);
     }
-  }, [])
+  }, []);
 
   const EventsInfo = eventsData.map((event) => (
     <div className="bg-opacity-0 grid grid-cols-1 md:grid-cols-4 content-center backdrop-blur-lg bg-gradient-to-tr from-gray-600/20 via-purple-600/10 to-pink-600/20 border border-gray-600/20">
@@ -42,9 +42,9 @@ export default function SideEvents() {
         </div>
         <div
           onClick={() => {
-            setModalDetails(previousState => ({
+            setModalDetails((previousState) => ({
               ...previousState,
-              event
+              event,
             }));
             toggleModal();
           }}
