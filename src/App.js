@@ -47,9 +47,9 @@ function App() {
         <Background></Background>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Homepage loader={<PreLoader />} />} />
-          <Route path="/home2" element={<Home2 loader={<Loader />} />} />
-          <Route path="/home3" element={<Home2 loader={<Loader />} />} />
+          {/* <Route path="/" element={<Homepage loader={<PreLoader />} />} />
+          <Route path="/home2" element={<Home2 loader={<Loader />} />} /> */}
+          <Route path="/" element={<Home3 loader={<Loader />} />} />
           <Route path="/auth" element={<Auth loader={<Loader />} />} />
           <Route path="/schedule" element={<Schedule loader={<Loader />} />} />
           <Route path="/events" element={<Events loader={<Loader />} />} />
