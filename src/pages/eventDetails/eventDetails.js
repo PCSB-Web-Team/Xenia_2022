@@ -2,60 +2,58 @@
 import Request from "../../api/requests";
 import PayByRazor from "../../api/payments";
 import { AuthVerify } from "../../utils/authVerify";
-import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
 const EventDetails = () => {
   const [eventData, setEventData] = useState({});
-  const [teamCode, setTeamCode] = useState("");
-  const [participated, setParticipated] = useState(false);
+  const [userState, setUserState] = useState({
+    loggedIn: false,
+    participations: [],
+    isParticipated: false
+  });
+  const [teamId, setTeamId] = useState("");
   let id = useParams().id;
 
-  const userState = useSelector((states) => states.user);
-
   const handleInputChange = (event) => {
-    setTeamCode(event.target.value);
+    setTeamId(event.target.value);
   };
 
   const handleJoinTeam = () => {
-    Request.joinTeam({ eventId: id, teamId: teamCode }).then(res => {console.log(res)})
+    Request.joinTeam({ eventId: id, teamId })
+      .then(res => console.log(res))
+      .catch(error => console.error(error));
   };
 
+  async function fetchEventData() {
+    try {
+      const eventData = await Request.getEventById(id);
+      if (eventData.data?.status) {
+        setEventData(() => ({ ...eventData.data.data[0] }));
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function fetchIsUserParticipated() {
+    try {
+      let { loggedIn, participations } = await AuthVerify({ getParticipations: true })
+
+      const participatedEvent = participations.find((userParticipatedEvents) => userParticipatedEvents.eventId === id)
+
+      if (participatedEvent) {
+        setEventData((previousEventData) => ({ ...previousEventData }));
+        setUserState(previousUserState => ({ ...previousUserState, loggedIn, isParticipated: true }));
+        if (participatedEvent.teamId) setTeamId(participatedEvent.teamId);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   useEffect(() => {
-    async function fetchEventData() {
-      try {
-        const eventData = await Request.getEventById(id);
-        if (eventData.data?.status) {
-          setEventData(() => ({ ...eventData.data.data[0] }));
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
     fetchEventData();
-
-    async function fetchIsUserParticipated() {
-      try {
-        await AuthVerify({ getParticipations: true });
-        console.log("setting participation state ", userState)
-        const participatedEvent = await userState?.participations.find(
-          (userParticipatedEvents) => userParticipatedEvents.eventId === id
-        );
-        if (participatedEvent) {
-          setEventData((previousEventData) => ({
-            ...previousEventData,
-            isParticipated: true,
-          }));
-          setParticipated(true);
-          if (participatedEvent.teamId) setTeamCode(participatedEvent.teamId);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
     fetchIsUserParticipated();
   }, [id]);
 
@@ -66,7 +64,7 @@ const EventDetails = () => {
           <img src={eventData?.logo} alt="event-logo" className="event-logo" />
         </div>
         <div className="text-6xl w-min mx-auto font-bold text-purple-600 border-gray-500 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
-          {eventData.name}
+          {eventData?.name}
         </div>
         <div className=" border-b border-gray-500"></div>
         <div className="text-left font-light text-gray-400">
@@ -74,7 +72,7 @@ const EventDetails = () => {
         </div>
         <div className="event-fees text-blue-400 text-xl font-bold tracking-wider text-left flex space-x-2">
           <div>Fees : Rs.</div>
-          <div>{eventData.fees}</div>
+          <div>{eventData?.fees}</div>
         </div>
         {eventData?.isLive ? (
           <p className="event-register-buttons disabled">
@@ -90,13 +88,13 @@ const EventDetails = () => {
                   </div>
                 </Link>
               ) : eventData.teamSize > 1 ? (
-                eventData.isParticipated ? (
+                userState.isParticipated ? (
                   <div>
                     <div className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-2xl tracking-widest">
                       Registered Successfully
                     </div>
                     <span className="text-blue-400">
-                      Team Code : <code>{teamCode}</code>
+                      Team Code : <code>{teamId}</code>
                     </span>
                   </div>
                 ) : (
@@ -115,7 +113,7 @@ const EventDetails = () => {
                       name="team-code"
                       placeholder="Enter Team Code"
                       onChange={handleInputChange}
-                      value={teamCode}
+                      value={teamId}
                       maxLength="6"
                     />
                     <button onClick={handleJoinTeam}>Join Team</button>
