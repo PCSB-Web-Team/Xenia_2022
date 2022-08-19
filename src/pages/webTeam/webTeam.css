@@ -9,10 +9,11 @@
   } */
   
   .webTeam-wb {
-    width: 100vw;
+    width: 100%;
     text-align: center;
     display: inline-block;
     margin: 0px;
+    min-height: 100vh;
   }
   
   .webTeam-wb .profile-wb {
