@@ -1,5 +1,5 @@
 import React from "react";
-import "./WebTeam.css";
+import "./webTeam.css";
 import ProfileCard from "./TeamProfile";
 
 let teamDetails = [
@@ -26,7 +26,11 @@ let teamDetails = [
   },
 ];
 let prernaSthhall = [
-  
+  {
+    name: "Mansi Gundre",
+    linkedIn: "https://www.linkedin.com/in/mansi-gundre-a6a722207",
+    pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1657483448750.jpg",
+  },
   {
     name: "Raj Shende",
     linkedIn: "https://www.linkedin.com/in/raj-shende-350718204",
@@ -75,11 +79,6 @@ let team2 = [
 ];
 
 let team3 = [
-  {
-    name: "Mansi Gundre",
-    linkedIn: "https://www.linkedin.com/in/mansi-gundre-a6a722207",
-    pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1657483448750.jpg",
-  },
   {
     name: "Devraj Shetake",
     linkedIn: "https://www.linkedin.com/in/devraj-shetake-439606206/1",
@@ -130,9 +129,14 @@ const webTeam = (props) => {
   });
 
   return (
-    <div className="webTeam-wb" id="webTeam-wb">
+    <div
+      className="min-h-screen text-center backdrop-blur-lg bg-gradient-to-b from-gray-900 to-gray-600 p-4 md:px-32"
+      id="webTeam-wb"
+    >
       {/* <header className="page-headers-wb"> */}
-      <h1 className="header-name-wb text-4xl p-6">PCSB WEB TEAM</h1>
+      <h1 className="header-name-wb text-xl md:text-6xl p-6 border-b  border-gray-600 mb-4 font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+        PCSB WEB TEAM
+      </h1>
       {/* </header> */}
       {team}
       <br />
