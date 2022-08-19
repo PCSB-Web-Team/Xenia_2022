@@ -60,24 +60,43 @@ let prernaSthhall = [
 let team2 = [
     {
       name: "Renuka Saraf",
-      linkedIn: "https://www.linkedin.com/in/siddhesh-joshi-67615816b",
-      pic: "https://www.instagram.com/p/CgsGxzgvF2Jv5_l_7Ton2JiH-ljfGeJn9c0vQY0/",
+      linkedIn: "https://www.linkedin.com/in/renuka-saraf-538846240/",
+      pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1657819990252.jpg",
     },
     {
       name: "Dhiraj Thorat",
-      linkedIn: "https://www.linkedin.com/in/pranil-bhosale",
-      pic: "https://www.instagram.com/p/CgsGxzgvF2Jv5_l_7Ton2JiH-ljfGeJn9c0vQY0/",
+      linkedIn: "https://www.linkedin.com/in/dhiraj-thorat-073970215",
+      pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1658575296915.jpg",
     },
     {
       name: "Atharva Kinikar",
-      linkedIn: "https://www.linkedin.com/in/kshitij-deshpande/",
-      pic: "https://www.instagram.com/p/CgsGxzgvF2Jv5_l_7Ton2JiH-ljfGeJn9c0vQY0/",
+      linkedIn: "https://www.linkedin.com/in/atharva-kinikar/",
+      pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1657699710579.jpg",
     },
   
     {
       name: "Raj Shende",
-      linkedIn: "https://www.linkedin.com/in/kshitij-deshpande/",
-      pic: "https://www.instagram.com/p/CgsGxzgvF2Jv5_l_7Ton2JiH-ljfGeJn9c0vQY0/",
+      linkedIn: "https://www.linkedin.com/in/raj-shende-350718204",
+      pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1657699545232.jpg",
+    },
+  ];
+
+  let team3 = [
+    {
+      name: "Vansh Teppalwar",
+      linkedIn: "https://www.linkedin.com/in/vansh-teppalwar-0b60b0217/",
+      pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1658743938457.jpg",
+    },
+    {
+      name: "Vaishnavi Katkar",
+      linkedIn: "https://www.linkedin.com/in/vaishnavi-katkar-0a61a9211",
+      pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1658766834425.jpg",
+    },
+    
+    {
+      name: "Devraj Shetake",
+      linkedIn: "https://www.linkedin.com/in/devraj-shetake-439606206/1",
+      pic: "https://nth22.s3.ap-south-1.amazonaws.com/devraj.jpg",
     },
   ];
 
@@ -119,11 +138,12 @@ const webTeam = (props) => {
         <h1 className="header-name-wb text-4xl p-6">PCSB WEB TEAM</h1>
       {/* </header> */}
       {team}
-      <br />
+      <br/>
       {teTeam}
       <br />
        {seTeam}
        <br />
+       {bTeam}
     </div>
   );
 };
