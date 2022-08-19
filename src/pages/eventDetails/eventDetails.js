@@ -38,9 +38,10 @@ const EventDetails = () => {
 
   async function fetchEventData() {
     try {
-      const eventData = await Request.getEventById(id);
-      if (eventData.data?.status) {
-        setEventData(() => ({ ...eventData.data.data[0] }));
+      const data = await Request.getEventById(id);
+      console.log(data);
+      if (data.data?.status) {
+        setEventData(() => ({ ...data.data?.data[0] }));
       } else navigate("404");
     } catch (error) {
       navigate("404");
@@ -67,7 +68,7 @@ const EventDetails = () => {
   useEffect(() => {
     fetchEventData();
     fetchIsUserParticipated();
-  }, [id]);
+  }, []);
 
   return (
     <div className="grid md:grid-cols-2 min-h-screen md:p-8 gap-8 backdrop-blur-xl bg-gradient-to-b from-gray-900/40 to-gray-600/80">
@@ -166,10 +167,10 @@ const EventDetails = () => {
             </div>
             <div className="border-t pt-2 border-slate-600">
               <ol className="text-white  ">
-                {eventData.prizes.length ? (
-                  eventData.prizes.map((data) => (
+                {eventData?.prizes?.length ? (
+                  eventData?.prizes?.map((data) => (
                     <li>
-                      {data.position}: Rs.{data.prize}
+                      {data?.position} : Rs.{data?.prize}
                     </li>
                   ))
                 ) : (
@@ -184,16 +185,14 @@ const EventDetails = () => {
               Schedule
             </div>
             <div className="border-t pt-2 border-slate-600">
-              <ol className="text-gray-300 font-thin  list-decimal list-inside">
-                <li>
-                  First Round : <date></date>{" "}
-                </li>
-                <li>
-                  Second Round : <date></date>{" "}
-                </li>
-                <li>
-                  Final Round : <date></date>{" "}
-                </li>
+              <ol className="text-gray-300 font-thin  list-disc list-inside">
+                {
+                  eventData?.schedule?.map((data) => (
+                    <li>
+                      Round {data.round} : <date>{data.datetime}</date>
+                    </li>
+                  ))
+                }
               </ol>
             </div>
           </div>
@@ -203,14 +202,13 @@ const EventDetails = () => {
               Rules
             </div>
             <div className="border-t pt-2 border-slate-600 space-y-2 ">
-              {console.log(eventData)}
-              {eventData.rules.map((data) => (
+              {eventData?.rules?.map((data) => (
                 <div>
                   <p className="text-blue-300  font-bold font-xl">
-                    {data.roundName}
+                    {data?.roundName}
                   </p>
                   <ul className="text-white list-disc list-inside">
-                    {data.roundRules.map((s) => (
+                    {data?.roundRules?.map((s) => (
                       <li>{s}</li>
                     ))}
                   </ul>

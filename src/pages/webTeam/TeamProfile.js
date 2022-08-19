@@ -1,6 +1,6 @@
 
 import React from 'react';
-import "./WebTeam.css";
+import "./webTeam.css";
 // import { Profiler } from 'react';
 // import logo from '../../Assets/Images/logo.svg';
 
