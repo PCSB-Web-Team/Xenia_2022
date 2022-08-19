@@ -35,7 +35,7 @@ const Login = () => {
 
   return (
     <div class="h-screen w-full flex justify-center items-center">
-      <div className=" w-80 md:w-[400px] p-4 bg-gray-600/20 backdrop-blur-md space-y-2 font-light">
+      <div className=" w-80 md:w-[400px] p-4 bg-black/20 backdrop-blur-md space-y-2 font-light">
         {mode === "login" ? (
           <Formik
             initialValues={{
@@ -184,8 +184,9 @@ const Login = () => {
               await dispatch(loginUser(values || null))
                 .unwrap()
                 .then(({ data: { error } }) => {
-                  if (!error) navigate(-1, { replace: true });
-                  else {
+                  if (!error) {
+                    navigate(-1, { replace: true });
+                  } else {
                     setError(error.message);
                   }
                 })

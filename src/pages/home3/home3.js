@@ -1,6 +1,7 @@
 import "./home3.css";
 import HomepageTopGradient from "../../assets/images/background/gradient-bg-1.png";
 import HomepageBottomEarth from "../../assets/images/background/homepage-earth-background.jpg";
+import Xenia_Logo from "../../assets/images/xeniaLogoLight.png";
 import coin1 from "../../assets/images/coin 1.png";
 import coin2 from "../../assets/images/coin 2.png";
 import coin3 from "../../assets/images/coin 3.png";
@@ -55,22 +56,28 @@ function Homepage() {
         },
     ]
 
-    let PolylineTags = []
-    for (let i = 0; i < endpointsOfPolyline.length; i++) {
-        PolylineTags.push(<polyline key={"Line no. " + (i + 1)} points={`${Object.values(endpointsOfPolyline[i]).toString()}`} />)
-    }
-
     const icons = [coin1, coin2, coin3, coin4, coin5, coin6, coin7, coin8, coin9, coin10, coin11, coin12, coin13]
     const floatingIcons = []
 
+    let PolylineTags = []
+    let ripples = []
     for (let i = 0; i < endpointsOfPolyline.length; i++) {
+        PolylineTags.push(<polyline key={"Line no. " + (i + 1)} points={`${Object.values(endpointsOfPolyline[i]).toString()}`} />)
         const upperPointOfLine = endpointsOfPolyline[i].A.split(" ")
+        const lowerPointsOfLine = endpointsOfPolyline[i].B.split(" ")
+        ripples.push(
+            <g>
+                <circle id="core" cx={lowerPointsOfLine[0]} cy={lowerPointsOfLine[1]} r="5"></circle>
+                <circle id="radar" cx={lowerPointsOfLine[0]} cy={lowerPointsOfLine[1]} r="10"></circle>
+            </g>
+        )
         floatingIcons.push(<image key={i} x={upperPointOfLine[0] - 35} y={upperPointOfLine[1] - 55} href={icons[Math.floor((Math.random() * icons.length))]}></image>)
     }
 
     return (
         <div className="homepage">
             <div className="homepage-background-container">
+                <div class="tso-rainbow"></div>
                 <img className="homepage-background-img gradient" src={HomepageTopGradient} alt="homepage-gradient" />
                 <div className="vertical-lines-container">
                     <svg className="lines-svg" preserveAspectRatio="xMinYMin">
@@ -90,11 +97,16 @@ function Homepage() {
                         </defs>
                         {PolylineTags}
                         {floatingIcons}
+                        {ripples}
                     </svg>
                 </div>
                 <img className="homepage-background-img earth" src={HomepageBottomEarth} alt="homepage-background" />
 
             </div>
+            <header className="homepage-contents">
+                <img className="xenia-logo" src={Xenia_Logo} alt="Xenia'22 logo" />
+                <h2><span>qwerty</span><span>uqwerty</span><span>iopwde</span><span>fgbhnl</span><span>kjhgfdsa</span></h2>
+            </header>
         </div>
     )
 }

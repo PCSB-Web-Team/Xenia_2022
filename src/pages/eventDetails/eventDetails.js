@@ -1,5 +1,4 @@
 // import "./eventDetails.css";
-import { Tabs, Tab } from "./DetailsTabs/DetailsTabs";
 import Request from "../../api/requests";
 import PayByRazor from "../../api/payments";
 import { AuthVerify } from "../../utils/authVerify";
@@ -10,6 +9,7 @@ import { useParams, Link } from "react-router-dom";
 const EventDetails = () => {
   const [eventData, setEventData] = useState({});
   const [teamCode, setTeamCode] = useState("");
+  const [participated, setParticipated] = useState(false);
   let id = useParams().id;
 
   const userState = useSelector((states) => states.user);
@@ -24,7 +24,6 @@ const EventDetails = () => {
     async function fetchEventData() {
       try {
         const eventData = await Request.getEventById(id);
-
         if (eventData.data?.status) {
           setEventData(() => ({ ...eventData.data.data[0] }));
         }
@@ -32,9 +31,11 @@ const EventDetails = () => {
         console.error(error);
       }
     }
+
     fetchEventData();
 
     async function fetchIsUserParticipated() {
+      console.log("useEffect: fetchIsUserParticipated");
       try {
         await AuthVerify({ getParticipations: true });
         const participatedEvent = await userState?.participations.find(
@@ -45,6 +46,7 @@ const EventDetails = () => {
             ...previousEventData,
             isParticipated: true,
           }));
+          setParticipated(true);
           if (participatedEvent.teamId) setTeamCode(participatedEvent.teamId);
         }
       } catch (error) {
@@ -56,7 +58,7 @@ const EventDetails = () => {
   }, [id]);
 
   return (
-    <div className="grid md:grid-cols-2 md:h-screen md:p-8 gap-8 backdrop-blur-xl bg-gradient-to-b from-gray-900/40 to-gray-600/80">
+    <div className="grid md:grid-cols-2 min-h-screen md:p-8 gap-8 backdrop-blur-xl bg-gradient-to-b from-gray-900/40 to-gray-600/80">
       <div className="my-auto text-center space-y-4 text-white md:h-full p-4 py-8  ">
         <div className=" w-full max-w-[400px] h-[400px] mx-auto">
           <img src={eventData?.logo} alt="event-logo" className="event-logo" />
@@ -68,8 +70,9 @@ const EventDetails = () => {
         <div className="text-left font-light text-gray-400">
           {eventData?.details}
         </div>
-        <div className="event-fees text-green-400 text-xl">
-          Fees : Rs. {eventData.fees}
+        <div className="event-fees text-blue-400 text-xl font-bold tracking-wider text-left flex space-x-2">
+          <div>Fees : Rs.</div>
+          <div>{eventData.fees}</div>
         </div>
         {eventData?.isLive ? (
           <p className="event-register-buttons disabled">
@@ -80,16 +83,20 @@ const EventDetails = () => {
             <div className="event-register-buttons">
               {!userState.loggedIn ? (
                 <Link to="/auth">
-                  <div className=" text-red-400 text-2xl hover:bg-red-300 inline-block mx-auto p-2">
+                  <div className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg px-5 py-2.5 text-center mx-auto text-lg inline-block">
                     Login to participate
                   </div>
                 </Link>
               ) : eventData.teamSize > 1 ? (
                 eventData.isParticipated ? (
-                  <span style={{ color: "#16d616" }}>
-                    Already participated with Team Code :{" "}
-                    <code>{teamCode}</code>
-                  </span>
+                  <div>
+                    <div className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-2xl tracking-widest">
+                      Registered Successfully
+                    </div>
+                    <span className="text-blue-400">
+                      Team Code : <code>{teamCode}</code>
+                    </span>
+                  </div>
                 ) : (
                   <>
                     <PayByRazor
@@ -113,16 +120,16 @@ const EventDetails = () => {
                   </>
                 )
               ) : eventData.isParticipated ? (
-                <span style={{ color: "#16d616" }}>
-                  Already registered for the event!
-                </span>
+                <div className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-2xl tracking-widest">
+                  Registered Successfully
+                </div>
               ) : (
                 <PayByRazor
-                  className="border-4 border-solid"
+                  className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
                   eventId={id}
                   userDetails={userState?.userDetails}
                   eventDetails={eventData?.details}
-                  buttonName="Participate"
+                  buttonName={"Participate"}
                 />
               )}
             </div>
@@ -130,7 +137,7 @@ const EventDetails = () => {
         )}
       </div>
       {/* event details description */}
-      <div className="space-y-4  p-8 h-full overflow-auto bg-black/20 shadow-lg border border-gray-700">
+      <div className="space-y-4  p-8 h-full overflow-auto bg-black/20 shadow-lg border border-gray-700 max-h-screen">
         <div className="text-center text-4xl font-bold text-purple-400">
           Description
         </div>
