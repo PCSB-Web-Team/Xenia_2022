@@ -17,8 +17,19 @@ import coin12 from "../../assets/images/coin 12.png";
 import coin13 from "../../assets/images/coin 13.png";
 import candlestick from "../../assets/images/candlestick3d.png";
 import ethcoin from "../../assets/images/ethcoin3d.png";
+import { useEffect } from "react";
 
 function Homepage() {
+  const moveassets = (e, asset1, asset2) => {
+    e.preventDefault();
+  };
+
+  useEffect(() => {
+    const asset1 = document.querySelector(".homepage-asset1");
+    const asset2 = document.querySelector(".homepage-asset2");
+    window.addEventListener("mousemove", (e) => moveassets(e, asset1, asset2));
+  }, []);
+
   /*
    * Co-ordinate system is: X-axis(Horizontally) & Y-axis(Vertically) in Top-Left corner of block
    */
@@ -182,15 +193,22 @@ function Homepage() {
         />
       </div>
       <header className="homepage-contents">
-        <img src={ethcoin} alt="asset" className="homepage-asset homepage-asset1" />
-        <img src={candlestick} alt="asset" className="homepage-asset homepage-asset2" />
+        <img
+          src={ethcoin}
+          alt="asset"
+          className="invisible md:visible homepage-asset homepage-asset1"
+        />
+        <img
+          src={candlestick}
+          alt="asset"
+          className="invisible md:visible homepage-asset homepage-asset2"
+        />
         <img className="xenia-logo" src={Xenia_Logo} alt="Xenia'22 logo" />
         <h2>
-          <span>qwerty</span>
-          <span>uqwerty</span>
-          <span>iopwde</span>
-          <span>fgbhnl</span>
-          <span>kjhgfdsa</span>
+          <span>WHERE PASSION MEETS PERFECTION</span>
+          {/* <span>PASSION</span>
+          <span>MEETS</span>
+          <span>PERFECTION</span> */}
         </h2>
       </header>
     </div>

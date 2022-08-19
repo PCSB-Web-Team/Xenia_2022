@@ -268,8 +268,8 @@
 
 .homepage-contents h2 span {
   display: inline-block;
-  opacity: 0;
-  filter: blur(4px);
+  /* opacity: 0; */
+  /* filter: blur(4px); */
 }
 
 .homepage-contents .homepage-asset{
@@ -333,4 +333,21 @@
 
 .homepage-contents h2 span:nth-child(12) {
   animation: fade-in 0.8s 1.2s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+@media screen and (max-width:400px) {
+  .vertical-lines-container{
+    transform: translateX(-50%) scale(0.5) translateY(50%);
+  }
+  .homepage-contents img{
+    max-width: none;
+    width: 80vw;
+  }
+  .homepage-contents{
+    padding: 100px 0;
+  }
+  .homepage-contents h2 span{
+    font-size: 1.2rem;
+  }
+  
 }
