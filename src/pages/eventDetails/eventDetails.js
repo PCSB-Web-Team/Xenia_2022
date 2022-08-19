@@ -166,91 +166,71 @@ const EventDetails = () => {
         )}
       </div>
       {/* event details description */}
-      <div className="space-y-4  p-8 h-full overflow-auto bg-black/20 shadow-lg border border-gray-700 max-h-screen">
-        <div className="text-center text-4xl font-bold text-purple-400">
+      <div className="space-y-4  p-8 h-full overflow-auto bg-black/20 shadow-lg border border-gray-700 max-h-screen font-thin text-gray-200">
+        <div className="text-4xl font-bold text-purple-400 mb-8 border-b border-purple-400/20 pb-2">
           Description
         </div>
-        <div className="">
-          <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
-            Prizes
+        <div className=" grid md:grid-cols-2 gap-4">
+          <div className="">
+            <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
+              Prizes
+            </div>
+            <div className="border-t pt-2 border-slate-600">
+              <ol className="text-white  ">
+                {eventData.prizes.length ? (
+                  eventData.prizes.map((data) => (
+                    <li>
+                      {data.position}: Rs.{data.prize}
+                    </li>
+                  ))
+                ) : (
+                  <div>Coming Soon...</div>
+                )}
+              </ol>
+            </div>
           </div>
-          <div className="border-t pt-2 border-slate-600">
-            <ol className="text-white  ">
-              
-              
-            
-            {eventData.prizes.map((data) => (
-              <li>
-                {data.position}:
-                Rs.{data.prize}
-              </li>
-            ))}
-            </ol> 
-          </div>
-        </div>
 
-        <div className="space-y-2">
-          <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
-            Schedule
+          <div className="">
+            <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
+              Schedule
+            </div>
+            <div className="border-t pt-2 border-slate-600">
+              <ol className="text-gray-300 font-thin  list-decimal list-inside">
+                <li>
+                  First Round : <date></date>{" "}
+                </li>
+                <li>
+                  Second Round : <date></date>{" "}
+                </li>
+                <li>
+                  Final Round : <date></date>{" "}
+                </li>
+              </ol>
+            </div>
           </div>
-          <div className="border-t pt-2 border-slate-600">
-            <ol className="text-gray-300 font-thin  list-decimal list-inside">
-              <li>
-                First Round : <date></date>{" "}
-              </li>
-              <li>
-                Second Round : <date></date>{" "}
-              </li>
-              <li>
-                Final Round : <date></date>{" "}
-              </li>
-            </ol>
-          </div>
-        </div>
 
-        <div className="space-y-2">
-          <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
-            Rules
-          </div>
-          <div className="border-t pt-2 border-slate-600 ">
-            {console.log(eventData)}
-            {eventData.rules.map((data) => (
-              <div>
-                <p className="text-blue-300  font-bold font-xl">
-                  {data.roundName}
-                </p>
-                <ol className="text-white    list-decimal list-inside">
-                  {data.roundRules.map((s) => (
-                    <li>{s}</li>
-                  ))}
-                </ol>
-              </div>
-            ))}
-
-            {/* {eventData.details} */}
-            {/* {console.log(eventData.rules)} */}
-            {/* {console.log(eventData.rules[0])} */}
-          </div>
-        </div>
-
-        <div className="space-y-2">
-          <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
-            Rules
-          </div>
-          <div className="border-t pt-2 border-slate-600">
-            <ol className="text-gray-300 font-thin  list-decimal list-inside">
-              <li>First Prize: Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Second Prize Rs. </li>
-              <li>Third Price Rs. </li>
-              <li>Other Participants : Participation Certificate</li>
-            </ol>
+          <div className="space-y-2 col-span-2">
+            <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
+              Rules
+            </div>
+            <div className="border-t pt-2 border-slate-600 space-y-2 ">
+              {console.log(eventData)}
+              {eventData.rules.map((data) => (
+                <div>
+                  <p className="text-blue-300  font-bold font-xl">
+                    {data.roundName}
+                  </p>
+                  <ul className="text-white list-disc list-inside">
+                    {data.roundRules.map((s) => (
+                      <li>{s}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-      <div className="event-desc"></div>
     </div>
   );
 };
