@@ -1,6 +1,7 @@
 import React from "react";
 import xenialogo from "../assets/images/CSI_Logo_blue.png";
 import { Link } from "react-router-dom";
+import { scrollToTop } from "../utils";
 
 const Footer = () => {
   return (
@@ -23,10 +24,10 @@ const Footer = () => {
               </div>
               <div className="space-y-2">
                 <div className=" font-thin">
-                  <Link to="/events">All Events</Link>
+                  <Link onClick={scrollToTop} to="/events">All Events</Link>
                 </div>
                 <div className=" font-thin">
-                  <Link to="/profile">Registered Events</Link>
+                  <Link onClick={scrollToTop} to="/profile">Registered Events</Link>
                 </div>
               </div>
             </div>
@@ -36,10 +37,10 @@ const Footer = () => {
               </div>
               <div className="space-y-2">
                 <div className=" font-thin">
-                  <Link to="/auth">Login</Link>
+                  <Link onClick={scrollToTop} to="/auth">Login</Link>
                 </div>
                 <div className=" font-thin">
-                  <Link to="/contact-us">Help</Link>
+                  <Link onClick={scrollToTop} to="/contact-us">Help</Link>
                 </div>
               </div>
             </div>

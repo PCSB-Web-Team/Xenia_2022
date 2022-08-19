@@ -1,4 +1,8 @@
 import * as Validators from "./validators";
 import * as Regex from "./regex";
 
-export { Validators, Regex };
+function scrollToTop() {
+  window.scroll({ top: 0, behavior: "smooth" });
+}
+
+export { Validators, Regex, scrollToTop };

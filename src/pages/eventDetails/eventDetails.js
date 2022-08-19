@@ -4,13 +4,14 @@ import PayByRazor from "../../api/payments";
 import { AuthVerify } from "../../utils/authVerify";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 const EventDetails = () => {
   const [eventData, setEventData] = useState({});
   const [teamCode, setTeamCode] = useState("");
   const [participated, setParticipated] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [joinTeamError, setJoinTeamError] = useState("");
   let id = useParams().id;
 
   const userState = useSelector((states) => states.user);
@@ -22,12 +23,18 @@ const EventDetails = () => {
   const handleJoinTeam = () => {
     Request.joinTeam({ eventId: id, teamId: teamCode })
       .then((res) => {
-        console.log(res);
+        if (res.data.status) {
+        } else {
+          setJoinTeamError(res?.data?.error);
+        }
       })
       .catch((err) => {
+        alert(err);
         // handle error
       });
   };
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -37,8 +44,9 @@ const EventDetails = () => {
         const eventData = await Request.getEventById(id);
         if (eventData.data?.status) {
           setEventData(() => ({ ...eventData.data.data[0] }));
-        }
+        } else navigate("404");
       } catch (error) {
+        navigate("404");
         console.error(error);
       }
     }
@@ -73,12 +81,12 @@ const EventDetails = () => {
   return loading ? (
     <div>Loading...</div>
   ) : (
-    <div className="grid md:grid-cols-2 min-h-screen md:p-8 gap-8 backdrop-blur-xl bg-gradient-to-b from-gray-900/40 to-gray-600/80">
+    <div className="grid md:grid-cols-2 min-h-screen md:p-8 gap-8 backdrop-blur-xl bg-gradient-to-b from-gray-900/40 to-gray-600/80 transition-all ease-in-out">
       <div className="my-auto text-center space-y-4 text-white md:h-full p-4 py-8  ">
         <div className=" w-full max-w-[400px] h-[400px] mx-auto">
           <img src={eventData?.logo} alt="event-logo" className="event-logo" />
         </div>
-        <div className="text-6xl w-min mx-auto font-bold text-purple-600 border-gray-500 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+        <div className="text-6xl mx-auto font-bold text-purple-600 border-gray-500 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
           {eventData.name}
         </div>
         <div className=" border-b border-gray-500"></div>
@@ -98,7 +106,7 @@ const EventDetails = () => {
             <div className="event-register-buttons">
               {!userState.loggedIn ? (
                 <Link to="/auth">
-                  <div className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg px-5 py-2.5 text-center mx-auto text-lg inline-block">
+                  <div className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium  px-5 py-2.5 text-center mx-auto text-lg inline-block">
                     Login to participate
                   </div>
                 </Link>
@@ -113,16 +121,16 @@ const EventDetails = () => {
                     </span>
                   </div>
                 ) : (
-                  <div className="grid">
+                  <div className="grid grid-cols-1 place-items-center gap-2">
                     <PayByRazor
-                      className="border-4 border-solid"
+                      className="col-span-2 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
                       eventId={id}
                       userDetails={userState?.userDetails}
                       eventDetails={eventData?.details}
                       buttonName="Register as Team"
                     />
-                    <div>OR</div>
-                    <div className="space-x-2">
+                    <div className="text-gray-400 font-bold">OR</div>
+                    <div className="space-x-2 col-span-2">
                       <input
                         type="text"
                         className="p-2 bg-black/20 outline-none"
@@ -131,7 +139,10 @@ const EventDetails = () => {
                         onChange={handleInputChange}
                         value={teamCode}
                       />
-                      <button className="" onClick={handleJoinTeam}>
+                      <button
+                        className="col-span-2 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium  px-5 py-2.5 text-center text-lg"
+                        onClick={handleJoinTeam}
+                      >
                         Join Team
                       </button>
                     </div>
@@ -143,7 +154,7 @@ const EventDetails = () => {
                 </div>
               ) : (
                 <PayByRazor
-                  className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
+                  className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
                   eventId={id}
                   userDetails={userState?.userDetails}
                   eventDetails={eventData?.details}
