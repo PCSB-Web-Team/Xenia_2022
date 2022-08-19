@@ -14,11 +14,13 @@ export default function SideEvents() {
 
   useEffect(() => {
     try {
-      Requests.getSideEvents().then(res => {
-        setEventsData(() => (res.data?.data))
-      }).catch(error => console.log(error))
+      Requests.getSideEvents()
+        .then((res) => {
+          setEventsData(() => res.data?.data);
+        })
+        .catch((error) => console.log(error));
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }, [])
 

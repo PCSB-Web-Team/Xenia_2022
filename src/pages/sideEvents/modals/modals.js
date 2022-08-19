@@ -1,7 +1,7 @@
 export default function Modal({ modal, toggleModal, details }) {
   return (
     modal && (
-      <div className="fixed z-10 top-0 left-0 h-screen w-full flex items-center justify-center transition ease-in-out">
+      <div className="fixed z-10 top-0 left-0 h-screen flex items-center justify-center transition ease-in-out">
         <div
           onClick={toggleModal}
           className="absolute top-0 left-0 bg-black/10 h-screen w-full z-0 backdrop-blur"
