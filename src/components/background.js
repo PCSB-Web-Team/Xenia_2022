@@ -9,10 +9,13 @@ export default function Background() {
   return (
     <div className=" h-screen w-full top-0 left-0 fixed -z-10">
       <div className="main-bg h-screen top-0 left-0 w-full overflow-hidden relative">
-        <div className=" absolute bottom-0 left-0 w-full h-screen rotate-180">
-          <img className=" min-h-screen min-w-full" src={Pattern}></img>
+        <div className=" absolute bottom-0 left-0 w-full h-screen">
+          <img
+            className=" min-h-screen min-w-full rotate-180 opacity-20"
+            src={Pattern}
+          ></img>
         </div>
-        <div className="fixed top-0 left-0 -z-10 bg-gradient-to-r from-gray-700 via-gray-900 to-black">
+        <div className="fixed top-0 left-0 -z-10 bg-gradient-to-r from-black via-gray-900 to-black">
           <div className="bg"></div>
           <div className="bg bg2"></div>
           <div className="bg bg3"></div>
