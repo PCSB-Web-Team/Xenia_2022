@@ -205,10 +205,10 @@ function Homepage() {
         />
         <img className="xenia-logo" src={Xenia_Logo} alt="Xenia'22 logo" />
         <h2>
-          <span>WHERE PASSION MEETS PERFECTION</span>
-          {/* <span>PASSION</span>
+          <span>WHERE</span>
+          <span>PASSION</span>
           <span>MEETS</span>
-          <span>PERFECTION</span> */}
+          <span>PERFECTION</span>
         </h2>
       </header>
     </div>

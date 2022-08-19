@@ -30,7 +30,7 @@ const Login = () => {
     name: Validators.nameRequired,
     mobile: Validators.mobileRequired,
     branch: Validators.name,
-    college: Validators.name,
+    college: Validators.string,
   });
 
   return (

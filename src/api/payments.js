@@ -4,7 +4,7 @@ import { useEffect } from "react";
 const PayByRazor = (props) => {
 
     const openPaymentModal = async () => {
-        const reqBody = { id: "62f2a9ed2963089d93d01a9b", eventId: "62e3ee205046b9fbe30f0326" }
+        const reqBody = { id: "62feb8cd0c62d3307cf78ef3", eventId: "62e3ee205046b9fbe30f0326" }
         let { data } = await Request.createOrder(reqBody)
 
         const options = {
