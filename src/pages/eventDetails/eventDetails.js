@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 
 const EventDetails = () => {
-  const [eventData, setEventData] = useState({});
+ const [eventData, setEventData] = useState({rules:[],prizes:[]});
   const [userState, setUserState] = useState({
     loggedIn: false,
     participations: [],
