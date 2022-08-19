@@ -1,16 +1,18 @@
 import "./auth.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Validators } from "../../utils";
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
-import { useDispatch } from "react-redux/es/exports";
+import { useDispatch, useSelector } from "react-redux/es/exports";
 import { loginUser, registerUser, logoutUser } from "../../store/middleware";
 import { calcLength } from "framer-motion";
 
 const Login = () => {
   const [mode, setMode] = useState("login");
   const [error, setError] = useState("");
+
+  const userState = useSelector(({ user }) => user);
 
   const dispatch = useDispatch(); //hook returning a reference to the dispatch function from redux store, dispatch action when needed
 
@@ -30,8 +32,14 @@ const Login = () => {
     name: Validators.nameRequired,
     mobile: Validators.mobileRequired,
     branch: Validators.name,
-    college: Validators.name,
+    college: Validators.string,
   });
+
+  useEffect(() => {
+    if (userState.loggedIn) {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <div class="h-screen w-full flex justify-center items-center">

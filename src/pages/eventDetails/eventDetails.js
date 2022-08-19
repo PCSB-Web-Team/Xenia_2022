@@ -10,6 +10,7 @@ const EventDetails = () => {
   const [eventData, setEventData] = useState({ rules: [], prizes: [] });
   const [teamCode, setTeamCode] = useState("");
   const [participated, setParticipated] = useState(false);
+  const [loading, setLoading] = useState(false);
   let id = useParams().id;
 
   const userState = useSelector((states) => states.user);
@@ -18,9 +19,19 @@ const EventDetails = () => {
     setTeamCode(event.target.value);
   };
 
-  const handleJoinTeam = () => {};
+  const handleJoinTeam = () => {
+    Request.joinTeam({ eventId: id, teamId: teamCode })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        // handle error
+      });
+  };
 
   useEffect(() => {
+    setLoading(true);
+
     async function fetchEventData() {
       try {
         const eventData = await Request.getEventById(id);
@@ -35,9 +46,9 @@ const EventDetails = () => {
     fetchEventData();
 
     async function fetchIsUserParticipated() {
-      console.log("useEffect: fetchIsUserParticipated");
       try {
         await AuthVerify({ getParticipations: true });
+        console.log("setting participation state ", userState);
         const participatedEvent = await userState?.participations.find(
           (userParticipatedEvents) => userParticipatedEvents.eventId === id
         );
@@ -49,6 +60,8 @@ const EventDetails = () => {
           setParticipated(true);
           if (participatedEvent.teamId) setTeamCode(participatedEvent.teamId);
         }
+
+        setLoading(false);
       } catch (error) {
         console.error(error);
       }
@@ -57,7 +70,9 @@ const EventDetails = () => {
     fetchIsUserParticipated();
   }, [id]);
 
-  return (
+  return loading ? (
+    <div>Loading...</div>
+  ) : (
     <div className="grid md:grid-cols-2 min-h-screen md:p-8 gap-8 backdrop-blur-xl bg-gradient-to-b from-gray-900/40 to-gray-600/80">
       <div className="my-auto text-center space-y-4 text-white md:h-full p-4 py-8  ">
         <div className=" w-full max-w-[400px] h-[400px] mx-auto">
@@ -98,7 +113,7 @@ const EventDetails = () => {
                     </span>
                   </div>
                 ) : (
-                  <>
+                  <div className="grid">
                     <PayByRazor
                       className="border-4 border-solid"
                       eventId={id}
@@ -106,18 +121,21 @@ const EventDetails = () => {
                       eventDetails={eventData?.details}
                       buttonName="Register as Team"
                     />
-                    <span>OR</span>
-                    <input
-                      type="text"
-                      className="event-register-team-box"
-                      name="team-code"
-                      placeholder="Enter Team Code"
-                      onChange={handleInputChange}
-                      value={teamCode}
-                      maxLength="6"
-                    />
-                    <button onClick={handleJoinTeam}>Join Team</button>
-                  </>
+                    <div>OR</div>
+                    <div className="space-x-2">
+                      <input
+                        type="text"
+                        className="p-2 bg-black/20 outline-none"
+                        name="team-code"
+                        placeholder="Enter Team Code"
+                        onChange={handleInputChange}
+                        value={teamCode}
+                      />
+                      <button className="" onClick={handleJoinTeam}>
+                        Join Team
+                      </button>
+                    </div>
+                  </div>
                 )
               ) : eventData.isParticipated ? (
                 <div className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-2xl tracking-widest">
