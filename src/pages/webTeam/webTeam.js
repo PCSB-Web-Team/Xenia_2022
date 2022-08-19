@@ -1,13 +1,6 @@
 import React from "react";
 import "./WebTeam.css";
 import ProfileCard from "./TeamProfile";
-// import Vedant from "../../Assets/Images/WebTeam/vedant.jpeg";
-// import Gaurav from "../../Assets/Images/WebTeam/gaurav.jpg";
-// import Amit from "../../Assets/Images/WebTeam/amit.jpg";
-// import Atharva from "../../Assets/Images/WebTeam/atharva.jpeg";
-// import Siddhesh from "../../Assets/Images/WebTeam/siddhesh.jpg";
-// import Pranil from "../../Assets/Images/WebTeam/pranil.jpeg";
-// import Kshitij from '../../Assets/Images/WebTeam/kshitij.jpg';
 
 let teamDetails = [
   {

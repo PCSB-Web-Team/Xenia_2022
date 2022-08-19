@@ -22,22 +22,7 @@ export default function SideEvents() {
     } catch (error) {
       console.log(error);
     }
-  }, []);
-
-  // const data = [
-  //   {
-  //     id: 1,
-  //     eventTitle: "EventName1",
-  //     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur blanditiis sequi molestiae eaque fugit sit, reiciendis dolorem ullam modi! Repellendus quisquam ipsam laboriosam velit? Minima eveniet, eum nesciunt veniam excepturi possimus praesentium. Quasi sapiente ullam alias beatae mollitia incidunt cupiditate! Iusto, ",
-  //     img: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
-  //   },
-  //   {
-  //     id: 2,
-  //     eventTitle: "EventName2",
-  //     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur blanditiis sequi molestiae eaque fugit sit, reiciendis dolorem ullam modi! Repellendus quisquam ipsam laboriosam velit? Minima eveniet, eum nesciunt veniam excepturi possimus praesentium. Quasi sapiente ullam alias beatae mollitia incidunt cupiditate! Iusto, ",
-  //     img: "https://drive.google.com/uc?export=view&id=1f_Hr2NYr2XrecCxmIK23fNCLjsJo-ReQ",
-  //   },
-  // ];
+  }, [])
 
   const EventsInfo = eventsData.map((event) => (
     <div className="bg-opacity-0 grid grid-cols-1 md:grid-cols-4 content-center backdrop-blur-lg bg-gradient-to-tr from-gray-600/20 via-purple-600/10 to-pink-600/20 border border-gray-600/20">
@@ -57,14 +42,9 @@ export default function SideEvents() {
         </div>
         <div
           onClick={() => {
-            setModalDetails((previousState) => ({
+            setModalDetails(previousState => ({
               ...previousState,
-              contactUs: event?.contactUs,
-              prizes: event?.prizes,
-              rules: event?.rules[0].roundRules,
-              schedule: event?.schedule,
-              teamSize: event?.teamSize,
-              fees: event?.fees,
+              event
             }));
             toggleModal();
           }}
