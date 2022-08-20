@@ -6,7 +6,7 @@ export default function Modal({ modal, toggleModal, details }) {
           onClick={toggleModal}
           className="absolute top-0 left-0 bg-black/10 h-screen w-full z-0 backdrop-blur"
         ></div>
-        <div className=" w-96 md:w-1/3 px-10 z-10 backdrop-blur-sm h-[80vh] bg-black/60 rounded-md overflow-auto font-light">
+        <div className=" w-96 md:w-1/3 px-10 py-5 z-10 backdrop-blur-sm h-[80vh] bg-black/60 rounded-md overflow-auto font-light">
           <div className="text-2xl font-bold pb-2 mt-5 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
             Prizes
           </div>
@@ -28,9 +28,9 @@ export default function Modal({ modal, toggleModal, details }) {
             Rules
           </div>
           <div className="border-t pt-2 px-5 border-slate-600">
-            <ul className="text-white ">
-              {details?.event?.rules[0]?.length >= 1 ? (
-                details?.event?.rule[0]?.map((data) => <li>{data}</li>)
+            <ul className="text-white list-disc">
+              {details?.event?.rules[0]?.roundRules?.length >= 1 ? (
+                details?.event?.rules[0]?.roundRules?.map((data) => <li>{data}</li>)
               ) : (
                 <div>Come out! No Rules...</div>
               )}

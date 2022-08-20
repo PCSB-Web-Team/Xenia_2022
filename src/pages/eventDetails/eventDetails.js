@@ -2,28 +2,26 @@
 import Request from "../../api/requests";
 import PayByRazor from "../../api/payments";
 import { AuthVerify } from "../../utils/authVerify";
+import { useSelector } from "react-redux/es/exports";
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 
 const EventDetails = () => {
   const [eventData, setEventData] = useState({});
-  const [userState, setUserState] = useState({
-    loggedIn: false,
-    participations: [],
-    isParticipated: false,
-  });
   const [teamId, setTeamId] = useState("");
   // const [joinTeamError, setJoinTeamError] = useState("");
 
   let id = useParams().id;
   const navigate = useNavigate();
 
+  const userState = useSelector(userState => userState.user)
+
   const handleInputChange = (event) => {
     setTeamId(event.target.value);
   };
 
-  const handleJoinTeam = () => {
-    Request.joinTeam({ eventId: id, teamId })
+  const handleJoinTeam = async () => {
+    await Request.joinTeam({ eventId: id, teamId })
       .then((res) => {
         if (res.data.status) {
         } else {
@@ -40,7 +38,7 @@ const EventDetails = () => {
     try {
       const data = await Request.getEventById(id);
       if (data.data?.status) {
-        setEventData(() => ({ ...data.data?.data[0] }));
+        setEventData(() => ({ ...data.data?.data }));
       } else navigate("404");
     } catch (error) {
       navigate("404");
@@ -50,21 +48,15 @@ const EventDetails = () => {
 
   async function fetchIsUserParticipated() {
     try {
-      let { loggedIn, participations } = await AuthVerify({
+      await AuthVerify({
         getParticipations: true,
-      });
+      }).then(async res => await (res));
 
-      const participatedEvent = participations.find(
+      const participatedEvent = userState.participations?.find(
         (userParticipatedEvents) => userParticipatedEvents.eventId === id
       );
 
       if (participatedEvent) {
-        setEventData((previousEventData) => ({ ...previousEventData }));
-        setUserState((previousUserState) => ({
-          ...previousUserState,
-          loggedIn,
-          isParticipated: true,
-        }));
         if (participatedEvent.teamId) setTeamId(participatedEvent.teamId);
       }
     } catch (error) {
@@ -126,13 +118,13 @@ const EventDetails = () => {
                 ) : (
                   <div className="grid grid-cols-1 place-items-center gap-2">
                     <PayByRazor
-                      className="border-4 border-solid"
+                      className="border-2 border-solid p-2"
                       eventId={id}
                       userDetails={userState?.userDetails}
                       eventDetails={eventData?.details}
                       buttonName="Register as Team"
                     />
-                    <div className="text-gray-400 font-bold">OR</div>
+                    <div className="text-gray-400 font-bold col-span-2">OR</div>
                     <div className="space-x-2 col-span-2">
                       <input
                         type="text"
@@ -179,13 +171,12 @@ const EventDetails = () => {
               <label>Prizes</label>
               <img
                 className="h-[24px] w-[24px] inline-block"
-                src={
-                  "https://cdn-icons.flaticon.com/png/512/3113/premium/3113054.png?token=exp=1660933823~hmac=ef93725b2c80d5ff9d66a9ceeb1285ae"
-                }
-              ></img>
+                src="https://cdn-icons.flaticon.com/png/512/3113/premium/3113054.png?token=exp=1660933823~hmac=ef93725b2c80d5ff9d66a9ceeb1285ae"
+                alt=""
+              />
             </div>
             <div className="border-t pt-2 border-slate-600">
-              <ol className="text-white  ">
+              <ol className="text-white">
                 {eventData?.prizes?.length ? (
                   eventData?.prizes?.map((data) => (
                     <li>
@@ -205,7 +196,8 @@ const EventDetails = () => {
               <img
                 className="h-[24px] w-[24px] inline-block "
                 src={"https://cdn-icons-png.flaticon.com/512/3652/3652191.png"}
-              ></img>
+                alt=""
+              />
             </div>
             <div className="border-t pt-2 border-slate-600">
               <ol className="text-gray-300 font-thin  list-disc list-inside">
@@ -226,7 +218,8 @@ const EventDetails = () => {
                 src={
                   "https://cdn-icons.flaticon.com/png/512/3251/premium/3251560.png?token=exp=1660934349~hmac=38e045e4a5d1f01823b2d0e41a3d8f17"
                 }
-              ></img>
+                alt=""
+              />
             </div>
             <div className="border-t pt-2 border-slate-600 space-y-2 ">
               {eventData?.rules?.map((data) => (

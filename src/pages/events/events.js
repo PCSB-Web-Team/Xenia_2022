@@ -5,13 +5,7 @@ import Request from "../../api/requests";
 
 const Events = () => {
   const [status, setStatus] = useState(1);
-  const [techEvents, setTechEvents] = useState([
-    {
-      title: "Event",
-      description:
-        "description tech = res.data.data.filter((event) => event.isTechnical); nonTech = res.data.data.filter((event) => !event.isTechnical);",
-    },
-  ]);
+  const [techEvents, setTechEvents] = useState([]);
   const [nonTechEvents, setNonTechEvents] = useState([]);
   const [events, setEvents] = useState([]);
 
@@ -75,7 +69,7 @@ const Events = () => {
                 className="event-card w-full md:w-[400px] grid grid-cols-3 items-center h-auto min-h-[200px] backdrop-blur-xl cursor-pointer overflow-hidden"
               >
                 <div className=" p-4 col-span-1 flex items-center bg-black/60 h-[150px]">
-                  <img src={event.logo} className="max-h-full max-w-full"></img>
+                  <img src={event.logo} className="max-h-full max-w-full" alt="event-logo" />
                 </div>
                 <div className=" event-card-body p-4 h-full col-span-2 text-left bg-gradient-to-br from-black/10 to-black/50  space-y-2 text-gray-400 group-hover:bg-cyan-700 ">
                   <div className="border-b border-slate-600 text-transparent font-bold text-lg pb-2 group-hover:text-white bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-purple-600">

@@ -48,7 +48,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <>
         <AnimatedCursor
           color="4, 192, 250"
           outerAlpha={0}
@@ -68,7 +68,11 @@ function App() {
             '.link'
           ]}
           hasBlendMode={true}
+          innerStyle={{
+            zIndex: "999999999999"
+          }}
           outerStyle={{
+            zIndex: "999999999999",
             animation: 'rotate 2.2s infinite ease-in-out',
             border: '2px dashed #009ffd'
           }} />
@@ -122,7 +126,7 @@ function App() {
         <Footer />
         <Sidebar />
         <ContactPanel />
-    </div>
+    </>
   );
 }
 

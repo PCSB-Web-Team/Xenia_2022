@@ -16,6 +16,7 @@ export default function SideEvents() {
     try {
       Requests.getSideEvents()
         .then((res) => {
+          console.log(res.data);
           setEventsData(() => res.data?.data);
         })
         .catch((error) => console.log(error));
