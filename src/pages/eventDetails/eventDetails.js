@@ -185,12 +185,11 @@ const EventDetails = () => {
           <div className="">
             <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 space-x-2">
               <label>Prizes</label>
-              {/* <img
+              <img
                 className="h-[24px] w-[24px] inline-block"
-                // src="https://cdn-icons.flaticon.com/png/512/3113/premium/3113054.png?token=exp=1660933823~hmac=ef93725b2c80d5ff9d66a9ceeb1285ae"
+                src="https://cdn-icons.flaticon.com/png/512/3113/premium/3113054.png?token=exp=1660933823~hmac=ef93725b2c80d5ff9d66a9ceeb1285ae"
                 alt=""
-              /> */}
-              <i class="far fa-trophy" />
+              />
             </div>
             <div className="border-t pt-2 border-slate-600">
               <ol className="text-white">
@@ -210,12 +209,11 @@ const EventDetails = () => {
           <div className="">
             <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 space-x-2">
               <label>Schedule</label>
-              {/* <img
+              <img
                 className="h-[24px] w-[24px] inline-block "
                 src={"https://cdn-icons-png.flaticon.com/512/3652/3652191.png"}
                 alt=""
-              /> */}
-              <i class="far fa-calendar"></i>
+              />
             </div>
             <div className="border-t pt-2 border-slate-600">
               <ol className="text-gray-300 font-thin  list-disc list-inside">
@@ -231,14 +229,13 @@ const EventDetails = () => {
           <div className="space-y-2 col-span-2">
             <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 space-x-2">
               <label>Rules</label>
-              {/* <img
+              <img
                 className="h-[24px] w-[24px] inline-block "
                 src={
                   "https://cdn-icons.flaticon.com/png/512/3251/premium/3251560.png?token=exp=1660934349~hmac=38e045e4a5d1f01823b2d0e41a3d8f17"
                 }
                 alt=""
-              /> */}
-              <i class="far fa-clipboard-list-check"></i>
+              />
             </div>
             <div className="border-t pt-2 border-slate-600 space-y-2 ">
               {eventData?.rules?.map((data) => (
@@ -250,6 +247,26 @@ const EventDetails = () => {
                     {data?.roundRules?.map((s) => (
                       <li>{s}</li>
                     ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 space-x-2">
+              <label>Contact</label>
+              <img
+                className="h-[24px] w-[24px] inline-block "
+                src={
+                  "https://cdn-icons.flaticon.com/png/512/3251/premium/3251560.png?token=exp=1660934349~hmac=38e045e4a5d1f01823b2d0e41a3d8f17"
+                }
+                alt=""
+              />
+            </div>
+            <div className="border-t pt-2 border-slate-600 space-y-2 ">
+              {console.log(eventData)}
+              {eventData?.contact?.map((data) => (
+                <div>
+                  <ul className="text-white list-disc list-inside">
+                    <li>{data}</li>
                   </ul>
                 </div>
               ))}
