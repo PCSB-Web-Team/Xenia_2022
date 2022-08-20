@@ -237,6 +237,7 @@ const EventDetails = () => {
                       <li>{s}</li>
                     ))}
                   </ul>
+                  
                 </div>
               ))}
             </div>
