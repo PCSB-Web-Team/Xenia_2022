@@ -39,7 +39,6 @@ const EventDetails = () => {
   async function fetchEventData() {
     try {
       const data = await Request.getEventById(id);
-      console.log(data);
       if (data.data?.status) {
         setEventData(() => ({ ...data.data?.data[0] }));
       } else navigate("404");
@@ -73,10 +72,10 @@ const EventDetails = () => {
   return (
     <div className="grid md:grid-cols-2 min-h-screen md:p-8 gap-8 backdrop-blur-xl bg-gradient-to-b from-gray-900/40 to-gray-600/80">
       <div className="my-auto text-center space-y-4 text-white md:h-full p-4 py-8  ">
-        <div className=" w-full max-w-[400px] h-[400px] mx-auto">
+        <div className=" w-3/4 max-w-[380px] h-[380px] mx-auto">
           <img src={eventData?.logo} alt="event-logo" className="event-logo" />
         </div>
-        <div className="text-6xl w-min mx-auto font-bold text-purple-600 border-gray-500 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+        <div className="py-3 text-6xl mx-auto font-bold text-purple-600 border-gray-500 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
           {eventData?.name}
         </div>
         <div className=" border-b border-gray-500"></div>

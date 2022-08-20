@@ -2,7 +2,7 @@ import PreLoader from "./components/preloader";
 import Loader from "./components/loader";
 import Home2 from "./pages/home2/home2";
 import Home3 from "./pages/home3/home3";
-
+import Home4 from "./pages/home4/home4";
 import Navbar from "./components/Navbarnew";
 import Homepage from "./pages/home/home";
 import Auth from "./pages/auth/auth";
@@ -25,6 +25,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Background from "./components/background";
 import IndustryTalkDetail from "./pages/industryTalks/industryTalksDetail/industryTalkDetail";
+import AnimatedCursor from "react-animated-cursor";
 import "./App.css";
 
 function App() {
@@ -48,6 +49,29 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+        <AnimatedCursor
+          color="4, 192, 250"
+          outerAlpha={0}
+          innerSize={10}
+          outerSize={22}
+          clickables={[
+            'a',
+            'input[type="text"]',
+            'input[type="email"]',
+            'input[type="number"]',
+            'input[type="submit"]',
+            'input[type="image"]',
+            'label[for]',
+            'select',
+            'textarea',
+            'button',
+            '.link'
+          ]}
+          hasBlendMode={true}
+          outerStyle={{
+            animation: 'rotate 2.2s infinite ease-in-out',
+            border: '2px dashed #009ffd'
+          }} />
         <Background></Background>
         <Navbar />
         {loading ? (
@@ -57,6 +81,7 @@ function App() {
             {/* <Route path="/" element={<Homepage loader={<PreLoader />} />} />
           <Route path="/home2" element={<Home2 loader={<Loader />} />} /> */}
             <Route path="/" element={<Home3 loader={<Loader />} />} />
+            <Route path="/home4" element={<Home4 loader={<Loader />} />} />
             <Route path="/auth" element={<Auth loader={<Loader />} />} />
             <Route
               path="/schedule"
