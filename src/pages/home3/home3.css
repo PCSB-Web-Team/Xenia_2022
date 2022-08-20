@@ -4,6 +4,7 @@
   z-index: 5;
   background-color: black;
   text-align: center;
+  overflow: hidden;
 }
 
 #mouse-parallax-container {
@@ -16,6 +17,17 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 30%);
+  height: 130%;
+  width: 130%;
+  filter: blur(20px);
+  background: transparent;
+  z-index: -1;
 }
 
 @keyframes tso-rainbow {
@@ -119,13 +131,12 @@
 }
 
 .earth {
-  /* position: absolute; */
-  bottom: 10vh;
+  position: absolute;
+  bottom: 5vh;
+  right: 5px;
   /* bottom: 30vh; */ /*! New Idea with this setting*/
-  left: 15px;
+  /* left: 15px; */
   /* height: 60vh; */
-  transition: 0.1s linear;
-  z-index: 1;
 }
 
 .vertical-lines-container {
@@ -137,7 +148,7 @@
   min-width: 1400px;
   height: 60%;
   box-shadow: inset 0 -15px 15px -15px #04c0fa;
-  z-index: 5;
+  z-index: 3;
 }
 
 .lines-svg {
