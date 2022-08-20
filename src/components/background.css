@@ -7,7 +7,6 @@
 
 .bg {
   animation: slide 3s ease-in-out infinite alternate;
-  /* background-image: linear-gradient(-60deg, rgb(63, 63, 63) 50%, #09f 50%); */
   background-image: linear-gradient(
     -60deg,
     rgb(6, 20, 35) 50%,

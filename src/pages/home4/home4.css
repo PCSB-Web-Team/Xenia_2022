@@ -1,13 +1,14 @@
 .homepage {
   position: relative;
-  height: 100vh;
+  height: 120vh;
   z-index: 5;
   background-color: black;
   text-align: center;
 }
 
 #mouse-parallax-container {
-  height: 100vh;
+  height: 120vh;
+  width: 100vw;
 }
 
 .homepage-background-container {
@@ -111,168 +112,60 @@
   width: 100%;
 }
 
-.gradient {
+.hole {
   position: relative;
-  top: -20px;
+  width: 65%;
   height: 65vh;
-  z-index: 2;
-}
-
-.earth {
-  /* position: absolute; */
-  bottom: 10vh;
-  /* bottom: 30vh; */ /*! New Idea with this setting*/
-  left: 15px;
-  /* height: 60vh; */
-  transition: 0.1s linear;
-  z-index: 1;
-}
-
-.vertical-lines-container {
-  position: absolute;
-  /* top: 100%; */
-  bottom: 0;
-  /* left: 50%;
-  transform: translateX(-50%); */
-  min-width: 1400px;
-  height: 60%;
-  box-shadow: inset 0 -15px 15px -15px #04c0fa;
-  z-index: 5;
-}
-
-.lines-svg {
-  min-width: 100%;
-  height: 100%;
-}
-
-.lines-svg polyline {
-  stroke-width: 1.2;
-  stroke-dasharray: 6, 4;
-  stroke-dashoffset: 1000;
-  stroke: url(#linearGradient);
-  fill: none;
-  filter: blur(0.4px);
-  animation: moving-dash 150s linear alternate infinite;
-}
-
-@keyframes moving-dash {
-  from {
-    stroke-dashoffset: 1000;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-.lines-svg image {
-  width: 5%;
-  -webkit-filter: drop-shadow(3px 3px 10px #009ffd) brightness(85%);
-  filter: drop-shadow(3px 3px 10px #009ffd) brightness(85%);
-}
-
-.lines-svg image:nth-child(odd) {
-  animation: 3s oscillate-blocks infinite ease-in-out;
-}
-
-.lines-svg image:nth-child(even) {
-  animation: 3.4s oscillate-blocks infinite ease-in-out;
-  animation-delay: 2s;
-}
-
-.lines-svg image:nth-child(3n) {
-  animation: 3.4s oscillate-blocks infinite ease-in-out;
-  animation-delay: 1.5s;
-}
-
-@keyframes oscillate-blocks {
-  0% {
-    -webkit-transform: translateY(-0.1%);
-    transform: translateY(-0.1%);
-  }
-  50% {
-    -webkit-transform: translateY(3%);
-    transform: translateY(3%);
-  }
-  100% {
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
-  }
-}
-
-.lines-svg g {
-  display: none;
-  filter: blur(0.8px);
-  transition: all 0.1s ease-in-out;
-}
-
-#core {
-  fill: rgba(0, 159, 253, 0.8);
-  animation: pulse1 1.5s ease-in-out infinite;
-}
-
-#radar {
-  fill: rgba(0, 159, 253, 0.3);
-  animation: pulse2 1.5s ease-in-out infinite;
-}
-
-@keyframes pulse1 {
-  0% {
-    opacity: 0;
-  }
-
-  30% {
-    opacity: 1;
-  }
-
-  60% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes pulse2 {
-  0% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-.homepage-contents {
-  position: relative;
-  z-index: 4;
-  padding: 50px 0;
+  margin: -20px auto 0;
+  z-index: 0;
 }
 
 .homepage-contents img {
-  margin: 0 auto;
-  max-width: 45vw;
-  -webkit-filter: drop-shadow(1px 1px 3px #00a0fd44);
-  filter: drop-shadow(1px 1px 3px #00a0fd83);
+  max-width: 600px;
+  width: 60vw;
+  margin: 50px auto -10px;
 }
 
-.homepage-contents .homepage-asset {
+.falling-coins {
   position: absolute;
-  height: 200px;
-  width: 200px;
-  top: 20%;
+  width: 70vw;
+  height: 40vw;
+  left: 50%;
+  top: 50px;
+  transform: translateX(-50%);
+  overflow: visible;
 }
 
-.homepage-contents .homepage-asset.homepage-asset1 {
-  left: 10%;
+.falling-coins-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
 }
 
-.homepage-contents .homepage-asset.homepage-asset2 {
-  right: 10%;
+@keyframes increasingShadow {
+  from {
+    -webkit-filter: drop-shadow(3px 5px 15px #04c1fa00);
+    filter: drop-shadow(3px 5px 15px #04c1fa00);
+  }
+  to {
+    -webkit-filter: drop-shadow(3px 5px 15px #04c0fa);
+    filter: drop-shadow(3px 5px 15px #04c0fa);
+  }
+}
+
+.falling-coins-svg image {
+  animation-name: increasingShadow;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.hand {
+  width: 90%;
+  height: 100vh;
+  bottom: 20vh;
+  margin: 0 auto;
+  transform: translateX(40px);
+  z-index: 1;
 }
 
 @keyframes scale {
@@ -324,14 +217,6 @@
 @media screen and (max-width: 400px) {
   .homepage-background-img {
     width: 200%;
-  }
-
-  .earth {
-    transform: scale(0.5);
-  }
-
-  .vertical-lines-container {
-    transform: translateX(-50%) scale(0.5) translateY(50%);
   }
 
   .homepage-contents img {

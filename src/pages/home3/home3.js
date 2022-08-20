@@ -1,7 +1,8 @@
 import "./home3.css";
 import HomepageTopGradient from "../../assets/images/background/gradient-bg-1.png";
-import HomepageBottomEarth from "../../assets/images/background/homepage-earth-background.jpg";
+import BlockchainHole from "../../assets/images/blockchain_black_hole-rotated.jpg"
 import Xenia_Logo from "../../assets/images/xeniaLogoLight.png";
+import HomepageBottomEarth from "../../assets/images/background/homepage-earth-background.jpg";
 import coin1 from "../../assets/images/coin 1.png";
 import coin2 from "../../assets/images/coin 2.png";
 import coin3 from "../../assets/images/coin 3.png";
@@ -17,18 +18,9 @@ import coin12 from "../../assets/images/coin 12.png";
 import coin13 from "../../assets/images/coin 13.png";
 import candlestick from "../../assets/images/candlestick3d.png";
 import ethcoin from "../../assets/images/ethcoin3d.png";
-import { useEffect } from "react";
+import { MouseParallaxContainer, MouseParallaxChild } from "react-parallax-mouse";
 
 function Homepage() {
-  const moveassets = (e, asset1, asset2) => {
-    e.preventDefault();
-  };
-
-  useEffect(() => {
-    const asset1 = document.querySelector(".homepage-asset1");
-    const asset2 = document.querySelector(".homepage-asset2");
-    window.addEventListener("mousemove", (e) => moveassets(e, asset1, asset2));
-  }, []);
 
   /*
    * Co-ordinate system is: X-axis(Horizontally) & Y-axis(Vertically) in Top-Left corner of block
@@ -97,7 +89,7 @@ function Homepage() {
     const upperPointOfLine = endpointsOfPolyline[i].A.split(" ");
     const lowerPointsOfLine = endpointsOfPolyline[i].B.split(" ");
     ripples.push(
-      <g>
+      <g id={`ripple-${i}`}>
         <circle
           id="core"
           cx={lowerPointsOfLine[0]}
@@ -111,10 +103,13 @@ function Homepage() {
           r="10"
         ></circle>
       </g>
-    );
+    )
     floatingIcons.push(
       <image
         key={i}
+        id={i}
+        onMouseMove={rippleDots}
+        onClick={rippleDots}
         x={upperPointOfLine[0] - 35}
         y={upperPointOfLine[1] - 55}
         href={icons[Math.floor(Math.random() * icons.length)]}
@@ -122,75 +117,81 @@ function Homepage() {
     );
   }
 
+  function rippleDots(e) {
+    document.getElementById(`ripple-${e.target.id}`).style.display = "unset";
+  }
+
   return (
     <div className="homepage">
       <div className="homepage-background-container">
         <div class="tso-rainbow"></div>
-        <img
-          className="homepage-background-img gradient"
-          src={HomepageTopGradient}
-          alt="homepage-gradient"
-        />
-        <div className="vertical-lines-container">
-          <svg className="lines-svg" preserveAspectRatio="xMinYMin">
-            <defs>
-              <linearGradient
-                id="linearGradient"
-                x1="50%"
-                y1="0%"
-                x2="50%"
-                y2="100%"
-              >
-                <stop
-                  offset="0%"
-                  stopColor="#009FFD
-"
-                  stopOpacity="1"
+        <MouseParallaxContainer resetOnLeave containerStyles={{ position: "absolute" }}>
+          <img
+            className="homepage-background-img gradient"
+            src={HomepageTopGradient}
+            alt="homepage-gradient"
+          />
+          <MouseParallaxChild factorX={-0.015} factorY={-0.03} className="vertical-lines-container">
+            <svg className="lines-svg" preserveAspectRatio="xMinYMin">
+              <defs>
+                <linearGradient
+                  id="linearGradient"
+                  x1="00%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
                 >
-                  <animate
-                    attributeName="stopColor"
-                    values="lightblue;darkblue;lightblue"
-                    dur="7s"
-                    repeatCount="indefinite"
-                  />
-                  <animate
-                    attributeName="offset"
-                    values=".95;.80;.60;.40;.20;0;.20;.40;.60;.80;.95"
-                    dur="14s"
-                    repeatCount="indefinite"
-                  />
-                </stop>
-                <stop
-                  offset="100%"
-                  stopColor="
-#2A2AC6"
-                  stopOpacity="1"
-                >
-                  <animate
-                    attributeName="stopColor"
-                    values="lightblue;darkblue;lightblue"
-                    dur="7s"
-                    repeatCount="indefinite"
-                  />
-                  <animate
-                    attributeName="offset"
-                    values=".95;.80;.60;.40;.20;0;.20;.40;.60;.80;.95"
-                    dur="14s"
-                    repeatCount="indefinite"
-                  />
-                </stop>
-              </linearGradient>
-            </defs>
-            {PolylineTags}
-            {floatingIcons}
-            {ripples}
-          </svg>
-        </div>
-        <img
-          className="homepage-background-img earth"
-          src={HomepageBottomEarth}
-          alt="homepage-background"
-        />
+                  <stop
+                    offset="0%"
+                    stopColor="#009FFD"
+                    stopOpacity="1"
+                  >
+                    <animate
+                      attributeName="stopColor"
+                      values="lightblue;darkblue;lightblue"
+                      dur="7s"
+                      repeatCount="indefinite"
+                    />
+                    <animate
+                      attributeName="offset"
+                      values=".95;.80;.60;.40;.20;0;.20;.40;.60;.80;.95"
+                      dur="14s"
+                      repeatCount="indefinite"
+                    />
+                  </stop>
+                  <stop
+                    offset="100%"
+                    stopColor="#2A2AC6"
+                    stopOpacity="1"
+                  >
+                    <animate
+                      attributeName="stopColor"
+                      values="#2A2AC6;darkblue;#2A2AC6"
+                      dur="7s"
+                      repeatCount="indefinite"
+                    />
+                    <animate
+                      attributeName="offset"
+                      values=".95;.80;.60;.40;.20;0;.20;.40;.60;.80;.95"
+                      dur="14s"
+                      repeatCount="indefinite"
+                    />
+                  </stop>
+                </linearGradient>
+              </defs>
+              {PolylineTags}
+              {floatingIcons}
+              {ripples}
+            </svg>
+          </MouseParallaxChild>
+          <MouseParallaxChild factorX={0.02} factorY={0.04} >
+            <img
+              className="homepage-background-img earth"
+              src={HomepageBottomEarth}
+              alt="homepage-background"
+            />
+          </MouseParallaxChild>
+        </MouseParallaxContainer>
       </div>
       <header className="homepage-contents">
         <img
