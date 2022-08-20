@@ -16,11 +16,9 @@ const refreshToken = async () => await backend.get("/auth/refresh");
 
 const getUserProfile = async () => await backend.get("/auth/profile");
 
-const getUserParticipations = async () =>
-  await backend.get("/participant/by-user");
+const getUserParticipations = async () => await backend.get("/participant/by-user");
 
-const joinTeam = async (data) =>
-  await backend.put("/participant/jointeam", data);
+const joinTeam = async (data) => await backend.put("/participant/jointeam", data);
 
 const getEvents = async () => await backend.get("/events");
 
@@ -30,8 +28,7 @@ const getSideEvents = async () => await backend.get("/side-events");
 
 const createOrder = async (data) => await backend.post("/razorpay", data);
 
-const verifyPayment = async (data) =>
-  await backend.post("/razorpay/verification", data);
+const verifyPayment = async (data) => await backend.post("/razorpay/verification", data);
 
 const Requests = {
   signUp,

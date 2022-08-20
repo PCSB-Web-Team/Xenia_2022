@@ -8,7 +8,10 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 
 const EventDetails = () => {
   const [eventData, setEventData] = useState({});
-  const [teamId, setTeamId] = useState("");
+  const [team, setTeam] = useState({
+    id: "",
+    name: ""
+  });
   // const [joinTeamError, setJoinTeamError] = useState("");
 
   let id = useParams().id;
@@ -17,11 +20,14 @@ const EventDetails = () => {
   const userState = useSelector(userState => userState.user)
 
   const handleInputChange = (event) => {
-    setTeamId(event.target.value);
+    setTeam(previousState => ({
+      ...previousState,
+      [event.target.name]: event.target.value
+    }));
   };
 
   const handleJoinTeam = async () => {
-    await Request.joinTeam({ eventId: id, teamId })
+    await Request.joinTeam({ eventId: id, teamId: team.id })
       .then((res) => {
         if (res.data.status) {
         } else {
@@ -57,7 +63,8 @@ const EventDetails = () => {
       );
 
       if (participatedEvent) {
-        if (participatedEvent.teamId) setTeamId(participatedEvent.teamId);
+        setEventData(previousState => ({ ...previousState, isParticipated: true }));
+        if (participatedEvent.teamId) setTeam(previousState => ({ ...previousState, id: participatedEvent.teamId }));
       }
     } catch (error) {
       console.error(error);
@@ -106,13 +113,13 @@ const EventDetails = () => {
                   </div>
                 </Link>
               ) : eventData?.teamSize > 1 ? (
-                userState.isParticipated ? (
+                eventData.isParticipated ? (
                   <div>
                     <div className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-2xl tracking-widest">
                       Registered Successfully
                     </div>
                     <span className="text-blue-400">
-                      Team Code : <code>{teamId}</code>
+                      Team Code : <code>{team.id}</code>
                     </span>
                   </div>
                 ) : (
@@ -122,17 +129,26 @@ const EventDetails = () => {
                       eventId={id}
                       userDetails={userState?.userDetails}
                       eventDetails={eventData?.details}
+                      teamName={team?.name}
                       buttonName="Register as Team"
+                    />
+                    <input
+                      type="text"
+                      className="p-2 bg-black/20 outline-none block"
+                      name="name"
+                      placeholder="Create Team Name"
+                      onChange={handleInputChange}
+                      value={team?.name}
                     />
                     <div className="text-gray-400 font-bold col-span-2">OR</div>
                     <div className="space-x-2 col-span-2">
                       <input
                         type="text"
                         className="p-2 bg-black/20 outline-none"
-                        name="team-code"
+                        name="id"
                         placeholder="Enter Team Code"
                         onChange={handleInputChange}
-                        value={teamId}
+                        value={team?.id}
                       />
                       <button
                         className="col-span-2 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium  px-5 py-2.5 text-center text-lg"
@@ -143,7 +159,7 @@ const EventDetails = () => {
                     </div>
                   </div>
                 )
-              ) : userState.isParticipated ? (
+              ) : eventData.isParticipated ? (
                 <div className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-2xl tracking-widest">
                   Registered Successfully
                 </div>

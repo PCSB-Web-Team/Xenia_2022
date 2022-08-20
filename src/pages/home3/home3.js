@@ -1,8 +1,10 @@
 import "./home3.css";
 import HomepageTopGradient from "../../assets/images/background/gradient-bg-1.png";
-import BlockchainHole from "../../assets/images/blockchain_black_hole-rotated.jpg"
+import GradientBlob from "../../assets/videos/gradient_blob.mp4";
+import RotatingCube from "../../assets/videos/rotating_gradient_cube.mp4";
 import Xenia_Logo from "../../assets/images/xeniaLogoLight.png";
 import HomepageBottomEarth from "../../assets/images/background/homepage-earth-background.jpg";
+import HomepageBottomEarth_transparent from "../../assets/images/background/homepage-earth-background-transparent.png";
 import coin1 from "../../assets/images/coin 1.png";
 import coin2 from "../../assets/images/coin 2.png";
 import coin3 from "../../assets/images/coin 3.png";
@@ -123,6 +125,10 @@ function Homepage() {
 
   return (
     <div className="homepage">
+      <video autoplay="autoplay" controls="controls" loop="true" muted className="background-video">
+        <source type="video/mp4" src={GradientBlob}></source> {/*//!this looks the same but round shape and need to increase the blur*/}
+        <source type="video/mp4" src={RotatingCube}></source>
+      </video>
       <div className="homepage-background-container">
         <div class="tso-rainbow"></div>
         <MouseParallaxContainer resetOnLeave containerStyles={{ position: "absolute" }}>
@@ -187,7 +193,7 @@ function Homepage() {
           <MouseParallaxChild factorX={0.02} factorY={0.04} >
             <img
               className="homepage-background-img earth"
-              src={HomepageBottomEarth}
+              src={HomepageBottomEarth_transparent}
               alt="homepage-background"
             />
           </MouseParallaxChild>
