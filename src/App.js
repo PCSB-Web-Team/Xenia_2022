@@ -49,7 +49,6 @@ function App() {
 
   return (
     <div>
-      <BrowserRouter>
         <AnimatedCursor
           color="4, 192, 250"
           outerAlpha={0}
@@ -123,7 +122,6 @@ function App() {
         <Footer />
         <Sidebar />
         <ContactPanel />
-      </BrowserRouter>
     </div>
   );
 }
