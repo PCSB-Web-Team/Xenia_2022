@@ -10,7 +10,7 @@ const EventDetails = () => {
   const [userState, setUserState] = useState({
     loggedIn: false,
     participations: [],
-    isParticipated: false
+    isParticipated: false,
   });
   const [teamId, setTeamId] = useState("");
   // const [joinTeamError, setJoinTeamError] = useState("");
@@ -50,13 +50,21 @@ const EventDetails = () => {
 
   async function fetchIsUserParticipated() {
     try {
-      let { loggedIn, participations } = await AuthVerify({ getParticipations: true })
+      let { loggedIn, participations } = await AuthVerify({
+        getParticipations: true,
+      });
 
-      const participatedEvent = participations.find((userParticipatedEvents) => userParticipatedEvents.eventId === id)
+      const participatedEvent = participations.find(
+        (userParticipatedEvents) => userParticipatedEvents.eventId === id
+      );
 
       if (participatedEvent) {
         setEventData((previousEventData) => ({ ...previousEventData }));
-        setUserState(previousUserState => ({ ...previousUserState, loggedIn, isParticipated: true }));
+        setUserState((previousUserState) => ({
+          ...previousUserState,
+          loggedIn,
+          isParticipated: true,
+        }));
         if (participatedEvent.teamId) setTeamId(participatedEvent.teamId);
       }
     } catch (error) {
@@ -67,7 +75,7 @@ const EventDetails = () => {
   useEffect(() => {
     fetchEventData();
     fetchIsUserParticipated();
-  }, []);
+  }, [id]);
 
   return (
     <div className="grid md:grid-cols-2 min-h-screen md:p-8 gap-8 backdrop-blur-xl bg-gradient-to-b from-gray-900/40 to-gray-600/80">
@@ -82,9 +90,15 @@ const EventDetails = () => {
         <div className="font-light text-gray-400 text-justify">
           {eventData?.details}
         </div>
-        <div className="event-fees text-blue-400 text-xl font-bold tracking-wider text-left flex space-x-2">
-          <div>Fees : Rs.</div>
-          <div>{eventData?.fees}</div>
+        <div className="event-fees text-blue-400 text-lg font-bold text-left  tracking-widest grid grid-cols-2 place-items-center">
+          <div className="flex space-x-2">
+            <div className="text-gray-200 font-thin">Fees: </div>
+            <div>Rs.{eventData?.fees}</div>
+          </div>
+          <div className="flex space-x-2">
+            <div className="text-gray-200 font-thin">Team Size: </div>
+            <div>{eventData?.teamSize}</div>
+          </div>
         </div>
         {eventData?.isLive ? (
           <p className="event-register-buttons disabled">
@@ -99,7 +113,7 @@ const EventDetails = () => {
                     Login to participate
                   </div>
                 </Link>
-              ) : eventData.teamSize > 1 ? (
+              ) : eventData?.teamSize > 1 ? (
                 userState.isParticipated ? (
                   <div>
                     <div className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-2xl tracking-widest">
@@ -161,8 +175,14 @@ const EventDetails = () => {
         </div>
         <div className=" grid md:grid-cols-2 gap-4">
           <div className="">
-            <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
-              Prizes
+            <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 space-x-2">
+              <label>Prizes</label>
+              <img
+                className="h-[24px] w-[24px] inline-block"
+                src={
+                  "https://cdn-icons.flaticon.com/png/512/3113/premium/3113054.png?token=exp=1660933823~hmac=ef93725b2c80d5ff9d66a9ceeb1285ae"
+                }
+              ></img>
             </div>
             <div className="border-t pt-2 border-slate-600">
               <ol className="text-white  ">
@@ -180,25 +200,33 @@ const EventDetails = () => {
           </div>
 
           <div className="">
-            <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
-              Schedule
+            <div className="text-2xl font-bold pb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 space-x-2">
+              <label>Schedule</label>
+              <img
+                className="h-[24px] w-[24px] inline-block "
+                src={"https://cdn-icons-png.flaticon.com/512/3652/3652191.png"}
+              ></img>
             </div>
             <div className="border-t pt-2 border-slate-600">
               <ol className="text-gray-300 font-thin  list-disc list-inside">
-                {
-                  eventData?.schedule?.map((data) => (
-                    <li>
-                      Round {data.round} : <date>{data.datetime}</date>
-                    </li>
-                  ))
-                }
+                {eventData?.schedule?.map((data) => (
+                  <li>
+                    Round {data.round} : <date>{data.datetime}</date>
+                  </li>
+                ))}
               </ol>
             </div>
           </div>
 
           <div className="space-y-2 col-span-2">
-            <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 w-min">
-              Rules
+            <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500 space-x-2">
+              <label>Rules</label>
+              <img
+                className="h-[24px] w-[24px] inline-block "
+                src={
+                  "https://cdn-icons.flaticon.com/png/512/3251/premium/3251560.png?token=exp=1660934349~hmac=38e045e4a5d1f01823b2d0e41a3d8f17"
+                }
+              ></img>
             </div>
             <div className="border-t pt-2 border-slate-600 space-y-2 ">
               {eventData?.rules?.map((data) => (

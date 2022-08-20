@@ -21,7 +21,7 @@ import WebTeam from "./pages/webTeam/webTeam";
 import ErrorPage from "./pages/404/Error";
 import { AuthVerify } from "./utils/authVerify";
 import ProtectedRoute from "./routes/protectedRoute";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Background from "./components/background";
 import IndustryTalkDetail from "./pages/industryTalks/industryTalksDetail/industryTalkDetail";
@@ -36,11 +36,12 @@ function App() {
     // const preloader = document.getElementById("preloader")
     async function fetchToken() {
       // preloader.style.display = "none";
-      await AuthVerify({ getUserDetails: true });
+      await AuthVerify({ getUserDetails: true }).then(() => {
+        setLoading(false);
+      });
       // preloader.style.display = "unset"; //reset to default browser's stylesheet
     }
     fetchToken();
-    setLoading(false);
     // setTimeout(() => {
     // preloader.style.display = "none";
     // }, 3000)

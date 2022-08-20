@@ -5,27 +5,45 @@ const backend = axios.create({
 });
 
 //axios interceptors - attaches default authorization headers (JWT token) to all requests except Login/Signup post requests
-backend.defaults.headers.common['authorization'] = 'Bearer ' + localStorage.getItem(process.env.REACT_APP_TOKEN_NAME) || null
+backend.defaults.headers.common["authorization"] =
+  "Bearer " + localStorage.getItem(process.env.REACT_APP_TOKEN_NAME) || null;
 
-const signUp = async (data) => await backend.post("/auth/signup", data)
+const signUp = async (data) => await backend.post("/auth/signup", data);
 
-const login = (data) => backend.post("/auth/login", data)
+const login = (data) => backend.post("/auth/login", data);
 
-const refreshToken = async () => await backend.get("/auth/refresh")
+const refreshToken = async () => await backend.get("/auth/refresh");
 
-const getUserParticipations = async () => await backend.get("/participant/by-user")
+const getUserProfile = async () => await backend.get("/auth/profile");
 
-const joinTeam = async (data) => await backend.put("/participant/jointeam", data)
+const getUserParticipations = async () =>
+  await backend.get("/participant/by-user");
 
-const getEvents = async () => await backend.get("/events")
+const joinTeam = async (data) =>
+  await backend.put("/participant/jointeam", data);
 
-const getEventById = async (id) => await backend.get(`/events/${id}`)
+const getEvents = async () => await backend.get("/events");
 
-const getSideEvents = async () => await backend.get("/side-events")
+const getEventById = async (id) => await backend.get(`/events/${id}`);
 
-const createOrder = async (data) => await backend.post("/razorpay", data)
+const getSideEvents = async () => await backend.get("/side-events");
 
-const verifyPayment = async (data) => await backend.post("/razorpay/verification", data)
+const createOrder = async (data) => await backend.post("/razorpay", data);
 
-const Requests = { signUp, login, refreshToken, getUserParticipations, joinTeam, getEvents, getEventById, getSideEvents, createOrder, verifyPayment }
+const verifyPayment = async (data) =>
+  await backend.post("/razorpay/verification", data);
+
+const Requests = {
+  signUp,
+  login,
+  refreshToken,
+  getUserParticipations,
+  joinTeam,
+  getEvents,
+  getEventById,
+  getSideEvents,
+  createOrder,
+  verifyPayment,
+  getUserProfile
+};
 export default Requests;

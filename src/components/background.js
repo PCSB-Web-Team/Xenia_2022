@@ -1,7 +1,7 @@
 import React from "react";
 import "./background.css";
 import Earth from "../assets/images/background/earth.png";
-import Architecture from "../assets/images/background/bitcoinarch.png";
+import Pattern from "../assets/images/background/bg1.png";
 import BitcoinBlue from "../assets/images/background/bitcoinblue.png";
 import Abstract from "../assets/images/background/abstract.png";
 
@@ -9,7 +9,13 @@ export default function Background() {
   return (
     <div className=" h-screen w-full top-0 left-0 fixed -z-10">
       <div className="main-bg h-screen top-0 left-0 w-full overflow-hidden relative">
-        <div className="fixed top-0 left-0 -z-10 bg-gradient-to-r from-gray-700 via-gray-900 to-black">
+        <div className=" absolute bottom-0 left-0 w-full h-screen">
+          <img
+            className=" min-h-screen min-w-full rotate-180 opacity-20"
+            src={Pattern}
+          ></img>
+        </div>
+        <div className="fixed top-0 left-0 -z-10 bg-gradient-to-r from-black via-gray-900 to-black">
           <div className="bg"></div>
           <div className="bg bg2"></div>
           <div className="bg bg3"></div>
@@ -17,9 +23,6 @@ export default function Background() {
         <div className="bounce-1 opacity-80">
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/800px-Ethereum-icon-purple.svg.png"></img>
         </div>
-        {/* <div className="">
-          <img src={Architecture}></img>
-        </div> */}
         <div className=" absolute -bottom-[100px] right-0 w-[800px] mx-auto opacity-40">
           <img src={Earth}></img>
         </div>

@@ -103,7 +103,10 @@ export const userSlice = createSlice({
       refreshUserState.fulfilled,
       (state, { payload: { data } }) => {
         if (data.status) {
-          localStorage.setItem(process.env.REACT_APP_TOKEN_NAME, data.data?.token)
+          localStorage.setItem(
+            process.env.REACT_APP_TOKEN_NAME,
+            data.data?.token
+          );
           return {
             ...state,
             userDetails: {
@@ -129,7 +132,8 @@ export const userSlice = createSlice({
       loading: true,
     }));
     builder.addCase(
-      setParticipations.fulfilled, (state, { payload: { data } }) => {
+      setParticipations.fulfilled,
+      (state, { payload: { data } }) => {
         if (data?.status) {
           return {
             ...state,

@@ -26,7 +26,7 @@ const FAQ = () => {
     {
       question: "Are the events only for individual participation?",
       answer:
-      "Not exactly, some events have strictly individual participation while others have team participation. Kindly confirm the type of participation on the website.",
+        "Not exactly, some events have strictly individual participation while others have team participation. Kindly confirm the type of participation on the website.",
       sr: "4",
     },
   ];

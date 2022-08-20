@@ -22,36 +22,36 @@ export default function SideEvents() {
     } catch (error) {
       console.log(error);
     }
-  }, [])
+  }, []);
 
   const EventsInfo = eventsData.map((event) => (
-    <div className="bg-opacity-0 grid grid-cols-1 md:grid-cols-4 content-center backdrop-blur-lg bg-gradient-to-tr from-gray-600/20 via-purple-600/10 to-pink-600/20 border border-gray-600/20">
-      <div className=" col-span-1 w-full">
+    <div className="bg-opacity-0 grid grid-cols-1 md:grid-cols-4 content-center backdrop-blur-lg bg-gradient-to-tr from-gray-600/20 via-purple-600/20 to-pink-600/40 border border-gray-600/20">
+      <div className=" col-span-1 w-full h-full items-center justify-center flex">
         <img
           src={event?.logo}
           alt="event-logo"
-          className="rounded-t-lg md:rounded-l-lg md:rounded-t-none w-[210px] h-[220px] w-full"
+          className="rounded-t-lg md:rounded-l-lg md:rounded-t-none max-h-full max-w-full"
         />
       </div>
       <div className="p-6 col-span-3 space-y-4">
-        <h2 className="font-bold text-xl md:text-3xl pb-2 border-b border-slate-700 text-gray-200 tracking-widest">
+        <h2 className="font-bold text-xl md:text-3xl pb-2 border-b border-slate-500 tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 w-auto">
           {event?.name}
         </h2>
-        <div className="text-white font-light text-justify max-h-[150px] overflow-y-auto">
+        <div className="text-justify max-h-[150px] overflow-y-auto text-gray-300 font-thin">
           {event?.description}
         </div>
-        <div
+        <button
           onClick={() => {
-            setModalDetails(previousState => ({
+            setModalDetails((previousState) => ({
               ...previousState,
-              event
+              event,
             }));
             toggleModal();
           }}
-          className="text-green-400 px-4 inline-block border border-green-500/20 cursor-pointer hover:bg-green-400/40 transition-all ease-in-out"
+          className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium text-sm px-5 py-2.5 text-center transition-colors ease-in-out"
         >
           More Info
-        </div>
+        </button>
       </div>
     </div>
   ));
