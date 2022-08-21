@@ -7,7 +7,7 @@ const Error = () => {
     <div className="error-page">
       <h1>OOPS!</h1>
       <h5>Something went wrong :(</h5>
-      <p>Error 404 Page not found</p>
+      <p>Seems like you are lost in Web 3.0</p>
       <div>
         <span>4</span>
         <img src={bitcoin} alt="404" />

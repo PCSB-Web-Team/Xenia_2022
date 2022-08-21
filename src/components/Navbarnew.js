@@ -195,43 +195,6 @@ const Navbarnew = () => {
                     <div className="hex-item-inner"></div>
                   </div>
                   <Link
-                    to={"/industry-talks"}
-                    className="hex-content"
-                    onClick={() => setNavOpen(false)}
-                  >
-                    <span className="hex-content-inner">
-                      <span className="icon">
-                        <i className="fas fa-podium"></i>
-                      </span>
-                      <span className="title">industry talks</span>
-                    </span>
-                    <svg
-                      height={"20vh"}
-                      width={"17.4vh"}
-                      version={"1.1"}
-                      viewBox={"0 0 173.20508075688772 200"}
-                      xmlns={"http://www.w3.org/2000/svg"}
-                    >
-                      <path
-                        d={
-                          "M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
-                        }
-                      ></path>
-                    </svg>
-                  </Link>
-                </div>
-                <div className="hexagon-item">
-                  <div className="hex-item">
-                    <div className="hex-item-inner"></div>
-                    <div className="hex-item-inner"></div>
-                    <div className="hex-item-inner"></div>
-                  </div>
-                  <div className="hex-item">
-                    <div className="hex-item-inner"></div>
-                    <div className="hex-item-inner"></div>
-                    <div className="hex-item-inner"></div>
-                  </div>
-                  <Link
                     to={"/sponsors"}
                     className="hex-content"
                     onClick={() => setNavOpen(false)}
@@ -278,6 +241,43 @@ const Navbarnew = () => {
                         <i className="fas fa-id-badge"></i>
                       </span>
                       <span className="title">profile</span>
+                    </span>
+                    <svg
+                      height={"20vh"}
+                      width={"17.4vh"}
+                      version={"1.1"}
+                      viewBox={"0 0 173.20508075688772 200"}
+                      xmlns={"http://www.w3.org/2000/svg"}
+                    >
+                      <path
+                        d={
+                          "M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                        }
+                      ></path>
+                    </svg>
+                  </Link>
+                </div>
+                <div className="hexagon-item">
+                  <div className="hex-item">
+                    <div className="hex-item-inner"></div>
+                    <div className="hex-item-inner"></div>
+                    <div className="hex-item-inner"></div>
+                  </div>
+                  <div className="hex-item">
+                    <div className="hex-item-inner"></div>
+                    <div className="hex-item-inner"></div>
+                    <div className="hex-item-inner"></div>
+                  </div>
+                  <Link
+                    to={"/contact-us"}
+                    className="hex-content"
+                    onClick={() => setNavOpen(false)}
+                  >
+                    <span className="hex-content-inner">
+                      <span className="icon">
+                        <i className="fas fa-phone"></i>
+                      </span>
+                      <span className="title">contact us</span>
                     </span>
                     <svg
                       height={"20vh"}
@@ -351,18 +351,7 @@ const Navbarnew = () => {
                 Buildup Events
               </Link>
             </li>
-            <li>
-              <Link
-                to={"/industry-talks"}
-                onClick={() => setNavOpen(false)}
-                style={{ textDecoration: "none" }}
-              >
-                <span className="fa-li">
-                  <i className="fas fa-podium"></i>
-                </span>
-                Industry Talks
-              </Link>
-            </li>
+
             <li>
               <Link
                 to={"/sponsors"}
@@ -385,6 +374,18 @@ const Navbarnew = () => {
                   <i className="fas fa-id-badge"></i>
                 </span>
                 Profile
+              </Link>
+            </li>
+            <li>
+              <Link
+                to={"/contact-us"}
+                onClick={() => setNavOpen(false)}
+                style={{ textDecoration: "none" }}
+              >
+                <span className="fa-li">
+                  <i className="fas fa-phone"></i>
+                </span>
+                Contact Us
               </Link>
             </li>
           </ul>

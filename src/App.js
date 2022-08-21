@@ -134,7 +134,7 @@ function App() {
         </>
       }
       <Sidebar />
-      <ContactPanel />
+      {/* <ContactPanel /> */}
     </>
   );
 }
