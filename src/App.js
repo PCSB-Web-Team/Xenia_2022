@@ -18,27 +18,25 @@ import ContactUs from "./pages/contactUs/contactUs";
 import Sponsors from "./pages/sponsors/sponsors";
 import WebTeam from "./pages/webTeam/webTeam";
 import ErrorPage from "./pages/404/Error";
-import { AuthVerify } from "./utils/authVerify";
 import ProtectedRoute from "./routes/protectedRoute";
+import { ToastUtils } from "./utils/toastifyContainer";
+import { AuthVerify } from "./utils/authVerify";
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Background from "./components/background";
 import IndustryTalkDetail from "./pages/industryTalks/industryTalksDetail/industryTalkDetail";
 import AnimatedCursor from "react-animated-cursor";
-import { ToastContainer } from "react-toastify";
-import { toast } from "react-toastify";
 import "./App.css";
 
 function App() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    toast("Default Notification !");
     async function fetchToken() {
       setLoading(true);
       await AuthVerify({ getUserDetails: true }).then(() => {
+        setLoading(false);
       });
-      setLoading(false);
     }
     fetchToken();
   }, []);
@@ -103,7 +101,7 @@ function App() {
             />
             <Route
               path="/events/:id"
-              element={<EventDetails loader={<Loader />} />}
+              element={<EventDetails loader={<Loader />} toast={ToastUtils} />}
             />
             <Route path="/profile" element={
               <ProtectedRoute>
@@ -123,14 +121,6 @@ function App() {
             <Route path="*" element={<ErrorPage />} />
           </Routes>
           <Footer />
-          <ToastContainer
-            position="top-right"
-            autoClose={2000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            // closeOnClick
-            // draggable
-            pauseOnHover></ToastContainer>
         </>
       }
       <Sidebar />

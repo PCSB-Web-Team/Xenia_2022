@@ -7,28 +7,28 @@ const PayByRazor = (props) => {
 
     const openPaymentModal = async () => {
         props.handleLoading(true);
-        let { createdOrderData } = await Request.createOrder({ eventId: props?.eventDetails?._id });
+        let { data } = await Request.createOrder({ eventId: props?.eventDetails?._id });
 
-        if (!props?.eventDetails?.fees){
+        if (props?.eventDetails?.fees === 0){
             navigate("/events/" + props?.eventDetails?._id)
             return
         }
 
         const options = {
             key: process.env.REACT_APP_RAZORPAY_KEY,
-            amount: createdOrderData?.amount.toString(),
+            amount: data?.amount.toString(),
             currency: "INR",
             name: "PCSB Xenia 2022",
             description: "Registration payment for the event " + props.eventDetails?.eventName || "",
-            order_id: createdOrderData?.id,
-            callback_url: "https://www.pcsbxenia.com/events/" + props?.eventDetails?._id,
+            order_id: data?.id,
+            callback_url: "",
             prefill: {
                 name: props.userDetails?.name || "",
                 mobile: props.userDetails?.mobile.toString() || ""
             },
             notes: {
                 eventId: props?.eventDetails?._id || "",
-                userId: createdOrderData?.userId || "",
+                userId: data?.userId || "",
                 teamName: props?.teamName || "",
             },
             theme: {
