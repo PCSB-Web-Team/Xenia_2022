@@ -3,7 +3,8 @@ import Modal from "./modals/modals";
 import Requests from "../../api/requests";
 import { useState, useEffect } from "react";
 
-export default function SideEvents() {
+export default function SideEvents(props) {
+  const [loading, setLoading] = useState(false)
   const [eventsData, setEventsData] = useState([]);
   const [modal, setModal] = useState(false);
   const [modalDetails, setModalDetails] = useState({});
@@ -13,15 +14,17 @@ export default function SideEvents() {
   };
 
   useEffect(() => {
+    setLoading(true)
     try {
       Requests.getSideEvents()
         .then((res) => {
-          console.log(res.data);
           setEventsData(() => res.data?.data);
+          setLoading(false)
         })
         .catch((error) => console.log(error));
     } catch (error) {
       console.log(error);
+      setLoading(false)
     }
   }, []);
 
@@ -59,13 +62,17 @@ export default function SideEvents() {
 
   return (
     <>
-      <div className=" w-96 md:w-[900px] max-w-full mx-auto p-4 py-8 min-h-screen space-y-12">
-        <div className="text-white font-bold mb-4 text-6xl text-center font-sans">
-          BuildUp Events
-        </div>
-        <div className="space-y-4">{EventsInfo}</div>
-      </div>
-      <Modal modal={modal} details={modalDetails} toggleModal={toggleModal} />
+      {loading ? props.loader :
+        <>
+          <div className=" w-96 md:w-[900px] max-w-full mx-auto p-4 py-8 min-h-screen space-y-12">
+            <div className="text-white font-bold mb-4 text-6xl text-center font-sans">
+              BuildUp Events
+            </div>
+            <div className="space-y-4">{EventsInfo}</div>
+          </div>
+          <Modal modal={modal} details={modalDetails} toggleModal={toggleModal} />
+        </>
+      }
     </>
   );
 }

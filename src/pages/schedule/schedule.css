@@ -4,24 +4,7 @@
   flex-direction: column;
   overflow: hidden;
   color: white;
-  background: black;
-}
-
-.c {
-  position: absolute;
-  z-index: 0;
-}
-
-.schedule-background-1 {
-  transform: translate(-45%, -10%);
-}
-
-.schedule-background-2 {
-  transform: translate(125%, 40%);
-}
-
-.schedule-background-3 {
-  transform: translate(-45%, 120%);
+  /* background: black; */
 }
 
 .schedule-page-title {
@@ -35,7 +18,6 @@
 }
 
 .schedule-page-title p {
-  font-family: "Quicksand", sans-serif;
   font-size: 3em;
   letter-spacing: 0.5rem;
 }

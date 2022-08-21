@@ -1,58 +1,119 @@
 import "./home4.css";
-import BlockchainHole from "../../assets/images/blockchain_black_hole-rotated.jpg"
-import Hand from "../../assets/images/hand.png";
+import BlockchainHole from "../../assets/images/blockchain_black_hole-rotated.jpg";
+import GradientBlob from "../../assets/videos/gradient_blob.mp4";
+// import HomepageBottomEarth from "../../assets/images/background/homepage-earth-background.jpg"
+import HomepageBottomEarth_transparent from "../../assets/images/background/homepage-earth-background-transparent.png"
 import Xenia_Logo from "../../assets/images/xeniaLogoLight.png";
-import block1 from "../../assets/images/Block_x2_Left_shadow.png";
-import block2 from "../../assets/images/Block_x2_Right_shadowless.png";
-import block3 from "../../assets/images/Block_x3_Left_shadow.png";
-import block4 from "../../assets/images/Block_x3_Right_shadowless.png";
+import gradientBlock from "../../assets/images/gradient-small-cube.svg";
 import { MouseParallaxContainer, MouseParallaxChild } from "react-parallax-mouse";
 
 function Homepage() {
-  const blocks = [block1, block2, block3, block4];
-  const animationPoints = [
+
+  function animationPointsGenerator({ initialXEndpoints, initialYEndpoints, curveValue }) {
+    const xEndpoints = initialXEndpoints.split(";").map(x => parseInt(x));
+    let xCount = xEndpoints[0];
+
+    let x = ""
+    if (curveValue >= 0) {
+      while (xCount < xEndpoints[1]) {
+        xCount += (curveValue + Math.floor(Math.random() * (10 / (xEndpoints[1] - xEndpoints[0]))));
+        x += xCount + ";";
+      }
+    } else {
+      while (xCount > xEndpoints[1]) {
+        xCount += (curveValue + Math.floor(Math.random() * (10 / (xEndpoints[0] - xEndpoints[1]))));
+        x += xCount + ";";
+      }
+    }
+
+    return {
+      x,
+      y: initialYEndpoints
+    }
+  }
+
+  const animationInitials = [
     {
-      x: "463;440;420;400;375;350;320;300;280",
-      y: "-10;30;55;70;90;120;135;155;180;200",
+      initialXEndpoints: "500;500",
+      initialYEndpoints: "0;20;-5",
+      curveValue: -3
     },
     {
-      x: "360;330;305;285;250;225;200;",
-      y: "-40;20;35;50;65;80;100;120;",
+      initialXEndpoints: "400;-20",
+      initialYEndpoints: "10;260",
+      curveValue: 30
     },
     {
-      x: "560;615;660;680;705;740;775;800",
-      y: "0;30;45;65;80;105;125;150;170",
+      initialXEndpoints: "600;1075",
+      initialYEndpoints: "10;340",
+      curveValue: 25
     },
-    // {
-    //   x: "",
-    //   y: "",
-    // },
-    // {
-    //   x: "",
-    //   y: "",
-    // },
-    // {
-    //   x: "",
-    //   y: "",
-    // },
+    {
+      initialXEndpoints: "500;650",
+      initialYEndpoints: "140;350",
+      curveValue: 3
+    },
+    {
+      initialXEndpoints: "400;200",
+      initialYEndpoints: "90;460",
+      curveValue: -15
+    },
+    {
+      initialXEndpoints: "470;450",
+      initialYEndpoints: "170;310",
+      curveValue: -5
+    },
+    {
+      initialXEndpoints: "440;310",
+      initialYEndpoints: "170;550",
+      curveValue: -25
+    },
+    {
+      initialXEndpoints: "400;210",
+      initialYEndpoints: "10;150",
+      curveValue: -5
+    },
+    {
+      initialXEndpoints: "600;750",
+      initialYEndpoints: "100;550",
+      curveValue: 15
+    },
+    {
+      initialXEndpoints: "610;850",
+      initialYEndpoints: "10;70",
+      curveValue: 40
+    },
+    {
+      initialXEndpoints: "460;100",
+      initialYEndpoints: "10;30",
+      curveValue: -20
+    },
+    {
+      initialXEndpoints: "450;-50",
+      initialYEndpoints: "70;150",
+      curveValue: -20
+    },
   ]
 
   const floatingIcons = []
 
-  for (let i = 0; i < animationPoints.length; i++) {
+  for (let i = 0; i < animationInitials.length; i++) {
     floatingIcons.push(
-      <image key={i} id={i} x={animationPoints[i].x.split(";")[0]} y={animationPoints[i].y.split(";")[0]} href={blocks[Math.floor(Math.random() * blocks.length)]} style={{ MozAnimationDuration: `${8 + i}s` }} >
-        <animate attributeName="x" values={animationPoints[i].x} dur={`${8 + i}s`} repeatCount="indefinite" />
-        <animate attributeName="y" values={animationPoints[i].y} dur={`${8 + i}s`} repeatCount="indefinite" />
-        <animate attributeName="opacity" values="1;1;1;1;.6;.7;.5;0" dur={`${8 + i}s`} repeatCount="indefinite" />
-        <animate attributeName="width" values="1;5;10;20;30;45;60;90;105" dur={`${8 + i}s`} repeatCount="indefinite" />
-        <animate attributeName="height" values="1;5;10;20;30;45;60;90;105" dur={`${8 + i}s`} repeatCount="indefinite" />
+      <image key={i} id={i} x={animationInitials[i].initialXEndpoints.split(";")[0]} y={animationInitials[i].initialYEndpoints.split(";")[0]} href={gradientBlock} style={{ AnimationDuration: `${7 + i}s` }} >
+        <animate attributeName="x" values={animationPointsGenerator(animationInitials[i]).x} dur={`${6 + i}s`} repeatCount="indefinite" />
+        <animate attributeName="y" values={animationPointsGenerator(animationInitials[i]).y} dur={`${6 + i}s`} repeatCount="indefinite" />
+        <animate attributeName="opacity" values="1;1;1;.25;.45;.6;.7;.5;0" dur={`${6 + i}s`} repeatCount="indefinite" />
+        <animate attributeName="width" values="1;5;10;20;25;30;33.5;45;57.5;60;72.5;85;90;105" dur={`${6 + i}s`} repeatCount="indefinite" />
+        <animate attributeName="height" values="1;5;10;20;25;30;33.5;45;57.5;60;72.5;85;90;105" dur={`${6 + i}s`} repeatCount="indefinite" />
       </image>
     );
   }
 
   return (
     <div className="homepage">
+      <video autoPlay="autoplay" controls="controls" loop muted className="background-video">
+        <source type="video/mp4" src={GradientBlob}></source>
+      </video>
       <div className="homepage-background-container">
         <div class="tso-rainbow"></div>
         <MouseParallaxContainer resetOnLeave containerStyles={{ position: "absolute" }}>
@@ -70,10 +131,68 @@ function Homepage() {
           </div>
           <MouseParallaxChild factorX={0.02} factorY={0.04} >
             <img
-              className="homepage-background-img hand"
-              src={Hand}
+              className="homepage-background-img earth"
+              src={HomepageBottomEarth_transparent}
               alt="homepage-background"
             />
+            <svg className="earth-pulses-container">
+              <g className="pulse-button">
+                <circle
+                  id="core"
+                  cx={"400"}
+                  cy={"300"}
+                  r="45"
+                ></circle>
+                <circle
+                  id="radar"
+                  cx={"400"}
+                  cy={"300"}
+                  r="80"
+                ></circle>
+              </g>
+              <g className="pulse-button">
+                <circle
+                  id="core"
+                  cx={"600"}
+                  cy={"200"}
+                  r="30"
+                ></circle>
+                <circle
+                  id="radar"
+                  cx={"600"}
+                  cy={"200"}
+                  r="65"
+                ></circle>
+              </g>
+              <g className="pulse-button">
+                <circle
+                  id="core"
+                  cx={"800"}
+                  cy={"20"}
+                  r="10"
+                ></circle>
+                <circle
+                  id="radar"
+                  cx={"800"}
+                  cy={"20"}
+                  r="30"
+                ></circle>
+              </g>
+              <g className="pulse-button">
+                <circle
+                  id="core"
+                  cx={"1200"}
+                  cy={"130"}
+                  r="65"
+                ></circle>
+                <circle
+                  id="radar"
+                  cx={"1200"}
+                  cy={"130"}
+                  r="120"
+                ></circle>
+              </g>
+            </svg>
           </MouseParallaxChild>
         </MouseParallaxContainer>
       </div>

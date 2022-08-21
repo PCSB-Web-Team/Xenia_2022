@@ -116,14 +116,18 @@
   position: relative;
   width: 65%;
   height: 65vh;
-  margin: -20px auto 0;
-  z-index: 0;
+  margin: -60px auto 0;
 }
 
-.homepage-contents img {
-  max-width: 600px;
-  width: 60vw;
-  margin: 50px auto -10px;
+.background-video {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 40%);
+  height: 110%;
+  width: 110%;
+  filter: blur(20px);
+  background: transparent;
+  z-index: -1;
 }
 
 .falling-coins {
@@ -134,6 +138,7 @@
   top: 50px;
   transform: translateX(-50%);
   overflow: visible;
+  z-index: 2;
 }
 
 .falling-coins-svg {
@@ -159,13 +164,79 @@
   animation-iteration-count: infinite;
 }
 
-.hand {
-  width: 90%;
-  height: 100vh;
-  bottom: 20vh;
-  margin: 0 auto;
-  transform: translateX(40px);
-  z-index: 1;
+.earth-pulses-container {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.earth-pulses-container g {
+  filter: blur(0.8px);
+  transition: all 0.1s ease-in-out;
+}
+
+.earth-pulses-container g:nth-child(1) {
+  transform: matrix(1, 0.2, -0.8, 0.78, 0, 0);
+}
+
+.earth-pulses-container g:nth-child(2) {
+  transform: matrix(1.12, 0.1, -0.25, 0.9, 0, 0);
+}
+
+.earth-pulses-container g:nth-child(3) {
+  transform: matrix(1, 0.1, -0.3, 0.5, 0, 0);
+}
+
+.earth-pulses-container g:nth-child(4) {
+  transform: matrix(0.948, 0.13, 0.4, 0.45, 0, 0);
+}
+
+.earth-pulses-container g #core {
+  fill: rgba(2, 112, 176, 0.503);
+  animation: pulse1 1.5s ease-in-out infinite;
+}
+
+.earth-pulses-container g #radar {
+  fill: rgba(2, 112, 176, 0.386);
+  animation: pulse2 1.5s ease-in-out 0.75s infinite;
+}
+
+@keyframes pulse1 {
+  0% {
+    r: 0;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    r: calc(inherit + 10px);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse2 {
+  0% {
+    r: 0;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    r: calc(inherit + 30px);
+    opacity: 0;
+  }
+}
+
+.homepage-contents img {
+  max-width: 600px;
+  width: 60vw;
+  margin: 120px auto -10px;
 }
 
 @keyframes scale {

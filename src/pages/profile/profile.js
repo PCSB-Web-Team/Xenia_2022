@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
 import Requests from "../../api/requests";
-import { setParticipations } from "../../store/middleware";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
 // TODO: to be fetched from backend in useEffect
 
-function RegisteredEventCard(eve) {
+function RegisteredEventCard(eve, setLoading) {
   const [details, setDetails] = useState({
     name: "CodeStrike",
     teamSize: 2,
@@ -21,6 +20,7 @@ function RegisteredEventCard(eve) {
 
   // TODO: fetch the event details using the id from backend
   useEffect(() => {
+    setLoading(true)
     Requests.getEventById(eve.details.eventId).then((res) => {
       res = res.data;
       if (res.status) {
@@ -70,7 +70,8 @@ function RegisteredEventCard(eve) {
   );
 }
 
-export default function Profile() {
+export default function Profile(props) {
+  const [loading, setLoading] = useState(false);
   const userState = useSelector(({ user }) => user);
   const [registeredEvents, setRegisteredEvents] = useState([]);
 
@@ -83,66 +84,69 @@ export default function Profile() {
     branch: "IT",
   });
 
-  const navigate = useNavigate();
-
   useEffect(() => {
-    if (!userState.loggedIn) navigate("/auth");
+    setLoading(true)
     Requests.getUserProfile().then(({ data: { status, error, data } }) => {
       if (status) {
         setUserData(data);
       } else {
         // handle error
       }
+      setLoading(false)
     });
     if (userState) {
-      setRegisteredEvents(userState?.participations);
+      setRegisteredEvents(userState?.participations, setLoading);
+      setLoading(false)
     }
   }, []);
 
   return (
-    <div className="md:p-4">
-      <div className="min-h-screen max-w-6xl mx-auto my-8 p-4 md:p-16 space-y-8 text-gray-200 tracking-widest bg-black/40 backdrop-blur-xl">
-        <div className=" font-bold text-3xl md:text-6xl text-purple-600">
-          {userData.name}
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-4 text-lg">
-          <div className="flex space-x-4">
-            <div className="font-bold text-sm">Email: </div>
-            <div className="text-sm">{userData.email}</div>
-          </div>
-          <div className=" flex space-x-4">
-            <div className="font-bold text-sm">Mobile: </div>
-            <div className="text-sm">{userData.mobile}</div>
-          </div>
-          <div className=" flex space-x-4">
-            <div className="font-bold text-sm">College:</div>
-            <div className="text-sm">{userData.college || "N.A"}</div>
-          </div>
-          <div className=" flex space-x-4">
-            <div className="font-bold text-sm">Branch:</div>
-            <div className="text-sm">{userData.branch || "N.A"}</div>
-          </div>
-        </div>
-
-        <div className=" text-base md:text-3xl text-purple-400 border-b pb-2 border-gray-600">
-          Registered Events
-        </div>
-
-        <div className=" grid md:grid-cols-2 gap-4">
-          {registeredEvents.length > 0 ? (
-            registeredEvents.map((event) => {
-              return (
-                <RegisteredEventCard details={event}></RegisteredEventCard>
-              );
-            })
-          ) : (
-            <div className="text-2xl">
-              You have not registered to any event !!
+    <>
+      {loading ? props.loader :
+        <div className="md:p-4">
+          <div className="min-h-screen max-w-6xl mx-auto my-8 p-4 md:p-16 space-y-8 text-gray-200 tracking-widest bg-black/40 backdrop-blur-xl">
+            <div className=" font-bold text-3xl md:text-6xl text-purple-600">
+              {userData.name}
             </div>
-          )}
-        </div>
-      </div>
-    </div>
+
+            <div className="grid md:grid-cols-2 gap-4 text-lg">
+              <div className="flex space-x-4">
+                <div className="font-bold text-sm">Email: </div>
+                <div className="text-sm">{userData.email}</div>
+              </div>
+              <div className=" flex space-x-4">
+                <div className="font-bold text-sm">Mobile: </div>
+                <div className="text-sm">{userData.mobile}</div>
+              </div>
+              <div className=" flex space-x-4">
+                <div className="font-bold text-sm">College:</div>
+                <div className="text-sm">{userData.college || "N.A"}</div>
+              </div>
+              <div className=" flex space-x-4">
+                <div className="font-bold text-sm">Branch:</div>
+                <div className="text-sm">{userData.branch || "N.A"}</div>
+              </div>
+            </div>
+
+            <div className=" text-base md:text-3xl text-purple-400 border-b pb-2 border-gray-600">
+              Registered Events
+            </div>
+
+            <div className=" grid md:grid-cols-2 gap-4">
+              {registeredEvents.length > 0 ? (
+                registeredEvents.map((event) => {
+                  return (
+                    <RegisteredEventCard details={event}></RegisteredEventCard>
+                  );
+                })
+              ) : (
+                <div className="text-2xl">
+                  You have not registered to any event !!
+                </div>
+              )}
+            </div>
+          </div>
+        </div>}
+    </>
   );
 }

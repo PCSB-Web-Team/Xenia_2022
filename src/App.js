@@ -1,4 +1,3 @@
-import PreLoader from "./components/preloader";
 import Loader from "./components/loader";
 import Home2 from "./pages/home2/home2";
 import Home3 from "./pages/home3/home3";
@@ -26,25 +25,22 @@ import { useEffect, useState } from "react";
 import Background from "./components/background";
 import IndustryTalkDetail from "./pages/industryTalks/industryTalksDetail/industryTalkDetail";
 import AnimatedCursor from "react-animated-cursor";
+import { ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "./App.css";
 
 function App() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
-    // const preloader = document.getElementById("preloader")
+    toast("Default Notification !");
     async function fetchToken() {
-      // preloader.style.display = "none";
+      setLoading(true);
       await AuthVerify({ getUserDetails: true }).then(() => {
-        setLoading(false);
       });
-      // preloader.style.display = "unset"; //reset to default browser's stylesheet
+      setLoading(false);
     }
     fetchToken();
-    // setTimeout(() => {
-    // preloader.style.display = "none";
-    // }, 3000)
   }, []);
 
   return (
@@ -67,6 +63,7 @@ function App() {
           'button',
           '.link'
         ]}
+        trailingSpeed={4}
         hasBlendMode={true}
         innerStyle={{
           zIndex: "999999999999"
@@ -77,53 +74,65 @@ function App() {
           border: '2px dashed #009ffd'
         }} />
       <Background></Background>
-      <Navbar />
-      {loading ? (
-        <Loader></Loader>
-      ) : (
-        <Routes>
-          {/* <Route path="/" element={<Homepage loader={<PreLoader />} />} />
+      {loading ? <Loader></Loader> :
+        <>
+          <Navbar />
+          <Routes>
+            {/* <Route path="/" element={<Homepage loader={<PreLoader />} />} />
           <Route path="/home2" element={<Home2 loader={<Loader />} />} /> */}
-          <Route path="/" element={<Home3 loader={<Loader />} />} />
-          <Route path="/home4" element={<Home4 loader={<Loader />} />} />
-          <Route path="/auth" element={<Auth loader={<Loader />} />} />
-          <Route
-            path="/schedule"
-            element={<Schedule loader={<Loader />} />}
-          />
-          <Route path="/events" element={<Events loader={<Loader />} />} />
-          <Route
-            path="/side-events"
-            element={<SideEvents loader={<Loader />} />}
-          />
-          <Route
-            path="/industry-talks"
-            element={<IndustryTalks loader={<Loader />} />}
-          />
-          <Route
-            path="/industry-talks/:id"
-            element={<IndustryTalkDetail />}
-            loader={<Loader />}
-          />
-          <Route
-            path="/events/:id"
-            element={<EventDetails loader={<Loader />} />}
-          />
-          <Route path="/profile" element={<Profile loader={<Loader />} />} />
-          {/* <Route path="/cart" element={<Cart loader={<Loader />} />} /> */}
-          <Route
-            path="/sponsors"
-            element={<Sponsors loader={<Loader />} />}
-          />
-          <Route
-            path="/contact-us"
-            element={<ContactUs loader={<Loader />} />}
-          />
-          <Route path="/web-team" element={<WebTeam loader={<Loader />} />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-      )}
-      <Footer />
+            {/* <Route path="/" element={<Home3 loader={<Loader />} />} /> */}
+            <Route path="/" element={<Home4 loader={<Loader />} />} />
+            <Route path="/auth" element={<Auth loader={<Loader />} />} />
+            <Route
+              path="/schedule"
+              element={<Schedule loader={<Loader />} />}
+            />
+            <Route path="/events" element={<Events loader={<Loader />} />} />
+            <Route
+              path="/side-events"
+              element={<SideEvents loader={<Loader />} />}
+            />
+            <Route
+              path="/industry-talks"
+              element={<IndustryTalks loader={<Loader />} />}
+            />
+            <Route
+              path="/industry-talks/:id"
+              element={<IndustryTalkDetail />}
+              loader={<Loader />}
+            />
+            <Route
+              path="/events/:id"
+              element={<EventDetails loader={<Loader />} />}
+            />
+            <Route path="/profile" element={
+              <ProtectedRoute>
+                <Profile loader={<Loader />} />
+              </ProtectedRoute>
+            } />
+            {/* <Route path="/cart" element={<Cart loader={<Loader />} />} /> */}
+            < Route
+              path="/sponsors"
+              element={<Sponsors loader={<Loader />} />}
+            />
+            <Route
+              path="/contact-us"
+              element={<ContactUs loader={<Loader />} />}
+            />
+            <Route path="/web-team" element={<WebTeam loader={<Loader />} />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+          <Footer />
+          <ToastContainer
+            position="top-right"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            // closeOnClick
+            // draggable
+            pauseOnHover></ToastContainer>
+        </>
+      }
       <Sidebar />
       <ContactPanel />
     </>

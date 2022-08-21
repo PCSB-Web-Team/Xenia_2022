@@ -3,7 +3,7 @@ import HomepageTopGradient from "../../assets/images/background/gradient-bg-1.pn
 import GradientBlob from "../../assets/videos/gradient_blob.mp4";
 import RotatingCube from "../../assets/videos/rotating_gradient_cube.mp4";
 import Xenia_Logo from "../../assets/images/xeniaLogoLight.png";
-import HomepageBottomEarth from "../../assets/images/background/homepage-earth-background.jpg";
+// import HomepageBottomEarth from "../../assets/images/background/homepage-earth-background.jpg";
 import HomepageBottomEarth_transparent from "../../assets/images/background/homepage-earth-background-transparent.png";
 import coin1 from "../../assets/images/coin 1.png";
 import coin2 from "../../assets/images/coin 2.png";
@@ -125,7 +125,7 @@ function Homepage() {
 
   return (
     <div className="homepage">
-      <video autoplay="autoplay" controls="controls" loop="true" muted className="background-video">
+      <video autoPlay="autoplay" controls="controls" loop muted className="background-video">
         <source type="video/mp4" src={GradientBlob}></source> {/*//!this looks the same but round shape and need to increase the blur*/}
         <source type="video/mp4" src={RotatingCube}></source>
       </video>

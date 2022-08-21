@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './countdownTimer.css';
 
 function Timer() {
@@ -20,12 +20,12 @@ function Timer() {
     const [timeLeft, setTimeLeft] = useState(remainingTime());
 
     useEffect(() => {
-        // const timer = setTimeout(() => {
-        //     setTimeLeft(remainingTime());
-        // }, 1000);
+        const timer = setTimeout(() => {
+            setTimeLeft(remainingTime());
+        }, 1000);
 
-        // return () => clearTimeout(timer);
-    }, [])
+        return () => clearTimeout(timer);
+    })
 
     let countdownComponent = []
     const countdownDigits = []

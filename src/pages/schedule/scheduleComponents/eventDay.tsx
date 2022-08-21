@@ -18,7 +18,7 @@ function EventDay(props) {
 
     const renderEvents = props.eventsArray.map(event =>
         <motion.div className="each-event" key={event.name} onClick={
-            () => { window.open("http://xenia.com/event/" + event.name) }
+            () => { window.open("http://pcsbxenia.com/events/" + event.id) }
         }
             initial="offscreen"
             whileInView="onscreen"

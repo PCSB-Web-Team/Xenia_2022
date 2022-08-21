@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function IndustryTalks() {
-  const isLive = false; //? test values
+  const isLive = false;
 
   const [talksData, setTalksData] = useState([]);
 
@@ -14,7 +14,7 @@ function IndustryTalks() {
     BlockchainSession,
     CloudSession,
     InternshipSession,
-  ]; //*we'll need to save all the cover images in advance, that means we may need to get the cover images for all possible session in advance and then send the talkData according the actual session planning
+  ];
 
   // const talksData = [
   //   {

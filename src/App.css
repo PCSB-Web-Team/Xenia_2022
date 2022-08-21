@@ -10,3 +10,13 @@
     transform: translate(-11px, -11px) rotate(360deg);
   }
 }
+
+a {
+  cursor: pointer !important;
+}
+
+::selection {
+  background: #36d3ff;
+  color: #004872e5;
+  text-shadow: none;
+}
