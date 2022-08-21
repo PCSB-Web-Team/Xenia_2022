@@ -100,11 +100,11 @@ function App() {
             path="/industry-talks"
             element={<IndustryTalks loader={<Loader />} />}
           />
-          <Route
+          {/* <Route
             path="/industry-talks/:id"
             element={<IndustryTalkDetail />}
             loader={<Loader />}
-          />
+          /> */}
           <Route
             path="/events/:id"
             element={<EventDetails loader={<Loader />} />}
@@ -125,7 +125,7 @@ function App() {
       )}
       <Footer />
       <Sidebar />
-      <ContactPanel />
+      {/* <ContactPanel /> */}
     </>
   );
 }
