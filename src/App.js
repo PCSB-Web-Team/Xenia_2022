@@ -19,7 +19,7 @@ import Sponsors from "./pages/sponsors/sponsors";
 import WebTeam from "./pages/webTeam/webTeam";
 import ErrorPage from "./pages/404/Error";
 import ProtectedRoute from "./routes/protectedRoute";
-import { ToastUtils } from "./utils/toastifyContainer";
+import toast, { ToastUtils } from "./utils/toastifyContainer";
 import { AuthVerify } from "./utils/authVerify";
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -36,6 +36,9 @@ function App() {
       setLoading(true);
       await AuthVerify({ getUserDetails: true }).then(() => {
         setLoading(false);
+      }).catch(error => {
+        toast.error("Error: ", error);
+        setLoading(false)
       });
     }
     fetchToken();
@@ -71,6 +74,7 @@ function App() {
           animation: 'rotate 2.2s infinite ease-in-out',
           border: '2px dashed #009ffd'
         }} />
+      <ToastUtils />
       <Background></Background>
       {loading ? <Loader></Loader> :
         <>
@@ -80,12 +84,12 @@ function App() {
           <Route path="/home2" element={<Home2 loader={<Loader />} />} /> */}
             {/* <Route path="/" element={<Home3 loader={<Loader />} />} /> */}
             <Route path="/" element={<Home4 loader={<Loader />} />} />
-            <Route path="/auth" element={<Auth loader={<Loader />} />} />
+            <Route path="/auth" element={<Auth loader={<Loader />} toast={{ container: <ToastUtils />, toast }} />} />
             <Route
               path="/schedule"
               element={<Schedule loader={<Loader />} />}
             />
-            <Route path="/events" element={<Events loader={<Loader />} />} />
+            <Route path="/events" element={<Events loader={<Loader />} toast={{ container: <ToastUtils />, toast }} />} />
             <Route
               path="/side-events"
               element={<SideEvents loader={<Loader />} />}
@@ -101,12 +105,12 @@ function App() {
             />
             <Route
               path="/events/:id"
-              element={<EventDetails loader={<Loader />} toast={ToastUtils} />}
+              element={<EventDetails loader={<Loader />} toast={{ container: <ToastUtils />, toast }} />}
             />
             <Route path="/profile" element={
-              <ProtectedRoute>
-                <Profile loader={<Loader />} />
-              </ProtectedRoute>
+              // <ProtectedRoute toast={{ container: <ToastUtils />, toast }}>
+              <Profile loader={<Loader />} toast={{ container: <ToastUtils />, toast }} />
+              // </ProtectedRoute>
             } />
             {/* <Route path="/cart" element={<Cart loader={<Loader />} />} /> */}
             < Route
@@ -115,7 +119,7 @@ function App() {
             />
             <Route
               path="/contact-us"
-              element={<ContactUs loader={<Loader />} />}
+              element={<ContactUs loader={<Loader />} toast={{ container: <ToastUtils />, toast }} />}
             />
             <Route path="/web-team" element={<WebTeam loader={<Loader />} />} />
             <Route path="*" element={<ErrorPage />} />

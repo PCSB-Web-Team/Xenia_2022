@@ -1,26 +1,23 @@
-import React, { useState, useRef } from "react";
 import "./contactUs.css";
-import axios from "axios";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Requests from "../../api/requests";
 // import FAQ from './FAQ/faq';
-const ContactUs = () => {
+
+const ContactUs = (props) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
-  const reRef = useRef();
 
   const Submit = async (e) => {
     e.preventDefault();
     console.log(e);
     const data = { name, phone, email, message };
-    await axios
-      .post("https://xenia-mailer.herokuapp.com/api/contact-us", data)
-      .then((response) => {
-        // console.log(response);
+    await Requests.sendContactUsMessage(data).then((response) => {
         if (response.data.success) {
-          window.alert("Thank You For Contacting Us");
+          props.toast.toast.success("Mail send to PCSB Xenia Team!")
           setName("");
           setPhone("");
           setEmail("");
@@ -29,7 +26,7 @@ const ContactUs = () => {
         }
       })
       .catch((error) => {
-        console.log(error);
+        props.toast.toast.error("Error: server error ", error);
       });
   };
 
@@ -120,15 +117,15 @@ const ContactUs = () => {
             <p className="display: inline-block">
               <i className="fa fa-phone text-left text-lg">
                 {" "}
-                <span className="text-lg">+91 7028929568 </span>{" "}
+                <a className="text-lg" href="tel:7028929568">+91 7028929568 </a>{" "}
               </i>
             </p>
             <br></br>
             <p className="display: inline-block">
               <i className="fa fa-envelope text-left text-lg">
-                <span style={{ marginLeft: "5px" }} className="text-lg">
+                <a style={{ marginLeft: "5px" }} className="text-lg" href="mailto:support@pictcsi.com">
                   support@pictcsi.com
-                </span>
+                </a>
               </i>{" "}
             </p>
           </div>

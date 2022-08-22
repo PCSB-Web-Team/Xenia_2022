@@ -58,7 +58,7 @@ function Schedule() {
         <p>COMING SOON</p>
         <Timer />
       </div>
-      <div className="events-schedule">{renderSchedule}</div>
+      {/* <div className="events-schedule">{renderSchedule}</div> */}
     </div>
   );
 }

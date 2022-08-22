@@ -45,7 +45,7 @@ export const userSlice = createSlice({
           loading: false,
         };
       }
-      console.log("Login reducer resetting to initial state: ", data);
+      // console.log("Login reducer resetting to initial state: ", data);
       return {
         ...initialState,
         error: data?.error?.message || null,
@@ -79,9 +79,10 @@ export const userSlice = createSlice({
           loading: false,
         };
       }
-      console.log("Register reducer resetting to initial state: ", data);
+      // console.log("Register reducer resetting to initial state: ", data);
       return {
         ...initialState,
+        loggedIn: false,
         error: data?.error?.message || null,
       };
     });
@@ -118,9 +119,10 @@ export const userSlice = createSlice({
             loading: false,
           };
         }
-        console.log("Refresh Profile resetting to initial state: ", data);
+        // console.log("Refresh Profile resetting to initial state: ", data);
         return {
           ...state,
+          loggedIn: false,
           error: data?.error?.message || null,
         };
       }
@@ -142,7 +144,7 @@ export const userSlice = createSlice({
             loading: false,
           };
         }
-        console.log("SetParticipation resetting to participation []: ");
+        // console.log("SetParticipation resetting to participation []: ");
         return {
           ...state,
           participations: [],

@@ -4,7 +4,6 @@ const backend = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
 });
 
-//axios interceptors - attaches default authorization headers (JWT token) to all requests except Login/Signup post requests
 backend.defaults.headers.common["authorization"] =
   "Bearer " + localStorage.getItem(process.env.REACT_APP_TOKEN_NAME) || null;
 
@@ -30,10 +29,13 @@ const createOrder = async (data) => await backend.post("/razorpay", data);
 
 const verifyPayment = async (data) => await backend.post("/razorpay/verification", data);
 
+const sendContactUsMessage = async (message) => await backend.post("https://xenia-mailer.herokuapp.com/api/contact-us", message)
+
 const Requests = {
   signUp,
   login,
   refreshToken,
+  getUserProfile,
   getUserParticipations,
   joinTeam,
   getEvents,
@@ -41,6 +43,6 @@ const Requests = {
   getSideEvents,
   createOrder,
   verifyPayment,
-  getUserProfile
+  sendContactUsMessage
 };
 export default Requests;

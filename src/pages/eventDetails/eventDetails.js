@@ -1,7 +1,6 @@
 // import "./eventDetails.css";
 import Request from "../../api/requests";
 import PayByRazor from "../../api/payments";
-import { toast, ToastContainer } from "react-toastify";
 import { AuthVerify } from "../../utils/authVerify";
 import { useSelector } from "react-redux/es/exports";
 import { useEffect, useState } from "react";
@@ -29,21 +28,19 @@ const EventDetails = (props) => {
   };
 
   const handleJoinTeam = async () => {
-    props.toast(({ type: "error", message: "hi" }))
     setLoading(true)
-    // await Request.joinTeam({ eventId: id, teamId: team.id })
-    //   .then((res) => {
-    //     console.log(res);
-    //     if (res?.data?.status) {
-    //     } else {
-    //       toast(res?.data?.error?.message, { type: "error" })
-    //       // setJoinTeamError(res?.data?.error); //* Me bnata error handling ka component, pure website ke liye common
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     alert(err);
-    //     // handle error
-    //   });
+    await Request.joinTeam({ eventId: id, teamId: team.id })
+      .then(res => {
+        if (res?.data?.status) {
+          props.toast.toast.message("Successfully joined team with Team ID: " + team.id)
+        } else {
+          props.toast.toast.error(res?.data?.error?.message)
+          // setJoinTeamError(res?.data?.error);
+        }
+      })
+      .catch(error => {
+        props.toast.toast.error("Error: server unreachable, please try again.\n", error);
+      });
     setLoading(false);
   };
 
@@ -55,8 +52,8 @@ const EventDetails = (props) => {
         setEventData(() => ({ ...data.data?.data }));
       } else navigate("404");
     } catch (error) {
+      props.toast.toast.error("Error: server unreachable, at the moment.\n", error);
       navigate("404");
-      console.error(error);
     }
   }
 
@@ -64,22 +61,24 @@ const EventDetails = (props) => {
     try {
       await AuthVerify({
         getParticipations: true,
-      }).then(async res => await (res));
+      }).then(res => {
+        console.log(res)
+        setTimeout(() => {
+          let participatedEvent = res.participations?.find(
+            (userParticipatedEvents) => userParticipatedEvents.eventId === id
+          );
+
+          if (participatedEvent) {
+            setEventData(previousState => ({ ...previousState, isParticipated: true }));
+            props.toast.toast(`Registered for the event ${participatedEvent.teamId && `with Team ID ${participatedEvent.teamId}`}`);
+            if (participatedEvent.teamId) setTeam(previousState => ({ ...previousState, id: participatedEvent.teamId }));
+          }
+          setLoading(false)
+        }, 2500)
+      })
     } catch (error) {
-      console.error(error);
+      props.toast.toast.error("Error: couldn't fetch participation information.\n", error);
     }
-
-    setTimeout(() => {
-      let participatedEvent = userState.participations?.find(
-        (userParticipatedEvents) => userParticipatedEvents.eventId === id
-      );
-
-      if (participatedEvent) {
-        setEventData(previousState => ({ ...previousState, isParticipated: true }));
-        if (participatedEvent.teamId) setTeam(previousState => ({ ...previousState, id: participatedEvent.teamId }));
-      }
-      setLoading(false)
-    }, 3000);
   }
 
   useEffect(() => {
@@ -89,6 +88,7 @@ const EventDetails = (props) => {
 
   return (
     <>
+      {props.toast.container}
       {loading ? props.loader :
         <div className="grid md:grid-cols-2 min-h-screen md:p-8 gap-8 backdrop-blur-xl bg-gradient-to-b from-gray-900/40 to-gray-600/80">
           <div className="my-auto text-center space-y-4 text-white md:h-full p-4 py-8  ">

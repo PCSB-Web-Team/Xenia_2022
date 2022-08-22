@@ -285,9 +285,36 @@
   animation: fade-in 2.8s 1.3s forwards cubic-bezier(0.11, 0, 0.5, 0);
 }
 
-@media screen and (max-width: 400px) {
-  .homepage-background-img {
+@media screen and (max-width: 768px) {
+  .homepage {
+    max-height: 100vh;
+  }
+
+  .homepage-background-container {
     width: 200%;
+  }
+
+  .hole {
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 120vw;
+    width: 140%;
+    height: 140%;
+  }
+
+  .earth {
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 160vw;
+    width: 160%;
+    bottom: -15vh;
+    height: 60vh;
+  }
+
+  .earth-pulses-container {
+    bottom: -219px;
+    height: 134%;
   }
 
   .homepage-contents img {

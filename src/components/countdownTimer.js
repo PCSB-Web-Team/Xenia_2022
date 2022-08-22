@@ -3,7 +3,7 @@ import './countdownTimer.css';
 
 function Timer() {
     const remainingTime = () => {
-        const timeDifference = new Date(`08/22/2022`) - +new Date();
+        const timeDifference = new Date(`08/25/2022`) - +new Date();
         let timeLeft = {};
 
         if (timeDifference > 0) {

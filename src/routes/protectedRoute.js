@@ -1,10 +1,11 @@
 import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux/es/exports";
 
-function ProtectedRoute({ children }) {
+function ProtectedRoute(props, { children }) {
     const { loggedIn } = useSelector(({ user }) => user);
+    !loggedIn && props.toast.toast.warn("Please login to visit the page!\nOr try refreshing your browser.")
 
-    return loggedIn ? children : <Navigate to="/auth" />;
+    return loggedIn ? <>{props.toast.container}{children}</> : <Navigate to="/auth" />;
 }
 
 export default ProtectedRoute;

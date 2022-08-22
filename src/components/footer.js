@@ -1,4 +1,3 @@
-import React from "react";
 import xenialogo from "../assets/images/CSI_Logo_blue.png";
 import { Link } from "react-router-dom";
 import { scrollToTop } from "../utils";
@@ -8,7 +7,7 @@ const Footer = () => {
     <div className="w-full p-4 py-8 md:p-16 bg-gradient-to-br from-pink-600/20 via-purple-600/20 to-black backdrop-blur-lg">
       <div className="grid md:grid-cols-3">
         <div className="w-full">
-          <img className="mx-auto" src={xenialogo}></img>
+          <img className="mx-auto" src={xenialogo} alt="Xenia-logo"></img>
         </div>
         <div className=" col-span-2 pt-4 px-4 py-4 md:p-16 bg-black/20 text-white text-sm md:text-base">
           <div className=" grid grid-cols-2 md:grid-cols-4 gap-8 mb-8 ">
@@ -57,17 +56,17 @@ const Footer = () => {
                 Contact
               </div>
               <div className="space-y-2">
-                <div className=" font-thin space-x-2 flex">
+                <div className=" font-thin flex space-x-2">
                   <div>🏠</div>
-                  <div>Dhankawadi,Katraj,Pune</div>
+                  <a href="https://goo.gl/maps/XNZ8QTqTK2SXzztq7" rel="noreferrer noopener" target="_blank">Dhankawadi,Katraj,Pune</a>
                 </div>
                 <div className=" font-thin space-x-2 flex">
                   <div>📭︎</div>
-                  <div>Support@pictcsi.com</div>
+                  <a href="mailto:support@pictcsi.com">support@pictcsi.com</a>
                 </div>
                 <div className=" font-thin space-x-2 flex">
                   <div>📞</div>
-                  <div>+917028929568</div>
+                  <a href="tel:7028929568">+917028929568</a>
                 </div>
               </div>
             </div>

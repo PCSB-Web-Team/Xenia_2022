@@ -23,7 +23,7 @@ const Events = (props) => {
         setEvents(tech);
       })
       .catch((err) => {
-        console.error("Error in get req:", err);
+        props.toast.toast.error("Error while fetching events data! ", err);
       });
     setLoading(false);
   }
