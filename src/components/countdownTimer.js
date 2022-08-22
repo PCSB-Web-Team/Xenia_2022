@@ -3,8 +3,8 @@ import './countdownTimer.css';
 
 function Timer() {
     const remainingTime = () => {
-        const timeDifference = new Date(`08/25/2022`) - +new Date();
-        let timeLeft = {};
+        const timeDifference = new Date(`08/22/2022`) - +new Date();
+        let timeLeft = {}
 
         if (timeDifference > 0) {
             timeLeft = {
@@ -49,10 +49,10 @@ function Timer() {
 
     return (
         <div className="countdownComponent">
-            <ul>
+            {/* <ul>
                 {countdownComponent}
-            </ul>
-            {/* {countdownComponent.length ? countdownComponent : "Event is LIVE !"} */}
+            </ul> */}
+            {countdownComponent.length ? countdownComponent : "Event is LIVE !"}
         </div>
     )
 }

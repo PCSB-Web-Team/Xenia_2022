@@ -150,7 +150,7 @@
   }
 
   .events-schedule .event-day {
-    width: 85%;
+    width: 80%;
   }
 
   .event-day .event-date-hex {
@@ -288,7 +288,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   margin: -20px 0 0;
-  padding: 120px 5% 2%;
+  padding: 10px 5% 2%;
   width: 100%;
   row-gap: 100px;
   column-gap: 5%;
@@ -304,7 +304,8 @@
 
 @media (max-width: 768px) {
   .event-day .events-row {
-    padding: 100px 0 2%;
+    row-gap: 10px;
+    padding: 30px 0 5%;
   }
 }
 
@@ -313,8 +314,8 @@
   text-align: center;
   flex: 0 1 250px;
   max-width: 70%;
-  min-height: 150px;
-  padding: 60px 0 10px;
+  min-height: 120px;
+  padding: 30px 0 2%;
   border-radius: 10px;
   background-image: linear-gradient(
     to bottom,
@@ -329,7 +330,7 @@
   position: absolute;
   left: -2%;
   right: -2%;
-  top: -20%;
+  top: -2%;
   bottom: -4%;
   border: 1px solid purple;
   border-top: none;
@@ -338,22 +339,11 @@
   transition: all 0.3s ease;
 }
 
-.events-row .each-event img {
-  margin: 0 auto;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: -50%;
-  max-width: 60%;
-}
-
 .events-row .each-event abbr {
-  position: absolute;
   display: block;
   width: -moz-fit-content;
   width: -webkit-fit-content;
-  left: 50%;
-  transform: translate(-50%, 100%);
+  width: 100%;
   background: linear-gradient(
     109.6deg,
     rgb(123, 90, 224) 11.2%,
@@ -364,24 +354,28 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  font: 2em bold;
+  font: 1.6em bold;
+  font-weight: 700;
+  margin-bottom: 10px;
   letter-spacing: 1px;
   text-decoration: none;
 }
 
 .events-row .each-event p {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 30%);
-  width: 90%;
-  opacity: 0;
-  font: 1em;
-  line-height: 120%;
+  /* position: absolute;
+  bottom: 0; */
+  /* left: 50%;
+  transform: translate(-50%, 0%); */
+  width: 100%;
+  padding: 5px 0;
+  opacity: .7;
+  font-size: 3ex;
+  color: rgb(210, 210, 210);
+  line-height: 20px;
 }
 
-.events-row .each-event img ~ * {
-  transition: all 0.5s ease;
+.events-row .each-event p span {
+  color: rgb(255, 255, 255);
 }
 
 .events-row .each-event:hover {
@@ -392,40 +386,10 @@
   );
 }
 
-.events-row .each-event:hover::before {
-  border: 4px solid transparent;
-  border-image: linear-gradient(
-      109.6deg,
-      rgb(187, 0, 212) 11.2%,
-      rgb(32, 38, 238) 91.1%
-    )
-    1;
-}
-
 .events-row .each-event:hover p {
-  transform: translate(-50%, -10%);
   opacity: 1;
 }
 
 .events-row .each-event:hover abbr {
   -webkit-text-fill-color: white;
-  transform: translate(-50%, -150%);
-}
-
-.events-row .each-event:hover img {
-  transition: all 0.3s ease;
-  opacity: 0.6;
-  max-width: 65%;
-  transform: scale(2);
-  top: -80%;
-}
-
-@media (max-width: 768px) {
-  .events-row .each-event img {
-    top: -30%;
-  }
-
-  .events-row .each-event:hover img {
-    top: -60%;
-  }
 }

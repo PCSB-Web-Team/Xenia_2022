@@ -62,7 +62,6 @@ const EventDetails = (props) => {
       await AuthVerify({
         getParticipations: true,
       }).then(res => {
-        console.log(res)
         setTimeout(() => {
           let participatedEvent = res.participations?.find(
             (userParticipatedEvents) => userParticipatedEvents.eventId === id
@@ -205,8 +204,6 @@ const EventDetails = (props) => {
                   <ol className="text-gray-300 font-thin  ">
                     {
                       eventData?.prizes?.length ? (
-
-
                         eventData?.prizes?.map((data, idex) => (
                           data?.label !== "" ?
                             <li>
@@ -218,7 +215,6 @@ const EventDetails = (props) => {
                               {data?.position} : Rs.{data?.prize}
                             </li>
                         ))
-
                       ) : (
                         <div>Coming Soon...</div>
                       )}
@@ -274,6 +270,38 @@ const EventDetails = (props) => {
                   ))}
                 </div>
               </div>
+
+              <div className="col-span-2">
+                <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500">
+                  Platforms :{" "}
+                  <div className="mt-2 pt-1 font-light text-blue-200 border-t border-slate-600">
+                    {eventData?.platform?.map(data => (
+                      <p>Round {data?.round} :{" "}
+                        <strong><a href={data?.link} rel="noreferrer noopener" target="_blank">{data?.name}</a></strong>
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-span-2">
+                <div className="text-2xl font-bold pb-2 mt-5 bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500">
+                  Contact Help
+                </div>
+                <div className="border-t pt-2 border-slate-600">
+                  {eventData?.contact?.map(data => (
+                    <div>
+                      <span className="text-blue-300 px-3">
+                        {(data?.split(" ")?.[0] || " ") + " " + data?.split(" ")?.[1] || ":"}{" "}
+                      </span>
+                      <p className="inline-block text-blue-300  font-bold font-xl">
+                        <a href={`tel:${data?.split(" ")?.[3]}`}>📞 {(data?.split(" ")?.[2] || "") + data?.split(" ")?.[3] || ""}</a>
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
             </div>
           </div>
         </div>}

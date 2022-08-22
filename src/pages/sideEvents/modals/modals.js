@@ -1,3 +1,5 @@
+import parseURL from "../../../utils/urlParser";
+
 export default function Modal({ modal, toggleModal, details }) {
   return (
     modal && (
@@ -30,7 +32,11 @@ export default function Modal({ modal, toggleModal, details }) {
           <div className="border-t pt-2 px-5 border-slate-600">
             <ul className="text-white list-disc">
               {details?.event?.rules[0]?.roundRules?.length >= 1 ? (
-                details?.event?.rules[0]?.roundRules?.map((data) => <li>{data}</li>)
+                details?.event?.rules[0]?.roundRules?.map((data, index) => {
+                  if (index !== details?.event?.rules[0]?.roundRules?.length - 1) return <li>{data}</li>
+                  const formURL = parseURL(data)[0] || "#";
+                  return <li><a href={formURL} rel="noopener noreferrer" target="_blank" className="text-blue-300 underline">Registration Form 🔗</a></li>
+                })
               ) : (
                 <div>Come out! No Rules...</div>
               )}
@@ -60,7 +66,7 @@ export default function Modal({ modal, toggleModal, details }) {
                   {data?.name} :
                 </span>
                 <p className="inline-block text-blue-300  font-bold font-xl">
-                <a href={`tel:${data?.contact}`}>📞 {data?.contact}</a>
+                  <a href={`tel:${data?.contact}`}>📞 {data?.contact}</a>
                 </p>
               </p>
             ))}
