@@ -303,18 +303,27 @@
     height: 140%;
   }
 
+  .falling-coins {
+    transform: translateX(-155%);
+  }
+
   .earth {
     left: 50%;
-    transform: translateX(-50%);
-    max-width: 160vw;
-    width: 160%;
-    bottom: -15vh;
-    height: 60vh;
+    transform: translateX(-20%);
+    max-width: 200vw;
+    width: 200%;
+    bottom: 0vh;
+    height: 55vh;
   }
 
   .earth-pulses-container {
+    transform: scale(1.6);
     bottom: -219px;
     height: 134%;
+  }
+
+  .background-video {
+    display: none;
   }
 
   .homepage-contents img {
