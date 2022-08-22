@@ -55,14 +55,14 @@ export default function Modal({ modal, toggleModal, details }) {
           </div>
           <div className="border-t pt-2 border-slate-600 space-y-2 ">
             {details?.event?.contactUs?.map(data => (
-              <>
+              <p>
                 <span className="text-blue-300 px-3">
                   {data?.name} :
                 </span>
                 <p className="inline-block text-blue-300  font-bold font-xl">
                 <a href={`tel:${data?.contact}`}>📞 {data?.contact}</a>
                 </p>
-              </>
+              </p>
             ))}
           </div>
 
