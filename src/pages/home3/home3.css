@@ -132,11 +132,11 @@
 
 .earth {
   position: absolute;
-  bottom: 5vh;
+  bottom: -5vh;
   right: 5px;
   /* bottom: 30vh; */ /*! New Idea with this setting*/
   /* left: 15px; */
-  /* height: 60vh; */
+  height: 35vh;
 }
 
 .vertical-lines-container {

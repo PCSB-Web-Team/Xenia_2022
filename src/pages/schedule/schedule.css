@@ -4,6 +4,7 @@
   flex-direction: column;
   overflow: hidden;
   color: white;
+  padding: 40px 0;
   /* background: black; */
 }
 
@@ -19,7 +20,7 @@
 
 .schedule-page-title p {
   font-size: 3em;
-  letter-spacing: 0.5rem;
+  letter-spacing: 0.2rem;
 }
 
 @media (max-width: 768px) {
@@ -290,8 +291,7 @@
   margin: -20px 0 0;
   padding: 10px 5% 2%;
   width: 100%;
-  row-gap: 100px;
-  column-gap: 5%;
+  row-gap: 50px;
   overflow: hidden;
   /* z-index: ; */
   background-color: rgba(77, 6, 86, 0.28);
@@ -311,6 +311,10 @@
 
 .events-row .each-event {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   text-align: center;
   flex: 0 1 250px;
   max-width: 70%;
@@ -354,7 +358,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  font: 1.6em bold;
+  font-size: 1.6em;
   font-weight: 700;
   margin-bottom: 10px;
   letter-spacing: 1px;
@@ -362,13 +366,8 @@
 }
 
 .events-row .each-event p {
-  /* position: absolute;
-  bottom: 0; */
-  /* left: 50%;
-  transform: translate(-50%, 0%); */
-  width: 100%;
   padding: 5px 0;
-  opacity: .7;
+  opacity: 0.7;
   font-size: 3ex;
   color: rgb(210, 210, 210);
   line-height: 20px;
@@ -376,6 +375,12 @@
 
 .events-row .each-event p span {
   color: rgb(255, 255, 255);
+}
+
+@media screen and (max-width: 768px) {
+  .events-row .each-event p {
+    font-size: 2ex;
+  }
 }
 
 .events-row .each-event:hover {

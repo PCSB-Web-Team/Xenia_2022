@@ -1,10 +1,14 @@
 import "./home4.css";
-import BlockchainHole from "../../assets/images/blockchain_black_hole-rotated.jpg";
+import BlockchainHole from "../../assets/images/background/blockchain_black_hole-rotated.png";
 import GradientBlob from "../../assets/videos/gradient_blob.mp4";
 // import HomepageBottomEarth from "../../assets/images/background/homepage-earth-background.jpg"
 import HomepageBottomEarth_transparent from "../../assets/images/background/homepage-earth-background-transparent.png"
 import Xenia_Logo from "../../assets/images/xeniaLogoLight.png";
 import gradientBlock from "../../assets/images/gradient-small-cube.svg";
+import hex_2xblock_left from "../../assets/images/Block_x2_Left_shadow.png";
+import hex_2xblock_right from "../../assets/images/Block_x2_Right_shadowless.png";
+import hex_3xblock_left from "../../assets/images/Block_x3_Left_shadow.png";
+import hex_3xblock_right from "../../assets/images/Block_x3_Right_shadowless.png";
 import { MouseParallaxContainer, MouseParallaxChild } from "react-parallax-mouse";
 
 function Homepage() {
@@ -95,16 +99,16 @@ function Homepage() {
     },
   ]
 
-  const floatingIcons = []
+  const floatingIcons = [gradientBlock, hex_2xblock_left, hex_3xblock_right, hex_2xblock_right, gradientBlock, hex_3xblock_left]
 
   for (let i = 0; i < animationInitials.length; i++) {
     floatingIcons.push(
-      <image key={i} id={i} x={animationInitials[i].initialXEndpoints.split(";")[0]} y={animationInitials[i].initialYEndpoints.split(";")[0]} href={gradientBlock} style={{ AnimationDuration: `${7 + i}s` }} >
+      <image key={i} id={i} x={animationInitials[i].initialXEndpoints.split(";")[0]} y={animationInitials[i].initialYEndpoints.split(";")[0]} href={floatingIcons[i % 6]} style={{ AnimationDuration: `${9 + i}s` }} >
         <animate attributeName="x" values={animationPointsGenerator(animationInitials[i]).x} dur={`${6 + i}s`} repeatCount="indefinite" />
         <animate attributeName="y" values={animationPointsGenerator(animationInitials[i]).y} dur={`${6 + i}s`} repeatCount="indefinite" />
-        <animate attributeName="opacity" values="1;1;1;.25;.45;.6;.7;.5;0" dur={`${6 + i}s`} repeatCount="indefinite" />
-        <animate attributeName="width" values="1;5;10;20;25;30;33.5;45;57.5;60;72.5;85;90;105" dur={`${6 + i}s`} repeatCount="indefinite" />
-        <animate attributeName="height" values="1;5;10;20;25;30;33.5;45;57.5;60;72.5;85;90;105" dur={`${6 + i}s`} repeatCount="indefinite" />
+        <animate attributeName="opacity" values="1;1;1;.25;.45;.6;.7;.5;.3;0" dur={`${6 + i}s`} repeatCount="indefinite" />
+        <animate attributeName="width" values="1;5;10;20;25;30;33.5;45;57.5;60;72.5;85;90;95;105" dur={`${6 + i}s`} repeatCount="indefinite" />
+        <animate attributeName="height" values="1;5;10;20;25;30;33.5;45;57.5;60;72.5;85;90;95;105" dur={`${6 + i}s`} repeatCount="indefinite" />
       </image>
     );
   }
