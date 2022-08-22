@@ -1,4 +1,5 @@
 import "./home4.css";
+import BlockchainHole1 from "../../assets/images/blockchain_black_hole-rotated1.png";
 import BlockchainHole from "../../assets/images/blockchain_black_hole-rotated.jpg";
 import GradientBlob from "../../assets/videos/gradient_blob.mp4";
 // import HomepageBottomEarth from "../../assets/images/background/homepage-earth-background.jpg"
@@ -120,7 +121,7 @@ function Homepage() {
           <MouseParallaxChild factorX={0.04} factorY={0.02} inverted >
             <img
               className="homepage-background-img hole"
-              src={BlockchainHole}
+              src={BlockchainHole1}
               alt="homepage-gradient"
             />
           </MouseParallaxChild>
