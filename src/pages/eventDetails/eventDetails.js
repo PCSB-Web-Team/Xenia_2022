@@ -27,9 +27,14 @@ const EventDetails = (props) => {
     }));
   }
 
-  const handleCreateTeam = async (event) => {
+  const handleCreateTeam = async () => {
     setLoading(true);
-    let { data } = await Request.createOrder({ eventId: id });
+    if(team.name === '') {
+      props.toast.toast.error("Please enter valid Team Name!")
+      setLoading(false)
+      return
+    }
+    let { data } = await Request.createTeam({ eventId: id, teamName: team?.name });
     if (data.status) {
       props.toast.toast.success("Successfully registered team '" + team?.name + "' for " + eventData?.name)
       setLoading(false);
@@ -38,6 +43,11 @@ const EventDetails = (props) => {
 
   const handleJoinTeam = async () => {
     setLoading(true);
+    if(team.id === '') {
+      props.toast.toast.error("Please enter valid Team ID!")
+      setLoading(false)
+      return
+    }
     await Request.joinTeam({ eventId: id, teamId: team.id })
       .then((res) => {
         if (res?.data?.status) {
