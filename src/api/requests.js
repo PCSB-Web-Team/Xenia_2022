@@ -17,7 +17,7 @@ const getUserProfile = async () => await backend.get("/auth/profile");
 
 const getUserParticipations = async () => await backend.get("/participant/by-user");
 
-const createTeam = async (data) => await backend.post("/team", data);
+const createTeam = async (data) => await backend.post("/participant/team", data);
 
 const joinTeam = async (data) => await backend.put("/participant/jointeam", data);
 
