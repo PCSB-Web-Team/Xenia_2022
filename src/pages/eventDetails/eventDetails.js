@@ -35,10 +35,13 @@ const EventDetails = (props) => {
       return
     }
     let { data } = await Request.createTeam({ eventId: id, teamName: team?.name });
-    if (data.status) {
+    if (data?.status) {
       props.toast.toast.success("Successfully registered team '" + team?.name + "' for " + eventData?.name)
       setLoading(false);
+      return
     }
+    setLoading(false);
+    props.toast.toast.error("Error while creating team!, ", data?.error?.message)
   }
 
   const handleJoinTeam = async () => {
@@ -48,14 +51,16 @@ const EventDetails = (props) => {
       setLoading(false)
       return
     }
-    await Request.joinTeam({ eventId: id, teamId: team.id })
-      .then((res) => {
+    await Request.joinTeam({ eventId: id, teamId: team?.id })
+    .then((res) => {
+        console.log(res);
         if (res?.data?.status) {
           props.toast.toast.message(
-            "Successfully joined team with Team ID: " + team.id
+            "Successfully joined team with Team ID: " + team?.id
           );
         } else {
-          props.toast.toast.error(res?.data?.error?.message);
+          props.toast.toast.error("Error while joining team!, ", res?.data?.error?.message);
+          setLoading(false);
           // setJoinTeamError(res?.data?.error);
         }
       })
@@ -181,7 +186,7 @@ const EventDetails = (props) => {
                     eventData.isParticipated ? (
                       <div>
                         <div className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-2xl tracking-widest">
-                          Registered with team ID: {team.id}
+                          Successfully Registered
                         </div>
                         <span className="text-blue-400">
                           Team Code : <code>{team.id}</code>
