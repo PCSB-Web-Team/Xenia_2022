@@ -17,7 +17,6 @@ const PayByRazor = (props) => {
     }
 
     console.log("generated options")
-    console.log(options);
 
     const options = {
       key: process.env.REACT_APP_RAZORPAY_KEY,
@@ -42,6 +41,9 @@ const PayByRazor = (props) => {
         color: "#00a0fd83",
       },
     };
+
+    console.log(options);
+
 
     const razorDisplay = new window.Razorpay(options);
     props.handleLoading(false);
