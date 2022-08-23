@@ -175,7 +175,7 @@ const EventDetails = (props) => {
                 {eventData?.fees === (0 || "0") ? (
                   <div className="text-green">Free</div>
                 ) : (
-                  <div>Rs. {eventData?.fees || "Free"}</div>
+                  <div>Rs. {eventData?.fees}</div>
                 )}
               </div>
               <div className="flex space-x-2">
