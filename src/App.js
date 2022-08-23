@@ -25,7 +25,7 @@ import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Background from "./components/background";
 import IndustryTalkDetail from "./pages/industryTalks/industryTalksDetail/industryTalkDetail";
-import AnimatedCursor from "react-animated-cursor";
+// import AnimatedCursor from "react-animated-cursor";
 import "./App.css";
 
 function App() {

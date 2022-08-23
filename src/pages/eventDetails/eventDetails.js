@@ -31,7 +31,7 @@ const EventDetails = (props) => {
     setLoading(true);
     let { data } = await Request.createOrder({ eventId: id });
     if (data.status) {
-      props.toast.toast.success("Successfully registered team '"+ team?.name +"' for " + eventData?.name)
+      props.toast.toast.success("Successfully registered team '" + team?.name + "' for " + eventData?.name)
       setLoading(false);
     }
   }
@@ -63,7 +63,6 @@ const EventDetails = (props) => {
     try {
       const data = await Request.getEventById(id);
       if (data.data?.status) {
-        console.log(data);
         setEventData(() => ({ ...data.data?.data }));
       } else navigate("404");
     } catch (error) {
@@ -90,16 +89,18 @@ const EventDetails = (props) => {
               ...previousState,
               isParticipated: true,
             }));
-            props.toast.toast(
-              `Registered for the event ${participatedEvent.teamId &&
-              `with Team ID ${participatedEvent.teamId}`
-              }`
-            );
-            if (participatedEvent.teamId)
+            if (participatedEvent.teamId) {
               setTeam((previousState) => ({
                 ...previousState,
                 id: participatedEvent.teamId,
               }));
+            }
+            if (eventData?.teamSize > 1) {
+              props.toast.toast(
+                `Registered for the event ${participatedEvent.teamId &&
+                `with Team ID ${participatedEvent.teamId}`
+                }`)
+            } else props.toast.toast(`You have already registered for the event`);
           }
           setLoading(false);
         }, 2500);
@@ -170,7 +171,7 @@ const EventDetails = (props) => {
                     eventData.isParticipated ? (
                       <div>
                         <div className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-2xl tracking-widest">
-                          Registered Successfully
+                          Registered with team ID: {team.id}
                         </div>
                         <span className="text-blue-400">
                           Team Code : <code>{team.id}</code>
@@ -221,7 +222,7 @@ const EventDetails = (props) => {
                     )
                   ) : eventData.isParticipated ? (
                     <div className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-2xl tracking-widest">
-                      Registered with team ID: {team.id}
+                      Registered Successfully
                     </div>
                   ) : (
                     // <PayByRazor
