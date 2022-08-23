@@ -34,8 +34,9 @@ function App() {
   useEffect(() => {
     async function fetchToken() {
       setLoading(true);
-      await AuthVerify({ getUserDetails: true }).then(() => {
+      await AuthVerify({ getUserDetails: true }).then((res) => {
         setLoading(false);
+        if (res.error) toast.warn("Session expired!. Go to '/auth' to login")
       }).catch(error => {
         toast.error("Error: ", error);
         setLoading(false)
@@ -46,7 +47,7 @@ function App() {
 
   return (
     <>
-      <AnimatedCursor
+      {/* <AnimatedCursor
         color="4, 192, 250"
         outerAlpha={0}
         innerSize={10}
@@ -73,7 +74,7 @@ function App() {
           zIndex: "999999999999",
           animation: 'rotate 2.2s infinite ease-in-out',
           border: '2px dashed #009ffd'
-        }} />
+        }} /> */}
       <ToastUtils />
       <Background></Background>
       {loading ? <Loader></Loader> :

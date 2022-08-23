@@ -1,6 +1,6 @@
 // import "./eventDetails.css";
 import Request from "../../api/requests";
-import PayByRazor from "../../api/payments";
+// import PayByRazor from "../../api/payments";
 import { AuthVerify } from "../../utils/authVerify";
 import { useSelector } from "react-redux/es/exports";
 import { useEffect, useState } from "react";
@@ -25,7 +25,16 @@ const EventDetails = (props) => {
       ...previousState,
       [event.target.name]: event.target.value,
     }));
-  };
+  }
+
+  const handleCreateTeam = async (event) => {
+    setLoading(true);
+    let { data } = await Request.createOrder({ eventId: id });
+    if (data.status) {
+      props.toast.toast.success("Successfully registered team '"+ team?.name +"' for " + eventData?.name)
+      setLoading(false);
+    }
+  }
 
   const handleJoinTeam = async () => {
     setLoading(true);
@@ -47,13 +56,14 @@ const EventDetails = (props) => {
         );
       });
     setLoading(false);
-  };
+  }
 
   async function fetchEventData() {
     setLoading(true);
     try {
       const data = await Request.getEventById(id);
       if (data.data?.status) {
+        console.log(data);
         setEventData(() => ({ ...data.data?.data }));
       } else navigate("404");
     } catch (error) {
@@ -81,9 +91,8 @@ const EventDetails = (props) => {
               isParticipated: true,
             }));
             props.toast.toast(
-              `Registered for the event ${
-                participatedEvent.teamId &&
-                `with Team ID ${participatedEvent.teamId}`
+              `Registered for the event ${participatedEvent.teamId &&
+              `with Team ID ${participatedEvent.teamId}`
               }`
             );
             if (participatedEvent.teamId)
@@ -133,18 +142,18 @@ const EventDetails = (props) => {
             <div className="event-fees text-blue-400 text-lg font-bold text-left  tracking-widest grid grid-cols-2 place-items-center">
               <div className="flex space-x-2">
                 <div className="text-gray-200 font-thin">Fees: </div>
-                <div>Rs.{eventData?.fees}</div>
+                {eventData?.fees === (0 || '0') ? <div className="text-green">Free</div> : <div>Rs. {eventData?.fees}</div>}
               </div>
               <div className="flex space-x-2">
                 <div className="text-gray-200 font-thin">Team Size: </div>
                 <div>{eventData?.teamSize}</div>
               </div>
             </div>
-            <p className="text-green-400">
+            {/* <p className="text-green-400">
               Registrations are currently being done manually. Sorry for
               inconvenience:(
-            </p>
-            {/* {eventData?.isLive ? (
+            </p> */}
+            {eventData?.isLive ? (
               <p className="event-register-buttons disabled">
                 Registrations closed ! Try with other events.
               </p>
@@ -169,7 +178,7 @@ const EventDetails = (props) => {
                       </div>
                     ) : (
                       <div className="grid grid-cols-1 place-items-center gap-2">
-                        <PayByRazor
+                        {/* <PayByRazor
                           handleLoading={setLoading}
                           className="border-2 border-solid p-2"
                           eventId={id}
@@ -177,7 +186,12 @@ const EventDetails = (props) => {
                           eventDetails={eventData}
                           teamName={team?.name}
                           buttonName="Register as Team"
-                        />
+                        /> */} {/*//! Team events are made free so no need of Razorpay!*/}
+                        <button
+                          className="border-2 border-solid p-2"
+                          onClick={handleCreateTeam}>
+                          Register as Team
+                        </button>
                         <input
                           type="text"
                           className="p-2 bg-black/20 outline-none block"
@@ -207,21 +221,22 @@ const EventDetails = (props) => {
                     )
                   ) : eventData.isParticipated ? (
                     <div className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-2xl tracking-widest">
-                      Registered Successfully
+                      Registered with team ID: {team.id}
                     </div>
                   ) : (
-                    <PayByRazor
-                      handleLoading={setLoading}
-                      className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
-                      eventId={id}
-                      userDetails={userState?.userDetails}
-                      eventDetails={eventData}
-                      buttonName={"Participate"}
-                    />
+                    // <PayByRazor
+                    //   handleLoading={setLoading}
+                    //   className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
+                    //   eventId={id}
+                    //   userDetails={userState?.userDetails}
+                    //   eventDetails={eventData}
+                    //   buttonName={"Participate"}
+                    // />{/*//! Not using embedded Razorpay popup instead using redirects */}
+                    <a href={eventData?.paymentLink + '?eventId=' + id} rel="noopener noreferrer" target="_blank" className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg">Register and Pay</a>
                   )}
                 </div>
               </>
-            )} */}
+            )}
           </div>
           {/* event details description */}
           <div className="space-y-4  p-8 h-full overflow-auto bg-black/20 shadow-lg border border-gray-700 max-h-screen font-thin text-gray-200">
