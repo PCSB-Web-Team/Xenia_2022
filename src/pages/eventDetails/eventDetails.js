@@ -50,7 +50,7 @@ const EventDetails = (props) => {
     }
     setLoading(false);
     props.toast.toast.error(
-      "Error while creating team!, ",
+      "Error: " +
       data?.error?.message
     );
   };
@@ -64,13 +64,13 @@ const EventDetails = (props) => {
     }
     await Request.joinTeam({ eventId: id, teamId: team?.id })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res?.data?.status) {
           props.toast.toast.message(
             "Successfully joined team with Team ID: " + team?.id
           );
         } else {
-          props.toast.toast.error("Error: ", res?.data?.error?.message);
+          props.toast.toast.error("Error: " + res?.data?.error?.message);
           setLoading(false);
           // setJoinTeamError(res?.data?.error);
         }
