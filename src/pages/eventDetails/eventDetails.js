@@ -140,11 +140,11 @@ const EventDetails = (props) => {
                 <div>{eventData?.teamSize}</div>
               </div>
             </div>
-            <p className="text-green-400">
+            {/* <p className="text-green-400">
               Registrations are currently being done manually. Sorry for
               inconvenience:(
-            </p>
-            {/* {eventData?.isLive ? (
+            </p> */}
+            {eventData?.isLive ? (
               <p className="event-register-buttons disabled">
                 Registrations closed ! Try with other events.
               </p>
@@ -221,7 +221,7 @@ const EventDetails = (props) => {
                   )}
                 </div>
               </>
-            )} */}
+            )}
           </div>
           {/* event details description */}
           <div className="space-y-4  p-8 h-full overflow-auto bg-black/20 shadow-lg border border-gray-700 max-h-screen font-thin text-gray-200">
