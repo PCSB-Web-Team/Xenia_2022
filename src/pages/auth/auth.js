@@ -12,7 +12,7 @@ const Login = (props) => {
   const [mode, setMode] = useState("login");
   const [error, setError] = useState("");
 
-  const userState = useSelector(({ user }) => user);
+  const userState = useSelector(async ({ user }) => await user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -34,13 +34,13 @@ const Login = (props) => {
   });
 
   return userState.loggedIn ? (
-    <>
-      {props.toast.container}
-      {setTimeout(() => {
-        <Navigate to={-1} replace={true} />
-      }, 2000)}
-      {props.toast.toast.success("Logged In!")}
-    </>
+    <Navigate to={-1} replace={true} />
+    // <>
+    //   {props.toast.container}
+    //   {/* {setTimeout(() => {
+      //   {/* {props.toast.toast.success("Logged In!")} */}
+    //   }), 2000} */}
+    // </>
   ) : (
     <>
       {loading ? props.loading :
@@ -72,7 +72,7 @@ const Login = (props) => {
                         }, 3000);
                       }
                       else {
-                        props.toast.toast.error("Error: couldn't register!\n", error?.message);
+                        props.toast.toast.error("Error: couldn't register!", error?.message);
                         setError(error.message);
                       }
                     })
@@ -217,14 +217,16 @@ const Login = (props) => {
                   setError("");
                   await dispatch(loginUser(values || null))
                     .unwrap()
-                    .then(({ data: { status, error } }) => {
-                      console.log(status);
+                    .then(({ data: { data, status, error } }) => {
                       setLoading(false)
                       if (status) {
+                        console.log(data);
                         props.toast.toast.success("Logged In!");
-                        navigate(-1, { replace: true });
+                        setTimeout(() => {
+                          return navigate(-1, { replace: true });
+                        }, 1000);
                       } else {
-                        props.toast.toast.error("Error: couldn't login!\n", error.message);
+                        props.toast.toast.error("Error: couldn't login!", error?.message);
                         setError(error.message);
                       }
                     })

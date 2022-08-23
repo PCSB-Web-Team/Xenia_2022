@@ -42,7 +42,7 @@ const EventDetails = (props) => {
       })
       .catch((error) => {
         props.toast.toast.error(
-          "Error: server unreachable, please try again.\n",
+          "Error: server unreachable, please try again.",
           error
         );
       });
@@ -58,7 +58,7 @@ const EventDetails = (props) => {
       } else navigate("404");
     } catch (error) {
       props.toast.toast.error(
-        "Error: server unreachable, at the moment.\n",
+        "Error: server unreachable, at the moment.",
         error
       );
       navigate("404");
@@ -97,7 +97,7 @@ const EventDetails = (props) => {
       });
     } catch (error) {
       props.toast.toast.error(
-        "Error: couldn't fetch participation information.\n",
+        "Error: couldn't fetch participation information.",
         error
       );
     }

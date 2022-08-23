@@ -7,6 +7,22 @@
   overflow: hidden;
 }
 
+@media screen and (max-width: 800px) {
+  .homepage::after {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 8;
+    box-shadow: inset 0 -50px 80px -70px black;
+  }
+}
+
 #mouse-parallax-container {
   height: 120vh;
   width: 100vw;
@@ -167,7 +183,7 @@
 
 .earth {
   position: absolute;
-  bottom: 0;
+  bottom: -50vh;
   right: -25px;
   width: 140%;
   height: 50vh;
@@ -175,18 +191,22 @@
 
 @media (max-width: 800px) {
   .earth {
-    position: absolute;
-    bottom: 0;
     right: 5px;
-    height: 45vh;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 150vw;
+    width: 200%;
+    bottom: -600px;
+    height: 40vh;
   }
 }
 
 .earth-pulses-container {
-  /* position: absolute; */
-  bottom: -10vh;
+  position: absolute;
+  bottom: -45vh;
   height: 50vh;
   width: 100%;
+  overflow: visible;
 }
 
 .earth-pulses-container g {
@@ -337,20 +357,12 @@
     transform: translateX(-155%);
   }
 
-  .earth {
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: 200vw;
-    /* width: 200%; */
-    top: 5vh;
-    height: 45vh;
-  }
-
   .earth-pulses-container {
-    /* transform: scale(0.6); */
-    bottom: 5vh;
-    width: 100%;
+    transform: scale(0.4) translate(-1090px, 1480px);
+    bottom: 0;
+    width: 300%;
     height: 50vh;
+    overflow: visible;
   }
 
   .background-video {
