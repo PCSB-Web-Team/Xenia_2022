@@ -1,6 +1,5 @@
 import "./home4.css";
 import BlockchainHole from "../../assets/images/background/blockchain_black_hole-rotated.png";
-import GradientBlob from "../../assets/videos/gradient_blob.mp4";
 // import HomepageBottomEarth from "../../assets/images/background/homepage-earth-background.jpg"
 import HomepageBottomEarth_transparent from "../../assets/images/background/homepage-earth-background-transparent.png"
 import Xenia_Logo from "../../assets/images/xeniaLogoLight.png";
@@ -115,9 +114,6 @@ function Homepage() {
 
   return (
     <div className="homepage">
-      <video autoPlay="autoplay" controls="controls" loop muted className="background-video">
-        <source type="video/mp4" src={GradientBlob}></source>
-      </video>
       <div className="homepage-background-container">
         <div class="tso-rainbow"></div>
         <MouseParallaxContainer resetOnLeave containerStyles={{ position: "absolute" }}>
