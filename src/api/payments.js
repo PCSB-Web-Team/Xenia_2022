@@ -24,7 +24,7 @@ const PayByRazor = (props) => {
       currency: "INR",
       name: "PCSB Xenia 2022",
       description:
-        "Registration payment for the event " + props.eventDetails?.eventName ||
+        "Registration payment for the event " + props.eventDetails?.name ||
         "",
       order_id: data?.id,
       callback_url: "",
