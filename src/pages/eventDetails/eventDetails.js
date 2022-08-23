@@ -11,48 +11,56 @@ const EventDetails = (props) => {
   const [eventData, setEventData] = useState({});
   const [team, setTeam] = useState({
     id: "",
-    name: ""
+    name: "",
   });
   // const [joinTeamError, setJoinTeamError] = useState("");
 
   let id = useParams().id;
   const navigate = useNavigate();
 
-  let userState = useSelector(userState => userState.user)
+  let userState = useSelector((userState) => userState.user);
 
   const handleInputChange = (event) => {
-    setTeam(previousState => ({
+    setTeam((previousState) => ({
       ...previousState,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     }));
   };
 
   const handleJoinTeam = async () => {
-    setLoading(true)
+    setLoading(true);
     await Request.joinTeam({ eventId: id, teamId: team.id })
-      .then(res => {
+      .then((res) => {
         if (res?.data?.status) {
-          props.toast.toast.message("Successfully joined team with Team ID: " + team.id)
+          props.toast.toast.message(
+            "Successfully joined team with Team ID: " + team.id
+          );
         } else {
-          props.toast.toast.error(res?.data?.error?.message)
+          props.toast.toast.error(res?.data?.error?.message);
           // setJoinTeamError(res?.data?.error);
         }
       })
-      .catch(error => {
-        props.toast.toast.error("Error: server unreachable, please try again.\n", error);
+      .catch((error) => {
+        props.toast.toast.error(
+          "Error: server unreachable, please try again.\n",
+          error
+        );
       });
     setLoading(false);
   };
 
   async function fetchEventData() {
-    setLoading(true)
+    setLoading(true);
     try {
       const data = await Request.getEventById(id);
       if (data.data?.status) {
         setEventData(() => ({ ...data.data?.data }));
       } else navigate("404");
     } catch (error) {
-      props.toast.toast.error("Error: server unreachable, at the moment.\n", error);
+      props.toast.toast.error(
+        "Error: server unreachable, at the moment.\n",
+        error
+      );
       navigate("404");
     }
   }
@@ -61,22 +69,37 @@ const EventDetails = (props) => {
     try {
       await AuthVerify({
         getParticipations: true,
-      }).then(res => {
+      }).then((res) => {
         setTimeout(() => {
           let participatedEvent = res.participations?.find(
             (userParticipatedEvents) => userParticipatedEvents.eventId === id
           );
 
           if (participatedEvent) {
-            setEventData(previousState => ({ ...previousState, isParticipated: true }));
-            props.toast.toast(`Registered for the event ${participatedEvent.teamId && `with Team ID ${participatedEvent.teamId}`}`);
-            if (participatedEvent.teamId) setTeam(previousState => ({ ...previousState, id: participatedEvent.teamId }));
+            setEventData((previousState) => ({
+              ...previousState,
+              isParticipated: true,
+            }));
+            props.toast.toast(
+              `Registered for the event ${
+                participatedEvent.teamId &&
+                `with Team ID ${participatedEvent.teamId}`
+              }`
+            );
+            if (participatedEvent.teamId)
+              setTeam((previousState) => ({
+                ...previousState,
+                id: participatedEvent.teamId,
+              }));
           }
-          setLoading(false)
-        }, 2500)
-      })
+          setLoading(false);
+        }, 2500);
+      });
     } catch (error) {
-      props.toast.toast.error("Error: couldn't fetch participation information.\n", error);
+      props.toast.toast.error(
+        "Error: couldn't fetch participation information.\n",
+        error
+      );
     }
   }
 
@@ -88,11 +111,17 @@ const EventDetails = (props) => {
   return (
     <>
       {props.toast.container}
-      {loading ? props.loader :
+      {loading ? (
+        props.loader
+      ) : (
         <div className="grid md:grid-cols-2 min-h-screen md:p-8 gap-8 backdrop-blur-xl bg-gradient-to-b from-gray-900/40 to-gray-600/80">
           <div className="my-auto text-center space-y-4 text-white md:h-full p-4 py-8  ">
             <div className=" w-3/4 max-w-[380px] h-[380px] mx-auto">
-              <img src={eventData?.logo} alt="event-logo" className="event-logo" />
+              <img
+                src={eventData?.logo}
+                alt="event-logo"
+                className="event-logo"
+              />
             </div>
             <div className="py-3 text-6xl mx-auto font-bold text-purple-600 border-gray-500 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
               {eventData?.name}
@@ -111,7 +140,11 @@ const EventDetails = (props) => {
                 <div>{eventData?.teamSize}</div>
               </div>
             </div>
-            {eventData?.isLive ? (
+            <p className="text-green-400">
+              Registrations are currently being done manually. Sorry for
+              inconvenience:(
+            </p>
+            {/* {eventData?.isLive ? (
               <p className="event-register-buttons disabled">
                 Registrations closed ! Try with other events.
               </p>
@@ -188,7 +221,7 @@ const EventDetails = (props) => {
                   )}
                 </div>
               </>
-            )}
+            )} */}
           </div>
           {/* event details description */}
           <div className="space-y-4  p-8 h-full overflow-auto bg-black/20 shadow-lg border border-gray-700 max-h-screen font-thin text-gray-200">
@@ -202,22 +235,22 @@ const EventDetails = (props) => {
                 </div>
                 <div className="border-t pt-2 border-slate-600">
                   <ol className="text-gray-300 font-thin  ">
-                    {
-                      eventData?.prizes?.length ? (
-                        eventData?.prizes?.map((data, idex) => (
-                          data?.label !== "" ?
-                            <li>
-                              {data?.position} : Rs. {data?.prize}{" "}
-                              ({data?.label && (data.label)})
-                            </li>
-                            :
-                            <li>
-                              {data?.position} : Rs.{data?.prize}
-                            </li>
-                        ))
-                      ) : (
-                        <div>Coming Soon...</div>
-                      )}
+                    {eventData?.prizes?.length ? (
+                      eventData?.prizes?.map((data, idex) =>
+                        data?.label !== "" ? (
+                          <li>
+                            {data?.position} : Rs. {data?.prize} (
+                            {data?.label && data.label})
+                          </li>
+                        ) : (
+                          <li>
+                            {data?.position} : Rs.{data?.prize}
+                          </li>
+                        )
+                      )
+                    ) : (
+                      <div>Coming Soon...</div>
+                    )}
                   </ol>
                 </div>
               </div>
@@ -275,9 +308,18 @@ const EventDetails = (props) => {
                 <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-200 via-green-400 to-green-500">
                   Platforms :{" "}
                   <div className="mt-2 pt-1 font-light text-blue-200 border-t border-slate-600">
-                    {eventData?.platform?.map(data => (
-                      <p>Round {data?.round} :{" "}
-                        <strong><a href={data?.link} rel="noreferrer noopener" target="_blank">{data?.name}</a></strong>
+                    {eventData?.platform?.map((data) => (
+                      <p>
+                        Round {data?.round} :{" "}
+                        <strong>
+                          <a
+                            href={data?.link}
+                            rel="noreferrer noopener"
+                            target="_blank"
+                          >
+                            {data?.name}
+                          </a>
+                        </strong>
                       </p>
                     ))}
                   </div>
@@ -289,22 +331,28 @@ const EventDetails = (props) => {
                   Contact Help
                 </div>
                 <div className="border-t pt-2 border-slate-600">
-                  {eventData?.contact?.map(data => (
+                  {eventData?.contact?.map((data) => (
                     <div>
                       <span className="text-blue-300 px-3">
-                        {(data?.split(" ")?.[0] || " ") + " " + data?.split(" ")?.[1] || ":"}{" "}
+                        {(data?.split(" ")?.[0] || " ") +
+                          " " +
+                          data?.split(" ")?.[1] || ":"}{" "}
                       </span>
                       <p className="inline-block text-blue-300  font-bold font-xl">
-                        <a href={`tel:${data?.split(" ")?.[3]}`}>📞 {(data?.split(" ")?.[2] || "") + data?.split(" ")?.[3] || ""}</a>
+                        <a href={`tel:${data?.split(" ")?.[3]}`}>
+                          📞{" "}
+                          {(data?.split(" ")?.[2] || "") +
+                            data?.split(" ")?.[3] || ""}
+                        </a>
                       </p>
                     </div>
                   ))}
                 </div>
               </div>
-
             </div>
           </div>
-        </div>}
+        </div>
+      )}
     </>
   );
 };
