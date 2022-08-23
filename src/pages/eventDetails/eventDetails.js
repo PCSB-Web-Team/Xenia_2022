@@ -25,41 +25,52 @@ const EventDetails = (props) => {
       ...previousState,
       [event.target.name]: event.target.value,
     }));
-  }
+  };
 
   const handleCreateTeam = async () => {
     setLoading(true);
-    if(team.name === '') {
-      props.toast.toast.error("Please enter valid Team Name!")
-      setLoading(false)
-      return
-    }
-    let { data } = await Request.createTeam({ eventId: id, teamName: team?.name });
-    if (data?.status) {
-      props.toast.toast.success("Successfully registered team '" + team?.name + "' for " + eventData?.name)
+    if (team.name === "") {
+      props.toast.toast.error("Please enter valid Team Name!");
       setLoading(false);
-      return
+      return;
+    }
+    let { data } = await Request.createTeam({
+      eventId: id,
+      teamName: team?.name,
+    });
+    if (data?.status) {
+      props.toast.toast.success(
+        "Successfully registered team '" +
+          team?.name +
+          "' for " +
+          eventData?.name
+      );
+      setLoading(false);
+      return;
     }
     setLoading(false);
-    props.toast.toast.error("Error while creating team!, ", data?.error?.message)
-  }
+    props.toast.toast.error(
+      "Error while creating team!, ",
+      data?.error?.message
+    );
+  };
 
   const handleJoinTeam = async () => {
     setLoading(true);
-    if(team.id === '') {
-      props.toast.toast.error("Please enter valid Team ID!")
-      setLoading(false)
-      return
+    if (team.id === "") {
+      props.toast.toast.error("Please enter valid Team ID!");
+      setLoading(false);
+      return;
     }
     await Request.joinTeam({ eventId: id, teamId: team?.id })
-    .then((res) => {
+      .then((res) => {
         console.log(res);
         if (res?.data?.status) {
           props.toast.toast.message(
             "Successfully joined team with Team ID: " + team?.id
           );
         } else {
-          props.toast.toast.error("Error while joining team!, ", res?.data?.error?.message);
+          props.toast.toast.error("Error: ", res?.data?.error?.message);
           setLoading(false);
           // setJoinTeamError(res?.data?.error);
         }
@@ -71,7 +82,7 @@ const EventDetails = (props) => {
         );
       });
     setLoading(false);
-  }
+  };
 
   async function fetchEventData() {
     setLoading(true);
@@ -112,10 +123,13 @@ const EventDetails = (props) => {
             }
             if (eventData?.teamSize > 1) {
               props.toast.toast(
-                `Registered for the event ${participatedEvent.teamId &&
-                `with Team ID ${participatedEvent.teamId}`
-                }`)
-            } else props.toast.toast(`You have already registered for the event`);
+                `Registered for the event ${
+                  participatedEvent.teamId &&
+                  `with Team ID ${participatedEvent.teamId}`
+                }`
+              );
+            } else
+              props.toast.toast(`You have already registered for the event`);
           }
           setLoading(false);
         }, 2500);
@@ -158,7 +172,11 @@ const EventDetails = (props) => {
             <div className="event-fees text-blue-400 text-lg font-bold text-left  tracking-widest grid grid-cols-2 place-items-center">
               <div className="flex space-x-2">
                 <div className="text-gray-200 font-thin">Fees: </div>
-                {eventData?.fees === (0 || '0') ? <div className="text-green">Free</div> : <div>Rs. {eventData?.fees}</div>}
+                {eventData?.fees === (0 || "0") ? (
+                  <div className="text-green">Free</div>
+                ) : (
+                  <div>Rs. {eventData?.fees}</div>
+                )}
               </div>
               <div className="flex space-x-2">
                 <div className="text-gray-200 font-thin">Team Size: </div>
@@ -202,10 +220,12 @@ const EventDetails = (props) => {
                           eventDetails={eventData}
                           teamName={team?.name}
                           buttonName="Register as Team"
-                        /> */} {/*//! Team events are made free so no need of Razorpay!*/}
+                        /> */}{" "}
+                        {/*//! Team events are made free so no need of Razorpay!*/}
                         <button
                           className="border-2 border-solid p-2"
-                          onClick={handleCreateTeam}>
+                          onClick={handleCreateTeam}
+                        >
                           Register as Team
                         </button>
                         <input
@@ -216,7 +236,9 @@ const EventDetails = (props) => {
                           onChange={handleInputChange}
                           value={team?.name}
                         />
-                        <div className="text-gray-400 font-bold col-span-2">OR</div>
+                        <div className="text-gray-400 font-bold col-span-2">
+                          OR
+                        </div>
                         <div className="space-x-2 col-span-2">
                           <input
                             type="text"
@@ -248,7 +270,14 @@ const EventDetails = (props) => {
                     //   eventDetails={eventData}
                     //   buttonName={"Participate"}
                     // />{/*//! Not using embedded Razorpay popup instead using redirects */}
-                    <a href={eventData?.paymentLink + '?eventId=' + id} rel="noopener noreferrer" target="_blank" className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg">Register and Pay</a>
+                    <a
+                      href={eventData?.paymentLink + "?eventId=" + id}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
+                    >
+                      Register and Pay
+                    </a>
                   )}
                 </div>
               </>
