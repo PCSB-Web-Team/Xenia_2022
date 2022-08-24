@@ -25,11 +25,11 @@ const EventDetails = (props) => {
       ...previousState,
       [event.target.name]: event.target.value,
     }));
-  }
+  };
 
   const handleRegisterEvent = async () => {
     setLoading(true);
-    let { data } = await Request.createTeam({ eventId: id });
+    let { data } = await Request.registerEvent({ eventId: id });
     if (data?.status) {
       props.toast.toast.success("Successfully registered for " + eventData?.name)
       setLoading(false);
@@ -46,22 +46,33 @@ const EventDetails = (props) => {
       setLoading(false)
       return
     }
-    let { data } = await Request.createTeam({ eventId: id, teamName: team?.name });
+    let { data } = await Request.createTeam({
+      eventId: id,
+      teamName: team?.name,
+    });
     if (data?.status) {
-      props.toast.toast.success("Successfully registered team '" + team?.name + "' for " + eventData?.name)
+      props.toast.toast.success(
+        "Successfully registered team '" +
+        team?.name +
+        "' for " +
+        eventData?.name
+      );
       setLoading(false);
-      return
+      return;
     }
     setLoading(false);
-    props.toast.toast.error("Error while creating team!, ", data?.error?.message)
-  }
+    props.toast.toast.error(
+      "Error while creating team!, ",
+      data?.error?.message
+    );
+  };
 
   const handleJoinTeam = async () => {
     setLoading(true);
-    if (team.id === '') {
-      props.toast.toast.error("Please enter valid Team ID!")
-      setLoading(false)
-      return
+    if (team.id === "") {
+      props.toast.toast.error("Please enter valid Team ID!");
+      setLoading(false);
+      return;
     }
     await Request.joinTeam({ eventId: id, teamId: team?.id })
       .then((res) => {
@@ -70,7 +81,7 @@ const EventDetails = (props) => {
             "Successfully joined team with Team ID: " + team?.id
           );
         } else {
-          props.toast.toast.error("Error: ", res.data?.error?.message);
+          props.toast.toast.error("Error: ", res?.data?.error?.message);
           setLoading(false);
           // setJoinTeamError(res?.data?.error);
         }
@@ -82,7 +93,7 @@ const EventDetails = (props) => {
         );
       });
     setLoading(false);
-  }
+  };
 
   async function fetchEventData() {
     setLoading(true);
@@ -125,8 +136,10 @@ const EventDetails = (props) => {
               props.toast.toast(
                 `Registered for the event ${participatedEvent.teamId &&
                 `with Team ID ${participatedEvent.teamId}`
-                }`)
-            } else props.toast.toast(`You have already registered for the event`);
+                }`
+              );
+            } else
+              props.toast.toast(`You have already registered for the event`);
           }
           setLoading(false);
         }, 2500);
@@ -213,10 +226,12 @@ const EventDetails = (props) => {
                           eventDetails={eventData}
                           teamName={team?.name}
                           buttonName="Register as Team"
-                        /> */} {/*//! Team events are made free so no need of Razorpay!*/}
+                        /> */}{" "}
+                        {/*//! Team events are made free so no need of Razorpay!*/}
                         <button
                           className="border-2 border-solid p-2"
-                          onClick={handleCreateTeam}>
+                          onClick={handleCreateTeam}
+                        >
                           Register as Team
                         </button>
                         <input
@@ -227,7 +242,9 @@ const EventDetails = (props) => {
                           onChange={handleInputChange}
                           value={team?.name}
                         />
-                        <div className="text-gray-400 font-bold col-span-2">OR</div>
+                        <div className="text-gray-400 font-bold col-span-2">
+                          OR
+                        </div>
                         <div className="space-x-2 col-span-2">
                           <input
                             type="text"

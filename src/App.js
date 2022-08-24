@@ -38,7 +38,7 @@ function App() {
         setLoading(false);
         // if (res.error) toast.warn("Session expired!")
       }).catch(error => {
-        toast.error("Error: " + error?.message);
+        toast.error("Error: ", error);
         setLoading(false)
       });
     }
