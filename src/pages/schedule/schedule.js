@@ -171,7 +171,8 @@ function Schedule() {
         <p>SCHEDULE</p>
         <Timer />
       </div>
-      <div className="events-schedule">{renderSchedule}</div>
+      {/* <div className="events-schedule">{renderSchedule}</div> */}
+      <h1 className="text-white text-4xl text-center">Schedule is being Updated...Stay Tuned!!</h1>
     </div>
   );
 }
