@@ -79,7 +79,7 @@ const EventDetails = (props) => {
     await Request.joinTeam({ eventId: id, teamId: team?.id })
       .then((res) => {
         if (res?.data?.status) {
-          props.toast.toast.message(
+          props.toast.toast.success(
             "Successfully joined team with Team ID: " + team?.id
           );
         } else {
@@ -89,6 +89,7 @@ const EventDetails = (props) => {
         }
       })
       .catch((error) => {
+        console.log(error);
         props.toast.toast.error(
           "Error: server unreachable, please try again.",
           error
