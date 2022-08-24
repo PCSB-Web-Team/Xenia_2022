@@ -3,6 +3,7 @@ import cion from "../../assets/images/cion.svg";
 import pubmatic from "../../assets/images/PubMatic_Logo.svg";
 import algoanalytics from "../../assets/images/algoanalytics.png";
 import budhani from "../../assets/images/budhani.jpeg";
+import harbinger from "../../assets/images/harbinger.png";
 import "./sponsors.css";
 
 
@@ -33,6 +34,11 @@ const educationSponsors = [
     logo: algoanalytics,
     website: "https://www.algoanalytics.com/",
   },
+  {
+    name: "Harbinger Group",
+    logo: harbinger,
+    website: "https://harbingergroup.com/",
+  }
 ];
 
 const eventSponsors = [
@@ -47,7 +53,8 @@ const foodSponsors = [
   {
     name: "Budhani Bros Waferwala",
     logo: budhani,
-    website: "https://www.budhanibros.com/"
+    website: "https://www.budhanibros.com/",
+    instagram: "https://www.instagram.com/budhanibroswaferwala/"
   }
 ]
 

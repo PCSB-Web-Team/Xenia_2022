@@ -79,7 +79,7 @@ const EventDetails = (props) => {
     await Request.joinTeam({ eventId: id, teamId: team?.id })
       .then((res) => {
         if (res?.data?.status) {
-          props.toast.toast.message(
+          props.toast.toast.success(
             "Successfully joined team with Team ID: " + team?.id
           );
         } else {
@@ -89,6 +89,7 @@ const EventDetails = (props) => {
         }
       })
       .catch((error) => {
+        console.log(error);
         props.toast.toast.error(
           "Error: server unreachable, please try again.",
           error
@@ -189,7 +190,11 @@ const EventDetails = (props) => {
             <div className="event-fees text-blue-400 text-lg font-bold text-left  tracking-widest grid grid-cols-2 place-items-center">
               <div className="flex space-x-2">
                 <div className="text-gray-200 font-thin">Fees: </div>
-                {(eventData?.fees === 0 || eventData?.fees === '0') ? <div className="text-green">Free</div> : <div>Rs. {eventData?.fees}</div>}
+                {eventData?.fees === 0 || eventData?.fees === "0" ? (
+                  <div className="text-green">Free</div>
+                ) : (
+                  <div>Rs. {eventData?.fees}</div>
+                )}
               </div>
               <div className="flex space-x-2">
                 <div className="text-gray-200 font-thin">Team Size: </div>
@@ -202,7 +207,7 @@ const EventDetails = (props) => {
             </p> */}
             {eventData?.isLive ? (
               <p className="event-register-buttons disabled">
-                Registrations closed ! Try with other events.
+                Registrations closed! Try with other events.
               </p>
             ) : (
               <>
@@ -235,22 +240,33 @@ const EventDetails = (props) => {
                           buttonName="Register as Team"
                         /> */}{" "}
                         {/*//! Team events are made free so no need of Razorpay!*/}
-                        <div className="grid grid-cols-2 gap-2">
-                          <input
-                            type="text"
-                            className="p-2 px-4 bg-black/20 outline-none block"
-                            name="name"
-                            placeholder="Create Team Name"
-                            onChange={handleInputChange}
-                            value={team?.name}
-                          />
-                          <button
-                            className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium  px-5 py-2.5 text-center text-lg"
-                            onClick={handleCreateTeam}
+                        {eventData.fees ? (
+                          <a
+                            href={eventData?.paymentLink || "#/event/"}
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
                           >
-                            Register as Team
-                          </button>
-                        </div>
+                            Pay and register
+                          </a>
+                        ) : (
+                          <div className="grid grid-cols-2 gap-2">
+                            <input
+                              type="text"
+                              className="p-2 px-4 bg-black/20 outline-none block"
+                              name="name"
+                              placeholder="Create Team Name"
+                              onChange={handleInputChange}
+                              value={team?.name}
+                            />
+                            <button
+                              className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium  px-5 py-2.5 text-center text-lg"
+                              onClick={handleCreateTeam}
+                            >
+                              Register as Team
+                            </button>
+                          </div>
+                        )}
                         <div className="text-gray-400 font-bold col-span-2">
                           OR
                         </div>

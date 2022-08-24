@@ -35,15 +35,17 @@ const Login = (props) => {
 
   return userState.loggedIn ? (
     <Navigate to={-1} replace={true} />
+  ) : (
     // <>
     //   {props.toast.container}
     //   {/* {setTimeout(() => {
     //   {/* {props.toast.toast.success("Logged In!")} */}
     //   }), 2000} */}
     // </>
-  ) : (
     <>
-      {loading ? props.loading :
+      {loading ? (
+        props.loading
+      ) : (
         <div class="h-screen w-full flex justify-center items-center">
           {props.toast.container}
           <div className=" w-80 md:w-[400px] p-4 bg-black/20 backdrop-blur-md space-y-2 font-light">
@@ -55,30 +57,29 @@ const Login = (props) => {
                   mobile: "",
                   password: "",
                   confirmPassword: "",
-                  year: "FE"
+                  year: "FE",
                 }}
                 validationSchema={validate}
                 onSubmit={async (values) => {
-                  setLoading(true)
+                  setLoading(true);
                   setError("");
                   await dispatch(registerUser(values || null))
                     .unwrap()
-                    .then(({ data: { error } }) => {
-                      setLoading(false)
-                      if (error !== null || error !== {}) {
+                    .then(({ data: { error, status } }) => {
+                      setLoading(false);
+                      if (status) {
                         props.toast.toast.success("Successfully registered!");
                         setTimeout(() => {
                           navigate(-1, { replace: true });
                         }, 2500);
-                      }
-                      else {
+                      } else {
                         props.toast.toast.error("Error: " + error?.message);
-                        setError(error?.message)
+                        setError(error?.message);
                       }
                     })
                     .catch((err) => {
                       props.toast.toast.error("Error: " + err?.message || "");
-                      setLoading(false)
+                      setLoading(false);
                     });
                 }}
               >
@@ -117,7 +118,7 @@ const Login = (props) => {
                         className="w-full rounded border bg-gray-100 border-gray-200 p-2"
                         placeholder={"Password"}
                         name={"password"}
-                        type={"text"}
+                        type={"password"}
                         onChange={formik.handleChange}
                       />
                       {formik.errors.password && (
@@ -129,7 +130,7 @@ const Login = (props) => {
                         className="w-full rounded border bg-gray-100 border-gray-200 p-2"
                         placeholder={"Confirm password"}
                         name={"confirmPassword"}
-                        type={"text"}
+                        type={"password"}
                         onChange={formik.handleChange}
                       />
                       {formik.errors.confirmPassword && (
@@ -189,7 +190,9 @@ const Login = (props) => {
                         </button>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <div className="text-white">Already have an account ?</div>
+                        <div className="text-white">
+                          Already have an account ?
+                        </div>
                         <button
                           onClick={toggleMode}
                           className="p-2 bg-sky-600 px-4 text-white"
@@ -212,12 +215,12 @@ const Login = (props) => {
                   password: Validators.stringRequired,
                 })}
                 onSubmit={async (values) => {
-                  setLoading(true)
+                  setLoading(true);
                   setError("");
                   await dispatch(loginUser(values || null))
                     .unwrap()
                     .then(({ data: { data, status, error } }) => {
-                      setLoading(false)
+                      setLoading(false);
                       if (status) {
                         props.toast.toast.success("Logged In!");
                         setTimeout(() => {
@@ -225,12 +228,12 @@ const Login = (props) => {
                         }, 2000);
                       } else {
                         props.toast.toast.error("Error: " + error?.message);
-                        setError(error?.message)
+                        setError(error?.message);
                       }
                     })
                     .catch((err) => {
                       props.toast.toast.error("Error: " + err?.message || "");
-                      setLoading(false)
+                      setLoading(false);
                     });
                 }}
               >
@@ -291,7 +294,8 @@ const Login = (props) => {
               </Formik>
             )}
           </div>
-        </div>}
+        </div>
+      )}
     </>
   );
 };
