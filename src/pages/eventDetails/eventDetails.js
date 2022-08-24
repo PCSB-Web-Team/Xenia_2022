@@ -32,13 +32,13 @@ const EventDetails = (props) => {
     let { data } = await Request.registerEvent({ eventId: id });
     if (data?.status) {
       props.toast.toast.success(
-        "Successfully registered for " + eventData?.name
+        "Successfully registered for " + eventData?.name || ""
       );
       setLoading(false);
       return;
     }
     setLoading(false);
-    props.toast.toast.error("Error: " + data?.error?.message);
+    props.toast.toast.error("Error: " + data?.error?.message || "");
   };
 
   const handleCreateTeam = async () => {
@@ -64,8 +64,8 @@ const EventDetails = (props) => {
     }
     setLoading(false);
     props.toast.toast.error(
-      "Error while creating team!, ",
-      data?.error?.message
+      "Error while creating team!, "+
+      data?.error?.message || ""
     );
   };
 
@@ -83,7 +83,7 @@ const EventDetails = (props) => {
             "Successfully joined team with Team ID: " + team?.id
           );
         } else {
-          props.toast.toast.error("Error: ", res?.data?.error?.message);
+          props.toast.toast.error("Error: "+ res?.data?.error?.message || "");
           setLoading(false);
           // setJoinTeamError(res?.data?.error);
         }
@@ -91,8 +91,8 @@ const EventDetails = (props) => {
       .catch((error) => {
         console.log(error);
         props.toast.toast.error(
-          "Error: server unreachable, please try again.",
-          error
+          "Error: server unreachable, please try again. "+
+          error || ""
         );
       });
     setLoading(false);
@@ -107,8 +107,8 @@ const EventDetails = (props) => {
       } else navigate("404");
     } catch (error) {
       props.toast.toast.error(
-        "Error: server unreachable, at the moment.",
-        error
+        "Error: server unreachable, at the moment. "+
+        error || ""
       );
       navigate("404");
     }
@@ -151,8 +151,8 @@ const EventDetails = (props) => {
       });
     } catch (error) {
       props.toast.toast.error(
-        "Error: couldn't fetch participation information.",
-        error
+        "Error: couldn't fetch participation information." +
+        error || ""
       );
     }
   }
