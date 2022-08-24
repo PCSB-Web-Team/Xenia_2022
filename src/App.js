@@ -3,6 +3,7 @@ import Loader from "./components/loader";
 // import Home3 from "./pages/home3/home3";
 import Home4 from "./pages/home4/home4";
 import Navbar from "./components/Navbarnew";
+import Background from "./components/background";
 // import Homepage from "./pages/home/home";
 import Auth from "./pages/auth/auth";
 import Footer from "./components/footer";
@@ -19,11 +20,12 @@ import Sponsors from "./pages/sponsors/sponsors";
 import WebTeam from "./pages/webTeam/webTeam";
 import ErrorPage from "./pages/404/Error";
 // import ProtectedRoute from "./routes/protectedRoute";
+import { todaysDate } from "./utils/dateParsers";
 import toast, { ToastUtils } from "./utils/toastifyContainer";
 import { AuthVerify } from "./utils/authVerify";
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Background from "./components/background";
+import Admin from "./pages/admin/admin";
 // import IndustryTalkDetail from "./pages/industryTalks/industryTalksDetail/industryTalkDetail";
 // import AnimatedCursor from "react-animated-cursor";
 import "./App.css";
@@ -43,6 +45,7 @@ function App() {
       });
     }
     fetchToken();
+    console.log(process.env.REACT_APP_ADMIN_ROUTE + "_" + todaysDate[0] + "_" + todaysDate[1] + "_" + todaysDate[2]);
   }, []);
 
   return (
@@ -122,6 +125,7 @@ function App() {
               path="/contact-us"
               element={<ContactUs loader={<Loader />} toast={{ container: <ToastUtils />, toast }} />}
             />
+            <Route path={"/" + process.env.REACT_APP_ADMIN_ROUTE + "_" + todaysDate[0] + "_" + todaysDate[1] + "_" + todaysDate[2]} element={<Admin loader={<Loader />} />} />
             <Route path="/web-team" element={<WebTeam loader={<Loader />} />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>

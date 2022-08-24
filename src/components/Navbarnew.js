@@ -20,7 +20,7 @@ const Navbarnew = (props) => {
           Logout
         </button>
         : <button className="bg-transparent text-blue-700 font-semibold hover:text-white py-3 px-7 rounded">
-          <Link to="/auth">Login</Link>
+          <Link to="/auth" onClick={() => { setNavOpen(false) }}>Login</Link>
         </button>}
     </div>
   }

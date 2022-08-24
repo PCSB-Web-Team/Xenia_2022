@@ -55,9 +55,9 @@ const EventDetails = (props) => {
     if (data?.status) {
       props.toast.toast.success(
         "Successfully registered team '" +
-          team?.name +
-          "' for " +
-          eventData?.name
+        team?.name +
+        "' for " +
+        eventData?.name
       );
       setLoading(false);
       return;
@@ -137,9 +137,8 @@ const EventDetails = (props) => {
             }
             if (eventData?.teamSize > 1) {
               props.toast.toast(
-                `Registered for the event ${
-                  participatedEvent.teamId &&
-                  `with Team ID ${participatedEvent.teamId}`
+                `Registered for the event ${participatedEvent.teamId &&
+                `with Team ID ${participatedEvent.teamId}`
                 }`
               );
             } else {
@@ -158,6 +157,10 @@ const EventDetails = (props) => {
   }
 
   useEffect(() => {
+    if(!userState.loggedIn) {
+      console.log(userState.loggedIn);
+      props.toast.toast.warn("You are not logged in! Login or try refreshing the page.")}
+  
     fetchEventData();
     fetchIsUserParticipated();
   }, [id]);
@@ -290,30 +293,30 @@ const EventDetails = (props) => {
                       Registered Successfully
                     </div>
                   ) : // <PayByRazor
-                  //   handleLoading={setLoading}
-                  //   className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
-                  //   eventId={id}
-                  //   userDetails={userState?.userDetails}
-                  //   eventDetails={eventData}
-                  //   buttonName={"Participate"}
-                  // />{/*//! Not using embedded Razorpay popup instead using redirects */}
-                  eventData?.fees === 0 ? (
-                    <button
-                      className="border-2 border-solid p-2"
-                      onClick={handleRegisterEvent}
-                    >
-                      Register
-                    </button>
-                  ) : (
-                    <a
-                      href={eventData?.paymentLink || "#/event/"}
-                      rel="noopener noreferrer"
-                      target="_blank"
-                      className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
-                    >
-                      Pay and register
-                    </a>
-                  )}
+                    //   handleLoading={setLoading}
+                    //   className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
+                    //   eventId={id}
+                    //   userDetails={userState?.userDetails}
+                    //   eventDetails={eventData}
+                    //   buttonName={"Participate"}
+                    // />{/*//! Not using embedded Razorpay popup instead using redirects */}
+                    eventData?.fees === 0 ? (
+                      <button
+                        className="border-2 border-solid p-2"
+                        onClick={handleRegisterEvent}
+                      >
+                        Register
+                      </button>
+                    ) : (
+                      <a
+                        href={eventData?.paymentLink || "#/event/"}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
+                      >
+                        Register and Pay
+                      </a>
+                    )}
                 </div>
               </>
             )}
