@@ -182,7 +182,7 @@ const EventDetails = (props) => {
             <div className="event-fees text-blue-400 text-lg font-bold text-left  tracking-widest grid grid-cols-2 place-items-center">
               <div className="flex space-x-2">
                 <div className="text-gray-200 font-thin">Fees: </div>
-                {eventData?.fees === 0 ? <div className="text-green">Free</div> : <div>Rs. {eventData?.fees}</div>}
+                {(eventData?.fees === 0 || eventData?.fees === '0') ? <div className="text-green">Free</div> : <div>Rs. {eventData?.fees}</div>}
               </div>
               <div className="flex space-x-2">
                 <div className="text-gray-200 font-thin">Team Size: </div>
@@ -228,20 +228,22 @@ const EventDetails = (props) => {
                           buttonName="Register as Team"
                         /> */}{" "}
                         {/*//! Team events are made free so no need of Razorpay!*/}
-                        <button
-                          className="border-2 border-solid p-2"
-                          onClick={handleCreateTeam}
-                        >
-                          Register as Team
-                        </button>
-                        <input
-                          type="text"
-                          className="p-2 bg-black/20 outline-none block"
-                          name="name"
-                          placeholder="Create Team Name"
-                          onChange={handleInputChange}
-                          value={team?.name}
-                        />
+                        <div className="grid grid-cols-2 gap-2">
+                          <input
+                            type="text"
+                            className="p-2 px-4 bg-black/20 outline-none block"
+                            name="name"
+                            placeholder="Create Team Name"
+                            onChange={handleInputChange}
+                            value={team?.name}
+                          />
+                          <button
+                            className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium  px-5 py-2.5 text-center text-lg"
+                            onClick={handleCreateTeam}
+                          >
+                            Register as Team
+                          </button>
+                        </div>
                         <div className="text-gray-400 font-bold col-span-2">
                           OR
                         </div>

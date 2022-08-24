@@ -1,10 +1,29 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { logoutUser } from "../store/middleware";
+import store from "../store";
 import "./Navbarnew.css";
 
-const Navbarnew = () => {
+const Navbarnew = (props) => {
   const [navOpen, setNavOpen] = useState(false);
+
+  async function handleLogout() {
+    store.dispatch(logoutUser());
+    props.toast.toast((store.getState().user?.userDetails?.name || "") + ', logged out!')
+    window.location.reload(true)
+  }
+
+  function loginStateButtons() {
+    return <div className="login-actions">
+      {store.getState().user?.loggedIn ?
+        <button className="bg-transparent text-blue-700 font-semibold hover:text-white py-3 px-7 rounded" onClick={handleLogout}>
+          Logout
+        </button>
+        : <button className="bg-transparent text-blue-700 font-semibold hover:text-white py-3 px-7 rounded">
+          <Link to="/auth">Login</Link>
+        </button>}
+    </div>
+  }
 
   return (
     <div className="navbar-wrapper">
@@ -30,6 +49,7 @@ const Navbarnew = () => {
       </svg>
       <div className="navbar-desktop">
         <div className={`wrapper ${navOpen ? "active" : ""}`}>
+          {props.toast.container}
           <div className="left">
             <nav>
               <div className="op">
@@ -297,11 +317,13 @@ const Navbarnew = () => {
               </div>
             </nav>
           </div>
+          {loginStateButtons()}
         </div>
       </div>
 
       <div className="navbar-mobile">
         <div className={`wrapper ${navOpen ? "active" : ""}`}>
+          {props.toast.container}
           <ul className="fa-ul">
             <li>
               <Link
@@ -389,6 +411,7 @@ const Navbarnew = () => {
               </Link>
             </li>
           </ul>
+          {loginStateButtons()}
         </div>
       </div>
     </div>

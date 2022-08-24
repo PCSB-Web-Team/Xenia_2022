@@ -23,8 +23,7 @@ const setParticipations = createAsyncThunk(
 
 const logoutUser = createAsyncThunk(
   "user/logoutUser",
-  async () => { localStorage.removeItem(process.env.REACT_APP_TOKEN_NAME) }
-);
+  async () => (new Promise((resolve) => resolve())));
 
 export {
   loginUser,

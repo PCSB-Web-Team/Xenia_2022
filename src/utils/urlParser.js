@@ -1,5 +1,5 @@
-const urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+import { websiteRegex } from "./regex";
 
 export default function parseURL(text) {
-    return text.match(urlRegex)
+    return text.match(websiteRegex)
 }

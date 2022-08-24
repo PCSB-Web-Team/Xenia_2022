@@ -5,7 +5,7 @@ import { Validators } from "../../utils";
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux/es/exports";
-import { loginUser, registerUser, logoutUser } from "../../store/middleware";
+import { loginUser, registerUser } from "../../store/middleware";
 
 const Login = (props) => {
   const [loading, setLoading] = useState(false);
@@ -38,7 +38,7 @@ const Login = (props) => {
     // <>
     //   {props.toast.container}
     //   {/* {setTimeout(() => {
-      //   {/* {props.toast.toast.success("Logged In!")} */}
+    //   {/* {props.toast.toast.success("Logged In!")} */}
     //   }), 2000} */}
     // </>
   ) : (
@@ -69,19 +69,17 @@ const Login = (props) => {
                         props.toast.toast.success("Successfully registered!");
                         setTimeout(() => {
                           navigate(-1, { replace: true });
-                        }, 3000);
+                        }, 2500);
                       }
                       else {
                         props.toast.toast.error("Error: " + error?.message);
                         setError(error?.message)
-                        setLoading(false)
                       }
                     })
                     .catch((err) => {
-                      props.toast.toast.error("Error: " + err);
+                      props.toast.toast.error("Error: " + err?.message || "");
                       setLoading(false)
                     });
-                  // await dispatch(logoutUser()) //! working, but just we need is a logout button to display in Navbar
                 }}
               >
                 {(formik) => {
@@ -224,19 +222,16 @@ const Login = (props) => {
                         props.toast.toast.success("Logged In!");
                         setTimeout(() => {
                           return navigate(-1, { replace: true });
-                        }, 1000);
+                        }, 2000);
                       } else {
                         props.toast.toast.error("Error: " + error?.message);
                         setError(error?.message)
-                        setLoading(false)
                       }
                     })
                     .catch((err) => {
-                      console.log(err);
-                      props.toast.toast.error("Error: " + err);
+                      props.toast.toast.error("Error: " + err?.message || "");
                       setLoading(false)
                     });
-                  // await dispatch(logoutUser()) //! working, but just we need is a logout button to display in Navbar
                 }}
               >
                 {(formik) => {

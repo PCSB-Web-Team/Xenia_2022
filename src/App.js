@@ -34,11 +34,11 @@ function App() {
   useEffect(() => {
     async function fetchToken() {
       setLoading(true);
-      await AuthVerify({ getUserDetails: true }).then((res) => {
+      await AuthVerify({ getUserDetails: true }).then(() => {
         setLoading(false);
         // if (res.error) toast.warn("Session expired!")
       }).catch(error => {
-        toast.error("Error: ", error);
+        toast.error("Error: " + error.message);
         setLoading(false)
       });
     }
@@ -79,7 +79,7 @@ function App() {
       <Background></Background>
       {loading ? <Loader></Loader> :
         <>
-          <Navbar />
+          <Navbar toast={{ container: <ToastUtils />, toast }} />
           <Routes>
             {/* <Route path="/" element={<Homepage loader={<PreLoader />} />} />
           <Route path="/home2" element={<Home2 loader={<Loader />} />} /> */}

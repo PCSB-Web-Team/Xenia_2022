@@ -154,6 +154,9 @@ export const userSlice = createSlice({
     );
     builder.addCase(setParticipations.rejected, (state) => ({ ...state }));
 
-    builder.addCase(logoutUser.fulfilled, () => ({ ...initialState }));
+    builder.addCase(logoutUser.fulfilled, () => {
+      localStorage.removeItem(process.env.REACT_APP_TOKEN_NAME)
+      return { ...initialState }
+    });
   },
 });

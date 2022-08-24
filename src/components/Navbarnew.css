@@ -272,6 +272,29 @@
   fill: #0f114ab8;
 }
 
+.navbar-desktop .wrapper .login-actions {
+  position: absolute;
+  bottom: 30px;
+  margin: 0 auto;
+  display: flex;
+  width: 60%;
+  min-width: 140px;
+  min-height: 50px;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.navbar-desktop .wrapper .login-actions button {
+  font-size: 1.2rem;
+  border: 2px solid rgb(34, 110, 251);
+}
+
+.navbar-desktop .wrapper .login-actions button:hover {
+  background-color: #07448a;
+  border: 2px solid transparent;
+}
+
 /* Mobile Styling */
 
 .navbar-mobile .wrapper.active {
