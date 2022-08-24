@@ -10,7 +10,7 @@ import Footer from "./components/footer";
 import Sidebar from "./components/sidebar";
 import Schedule from "./pages/schedule/schedule";
 import Events from "./pages/events/events";
-import IndustryTalks from "./pages/industryTalks/industryTalks";
+// import IndustryTalks from "./pages/industryTalks/industryTalks";
 import Profile from "./pages/profile/profile";
 import SideEvents from "./pages/sideEvents/sideEvents";
 import EventDetails from "./pages/eventDetails/eventDetails";
@@ -24,7 +24,7 @@ import { AuthVerify } from "./utils/authVerify";
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Background from "./components/background";
-import IndustryTalkDetail from "./pages/industryTalks/industryTalksDetail/industryTalkDetail";
+// import IndustryTalkDetail from "./pages/industryTalks/industryTalksDetail/industryTalkDetail";
 // import AnimatedCursor from "react-animated-cursor";
 import "./App.css";
 
@@ -95,15 +95,15 @@ function App() {
               path="/side-events"
               element={<SideEvents loader={<Loader />} />}
             />
-            <Route
+            {/* <Route
               path="/industry-talks"
               element={<IndustryTalks loader={<Loader />} />}
-            />
-            <Route
+            /> */}
+            {/* <Route
               path="/industry-talks/:id"
               element={<IndustryTalkDetail />}
               loader={<Loader />}
-            />
+            /> */}
             <Route
               path="/events/:id"
               element={<EventDetails loader={<Loader />} toast={{ container: <ToastUtils />, toast }} />}

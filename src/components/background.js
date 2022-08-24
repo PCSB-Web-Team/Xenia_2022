@@ -1,9 +1,6 @@
-import React from "react";
 import "./background.css";
 import Earth from "../assets/images/background/earth.png";
 import Pattern from "../assets/images/background/bg1.png";
-import BitcoinBlue from "../assets/images/background/bitcoinblue.png";
-import Abstract from "../assets/images/background/abstract.png";
 
 export default function Background() {
   return (
