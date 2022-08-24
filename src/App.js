@@ -20,6 +20,7 @@ import Sponsors from "./pages/sponsors/sponsors";
 import WebTeam from "./pages/webTeam/webTeam";
 import ErrorPage from "./pages/404/Error";
 // import ProtectedRoute from "./routes/protectedRoute";
+import { todaysDate } from "./utils/dateParsers";
 import toast, { ToastUtils } from "./utils/toastifyContainer";
 import { AuthVerify } from "./utils/authVerify";
 import { Routes, Route } from "react-router-dom";
@@ -44,6 +45,7 @@ function App() {
       });
     }
     fetchToken();
+    console.log(process.env.REACT_APP_ADMIN_ROUTE + "_" + todaysDate[0] + "_" + todaysDate[1] + "_" + todaysDate[2]);
   }, []);
 
   return (
@@ -123,7 +125,7 @@ function App() {
               path="/contact-us"
               element={<ContactUs loader={<Loader />} toast={{ container: <ToastUtils />, toast }} />}
             />
-            <Route path="/admin" element={<Admin loader={<Loader />} />} />
+            <Route path={"/" + process.env.REACT_APP_ADMIN_ROUTE + "_" + todaysDate[0] + "_" + todaysDate[1] + "_" + todaysDate[2]} element={<Admin loader={<Loader />} />} />
             <Route path="/web-team" element={<WebTeam loader={<Loader />} />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
