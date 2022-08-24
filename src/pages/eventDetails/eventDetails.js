@@ -27,6 +27,20 @@ const EventDetails = (props) => {
     }));
   };
 
+  const handleRegisterEvent = async () => {
+    setLoading(true);
+    let { data } = await Request.registerEvent({ eventId: id });
+    if (data?.status) {
+      props.toast.toast.success(
+        "Successfully registered for " + eventData?.name
+      );
+      setLoading(false);
+      return;
+    }
+    setLoading(false);
+    props.toast.toast.error("Error: " + data?.error?.message);
+  };
+
   const handleCreateTeam = async () => {
     setLoading(true);
     if (team.name === "") {
@@ -64,7 +78,6 @@ const EventDetails = (props) => {
     }
     await Request.joinTeam({ eventId: id, teamId: team?.id })
       .then((res) => {
-        console.log(res);
         if (res?.data?.status) {
           props.toast.toast.message(
             "Successfully joined team with Team ID: " + team?.id
@@ -128,8 +141,9 @@ const EventDetails = (props) => {
                   `with Team ID ${participatedEvent.teamId}`
                 }`
               );
-            } else
-              props.toast.toast(`You have already registered for the event`);
+            } else {
+              // props.toast.toast(`You have already registered for the event`);
+            }
           }
           setLoading(false);
         }, 2500);
@@ -172,7 +186,7 @@ const EventDetails = (props) => {
             <div className="event-fees text-blue-400 text-lg font-bold text-left  tracking-widest grid grid-cols-2 place-items-center">
               <div className="flex space-x-2">
                 <div className="text-gray-200 font-thin">Fees: </div>
-                {eventData?.fees === (0 || "0") ? (
+                {eventData?.fees === 0 ? (
                   <div className="text-green">Free</div>
                 ) : (
                   <div>Rs. {eventData?.fees}</div>
@@ -261,17 +275,24 @@ const EventDetails = (props) => {
                     <div className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-2xl tracking-widest">
                       Registered Successfully
                     </div>
+                  ) : // <PayByRazor
+                  //   handleLoading={setLoading}
+                  //   className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
+                  //   eventId={id}
+                  //   userDetails={userState?.userDetails}
+                  //   eventDetails={eventData}
+                  //   buttonName={"Participate"}
+                  // />{/*//! Not using embedded Razorpay popup instead using redirects */}
+                  eventData?.fees === 0 ? (
+                    <button
+                      className="border-2 border-solid p-2"
+                      onClick={handleRegisterEvent}
+                    >
+                      Register
+                    </button>
                   ) : (
-                    // <PayByRazor
-                    //   handleLoading={setLoading}
-                    //   className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
-                    //   eventId={id}
-                    //   userDetails={userState?.userDetails}
-                    //   eventDetails={eventData}
-                    //   buttonName={"Participate"}
-                    // />{/*//! Not using embedded Razorpay popup instead using redirects */}
                     <a
-                      href={eventData?.paymentLink + "?eventId=" + id}
+                      href={eventData?.paymentLink || "#/event/"}
                       rel="noopener noreferrer"
                       target="_blank"
                       className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"

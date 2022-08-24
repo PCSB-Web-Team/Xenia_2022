@@ -22,7 +22,6 @@ export const AuthVerify = async ({ getUserDetails, getParticipations }) => {
                 return new Promise((resolve) => (resolve(store.getState().user)))
             })
             .catch(error => {
-                console.error(error)
                 return Promise.reject(error)
             })
     }
