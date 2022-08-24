@@ -62,7 +62,7 @@ const Events = (props) => {
           <div className="text-center place-items-center mx-auto md:w-5/6 p-4 gap-4">
             {events.map((event) => (
               <Link
-                to={`/events/${event._id}`}
+                to={`/events/${event?._id}`}
                 onClick={() => (document.documentElement.scrollTop = 0)}
               >
                 <div className="group relative hover:scale-105 ease-in-out transition-all inline-block m-4 align-top">

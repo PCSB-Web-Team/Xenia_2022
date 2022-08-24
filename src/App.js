@@ -36,9 +36,9 @@ function App() {
       setLoading(true);
       await AuthVerify({ getUserDetails: true }).then((res) => {
         setLoading(false);
-        if (res.error) toast.warn("Session expired!")
+        // if (res.error) toast.warn("Session expired!")
       }).catch(error => {
-        toast.error("Error: ", error);
+        toast.error("Error: " + error?.message);
         setLoading(false)
       });
     }

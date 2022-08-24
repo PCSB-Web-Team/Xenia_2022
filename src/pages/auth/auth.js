@@ -72,12 +72,13 @@ const Login = (props) => {
                         }, 3000);
                       }
                       else {
-                        props.toast.toast.error("Error: couldn't register!", error?.message);
-                        setError(error.message);
+                        props.toast.toast.error("Error: " + error?.message);
+                        setError(error?.message)
+                        setLoading(false)
                       }
                     })
                     .catch((err) => {
-                      props.toast.toast.error("Error: ", err);
+                      props.toast.toast.error("Error: " + err);
                       setLoading(false)
                     });
                   // await dispatch(logoutUser()) //! working, but just we need is a logout button to display in Navbar
@@ -220,18 +221,19 @@ const Login = (props) => {
                     .then(({ data: { data, status, error } }) => {
                       setLoading(false)
                       if (status) {
-                        console.log(data);
                         props.toast.toast.success("Logged In!");
                         setTimeout(() => {
                           return navigate(-1, { replace: true });
                         }, 1000);
                       } else {
-                        props.toast.toast.error("Error: couldn't login!", error?.message);
-                        setError(error.message);
+                        props.toast.toast.error("Error: " + error?.message);
+                        setError(error?.message)
+                        setLoading(false)
                       }
                     })
                     .catch((err) => {
-                      props.toast.toast.error("Error: ", err);
+                      console.log(err);
+                      props.toast.toast.error("Error: " + err);
                       setLoading(false)
                     });
                   // await dispatch(logoutUser()) //! working, but just we need is a logout button to display in Navbar

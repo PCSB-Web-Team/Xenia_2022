@@ -27,9 +27,21 @@ const EventDetails = (props) => {
     }));
   }
 
+  const handleRegisterEvent = async () => {
+    setLoading(true);
+    let { data } = await Request.createTeam({ eventId: id });
+    if (data?.status) {
+      props.toast.toast.success("Successfully registered for " + eventData?.name)
+      setLoading(false);
+      return
+    }
+    setLoading(false);
+    props.toast.toast.error("Error: " + data?.error?.message)
+  }
+
   const handleCreateTeam = async () => {
     setLoading(true);
-    if(team.name === '') {
+    if (team.name === '') {
       props.toast.toast.error("Please enter valid Team Name!")
       setLoading(false)
       return
@@ -46,20 +58,19 @@ const EventDetails = (props) => {
 
   const handleJoinTeam = async () => {
     setLoading(true);
-    if(team.id === '') {
+    if (team.id === '') {
       props.toast.toast.error("Please enter valid Team ID!")
       setLoading(false)
       return
     }
     await Request.joinTeam({ eventId: id, teamId: team?.id })
-    .then((res) => {
-        console.log(res);
+      .then((res) => {
         if (res?.data?.status) {
           props.toast.toast.message(
             "Successfully joined team with Team ID: " + team?.id
           );
         } else {
-          props.toast.toast.error("Error while joining team!, ", res?.data?.error?.message);
+          props.toast.toast.error("Error: ", res.data?.error?.message);
           setLoading(false);
           // setJoinTeamError(res?.data?.error);
         }
@@ -158,7 +169,7 @@ const EventDetails = (props) => {
             <div className="event-fees text-blue-400 text-lg font-bold text-left  tracking-widest grid grid-cols-2 place-items-center">
               <div className="flex space-x-2">
                 <div className="text-gray-200 font-thin">Fees: </div>
-                {eventData?.fees === (0 || '0') ? <div className="text-green">Free</div> : <div>Rs. {eventData?.fees}</div>}
+                {eventData?.fees === 0 ? <div className="text-green">Free</div> : <div>Rs. {eventData?.fees}</div>}
               </div>
               <div className="flex space-x-2">
                 <div className="text-gray-200 font-thin">Team Size: </div>
@@ -248,7 +259,13 @@ const EventDetails = (props) => {
                     //   eventDetails={eventData}
                     //   buttonName={"Participate"}
                     // />{/*//! Not using embedded Razorpay popup instead using redirects */}
-                    <a href={eventData?.paymentLink + '?eventId=' + id} rel="noopener noreferrer" target="_blank" className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg">Register and Pay</a>
+                    eventData?.fees === 0 ?
+                      <button
+                        className="border-2 border-solid p-2"
+                        onClick={handleRegisterEvent}>
+                        Register
+                      </button>
+                      : <a href={eventData?.paymentLink || "#/event/"} rel="noopener noreferrer" target="_blank" className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg">Register and Pay</a>
                   )}
                 </div>
               </>
