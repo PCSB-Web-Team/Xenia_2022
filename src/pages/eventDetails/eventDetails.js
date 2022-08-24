@@ -1,6 +1,6 @@
 // import "./eventDetails.css";
 import Request from "../../api/requests";
-import PayByRazor from "../../api/payments";
+// import PayByRazor from "../../api/payments";
 import { AuthVerify } from "../../utils/authVerify";
 import { useSelector } from "react-redux/es/exports";
 import { useEffect, useState } from "react";
@@ -27,22 +27,70 @@ const EventDetails = (props) => {
     }));
   };
 
+  const handleRegisterEvent = async () => {
+    setLoading(true);
+    let { data } = await Request.registerEvent({ eventId: id });
+    if (data?.status) {
+      props.toast.toast.success(
+        "Successfully registered for " + eventData?.name
+      );
+      setLoading(false);
+      return;
+    }
+    setLoading(false);
+    props.toast.toast.error("Error: " + data?.error?.message);
+  };
+
+  const handleCreateTeam = async () => {
+    setLoading(true);
+    if (team.name === "") {
+      props.toast.toast.error("Please enter valid Team Name!");
+      setLoading(false);
+      return;
+    }
+    let { data } = await Request.createTeam({
+      eventId: id,
+      teamName: team?.name,
+    });
+    if (data?.status) {
+      props.toast.toast.success(
+        "Successfully registered team '" +
+          team?.name +
+          "' for " +
+          eventData?.name
+      );
+      setLoading(false);
+      return;
+    }
+    setLoading(false);
+    props.toast.toast.error(
+      "Error while creating team!, ",
+      data?.error?.message
+    );
+  };
+
   const handleJoinTeam = async () => {
     setLoading(true);
-    await Request.joinTeam({ eventId: id, teamId: team.id })
+    if (team.id === "") {
+      props.toast.toast.error("Please enter valid Team ID!");
+      setLoading(false);
+      return;
+    }
+    await Request.joinTeam({ eventId: id, teamId: team?.id })
       .then((res) => {
         if (res?.data?.status) {
           props.toast.toast.message(
-            "Successfully joined team with Team ID: " + team.id
+            "Successfully joined team with Team ID: " + team?.id
           );
         } else {
-          props.toast.toast.error(res?.data?.error?.message);
+          props.toast.toast.error("Error: ", res?.data?.error?.message);
+          setLoading(false);
           // setJoinTeamError(res?.data?.error);
         }
       })
       .catch((error) => {
         props.toast.toast.error(
-          "Error: server unreachable, please try again.\n",
+          "Error: server unreachable, please try again.",
           error
         );
       });
@@ -58,7 +106,7 @@ const EventDetails = (props) => {
       } else navigate("404");
     } catch (error) {
       props.toast.toast.error(
-        "Error: server unreachable, at the moment.\n",
+        "Error: server unreachable, at the moment.",
         error
       );
       navigate("404");
@@ -80,24 +128,29 @@ const EventDetails = (props) => {
               ...previousState,
               isParticipated: true,
             }));
-            props.toast.toast(
-              `Registered for the event ${
-                participatedEvent.teamId &&
-                `with Team ID ${participatedEvent.teamId}`
-              }`
-            );
-            if (participatedEvent.teamId)
+            if (participatedEvent.teamId) {
               setTeam((previousState) => ({
                 ...previousState,
                 id: participatedEvent.teamId,
               }));
+            }
+            if (eventData?.teamSize > 1) {
+              props.toast.toast(
+                `Registered for the event ${
+                  participatedEvent.teamId &&
+                  `with Team ID ${participatedEvent.teamId}`
+                }`
+              );
+            } else {
+              // props.toast.toast(`You have already registered for the event`);
+            }
           }
           setLoading(false);
         }, 2500);
       });
     } catch (error) {
       props.toast.toast.error(
-        "Error: couldn't fetch participation information.\n",
+        "Error: couldn't fetch participation information.",
         error
       );
     }
@@ -133,7 +186,7 @@ const EventDetails = (props) => {
             <div className="event-fees text-blue-400 text-lg font-bold text-left  tracking-widest grid grid-cols-2 place-items-center">
               <div className="flex space-x-2">
                 <div className="text-gray-200 font-thin">Fees: </div>
-                <div>Rs.{eventData?.fees}</div>
+                {(eventData?.fees === 0 || eventData?.fees === '0') ? <div className="text-green">Free</div> : <div>Rs. {eventData?.fees}</div>}
               </div>
               <div className="flex space-x-2">
                 <div className="text-gray-200 font-thin">Team Size: </div>
@@ -161,7 +214,7 @@ const EventDetails = (props) => {
                     eventData.isParticipated ? (
                       <div>
                         <div className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-2xl tracking-widest">
-                          Registered Successfully
+                          Successfully Registered
                         </div>
                         <span className="text-blue-400">
                           Team Code : <code>{team.id}</code>
@@ -169,7 +222,7 @@ const EventDetails = (props) => {
                       </div>
                     ) : (
                       <div className="grid grid-cols-1 place-items-center gap-2">
-                        <PayByRazor
+                        {/* <PayByRazor
                           handleLoading={setLoading}
                           className="border-2 border-solid p-2"
                           eventId={id}
@@ -177,16 +230,27 @@ const EventDetails = (props) => {
                           eventDetails={eventData}
                           teamName={team?.name}
                           buttonName="Register as Team"
-                        />
-                        <input
-                          type="text"
-                          className="p-2 bg-black/20 outline-none block"
-                          name="name"
-                          placeholder="Create Team Name"
-                          onChange={handleInputChange}
-                          value={team?.name}
-                        />
-                        <div className="text-gray-400 font-bold col-span-2">OR</div>
+                        /> */}{" "}
+                        {/*//! Team events are made free so no need of Razorpay!*/}
+                        <div className="grid grid-cols-2 gap-2">
+                          <input
+                            type="text"
+                            className="p-2 px-4 bg-black/20 outline-none block"
+                            name="name"
+                            placeholder="Create Team Name"
+                            onChange={handleInputChange}
+                            value={team?.name}
+                          />
+                          <button
+                            className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium  px-5 py-2.5 text-center text-lg"
+                            onClick={handleCreateTeam}
+                          >
+                            Register as Team
+                          </button>
+                        </div>
+                        <div className="text-gray-400 font-bold col-span-2">
+                          OR
+                        </div>
                         <div className="space-x-2 col-span-2">
                           <input
                             type="text"
@@ -209,15 +273,30 @@ const EventDetails = (props) => {
                     <div className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-2xl tracking-widest">
                       Registered Successfully
                     </div>
+                  ) : // <PayByRazor
+                  //   handleLoading={setLoading}
+                  //   className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
+                  //   eventId={id}
+                  //   userDetails={userState?.userDetails}
+                  //   eventDetails={eventData}
+                  //   buttonName={"Participate"}
+                  // />{/*//! Not using embedded Razorpay popup instead using redirects */}
+                  eventData?.fees === 0 ? (
+                    <button
+                      className="border-2 border-solid p-2"
+                      onClick={handleRegisterEvent}
+                    >
+                      Register
+                    </button>
                   ) : (
-                    <PayByRazor
-                      handleLoading={setLoading}
+                    <a
+                      href={eventData?.paymentLink || "#/event/"}
+                      rel="noopener noreferrer"
+                      target="_blank"
                       className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
-                      eventId={id}
-                      userDetails={userState?.userDetails}
-                      eventDetails={eventData}
-                      buttonName={"Participate"}
-                    />
+                    >
+                      Register and Pay
+                    </a>
                   )}
                 </div>
               </>
@@ -239,12 +318,13 @@ const EventDetails = (props) => {
                       eventData?.prizes?.map((data, idex) =>
                         data?.label !== "" ? (
                           <li>
-                            {data?.position} : Rs. {data?.prize} (
+                            {data?.position} {data?.position && ": "}
+                            {data?.prize && "Rs."} {data?.prize} (
                             {data?.label && data.label})
                           </li>
                         ) : (
                           <li>
-                            {data?.position} : Rs.{data?.prize}
+                            {data?.position} : Rs. {data?.prize}
                           </li>
                         )
                       )

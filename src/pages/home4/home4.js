@@ -114,9 +114,6 @@ function Homepage() {
 
   return (
     <div className="homepage">
-      <video autoPlay="autoplay" controls="controls" loop muted className="background-video">
-        <source type="video/mp4" src={GradientBlob}></source>
-      </video>
       <div className="homepage-background-container">
         <div class="tso-rainbow"></div>
         <MouseParallaxContainer resetOnLeave containerStyles={{ position: "absolute" }}>

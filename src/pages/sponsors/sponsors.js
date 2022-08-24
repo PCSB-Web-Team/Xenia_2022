@@ -2,6 +2,7 @@ import React from "react";
 import cion from "../../assets/images/cion.svg";
 import pubmatic from "../../assets/images/PubMatic_Logo.svg";
 import algoanalytics from "../../assets/images/algoanalytics.png";
+import budhani from "../../assets/images/budhani.jpeg";
 import "./sponsors.css";
 
 
@@ -41,6 +42,14 @@ const eventSponsors = [
     website: "https://www.ciondigital.com/",
   },
 ];
+
+const foodSponsors = [
+  {
+    name: "Budhani Bros Waferwala",
+    logo: budhani,
+    website: "https://www.budhanibros.com/"
+  }
+]
 
 const getList1 = (sponsorsArray) => {
   const list = sponsorsArray.map((sponsor) => {
@@ -95,6 +104,7 @@ const titleSponsorsList = getList1(titleSponsors);
 const coSponsorsList = getList1(coSponsors);
 const educationSponsorsList = getList1(educationSponsors);
 const eventSponsorsList = getList1(eventSponsors);
+const foodSponsorsList = getList1(foodSponsors);
 
 export default function Sponsors() {
   return (
@@ -110,6 +120,8 @@ export default function Sponsors() {
       <div className="sponsors-list">{educationSponsorsList}</div>
       <div className="sponsors-head">Event Sponsors</div>
       <div className="sponsors-list">{eventSponsorsList}</div>
+      <div className="sponsors-head">Food Partners</div>
+      <div className="sponsors-list">{foodSponsorsList}</div>
     </div>
   );
 }

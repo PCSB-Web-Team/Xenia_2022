@@ -71,15 +71,13 @@ export default function Profile(props) {
     await AuthVerify({
       getParticipations: true,
     }).then(async res => {
-      console.log(res);
+      if (!res?.loggedIn) {
+        navigate("/auth");
+      }
       setTimeout(() => {
-        if (!res?.loggedIn) {
-          props.toast.toast.warn("Please login to visit the page!\nOr try refreshing your browser.")
-          navigate("/auth");
-        }
-      }, 3000);
-      setRegisteredEvents(res?.participations, setLoading);
-      setLoading(false);
+        setRegisteredEvents(res?.participations, setLoading);
+        setLoading(false);
+      }, 2000);
     });
   }
 
@@ -89,13 +87,13 @@ export default function Profile(props) {
       if (status) {
         setUserData(data);
       } else {
-        props.toast.toast.error("Error retrieving user data!\n", error);
+        props.toast.toast.error("Error retrieving user data! Check if your Logged in correctly", error);
       }
       setLoading(false)
     }).catch(error =>
-      props.toast.toast.error("Error: Server unreachable, please try again. \n", error)
-    )
-    setParticipations();
+      props.toast.toast.error("Error: Server unreachable, please try again.", error)
+      )
+      setParticipations();
   }, []);
 
   return (

@@ -17,6 +17,10 @@ const getUserProfile = async () => await backend.get("/auth/profile");
 
 const getUserParticipations = async () => await backend.get("/participant/by-user");
 
+const registerEvent = async (event) => await backend.post("/participant", event);
+
+const createTeam = async (data) => await backend.post("/participant/team", data);
+
 const joinTeam = async (data) => await backend.put("/participant/jointeam", data);
 
 const getEvents = async () => await backend.get("/events");
@@ -37,6 +41,8 @@ const Requests = {
   refreshToken,
   getUserProfile,
   getUserParticipations,
+  registerEvent,
+  createTeam,
   joinTeam,
   getEvents,
   getEventById,

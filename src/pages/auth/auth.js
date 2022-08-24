@@ -5,14 +5,14 @@ import { Validators } from "../../utils";
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux/es/exports";
-import { loginUser, registerUser, logoutUser } from "../../store/middleware";
+import { loginUser, registerUser } from "../../store/middleware";
 
 const Login = (props) => {
   const [loading, setLoading] = useState(false);
   const [mode, setMode] = useState("login");
   const [error, setError] = useState("");
 
-  const userState = useSelector(({ user }) => user);
+  const userState = useSelector(async ({ user }) => await user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -34,13 +34,13 @@ const Login = (props) => {
   });
 
   return userState.loggedIn ? (
-    <>
-      {props.toast.container}
-      {setTimeout(() => {
-        <Navigate to={-1} replace={true} />
-      }, 2000)}
-      {props.toast.toast.success("Logged In!")}
-    </>
+    <Navigate to={-1} replace={true} />
+    // <>
+    //   {props.toast.container}
+    //   {/* {setTimeout(() => {
+    //   {/* {props.toast.toast.success("Logged In!")} */}
+    //   }), 2000} */}
+    // </>
   ) : (
     <>
       {loading ? props.loading :
@@ -69,18 +69,17 @@ const Login = (props) => {
                         props.toast.toast.success("Successfully registered!");
                         setTimeout(() => {
                           navigate(-1, { replace: true });
-                        }, 3000);
+                        }, 2500);
                       }
                       else {
-                        props.toast.toast.error("Error: couldn't register!\n", error?.message);
-                        setError(error.message);
+                        props.toast.toast.error("Error: " + error?.message);
+                        setError(error?.message)
                       }
                     })
                     .catch((err) => {
-                      props.toast.toast.error("Error: ", err);
+                      props.toast.toast.error("Error: " + err?.message || "");
                       setLoading(false)
                     });
-                  // await dispatch(logoutUser()) //! working, but just we need is a logout button to display in Navbar
                 }}
               >
                 {(formik) => {
@@ -217,22 +216,22 @@ const Login = (props) => {
                   setError("");
                   await dispatch(loginUser(values || null))
                     .unwrap()
-                    .then(({ data: { status, error } }) => {
-                      console.log(status);
+                    .then(({ data: { data, status, error } }) => {
                       setLoading(false)
                       if (status) {
                         props.toast.toast.success("Logged In!");
-                        navigate(-1, { replace: true });
+                        setTimeout(() => {
+                          return navigate(-1, { replace: true });
+                        }, 2000);
                       } else {
-                        props.toast.toast.error("Error: couldn't login!\n", error.message);
-                        setError(error.message);
+                        props.toast.toast.error("Error: " + error?.message);
+                        setError(error?.message)
                       }
                     })
                     .catch((err) => {
-                      props.toast.toast.error("Error: ", err);
+                      props.toast.toast.error("Error: " + err?.message || "");
                       setLoading(false)
                     });
-                  // await dispatch(logoutUser()) //! working, but just we need is a logout button to display in Navbar
                 }}
               >
                 {(formik) => {
