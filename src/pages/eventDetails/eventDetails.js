@@ -320,12 +320,13 @@ const EventDetails = (props) => {
                       eventData?.prizes?.map((data, idex) =>
                         data?.label !== "" ? (
                           <li>
-                            {data?.position} : Rs. {data?.prize} (
+                            {data?.position} {data?.position && ": "}
+                            {data?.prize && "Rs."} {data?.prize} (
                             {data?.label && data.label})
                           </li>
                         ) : (
                           <li>
-                            {data?.position} : Rs.{data?.prize}
+                            {data?.position} : Rs. {data?.prize}
                           </li>
                         )
                       )
