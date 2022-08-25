@@ -6,7 +6,7 @@ import hex_2xblock_left from "../../assets/images/Block_x2_Left_shadow.png";
 import hex_2xblock_right from "../../assets/images/Block_x2_Right_shadowless.png";
 import hex_3xblock_left from "../../assets/images/Block_x3_Left_shadow.png";
 import hex_3xblock_right from "../../assets/images/Block_x3_Right_shadowless.png";
-import sponsors_logo from "../../assets/images/cion.svg";
+import sponsors_logo from "../../assets/images/Cion Logo_Horizontal Stacked_Green.svg";
 import Xenia_Logo from "../../assets/images/xeniaLogoLight.png";
 import HomepageBottomEarth_transparent from "../../assets/images/background/homepage-earth-background-transparent.png"
 import { MouseParallaxContainer, MouseParallaxChild } from "react-parallax-mouse";
@@ -200,9 +200,10 @@ function Homepage() {
       </div>
       <header className="homepage-contents">
         <div className="logos">
-          <Link to="https://www.ciondigital.com/" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.ciondigital.com/" target="_blank" rel="noopener noreferrer">
             <img className="sponsors-logo" src={sponsors_logo} alt="sponsors-logo" title="Cion Digital"></img>
-          </Link>
+          </a>
+          <h1>PRESENTS</h1>
           <img className="xenia-logo" src={Xenia_Logo} alt="Xenia'22 logo" title="Xenia 2022" />
         </div>
         <h2>

@@ -273,8 +273,9 @@
 }
 
 .homepage-contents {
+  color: #c4e7f9;
   width: 100%;
-  margin: 120px auto -10px;
+  margin: 80px auto 0px;
 }
 
 @keyframes animate_logo {
@@ -288,20 +289,33 @@
   }
 }
 
-.homepage-contents .xenia-logo {
-  margin: -60px auto 0;
-  max-width: 600px;
-  width: 60vw;
-  animation: animate_logo 5s ease-in-out 1;
-}
-
 .homepage-contents .sponsors-logo {
   margin: 0 auto;
   max-width: 350px;
   width: 35vw;
   opacity: 0;
-  filter: drop-shadow(10px 10px 2px rgba(0, 0, 0, 0.5)) blur(8px);
-  animation: fade-in 2s 3.8s forwards;
+  filter: drop-shadow(1px 1px 2.4px rgba(0, 0, 0, 0.8)) blur(8px);
+  animation: fade-in 2s 2s forwards;
+}
+
+.homepage-contents h1 {
+  margin: -30px auto;
+  font-family: sans-serif;
+  font-stretch: ultra-expanded;
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 0;
+  letter-spacing: 1.8px;
+  opacity: 0;
+  filter: drop-shadow(1px 1px 2.4px rgba(0, 0, 0, 0.8)) blur(8px);
+  animation: fade-in 2s 2.6s forwards;
+}
+
+.homepage-contents .xenia-logo {
+  margin: 40px auto 0;
+  max-width: 600px;
+  width: 60vw;
+  animation: animate_logo 5s ease-in-out 1;
 }
 
 @keyframes scale {
@@ -313,8 +327,7 @@
 .homepage-contents h2 {
   font-size: calc(2vh + 1vw);
   font-weight: 700;
-  color: #a2bccb;
-  margin: 20px auto;
+  margin: 0px auto;
   transform: scale(0.9);
   animation: scale 5.6s forwards cubic-bezier(0.5, 1, 0.89, 1);
 }
@@ -330,7 +343,7 @@
 @keyframes fade-in {
   100% {
     opacity: 1;
-    filter: drop-shadow(4px 4px 5px rgba(0, 0, 0, 0.5)) blur(0px);
+    filter: drop-shadow(1px 1px 2.4px rgba(0, 0, 0, 0.8)) blur(0px);
   }
 }
 

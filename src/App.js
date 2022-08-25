@@ -36,7 +36,7 @@ function App() {
   useEffect(() => {
     async function fetchToken() {
       setLoading(true);
-      await AuthVerify({ getUserDetails: true }).then(() => {
+      await AuthVerify({ getUserDetails: false }).then(() => {
         setLoading(false);
         // if (res.error) toast.warn("Session expired!")
       }).catch(error => {
@@ -45,7 +45,6 @@ function App() {
       });
     }
     fetchToken();
-    console.log(process.env.REACT_APP_ADMIN_ROUTE + "_" + todaysDate[0] + "_" + todaysDate[1] + "_" + todaysDate[2]);
   }, []);
 
   return (
@@ -125,7 +124,7 @@ function App() {
               path="/contact-us"
               element={<ContactUs loader={<Loader />} toast={{ container: <ToastUtils />, toast }} />}
             />
-            <Route path={"/" + process.env.REACT_APP_ADMIN_ROUTE + "_" + todaysDate[0] + "_" + todaysDate[1] + "_" + todaysDate[2]} element={<Admin loader={<Loader />} />} />
+            <Route path={"/admin_" + todaysDate[0] + "_" + todaysDate[1] + "_" + todaysDate[2]} element={<Admin loader={<Loader />} />} />
             <Route path="/web-team" element={<WebTeam loader={<Loader />} />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
