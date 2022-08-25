@@ -87,8 +87,18 @@ function Schedule() {
         platform: 'Offline'
       },
       {
+        name: "Fandom Round 2",
+        time: '11:00 am - 1:00 pm',
+        platform: 'Offline'
+      },
+      {
         name: "C2C Round 2",
         time: '2:00 pm - 4:00 pm',
+        platform: 'Offline'
+      },
+      {
+        name: "CricWars Round 2",
+        time: '4:00 pm - 6:00 pm',
         platform: 'Offline'
       },
       {
@@ -97,40 +107,15 @@ function Schedule() {
         platform: 'Online'
       },
       {
-        name: "Fandom Round 2",
-        time: '11:00 am - 1:00 pm',
-        platform: 'Offline'
-      },
-      {
         name: "Ninja Coding Round 1",
         time: '9:30 pm - 9:30 pm',
         platform: 'Online'
       },
-      {
-        name: "CricWars Round 2",
-        time: '4:00 pm - 6:00 pm',
-        platform: 'Offline'
-      },
     ],//*27th
     [
       {
-        name: "Hacker House Final",
-        time: '12:00 pm - onwards',
-        platform: 'Offline'
-      },
-      {
-        name: "Xenatus Round 3",
-        time: '12:00 pm - 1:00 pm',
-        platform: 'Offline'
-      },
-      {
-        name: "C2C Round 3",
-        time: '10:00 am - onwards',
-        platform: 'Offline'
-      },
-      {
-        name: "Treasure Hunt Round 2",
-        time: '3:15 pm - 4:45 pm',
+        name: "CricWars Round 3",
+        time: '8:00 am - 4:00 pm',
         platform: 'Offline'
       },
       {
@@ -139,8 +124,23 @@ function Schedule() {
         platform: 'Offline'
       },
       {
+        name: "C2C Round 3",
+        time: '10:00 am - onwards',
+        platform: 'Offline'
+      },
+      {
         name: "Codestrike Round 2",
         time: '11:00 am - 1:00 pm',
+        platform: 'Offline'
+      },
+      {
+        name: "Xenatus Round 3",
+        time: '12:00 pm - 1:00 pm',
+        platform: 'Offline'
+      },
+      {
+        name: "Hacker House Final",
+        time: '12:00 pm - onwards',
         platform: 'Offline'
       },
       {
@@ -149,8 +149,8 @@ function Schedule() {
         platform: 'Offline'
       },
       {
-        name: "CricWars Round 3",
-        time: '8:00 am - 4:00 pm',
+        name: "Treasure Hunt Round 2",
+        time: '3:15 pm - 4:45 pm',
         platform: 'Offline'
       },
       {
