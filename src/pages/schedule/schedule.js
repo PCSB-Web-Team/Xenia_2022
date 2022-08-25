@@ -11,131 +11,126 @@ function Schedule() {
         time: '5:30 pm',
         platform: 'F-Auditorium'
       }
-    ],
+    ],//*22nd,
     [
       {
         name: "Arpit Agarwal Session",
         time: '5:00 pm',
         platform: 'Auditorium'
       }
-    ],
+    ],//*23rd,
     [
       {
-        name: "Hacker House",
-        time: '4:00 pm - 6:30p pm',
+        name: "Hacker House Introductory Session",
+        time: '4:00 pm - 6:30 pm',
         platform: 'Offline'
       }
-    ],
+    ],//*24th
     [
       {
-        name: "Flashmob",
-        time: '3:00 pm - 3:30 pm',
-        platform: 'On Campus'
-      },
-      {
-        name: "Inauguration",
-        time: '3:30 pm - 4:00 pm',
+        name: "Inauguration Ceremony",
+        time: '3:30 pm - onwards',
         platform: 'Offline'
       },
       {
-        name: "Xenathon",
-        time: 'Full Day',
+        name: "Hacker House Session 1",
+        time: '5:00 pm - 7:00 pm',
         platform: 'Offline'
-      },
-      {
-        name: "Hacker House Session",
-        time: '4:00 pm - 6:30 pm',
-        platform: 'Auditorium'
       },
       {
         name: "Xenatus Round 1",
-        time: '6:45 pm - 7:30 pm',
+        time: '7:00 pm - 8:00 pm',
         platform: 'Online'
       },
       {
         name: "Codestrike Round 1",
-        time: '7:45 pm - 8:45 pm',
+        time: '8:00 pm - 10:00 pm',
         platform: 'Online'
       },
-      {
-        name: "CricWars Round 1",
-        time: '9:15 pm - 9:45 pm',
-        platform: 'Online'
-      },
-    ],
+    ],//*25th
     [
       {
+        name: "AlgoAnalytics Session",
+        time: '4:30 pm - 4:30 pm',
+        platform: 'Offline'
+      },
+      {
+        name: "Hacker House Session 1",
+        time: '4:30 pm - 7:00 pm',
+        platform: 'Offline'
+      },
+      {
         name: "Fandom Round 1",
-        time: '3:00 pm - 4:00 pm',
+        time: '7:00 pm - 8:00 pm',
         platform: 'Online'
       },
       {
-        name: "Hacker House Session",
-        time: '4:00 pm - 7:00 pm',
-        platform: 'Offline'
-      },
-      {
-        name: "CricWars Round 2",
-        time: '6:00 pm - 8:00 pm',
-        platform: 'Offline'
-      },
-      {
-        name: "Xenatus Round 2",
-        time: '7:15 pm - 8:00 pm',
-        platform: 'Offline'
-      },
-      {
-        name: "Ninja Coding Round 1",
+        name: "C2C Round 1",
         time: '8:00 pm - 9:00 pm',
         platform: 'Online'
       },
       {
-        name: "Campus to Corporate Round 1",
-        time: '9:00 pm - 9:45 pm',
+        name: "CricWars Round 1",
+        time: '9:00 pm - 10:00 pm',
         platform: 'Online'
       },
-    ],
+      {
+        name: "Xenathon (Ideathon) Round 1",
+        time: 'To be scheduled',
+        platform: 'Online'
+      },
+    ],//*26th
     [
       {
-        name: "CricWars Round 3",
-        time: '8:00 am - 6:00 pm',
+        name: "Xenatus Round 2",
+        time: '10:00 am - 11:00 am',
         platform: 'Offline'
+      },
+      {
+        name: "C2C Round 2",
+        time: '2:00 pm - 4:00 pm',
+        platform: 'Offline'
+      },
+      {
+        name: "Treasure Hunt Round 1",
+        time: '6:00 pm - 7:30 pm',
+        platform: 'Online'
       },
       {
         name: "Fandom Round 2",
-        time: '10:00 am - 12:00 pm',
+        time: '11:00 am - 1:00 pm',
         platform: 'Offline'
       },
       {
-        name: "Campus to Corporate Round 2",
-        time: '12:30 pm - 1:30 pm',
+        name: "Ninja Coding Round 1",
+        time: '9:30 pm - 9:30 pm',
+        platform: 'Online'
+      },
+      {
+        name: "CricWars Round 2",
+        time: '4:00 pm - 6:00 pm',
+        platform: 'Offline'
+      },
+    ],//*27th
+    [
+      {
+        name: "Hacker House Final",
+        time: '12:00 pm - onwards',
+        platform: 'Offline'
+      },
+      {
+        name: "Xenatus Round 3",
+        time: '12:00 pm - 1:00 pm',
+        platform: 'Offline'
+      },
+      {
+        name: "C2C Round 3",
+        time: '10:00 am - onwards',
         platform: 'Offline'
       },
       {
         name: "Treasure Hunt Round 2",
-        time: '2:00 pm - 4:00 pm',
-        platform: 'Online'
-      },
-      {
-        name: "Ninja Coding Round 2",
-        time: '4:15 pm - 5:15 pm',
-        platform: 'Online'
-      },
-      {
-        name: "Xenatus Round 3",
-        time: '5:30 pm - 6:00 pm',
-        platform: 'Offline'
-      },
-      {
-        name: "Codestrike Round 2",
-        time: '6:00 pm - 7:00 pm',
-        platform: 'Offline'
-      },
-    ],
-    [
-      {
-        name: "Xenathon",
-        time: '8:00 am - 1:00 pm',
+        time: '3:15 pm - 4:45 pm',
         platform: 'Offline'
       },
       {
@@ -144,21 +139,26 @@ function Schedule() {
         platform: 'Offline'
       },
       {
-        name: "Campus to Corporate Round 3",
-        time: '9:30 am - 1:00 pm',
+        name: "Codestrike Round 2",
+        time: '11:00 am - 1:00 pm',
         platform: 'Offline'
       },
       {
-        name: "Hacker House",
-        time: '9:30 am - 1:00 pm',
+        name: "Ninja Coding Round 2",
+        time: '2:00 pm - 3:30 pm',
         platform: 'Offline'
       },
       {
-        name: "Treasure Hunt Round 2",
-        time: '11:00 am - 12:15 pm',
+        name: "CricWars Round 3",
+        time: '8:00 am - 4:00 pm',
         platform: 'Offline'
       },
-    ]
+      {
+        name: "Xenathon (Ideathon) Round 2",
+        time: 'To be scheduled',
+        platform: 'Offline'
+      },
+    ]//*28th
   ];
 
   const renderSchedule = eventsSchedule.map((eventDay, index) => (

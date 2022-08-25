@@ -9,7 +9,7 @@
 
 @media screen and (max-width: 800px) {
   .homepage::after {
-    content: '';
+    content: "";
     position: absolute;
     display: block;
     top: 0;
@@ -272,6 +272,11 @@
   }
 }
 
+.homepage-contents {
+  width: 100%;
+  margin: 120px auto -10px;
+}
+
 @keyframes animate_logo {
   from {
     opacity: 0.2;
@@ -283,11 +288,20 @@
   }
 }
 
-.homepage-contents img {
+.homepage-contents .xenia-logo {
+  margin: -60px auto 0;
   max-width: 600px;
   width: 60vw;
-  margin: 120px auto -10px;
   animation: animate_logo 5s ease-in-out 1;
+}
+
+.homepage-contents .sponsors-logo {
+  margin: 0 auto;
+  max-width: 350px;
+  width: 35vw;
+  opacity: 0;
+  filter: drop-shadow(10px 10px 2px rgba(0, 0, 0, 0.5)) blur(8px);
+  animation: fade-in 2s 3.8s forwards;
 }
 
 @keyframes scale {
@@ -316,7 +330,7 @@
 @keyframes fade-in {
   100% {
     opacity: 1;
-    filter: blur(0);
+    filter: drop-shadow(4px 4px 5px rgba(0, 0, 0, 0.5)) blur(0px);
   }
 }
 
@@ -370,9 +384,14 @@
     display: none;
   }
 
-  .homepage-contents img {
+  .homepage-contents .xenia-logo {
     max-width: none;
     width: 80vw;
+    margin: -20px auto 0;
+  }
+  .homepage-contents .sponsors-logo {
+    max-width: none;
+    width: 40vw;
   }
   .homepage-contents {
     padding: 100px 0;

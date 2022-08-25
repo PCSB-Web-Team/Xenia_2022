@@ -1,14 +1,16 @@
 import "./home4.css";
 import BlockchainHole from "../../assets/images/background/blockchain_black_hole-rotated.png";
 // import HomepageBottomEarth from "../../assets/images/background/homepage-earth-background.jpg"
-import HomepageBottomEarth_transparent from "../../assets/images/background/homepage-earth-background-transparent.png"
-import Xenia_Logo from "../../assets/images/xeniaLogoLight.png";
 import gradientBlock from "../../assets/images/gradient-small-cube.svg";
 import hex_2xblock_left from "../../assets/images/Block_x2_Left_shadow.png";
 import hex_2xblock_right from "../../assets/images/Block_x2_Right_shadowless.png";
 import hex_3xblock_left from "../../assets/images/Block_x3_Left_shadow.png";
 import hex_3xblock_right from "../../assets/images/Block_x3_Right_shadowless.png";
+import sponsors_logo from "../../assets/images/cion.svg";
+import Xenia_Logo from "../../assets/images/xeniaLogoLight.png";
+import HomepageBottomEarth_transparent from "../../assets/images/background/homepage-earth-background-transparent.png"
 import { MouseParallaxContainer, MouseParallaxChild } from "react-parallax-mouse";
+import { Link } from "react-router-dom";
 
 function Homepage() {
 
@@ -197,7 +199,12 @@ function Homepage() {
         </MouseParallaxContainer>
       </div>
       <header className="homepage-contents">
-        <img className="xenia-logo" src={Xenia_Logo} alt="Xenia'22 logo" />
+        <div className="logos">
+          <Link to="https://www.ciondigital.com/" target="_blank" rel="noopener noreferrer">
+            <img className="sponsors-logo" src={sponsors_logo} alt="sponsors-logo" title="Cion Digital"></img>
+          </Link>
+          <img className="xenia-logo" src={Xenia_Logo} alt="Xenia'22 logo" title="Xenia 2022" />
+        </div>
         <h2>
           <span>WHERE</span>
           <span>PASSION</span>
