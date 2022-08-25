@@ -50,6 +50,11 @@ function Schedule() {
         platform: 'Offline'
       },
       {
+        name: "Xenatus Round 1",
+        time: '5:00 pm - 5:45 pm',
+        platform: 'Online'
+      },
+      {
         name: "Fandom Round 1",
         time: '7:00 pm - 8:00 pm',
         platform: 'Online'
@@ -67,6 +72,11 @@ function Schedule() {
       {
         name: "Xenathon (Ideathon) Round 1",
         time: 'To be scheduled',
+        platform: 'Online'
+      },
+      {
+        name: "Codestrike Round 1",
+        time: '10:00 pm - 11:59 pm',
         platform: 'Online'
       },
     ],//*26th
@@ -92,11 +102,6 @@ function Schedule() {
         platform: 'Offline'
       },
       {
-        name: "Xenatus Round 1",
-        time: '5:00 pm - 5:45 pm',
-        platform: 'Online'
-      },
-      {
         name: "Treasure Hunt Round 1",
         time: '6:00 pm - 7:30 pm',
         platform: 'Online'
@@ -104,11 +109,6 @@ function Schedule() {
       {
         name: "Ninja Coding Round 1",
         time: '9:30 pm - 9:30 pm',
-        platform: 'Online'
-      },
-      {
-        name: "Codestrike Round 1",
-        time: '10:00 pm - 11:59 pm',
         platform: 'Online'
       },
     ],//*27th
