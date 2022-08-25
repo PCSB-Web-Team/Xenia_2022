@@ -32,11 +32,13 @@ import "./App.css";
 
 function App() {
   const [loading, setLoading] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false); //* !DRY: making repeating loggedIn state and passing to the profile 
 
   useEffect(() => {
     async function fetchToken() {
       setLoading(true);
-      await AuthVerify({ getUserDetails: false }).then(() => {
+      await AuthVerify({ getUserDetails: true }).then((res) => {
+        if (res?.loggedIn) setLoggedIn(true);
         setLoading(false);
         // if (res.error) toast.warn("Session expired!")
       }).catch(error => {
@@ -87,7 +89,7 @@ function App() {
           <Route path="/home2" element={<Home2 loader={<Loader />} />} /> */}
             {/* <Route path="/" element={<Home3 loader={<Loader />} />} /> */}
             <Route path="/" element={<Home4 loader={<Loader />} />} />
-            <Route path="/auth" element={<Auth loader={<Loader />} toast={{ container: <ToastUtils />, toast }} />} />
+            <Route path="/auth" element={<Auth loggedIn={loggedIn} loader={<Loader />} toast={{ container: <ToastUtils />, toast }} />} />
             <Route
               path="/schedule"
               element={<Schedule loader={<Loader />} />}
@@ -112,7 +114,7 @@ function App() {
             />
             <Route path="/profile" element={
               // <ProtectedRoute toast={{ container: <ToastUtils />, toast }}>
-              <Profile loader={<Loader />} toast={{ container: <ToastUtils />, toast }} />
+              <Profile loggedIn={loggedIn} loader={<Loader />} toast={{ container: <ToastUtils />, toast }} />
               // </ProtectedRoute>
             } />
             {/* <Route path="/cart" element={<Cart loader={<Loader />} />} /> */}

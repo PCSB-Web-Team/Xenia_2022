@@ -12,7 +12,7 @@ const Login = (props) => {
   const [mode, setMode] = useState("login");
   const [error, setError] = useState("");
 
-  const userState = useSelector(async ({ user }) => await user);
+  // const userState = useSelector(async ({ user }) => await user); //* useSelector dhkoka de rha, abhi apn props he use krre ;-)
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -33,7 +33,8 @@ const Login = (props) => {
     college: Validators.string,
   });
 
-  return userState.loggedIn ? (
+  // return userState.loggedIn ? (
+  return props.loggedIn ? (
     <Navigate to={-1} replace={true} />
   ) : (
     // <>

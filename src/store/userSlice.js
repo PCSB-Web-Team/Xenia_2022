@@ -137,6 +137,18 @@ export const userSlice = createSlice({
       setParticipations.fulfilled,
       (state, { payload: { data } }) => {
         if (data?.status) {
+          if(data?.data?.message === "participant found") {
+            return {
+              ...state,
+              userDetails: {
+                name: data?.data?.data[0]?.name || null,
+                mobile: data?.data?.data[0]?.mobile || null,
+              }, //* setting user details while actually setting participations ~_~
+              participations: data?.data?.data || [],
+              error: data?.error?.message || null,
+              loading: false,
+            };
+          }
           return {
             ...state,
             participations: data?.data?.data || [],

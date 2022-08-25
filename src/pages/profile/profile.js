@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Requests from "../../api/requests";
 import { AuthVerify } from "../../utils/authVerify";
 
-function RegisteredEventCard(eve, setLoading) {
+function RegisteredEventCard(eve) {
   const [details, setDetails] = useState({});
 
   useEffect(() => {
@@ -30,13 +30,10 @@ function RegisteredEventCard(eve, setLoading) {
         </>
       )}
       <div className="text-gray-300 font-thin">
-        {details?.platform?.map((platform) => (
+        {details?.platform?.map(platform => (
           <div>
-            <span>Round {platform?.round}</span>
-            {": "}
-            <a href={platform?.link} target="_blank" rel="noopener noreferrer">
-              {platform?.name}
-            </a>
+            <span>Round {platform?.round}</span>{": "}
+            <a href={platform?.link} target="_blank" rel="noopener noreferrer">{platform?.name}</a>
           </div>
         ))}
       </div>
@@ -73,42 +70,37 @@ export default function Profile(props) {
   async function setParticipations() {
     await AuthVerify({
       getParticipations: true,
-    }).then(async (res) => {
-      if (!res?.loggedIn) {
-        navigate("/auth");
-      }
+    }).then(async res => {
       setTimeout(() => {
-        setRegisteredEvents(res?.participations, setLoading);
+        setRegisteredEvents(res?.participations);
         setLoading(false);
-      }, 2000);
+      }, 1000);
     });
   }
-
+  
   useEffect(() => {
-    setLoading(true);
-    Requests.getUserProfile()
-      .then(({ data: { status, error, data } }) => {
-        if (status) {
-          setUserData(data);
-        } else {
-        }
-        setLoading(false);
-      })
-      .catch((error) =>
-        props.toast.toast.error(
-          "Error: Server unreachable, please try again.",
-          error
-        )
-      );
+    setLoading(true)
+    if (!props?.loggedIn) {
+      setLoading(false);
+      navigate("/auth");
+    }
+    Requests.getUserProfile().then(({ data: { status, error, data } }) => {
+      if (status) {
+        setUserData(data);
+      } else {
+        props.toast.toast.error("Error retrieving user data! Check if your Logged in correctly", error);
+      }
+      setLoading(false)
+    }).catch(error =>
+      props.toast.toast.error("Error: Server unreachable, please try again.", error)
+    )
     setParticipations();
   }, []);
 
   return (
     <>
       {props.toast.container}
-      {loading ? (
-        props.loader
-      ) : (
+      {loading ? props.loader :
         <div className="md:p-4">
           <div className="min-h-screen max-w-6xl mx-auto my-8 p-4 md:p-16 space-y-8 text-gray-200 tracking-widest bg-black/40 backdrop-blur-xl">
             <div className=" font-bold text-3xl md:text-6xl text-purple-600">
@@ -152,8 +144,7 @@ export default function Profile(props) {
               )}
             </div>
           </div>
-        </div>
-      )}
+        </div>}
     </>
   );
 }
