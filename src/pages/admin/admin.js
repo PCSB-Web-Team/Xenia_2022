@@ -272,6 +272,7 @@ export default function Admin(props) {
             props.toast.toast.success("Admin Authenticated successfully!")
             return
         } else {
+            console.log(process.env.REACT_APP_ADMIN_USERNAME, process.env.REACT_APP_ADMIN_PASSWORD);
             if (auth.username === process.env.REACT_APP_ADMIN_USERNAME) {
                 if (auth.password === process.env.REACT_APP_ADMIN_PASSWORD) {
                     setAuth(prevAuth => ({ ...prevAuth, isAdmin: true }))
