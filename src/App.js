@@ -126,7 +126,7 @@ function App() {
               path="/contact-us"
               element={<ContactUs loader={<Loader />} toast={{ container: <ToastUtils />, toast }} />}
             />
-            <Route path={"/admin_" + todaysDate[0] + "_" + todaysDate[1] + "_" + todaysDate[2]} element={<Admin loader={<Loader />} />} />
+            <Route path={"/admin_" + todaysDate[0] + "_" + todaysDate[1] + "_" + todaysDate[2]} element={<Admin loader={<Loader />} toast={{ container: <ToastUtils />, toast }} />} />
             <Route path="/web-team" element={<WebTeam loader={<Loader />} />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>

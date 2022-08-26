@@ -31,7 +31,7 @@ const getSideEvents = async () => await backend.get("/side-events");
 
 const createOrder = async (data) => await backend.post("/razorpay", data);
 
-const verifyPayment = async (data) => await backend.post("/razorpay/verification", data);
+// const verifyPayment = async (data) => await backend.post("/razorpay/verification", data); //! Admin Route, moving to isolated file
 
 const sendContactUsMessage = async (message) => await backend.post("https://xenia-mailer.herokuapp.com/api/contact-us", message)
 
@@ -48,7 +48,7 @@ const Requests = {
   getEventById,
   getSideEvents,
   createOrder,
-  verifyPayment,
+  // verifyPayment,
   sendContactUsMessage
 };
 export default Requests;

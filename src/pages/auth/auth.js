@@ -47,7 +47,7 @@ const Login = (props) => {
       {loading ? (
         props.loading
       ) : (
-        <div class="h-screen w-full flex justify-center items-center">
+        <div className="h-screen w-full flex justify-center items-center">
           {props.toast.container}
           <div className=" w-80 md:w-[400px] p-4 bg-black/20 backdrop-blur-md space-y-2 font-light">
             {mode === "login" ? (

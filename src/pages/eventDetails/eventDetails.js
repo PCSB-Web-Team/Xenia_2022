@@ -366,9 +366,10 @@ const EventDetails = (props) => {
                 </div>
                 <div className="border-t pt-2 border-slate-600">
                   <ol className="text-gray-300 font-thin  list-disc list-inside">
-                    {eventData?.schedule?.map((data) => (
+                    {
+                    eventData?.schedule?.map((data) => (
                       <li>
-                        Round {data.round} : <date>{data.datetime}</date>
+                        Round {data.round} : {data.datetime !== "" ? <a href="https://www.pcsbxenia.com/schedule">{data.datetime}</a> : <a href="https://www.pcsbxenia.com/schedule">Check Schedule Page</a>}
                       </li>
                     ))}
                   </ol>

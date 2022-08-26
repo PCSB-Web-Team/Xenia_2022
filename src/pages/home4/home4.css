@@ -400,14 +400,19 @@
   .homepage-contents .xenia-logo {
     max-width: none;
     width: 80vw;
-    margin: -20px auto 0;
+    margin: 10px auto 0;
   }
   .homepage-contents .sponsors-logo {
     max-width: none;
-    width: 40vw;
+    width: 50vw;
   }
   .homepage-contents {
+    margin: 60px auto 0;
     padding: 100px 0;
+  }
+  .homepage-contents h1 {
+    margin: -14px auto 0;
+    font-size: 1rem;
   }
   .homepage-contents h2 span {
     font-size: 1.2rem;

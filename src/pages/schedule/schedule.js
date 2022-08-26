@@ -108,7 +108,7 @@ function Schedule() {
       },
       {
         name: "Ninja Coding Round 1",
-        time: '9:30 pm - 9:30 pm',
+        time: '8:30 pm - 9:30 pm',
         platform: 'Online'
       },
     ],//*27th
