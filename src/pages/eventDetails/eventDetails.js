@@ -4,7 +4,7 @@ import Request from "../../api/requests";
 import { AuthVerify } from "../../utils/authVerify";
 import { useSelector } from "react-redux/es/exports";
 import { useEffect, useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const EventDetails = (props) => {
   const [loading, setLoading] = useState(false);
@@ -64,7 +64,7 @@ const EventDetails = (props) => {
     }
     setLoading(false);
     props.toast.toast.error(
-      "Error while creating team!, "+
+      "Error while creating team!, " +
       data?.error?.message || ""
     );
   };
@@ -83,7 +83,7 @@ const EventDetails = (props) => {
             "Successfully joined team with Team ID: " + team?.id
           );
         } else {
-          props.toast.toast.error("Error: "+ res?.data?.error?.message || "");
+          props.toast.toast.error("Error: " + res?.data?.error?.message || "");
           setLoading(false);
           // setJoinTeamError(res?.data?.error);
         }
@@ -91,7 +91,7 @@ const EventDetails = (props) => {
       .catch((error) => {
         console.log(error);
         props.toast.toast.error(
-          "Error: server unreachable, please try again. "+
+          "Error: server unreachable, please try again. " +
           error || ""
         );
       });
@@ -107,7 +107,7 @@ const EventDetails = (props) => {
       } else navigate("404");
     } catch (error) {
       props.toast.toast.error(
-        "Error: server unreachable, at the moment. "+
+        "Error: server unreachable, at the moment. " +
         error || ""
       );
       navigate("404");
@@ -157,10 +157,11 @@ const EventDetails = (props) => {
   }
 
   useEffect(() => {
-    if(!userState.loggedIn) {
+    if (!userState.loggedIn) {
       console.log(userState.loggedIn);
-      props.toast.toast.warn("You are not logged in! Login or try refreshing the page.")}
-  
+      props.toast.toast.warn("You are not logged in! Login or try refreshing the page.")
+    }
+
     fetchEventData();
     fetchIsUserParticipated();
   }, [id]);
@@ -205,120 +206,121 @@ const EventDetails = (props) => {
               Registrations are currently being done manually. Sorry for
               inconvenience:(
             </p> */}
-            {eventData?.isLive ? (
-              <p className="event-register-buttons disabled">
+            {!eventData?.isLive ? (
+              <p className="text-red-400 font-medium event-register-buttons disabled">
                 Registrations closed! Try with other events.
               </p>
             ) : (
-              <>
-                <div className="event-register-buttons">
-                  {!userState.loggedIn ? (
-                    <Link to="/auth">
-                      <div className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium  px-5 py-2.5 text-center mx-auto text-lg inline-block">
-                        Login to participate
-                      </div>
-                    </Link>
-                  ) : eventData?.teamSize > 1 ? (
-                    eventData.isParticipated ? (
-                      <div>
-                        <div className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-2xl tracking-widest">
-                          Successfully Registered
-                        </div>
-                        <span className="text-blue-400">
-                          Team Code : <code>{team.id}</code>
-                        </span>
-                      </div>
-                    ) : (
-                      <div className="grid grid-cols-1 place-items-center gap-2">
-                        {/* <PayByRazor
-                          handleLoading={setLoading}
-                          className="border-2 border-solid p-2"
-                          eventId={id}
-                          userDetails={userState?.userDetails}
-                          eventDetails={eventData}
-                          teamName={team?.name}
-                          buttonName="Register as Team"
-                        /> */}{" "}
-                        {/*//! Team events are made free so no need of Razorpay!*/}
-                        {eventData.fees ? (
-                          <a
-                            href={eventData?.paymentLink || "#/event/"}
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
-                          >
-                            Pay and register
-                          </a>
-                        ) : (
-                          <div className="grid grid-cols-2 gap-2">
-                            <input
-                              type="text"
-                              className="p-2 px-4 bg-black/20 outline-none block"
-                              name="name"
-                              placeholder="Create Team Name"
-                              onChange={handleInputChange}
-                              value={team?.name}
-                            />
-                            <button
-                              className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium  px-5 py-2.5 text-center text-lg"
-                              onClick={handleCreateTeam}
-                            >
-                              Register as Team
-                            </button>
-                          </div>
-                        )}
-                        <div className="text-gray-400 font-bold col-span-2">
-                          OR
-                        </div>
-                        <div className="space-x-2 col-span-2">
-                          <input
-                            type="text"
-                            className="p-2 bg-black/20 outline-none"
-                            name="id"
-                            placeholder="Enter Team Code"
-                            onChange={handleInputChange}
-                            value={team?.id}
-                          />
-                          <button
-                            className="col-span-2 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium  px-5 py-2.5 text-center text-lg"
-                            onClick={handleJoinTeam}
-                          >
-                            Join Team
-                          </button>
-                        </div>
-                      </div>
-                    )
-                  ) : eventData.isParticipated ? (
-                    <div className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-2xl tracking-widest">
-                      Registered Successfully
-                    </div>
-                  ) : // <PayByRazor
-                    //   handleLoading={setLoading}
-                    //   className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
-                    //   eventId={id}
-                    //   userDetails={userState?.userDetails}
-                    //   eventDetails={eventData}
-                    //   buttonName={"Participate"}
-                    // />{/*//! Not using embedded Razorpay popup instead using redirects */}
-                    eventData?.fees === 0 ? (
-                      <button
-                        className="border-2 border-solid p-2"
-                        onClick={handleRegisterEvent}
-                      >
-                        Register
-                      </button>
-                    ) : (
-                      <a
-                        href={eventData?.paymentLink || "#/event/"}
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
-                      >
-                        Register and Pay
-                      </a>
-                    )}
-                </div>
-              </>
+              <></>
+              // <>
+              //   <div className="event-register-buttons">
+              //     {!userState.loggedIn ? (
+              //       <Link to="/auth">
+              //         <div className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium  px-5 py-2.5 text-center mx-auto text-lg inline-block">
+              //           Login to participate
+              //         </div>
+              //       </Link>
+              //     ) : eventData?.teamSize > 1 ? (
+              //       eventData.isParticipated ? (
+              //         <div>
+              //           <div className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-2xl tracking-widest">
+              //             Successfully Registered
+              //           </div>
+              //           <span className="text-blue-400">
+              //             Team Code : <code>{team.id}</code>
+              //           </span>
+              //         </div>
+              //       ) : (
+              //         <div className="grid grid-cols-1 place-items-center gap-2">
+              //           {/* <PayByRazor
+              //             handleLoading={setLoading}
+              //             className="border-2 border-solid p-2"
+              //             eventId={id}
+              //             userDetails={userState?.userDetails}
+              //             eventDetails={eventData}
+              //             teamName={team?.name}
+              //             buttonName="Register as Team"
+              //           /> */}{" "}
+              //           {/*//! Team events are made free so no need of Razorpay!*/}
+              //           {eventData.fees ? (
+              //             <a
+              //               href={eventData?.paymentLink || "#/event/"}
+              //               rel="noopener noreferrer"
+              //               target="_blank"
+              //               className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
+              //             >
+              //               Pay and register
+              //             </a>
+              //           ) : (
+              //             <div className="grid grid-cols-2 gap-2">
+              //               <input
+              //                 type="text"
+              //                 className="p-2 px-4 bg-black/20 outline-none block"
+              //                 name="name"
+              //                 placeholder="Create Team Name"
+              //                 onChange={handleInputChange}
+              //                 value={team?.name}
+              //               />
+              //               <button
+              //                 className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium  px-5 py-2.5 text-center text-lg"
+              //                 onClick={handleCreateTeam}
+              //               >
+              //                 Register as Team
+              //               </button>
+              //             </div>
+              //           )}
+              //           <div className="text-gray-400 font-bold col-span-2">
+              //             OR
+              //           </div>
+              //           <div className="space-x-2 col-span-2">
+              //             <input
+              //               type="text"
+              //               className="p-2 bg-black/20 outline-none"
+              //               name="id"
+              //               placeholder="Enter Team Code"
+              //               onChange={handleInputChange}
+              //               value={team?.id}
+              //             />
+              //             <button
+              //               className="col-span-2 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium  px-5 py-2.5 text-center text-lg"
+              //               onClick={handleJoinTeam}
+              //             >
+              //               Join Team
+              //             </button>
+              //           </div>
+              //         </div>
+              //       )
+              //     ) : eventData.isParticipated ? (
+              //       <div className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-2xl tracking-widest">
+              //         Registered Successfully
+              //       </div>
+              //     ) : // <PayByRazor
+              //       //   handleLoading={setLoading}
+              //       //   className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
+              //       //   eventId={id}
+              //       //   userDetails={userState?.userDetails}
+              //       //   eventDetails={eventData}
+              //       //   buttonName={"Participate"}
+              //       // />{/*//! Not using embedded Razorpay popup instead using redirects */}
+              //       eventData?.fees === 0 ? (
+              //         <button
+              //           className="border-2 border-solid p-2"
+              //           onClick={handleRegisterEvent}
+              //         >
+              //           Register
+              //         </button>
+              //       ) : (
+              //         <a
+              //           href={eventData?.paymentLink || "#/event/"}
+              //           rel="noopener noreferrer"
+              //           target="_blank"
+              //           className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
+              //         >
+              //           Register and Pay
+              //         </a>
+              //       )}
+              //   </div>
+              // </>
             )}
           </div>
           {/* event details description */}
@@ -367,11 +369,11 @@ const EventDetails = (props) => {
                 <div className="border-t pt-2 border-slate-600">
                   <ol className="text-gray-300 font-thin  list-disc list-inside">
                     {
-                    eventData?.schedule?.map((data) => (
-                      <li>
-                        Round {data.round} : {data.datetime !== "" ? <a href="https://www.pcsbxenia.com/schedule">{data.datetime}</a> : <a href="https://www.pcsbxenia.com/schedule">Check Schedule Page</a>}
-                      </li>
-                    ))}
+                      eventData?.schedule?.map((data) => (
+                        <li>
+                          Round {data.round} : {data.datetime !== "" ? <a href="https://www.pcsbxenia.com/schedule">{data.datetime}</a> : <a href="https://www.pcsbxenia.com/schedule">Check Schedule Page</a>}
+                        </li>
+                      ))}
                   </ol>
                 </div>
               </div>
