@@ -272,7 +272,7 @@ export default function Admin(props) {
             props.toast.toast.success("Admin Authenticated successfully!")
             return
         } else {
-            console.log(process.env.REACT_APP_ADMIN_USERNAME, process.env.REACT_APP_ADMIN_PASSWORD);
+            // console.log(process.env.REACT_APP_ADMIN_USERNAME, process.env.REACT_APP_ADMIN_PASSWORD);
             if (auth.username === process.env.REACT_APP_ADMIN_USERNAME) {
                 if (auth.password === process.env.REACT_APP_ADMIN_PASSWORD) {
                     setAuth(prevAuth => ({ ...prevAuth, isAdmin: true }))
@@ -304,8 +304,8 @@ export default function Admin(props) {
         <div className="admin-page h-screen">
             <div className="admin-login">
                 <h1>Admin Page</h1>
-                <input type="text" name="username" placeholder="Username" value={auth.username} onChange={(e) => setAuth(prevAuth => ({ ...prevAuth, username: e.target.value }))} required />
-                <input type="password" name="password" placeholder="Password" value={auth.password} onChange={(e) => setAuth(prevAuth => ({ ...prevAuth, password: e.target.value }))} required />
+                <input type="text" name="username" placeholder="Username" onChange={(e) => setAuth(prevAuth => ({ ...prevAuth, username: e.target.value }))} required />
+                <input type="password" name="password" placeholder="Password" onChange={(e) => setAuth(prevAuth => ({ ...prevAuth, password: e.target.value }))} required />
                 <button type="submit" onClick={async (e) => await authAdmin(e)}>Login</button>
             </div>
         </div>

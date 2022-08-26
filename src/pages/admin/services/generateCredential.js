@@ -88,7 +88,7 @@ function GenerateCredential(props) {
                                 props.toast.toast.error("Error while creating account: " + err.message);
                             });
                         setTimeout(() => {
-                            window.location.reload(true);
+                            // window.location.reload(true);
                         }, 1900);
                     }}
                 >
