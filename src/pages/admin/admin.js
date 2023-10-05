@@ -1,10 +1,17 @@
 import "./admin.css";
 import GenerateCredential from "./services/generateCredential";
-import { Tabs, Tab } from "./tabs";
+import { Tabs, Tab } from "./components/tabs";
+import Table from "./components/tables/table";
 import Requests from "../../api/requests";
 import { useEffect, useState } from 'react';
 import axios from "axios";
 import DataTable, { createTheme } from 'react-data-table-component';
+
+function filterArray(dataArray, filterText, attribute) {
+    return dataArray?.filter(
+        item => item[attribute] && item[attribute].toLowerCase().includes(filterText.toLowerCase()),
+    )
+}
 
 const ExpandedComponent = ({ data }) => <pre>{JSON.stringify(data, null, 4)}</pre>;
 
@@ -151,6 +158,8 @@ export default function Admin(props) {
     const [participantsTableData, setParticipantsTableData] = useState([])
     const [teamsTableData, setTeamsTableData] = useState([])
     // const [teamTableData, setTeamTableData] = useState([])
+    const [filterText, setFilterText] = useState('');
+    const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
     const [events, setEvents] = useState([])
     const [pending, setPending] = useState(true)
 
@@ -323,23 +332,28 @@ export default function Admin(props) {
                 {services === 1 && (
                     <Tabs>
                         <Tab className="event-desc-tab" component={
-                            <DataTable
-                                fixedHeader
-                                fixedHeaderScrollHeight="500px"
-                                columns={usersSchema}
-                                data={userTableData}
-                                pagination
-                                // paginationResetDefaultPage={resetPaginationToggle}
-                                progressPending={pending}
-                                expandableRows
-                                expandableRowsComponent={ExpandedComponent}
-                                customStyles={customStyles}
-                                theme="solarized"
-                                highlightOnHover
-                                pointerOnHover
-                                subHeader
-                                // subHeaderComponent={subHeaderComponentMemo}
-                                persistTableHead
+                            // <DataTable
+                            //     fixedHeader
+                            //     fixedHeaderScrollHeight="500px"
+                            //     columns={usersSchema}
+                            //     data={userTableData}
+                            //     pagination
+                            //     // paginationResetDefaultPage={resetPaginationToggle}
+                            //     progressPending={pending}
+                            //     expandableRows
+                            //     expandableRowsComponent={ExpandedComponent}
+                            //     customStyles={customStyles}
+                            //     theme="solarized"
+                            //     highlightOnHover
+                            //     pointerOnHover
+                            //     subHeader
+                            //     // subHeaderComponent={subHeaderComponentMemo}
+                            //     persistTableHead
+                            // />
+                            <Table
+                                filtration={{ filterText, resetPaginationToggle, setResetPaginationToggle, setFilterText: (text) => setFilterText(text) }}
+                                tableSchema={usersSchema}
+                                filteredItems={filterArray(userTableData, filterText, "name")}
                             />
                         }>Users</Tab>
                         <Tab className="event-desc-tab" component={

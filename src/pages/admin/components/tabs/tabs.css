@@ -15,10 +15,11 @@
 .tabs-body-container {
   width: 100%;
   padding: 10px 20px;
-  min-height: calc(300px + 20px);
+  min-height: calc(500px + 20px);
   background-color: rgba(200, 200, 200, 0.2);
   border-radius: 0 0 8px 8px;
   margin-top: 10px;
+  transition: all 0.2s ease-in-out;
 }
 
 .tabs-body-container div {
