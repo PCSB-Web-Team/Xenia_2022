@@ -243,11 +243,11 @@ const Payment = (props) => {
     // </div>
     <>
       {/* <div className="login-box"> */}
-      <h1 className="text-white mt-2 py-1 px-3 text-center text-2xl font-bold">
+      {/* <h1 className="text-white mt-2 py-1 px-3 text-center text-2xl font-bold">
         Upload your Payment Screenshot
-      </h1>
+      </h1> */}
       <div className="flex flex-col py-6 md:flex-row gap-10 items-center justify-center w-full mt-2">
-        <label
+        {/* <label
           htmlFor="dropzone-file"
           className={`flex flex-col items-center justify-center w-100 h-50 px-6 border-2 border-gray-300 border-dashed rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600 ${
             !file &&
@@ -309,9 +309,9 @@ const Payment = (props) => {
               </div>
             </>
           )}
-        </label>
+        </label> */}
         <div className="flex flex-col items-center justify-center space-y-5">
-          <div className="flex flex-col items-center justify-center space-x-3 space-y-2">
+          {/* <div className="flex flex-col items-center justify-center space-x-3 space-y-2">
             <Modal fees={event?.fees} />
             <div className="text-white md:hidden">OR</div>
             <img
@@ -320,7 +320,7 @@ const Payment = (props) => {
               alt="logo"
               onClick={RedirectToPayment}
             />
-          </div>
+          </div> */}
 
           <input
             type="text"
