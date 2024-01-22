@@ -1,0 +1,194 @@
+.contactUs {
+  display: flex;
+  justify-content: space-evenly;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.contactUs input {
+  background-color: rgba(133, 133, 133, 0.1);
+}
+
+.contactUs textarea {
+  background-color: rgba(133, 133, 133, 0.1);
+}
+
+.contactForm {
+  display: flex;
+  flex-flow: column;
+  width: 60%;
+  padding: 0 15px;
+}
+
+.contactInfo {
+  width: 40%;
+  padding: 0 10px;
+}
+
+.contactForm form {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  margin-top: 1.7rem;
+}
+
+.contactForm h1,
+.contactInfo h1 {
+  color: white;
+}
+
+.contactFill {
+  color: white;
+  height: 3rem;
+  background: rgba(0, 0, 0, 0);
+  outline: 0;
+  border: 0;
+  border-left: 2px aqua solid;
+  padding: 1rem 2.4rem;
+  font-size: 1.5rem;
+  line-height: 2.8rem;
+  margin-bottom: 1.5rem;
+}
+
+textarea.contactFill {
+  resize: none;
+  min-height: 10rem;
+  line-height: 0.9;
+}
+
+#contactSubmit {
+  outline: 0;
+  margin-top: 30px;
+  width: 50%;
+  color: white;
+  font-size: 1.4rem;
+  background: none;
+  border-color: aqua;
+  transition: 100ms ease;
+}
+
+#contactSubmit:hover {
+  transform: scale(1.1);
+}
+
+.address {
+  margin-top: 1.7rem;
+}
+
+.address h3,
+.phoneAndMail h3,
+.socialMedia h3 {
+  color: white;
+}
+
+.address p,
+.phoneAndMail p,
+.socialMedia p {
+  color: white;
+  margin: 0;
+}
+
+.phoneAndMail,
+.socialMedia {
+  margin-top: 1.6rem;
+}
+
+.socialMedia .fa-instagram {
+  color: white;
+  font-size: xx-large !important;
+  transition: 100ms ease;
+}
+
+.socialMedia .fa-facebook-official {
+  color: white;
+  font-size: xx-large !important;
+  transition: 100ms ease;
+  margin-left: 20px;
+}
+
+.socialMedia .fa-linkedin {
+  color: white;
+  font-size: xx-large !important;
+  transition: 100ms ease;
+  margin-left: 20px;
+}
+
+input.contactFill:-webkit-autofill,
+input.contactFill:-webkit-autofill:hover,
+input.contactFill:-webkit-autofill:focus,
+textarea.contactFill:-webkit-autofill,
+textarea.contactFill:-webkit-autofill:hover,
+textarea.contactFill:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.contactUsForm .fa-facebook-official:hover,
+.fa-instagram:hover,
+.fa-linkedin:hover {
+  transform: scale(1.1);
+}
+
+.themeButtCont {
+  background: none;
+  width: fit-content;
+  border: 0;
+}
+
+.themeButtCont:focus {
+  outline: none;
+  border: none;
+}
+
+@media (min-width: 851px) and (max-width: 100px) {
+  .contactUs {
+    width: 90%;
+  }
+}
+
+@media (max-width: 850px) {
+  .contactUs {
+    width: 100%;
+    flex-flow: column;
+    align-items: center;
+  }
+  .contactForm {
+    width: 100%;
+    align-items: center;
+  }
+  .contactInfo {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+  #contactSubmit {
+    margin: 30px auto 50px auto;
+  }
+
+  .socialMedia {
+    text-align: center;
+  }
+
+  .contactFill {
+    font-size: 1rem;
+  }
+  .contactForm form {
+    width: 85%;
+  }
+  .address {
+    margin-top: 0.6rem;
+  }
+
+  .themeButtCont {
+    width: 100%;
+  }
+  /* .address p,
+  .phoneAndMail p,
+  .socialMedia {
+    text-align: center;
+  } */
+  
+}
+

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/xenia22Logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#00a0fd83" />
+    <meta
+      name="description"
+      content="PCSB's annual tech fest, Where Passion Meets Perfection! With more than 10 technical as well as non-technical events. Along with events, this fest also have industry talks session and fun games."
+    />
+    <meta
+      name="keyword"
+      content="pcsb,pict,xenia,csi,pune,college,college event,tech fest,contest,computer science,coding,programming,event,annual event,competition,credenz,pulzion,pisb,pasc,debsoc,ieee,acm,college club,event website"
+    />
+    <meta name="author" content="PCSB Web Team" />
+    <style>
+      .preloader {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #000;
+        position: fixed;
+        z-index: 99999999999999999999999;
+        display: none;
+      }
+      .preloader-main {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        display: grid;
+        place-items: center;
+      }
+      .preloader-main #block1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 140px;
+        height: 140px;
+      }
+      .preloader-main #block2 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 140px;
+        height: 140px;
+      }
+      .preloader-main #block3 {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 140px;
+        height: 140px;
+      }
+      .preloader-main #block4 {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 140px;
+        height: 140px;
+      }
+      .preloader-main #logo {
+        width: 150px;
+        height: 150px;
+        animation: logo-reveal 1s ease 5s infinite alternate;
+      }
+      .preloader-main #line1 {
+        position: absolute;
+        width: 100px;
+        background-color: rgb(25, 49, 228);
+        height: 2px;
+        transform: rotate(90deg);
+        left: 5%;
+      }
+      .preloader-main #line2 {
+        position: absolute;
+        width: 100px;
+        background-color: rgb(25, 49, 228);
+        height: 2px;
+        bottom: 17%;
+      }
+      .preloader-main #line3 {
+        position: absolute;
+        width: 100px;
+        background-color: rgb(25, 49, 228);
+        height: 2px;
+        transform: rotate(90deg);
+        right: 5%;
+      }
+      .preloader-main #line4 {
+        position: absolute;
+        width: 100px;
+        background-color: rgb(25, 49, 228);
+        height: 2px;
+        top: 17%;
+      }
+
+      @keyframes logo-reveal {
+        0% {
+          transform: scale(0);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/xenia22Logo.ico" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.11.2/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>XENIA'22 | PCSB</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+      <div class="preloader">
+        <div class="preloader-main">
+          <img src="./block.png" alt="block" id="block1" />
+          <img src="./block.png" alt="block" id="block2" />
+          <img src="./block.png" alt="block" id="block3" />
+          <img src="./block.png" alt="block" id="block4" />
+          <div class="line" id="line1"></div>
+          <div class="line" id="line2"></div>
+          <div class="line" id="line3"></div>
+          <div class="line" id="line4"></div>
+          <img src="./xenia22Logo.ico" alt="logo" id="logo" />
+        </div>
+      </div>
+    </div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>

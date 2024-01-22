@@ -1,0 +1,461 @@
+.homepage {
+  position: relative;
+  height: 100vh;
+  z-index: 5;
+  background-color: black;
+  text-align: center;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 800px) {
+  .homepage::after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 8;
+    box-shadow: inset 0 -50px 80px -70px black;
+  }
+}
+
+#mouse-parallax-container {
+  height: 120vh;
+  width: 100vw;
+}
+
+.homepage-background-container {
+  position: absolute;
+  top: 100;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  
+}
+
+@keyframes tso-rainbow {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100vw 0;
+  }
+}
+
+.tso-rainbow:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #30ff90;
+  /* Old browsers */
+  background: -moz-linear-gradient(
+    left,
+    rgba(48, 255, 144, 1) 0%,
+    rgba(237, 45, 237, 1) 25%,
+    rgba(201, 152, 38, 1) 50%,
+    rgba(48, 255, 230, 1) 75%,
+    rgba(48, 255, 144, 1) 100%
+  );
+  /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(0%, rgba(48, 255, 144, 1)),
+    color-stop(25%, rgba(237, 45, 237, 1)),
+    color-stop(50%, rgba(201, 152, 38, 1)),
+    color-stop(75%, rgba(48, 255, 230, 1)),
+    color-stop(100%, rgba(48, 255, 144, 1))
+  );
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    left,
+    rgba(48, 255, 144, 1) 0%,
+    rgba(237, 45, 237, 1) 25%,
+    rgba(201, 152, 38, 1) 50%,
+    rgba(48, 255, 230, 1) 75%,
+    rgba(48, 255, 144, 1) 100%
+  );
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    left,
+    rgba(48, 255, 144, 1) 0%,
+    rgba(237, 45, 237, 1) 25%,
+    rgba(201, 152, 38, 1) 50%,
+    rgba(48, 255, 230, 1) 75%,
+    rgba(48, 255, 144, 1) 100%
+  );
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(
+    left,
+    rgba(48, 255, 144, 1) 0%,
+    rgba(237, 45, 237, 1) 25%,
+    rgba(201, 152, 38, 1) 50%,
+    rgba(48, 255, 230, 1) 75%,
+    rgba(48, 255, 144, 1) 100%
+  );
+  /* IE10+ */
+  background: linear-gradient(
+    to right,
+    rgba(48, 255, 144, 1) 0%,
+    rgba(237, 45, 237, 1) 25%,
+    rgba(201, 152, 38, 1) 50%,
+    rgba(48, 255, 230, 1) 75%,
+    rgba(48, 255, 144, 1) 100%
+  );
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation-name: tso-rainbow;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+}
+
+.tso-rainbow {
+  position: relative;
+  width: 100%;
+  height: 5px;
+}
+
+.homepage-background-img {
+  position: relative;
+  margin-top: 5px;
+  min-height: 400px;
+  min-width: 100%;
+}
+
+.hole {
+  position: relative;
+  width: 65%;
+  height: 65vh;
+  margin: -60px auto 0;
+}
+
+.background-video {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 45%);
+  height: 110%;
+  width: 110%;
+  filter: blur(20px);
+  background: transparent;
+  z-index: -1;
+}
+
+.falling-coins {
+  position: absolute;
+  width: 70vw;
+  height: 40vw;
+  left: 50%;
+  top: 50px;
+  transform: translateX(-50%);
+  overflow: visible;
+  z-index: 2;
+}
+
+.falling-coins-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+@keyframes increasingShadow {
+  from {
+    -webkit-filter: drop-shadow(3px 5px 15px #04c1fa00);
+    filter: drop-shadow(3px 5px 15px #04c1fa00);
+  }
+  to {
+    -webkit-filter: drop-shadow(3px 5px 15px #04c0fa);
+    filter: drop-shadow(3px 5px 15px #04c0fa);
+  }
+}
+
+.falling-coins-svg image {
+  animation-name: increasingShadow;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.earth {
+  position: absolute;
+  bottom: -50vh;
+  right: -25px;
+  width: 140%;
+  height: 50vh;
+}
+
+@media (max-width: 800px) {
+  .earth {
+    right: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 150vw;
+    width: 200%;
+    bottom: -600px;
+    height: 40vh;
+  }
+}
+
+.earth-pulses-container {
+  position: absolute;
+  bottom: -45vh;
+  height: 50vh;
+  width: 100%;
+  overflow: visible;
+}
+
+.earth-pulses-container g {
+  filter: blur(0.8px);
+  transition: all 0.1s ease-in-out;
+}
+
+.earth-pulses-container g:nth-child(1) {
+  transform: matrix(1, 0.2, -0.8, 0.78, 0, 0);
+}
+
+.earth-pulses-container g:nth-child(2) {
+  transform: matrix(1.12, 0.1, -0.25, 0.9, 0, 0);
+}
+
+.earth-pulses-container g:nth-child(3) {
+  transform: matrix(1, 0.1, -0.3, 0.5, 0, 0);
+}
+
+.earth-pulses-container g:nth-child(4) {
+  transform: matrix(0.948, 0.13, 0.4, 0.45, 0, 0);
+}
+
+.earth-pulses-container g #core {
+  fill: rgba(2, 112, 176, 0.503);
+  animation: pulse1 2s ease-in-out infinite;
+}
+
+.earth-pulses-container g #radar {
+  fill: rgba(2, 112, 176, 0.386);
+  animation: pulse2 2s ease-in-out 0.75s infinite;
+}
+
+@keyframes pulse1 {
+  0% {
+    r: 0;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    r: calc(inherit + 10px);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse2 {
+  0% {
+    r: 0;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    r: calc(inherit + 30px);
+    opacity: 0;
+  }
+}
+
+.homepage-contents {
+  color: #c4e7f9;
+  width: 100%;
+  margin: 80px auto 0px;
+}
+
+@keyframes animate_logo {
+  from {
+    opacity: 0.2;
+    transform: matrix(0.4, -0.1, 0, -0.1, 0, -130) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+  }
+}
+
+.homepage-contents .sponsors-logo {
+  margin: 0 auto;
+  max-width: 350px;
+  width: 35vw;
+  opacity: 0;
+  filter: drop-shadow(1px 1px 2.4px rgba(0, 0, 0, 0.8)) blur(8px);
+  animation: fade-in 2s 2s forwards;
+}
+
+.homepage-contents h1 {
+  margin: -30px auto;
+  font-family: sans-serif;
+  font-stretch: ultra-expanded;
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 0;
+  letter-spacing: 1.8px;
+  opacity: 0;
+  filter: drop-shadow(1px 1px 2.4px rgba(0, 0, 0, 0.8)) blur(8px);
+  animation: fade-in 2s 2.6s forwards;
+}
+
+.homepage-contents .xenia-logo {
+  margin: 40px auto 0;
+  max-width: 600px;
+  width: 60vw;
+  animation: animate_logo 5s ease-in-out 1;
+}
+
+@keyframes scale {
+  100% {
+    transform: scale(1);
+  }
+}
+
+.homepage-contents h2 {
+  font-size: calc(2vh + 1vw);
+  font-weight: 700;
+  margin: 0px auto;
+  transform: scale(0.9);
+  animation: scale 5.6s forwards cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+.homepage-contents h2 span {
+  display: inline-block;
+  margin: 0 0.05em;
+  transform: scale(0.94);
+  opacity: 0;
+  filter: blur(4px);
+}
+
+@keyframes fade-in {
+  100% {
+    opacity: 1;
+    filter: drop-shadow(1px 1px 2.4px rgba(0, 0, 0, 0.8)) blur(0px);
+  }
+}
+
+.homepage-contents h2 span:nth-child(1) {
+  animation: fade-in 2.8s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+.homepage-contents h2 span:nth-child(2) {
+  animation: fade-in 2.8s 0.5s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+.homepage-contents h2 span:nth-child(3) {
+  animation: fade-in 2.8s 0.9s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+.homepage-contents h2 span:nth-child(4) {
+  animation: fade-in 2.8s 1.3s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+@media screen and (max-width: 768px) {
+  .homepage {
+    max-height: 100vh;
+  }
+
+  .homepage-background-container {
+    width: 200%;
+  }
+
+  .hole {
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 120vw;
+    width: 140%;
+    height: 140%;
+  }
+
+  .falling-coins {
+    transform: translateX(-155%);
+  }
+
+  .earth-pulses-container {
+    transform: scale(0.4) translate(-1090px, 1480px);
+    bottom: 0;
+    width: 300%;
+    height: 50vh;
+    overflow: visible;
+  }
+
+  .background-video {
+    display: none;
+  }
+
+  .homepage-contents .xenia-logo {
+    max-width: none;
+    width: 80vw;
+    margin: 10px auto 0;
+  }
+  .homepage-contents .sponsors-logo {
+    max-width: none;
+    width: 50vw;
+  }
+  .homepage-contents {
+    margin: 60px auto 0;
+    padding: 100px 0;
+  }
+  .homepage-contents h1 {
+    margin: -14px auto 0;
+    font-size: 1rem;
+  }
+  .homepage-contents h2 span {
+    font-size: 1.2rem;
+  }
+}
+
+/* Add this to your home4.css file */
+
+.animated-text span {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Optional: Add a slight upward movement */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.animated-text span:nth-child(1) {
+  animation-delay: 1s;
+  color: #9EDDFF; /* Change the color as needed */
+}
+
+.animated-text span:nth-child(2) {
+  animation-delay: 2s;
+  color: #A6F6FF; /* Change the color as needed */
+}
+
+.animated-text span:nth-child(3) {
+  animation-delay: 2.5s;
+  color:#9EDDFF; /* Add your desired color */
+}
+
+.animated-text span:nth-child(4) {
+  animation-delay: 3.5s;
+  color:#A6F6FF; /* Add your desired color */;
+}
+
+

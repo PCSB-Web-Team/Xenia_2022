@@ -1,0 +1,33 @@
+.countdownComponent {
+  color: rgb(12, 255, 29);
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.countdownComponent ul {
+  line-height: 50px;
+}
+
+.countdownComponent ul li {
+  display: inline-block;
+  font-size: 1.4em;
+  list-style-type: none;
+  padding: 1em;
+  text-transform: uppercase;
+}
+
+.countdownComponent ul li span {
+  display: block;
+  color: #fff;
+  font-size: 2.6em;
+}
+
+@media all and (max-width: 768px) {
+  .countdownComponent ul li {
+    font-size: calc(2.125rem * 0.75);
+  }
+
+  .countdownComponent ul li span {
+    font-size: calc(4.375rem * 0.75);
+  }
+}

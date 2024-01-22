@@ -1,0 +1,27 @@
+.tabs-headings-container {
+  width: 100%;
+  font-size: 16px;
+  justify-content: space-evenly;
+  padding: 8px 0;
+  background-color: rgba(160, 160, 160, 0.4);
+  border-radius: 8px 8px 0 0;
+}
+
+.tabs-headings-container div {
+  font-size: 20px;
+  letter-spacing: 0.8px;
+}
+
+.tabs-body-container {
+  width: 100%;
+  padding: 10px 20px;
+  min-height: calc(500px + 20px);
+  background-color: rgba(200, 200, 200, 0.2);
+  border-radius: 0 0 8px 8px;
+  margin-top: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.tabs-body-container div {
+  overflow-y: scroll;
+}

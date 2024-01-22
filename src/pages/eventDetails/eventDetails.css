@@ -1,0 +1,138 @@
+.event-details-page {
+  padding: 50px;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .event-details-page {
+    padding: 50px 20px;
+  }
+}
+
+.event-details-page * {
+  /* border: 1px solid red; */
+}
+
+.event-details-page .event-details-title {
+  text-align: center;
+  font-weight: 600;
+  font-size: 64px;
+}
+
+.event-details-page .event-status {
+  font-weight: 600;
+  text-align: center;
+  font-size: calc(0.5 * 64px);
+}
+
+.event-details-page .event-details-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  padding: 50px 30px 10px;
+  justify-content: center;
+  align-items: flex-start;
+  column-gap: 15px;
+}
+
+@media (max-width: 768px) {
+  .event-details-page .event-details-container {
+    flex-direction: column;
+    padding: 80px 0 10px;
+    align-items: center;
+    row-gap: 40px;
+    column-gap: 0;
+  }
+}
+
+.event-details-container .event-type {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.event-details-container .event-abstract {
+  border: 2px solid rgba(160, 160, 160, 0.5);
+  padding: 20px;
+  flex: 40%;
+}
+
+.event-details-container .event-desc {
+  flex: 60%;
+}
+
+.event-details-container > div {
+  border-radius: 8px;
+  min-height: 400px;
+  max-height: calc(400px + 40px);
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .event-details-container .event-abstract,
+  .event-details-container .event-desc {
+    flex: 1 0;
+    min-width: 100%;
+  }
+}
+
+.event-details-container .event-abstract * {
+  margin: auto;
+}
+
+.event-details-container .event-abstract .event-logo {
+  width: 40%;
+  height: auto;
+  min-width: 100px;
+  min-height: 100px;
+}
+
+.event-details-container .event-abstract hr {
+  margin: 8px auto 2px;
+  width: 70%;
+  border: 0.5px solid rgba(160, 160, 160, 0.5);
+}
+
+.event-details-container .event-abstract .event-details {
+  padding: 20px 0;
+  text-align: center;
+  font-size: 16px;
+}
+
+.event-details-container .event-abstract .event-register-buttons {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.event-details-container .event-abstract .disabled {
+  padding: 10px;
+  border: 1px solid white;
+  opacity: 0.8;
+  color: red;
+}
+
+.event-details-container .event-abstract .event-register-buttons * {
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+}
+
+.event-details-container .event-abstract .event-register-buttons span {
+  font-size: 16px;
+  border: none;
+}
+
+.event-details-container .event-abstract .event-register-buttons input {
+  background-color: transparent;
+}
+
+.event-details-container .event-abstract .event-fees {
+  padding: 10px;
+  text-align: center;
+}

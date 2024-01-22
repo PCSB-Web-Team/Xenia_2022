@@ -1,0 +1,22 @@
+.event-card .event-card-body {
+  animation-name: shade;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  transition-delay: -3s;
+}
+
+@keyframes shade {
+  0% {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+      0 6px 100px 0 rgba(0, 255, 255, 0);
+  }
+
+  50% {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 100px 0 #007a93;
+  }
+
+  100% {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+      0 6px 100px 0 rgba(0, 255, 255, 0);
+  }
+}

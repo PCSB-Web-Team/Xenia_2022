@@ -1,0 +1,100 @@
+
+.sponsors-list{
+  /* background: rgba(0, 0, 0, 0.3); */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.sponsors{
+  display: inline-block;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.sponsors .sponsors-head{
+  color: white;
+  width: 100%;
+  text-align: center;
+  display: block;
+  font-size: 40px;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.sponsors div[class*='sponsor']{
+  text-align: center;
+  display: inline-block;
+  margin: 10px;
+}
+
+/* Simple Card */
+.sponsor-card{
+
+  width: 200px;
+
+  background: rgba(0, 0, 0, 0.3);
+  /* background: white; */
+  padding: 10px;
+  display: inline-block;
+  vertical-align: top;
+
+  text-align: center;
+}
+
+.sponsor-card .logo-container{
+  width: 100%;
+  min-height: 150px;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: white;
+
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  margin-bottom: 20px;
+}
+
+.sponsor-card .logo-container img{
+  width: 100%;
+}
+
+.sponsor-card .sponsor-name{
+  color: white;
+  font-size: 18px;
+  margin-bottom: 20px;
+  transition: ease-in-out 200ms;
+}
+
+.sponsor-card .sponsor-name:hover{
+  color: rgb(128, 255, 128);
+  transform: scale(1.2);
+}
+
+.title-sponsors .sponsor-card{
+  width: 400px;
+  max-width: 90%;
+}
+
+.title-sponsors .logo-container{
+  height: 250px;
+}
+
+.sponsor-social{
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.sponsor-social a{
+  margin: 0 5px;
+}
+
+.sponsor-social i{
+  font-size: 20px;
+  color: white;
+}

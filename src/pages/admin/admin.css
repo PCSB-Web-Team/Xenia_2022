@@ -1,0 +1,87 @@
+.admin-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  min-width: 80vw;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 50px 50px;
+}
+
+.admin-page h1 {
+  position: relative;
+  color: white;
+  font-size: 3rem;
+  text-align: center;
+  padding: 12px;
+}
+
+.admin-page .admin-tabs-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.admin-page .admin-login {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  align-items: stretch;
+  justify-content: space-evenly;
+  min-width: 370px;
+  padding: 30px;
+  justify-self: center;
+  color: yellow;
+  caret-color: red;
+  background: rgb(0, 0, 0);
+  border-radius: 8px;
+  box-shadow: 6px 10px 20px -5px rgba(69, 69, 69, 0.68);
+}
+
+.admin-page .admin-login input {
+  font-size: 1.1rem;
+  letter-spacing: 1.2px;
+  padding: 12px 8px;
+  background-color: transparent;
+  outline: none;
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-bottom: 0.5px solid rgb(255, 255, 0);
+  box-shadow: 1px 1px 20px -2px rgb(60, 60, 60);
+  transition: all 0.2s ease;
+}
+
+.admin-page .admin-login input:focus {
+  border-radius: 8px;
+  border: 1px solid rgb(255, 255, 0);
+  background-color: rgba(54, 54, 54, 0.6);
+}
+
+.admin-page .admin-login button {
+  padding: 12px 8px;
+  color: Yellow;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  background: transparent;
+  outline: none;
+  border-radius: 8px;
+  border: 2px dashed yellow;
+  transition: all 0.2s ease;
+}
+
+.admin-page .admin-login button:hover {
+  color: black;
+  background: yellow;
+  border: 3px dashed yellow;
+  box-shadow: 5px 0 5px 5px rgba(99, 99, 99, 0.377);
+}

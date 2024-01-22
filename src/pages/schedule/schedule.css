@@ -1,0 +1,400 @@
+.schedule-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: white;
+  padding: 40px 0;
+  /* background: black; */
+}
+
+.schedule-page-title {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  width: 100%;
+  /* height: 200px; */
+  padding: 30px 0;
+  margin-bottom: 30px;
+}
+
+.schedule-page-title p {
+  font-size: 3em;
+  letter-spacing: 0.2rem;
+}
+
+@media (max-width: 768px) {
+  .schedule-background-1 {
+    transform: translate(-45%, -20%);
+  }
+
+  .schedule-background-2 {
+    transform: translate(5%, 50%);
+  }
+
+  .schedule-background-3 {
+    transform: translate(-35%, 230%);
+  }
+
+  .schedule-page-title {
+    font-size: 2em;
+    padding: 30px 10px 0;
+    /* height: 30%; */
+  }
+
+  .schedule-page-title p {
+    font-size: 2em;
+  }
+}
+
+.schedule-page-title span {
+  font-family: consolas;
+  display: inline-block;
+  margin: 0 5px;
+  color: #fff;
+}
+
+.schedule-page-title span:nth-child(1) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 0s infinite linear alternate;
+}
+
+.schedule-page-title span:nth-child(2) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 0.2s infinite linear alternate;
+}
+
+.schedule-page-title span:nth-child(3) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 0.4s infinite linear alternate;
+}
+
+.schedule-page-title span:nth-child(4) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 0.6s infinite linear alternate;
+}
+
+.schedule-page-title span:nth-child(5) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 0.8s infinite linear alternate;
+}
+
+.schedule-page-title span:nth-child(6) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 1s infinite linear alternate;
+}
+
+.schedule-page-title span:nth-child(7) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 1.2s infinite linear alternate;
+}
+
+.schedule-page-title span:nth-child(8) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 1.4s infinite linear alternate;
+}
+
+.schedule-page-title span:nth-child(9) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 1.6s infinite linear alternate;
+}
+
+.schedule-page-title span:nth-child(10) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 1.8s infinite linear alternate;
+}
+
+.schedule-page-title span:nth-child(11) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 2s infinite linear alternate;
+}
+
+@keyframes blur-text {
+  0% {
+    filter: blur(0px);
+  }
+  100% {
+    filter: blur(4px);
+  }
+}
+
+.schedule-page .events-schedule {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 70px;
+  z-index: 1;
+}
+
+.events-schedule .event-day {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+}
+
+.event-day .event-date-hex {
+  position: absolute;
+  left: 50%;
+  top: -30px;
+  margin-top: -30px;
+  margin-left: -50px;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@media (max-width: 768px) {
+  .schedule-page .events-schedule {
+    gap: 30px;
+  }
+
+  .events-schedule .event-day {
+    width: 80%;
+  }
+
+  .event-day .event-date-hex {
+    left: 50%;
+    top: calc(-30px * 0.7 + 10px);
+    margin-top: calc(-30px * 0.7);
+    margin-left: calc(-50px * 0.7);
+    transform: scale(0.7);
+    z-index: 1;
+  }
+}
+
+.event-date-hex .hex,
+.event-date-hex-bg {
+  position: absolute;
+  width: 100px;
+  height: 173.2050807569px;
+  opacity: 0.5;
+}
+
+.event-date-hex .hex:first-child {
+  opacity: 1;
+  transform: scale(0.6);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  z-index: 3;
+}
+
+.event-date-hex .hex:last-child {
+  transform: scale(0.8);
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: 2;
+}
+
+.event-date-hex .hex div {
+  position: absolute;
+  width: 100px;
+  height: 173.2050807569px;
+}
+
+.event-date-hex .hex div:before,
+.event-date-hex .hex div:after {
+  content: " ";
+  position: absolute;
+  background: rgba(255, 255, 255, 1);
+  width: 100%;
+  height: 1px;
+}
+
+.event-date-hex .hex div:before {
+  top: 0;
+}
+
+.event-date-hex .hex div:after {
+  bottom: 0;
+}
+
+.event-date-hex .hex div:nth-child(1) {
+  width: 2px; /*Removes top and bottom edges of hexagon*/
+  transform: rotate(0deg);
+}
+
+.event-date-hex .hex div:nth-child(2) {
+  transform: rotate(60deg);
+}
+
+.event-date-hex .hex div:nth-child(3) {
+  transform: rotate(120deg);
+}
+
+.event-date-hex:hover .hex div:nth-child(1) {
+  width: 100px; /*Making hexagon by resetting the width*/
+}
+
+.event-date-hex:hover .hex:last-child,
+.event-date-hex .event-date-hex-bg {
+  opacity: 1;
+  transform: scale(0.9);
+}
+
+.event-date-hex:hover .hex:first-child {
+  opacity: 1;
+  transform: scale(0.8);
+}
+
+.event-date-hex:hover .hex:first-child div:before,
+.event-date-hex:hover .hex:first-child div:after {
+  height: 10px;
+}
+
+.event-date-hex .event-date-hex-bg:before,
+.event-date-hex .event-date-hex-bg:after {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  background: inherit;
+  content: "";
+}
+
+.event-date-hex .event-date-hex-bg:before {
+  transform: rotate(60deg);
+}
+
+.event-date-hex .event-date-hex-bg:after {
+  transform: rotate(-60deg);
+}
+
+.event-date-hex:hover .event-date-hex-bg {
+  z-index: 1;
+  -moz-backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.event-day .event-day-date {
+  text-align: center;
+  padding: 00px 0;
+  z-index: 2;
+  font: 2.4em bold;
+}
+
+.event-day .event-day-date p {
+  font: 0.6em bold;
+}
+
+.event-day .event-day-date h4 {
+  margin-top: 8px;
+  line-height: 42px;
+  background: rgba(34, 33, 34, 0.789);
+  border-radius: 10px;
+}
+
+.event-day .events-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: -20px 0 0;
+  padding: 10px 5% 2%;
+  width: 100%;
+  row-gap: 50px;
+  overflow: hidden;
+  /* z-index: ; */
+  background-color: rgba(77, 6, 86, 0.28);
+  border: 1px solid rgba(252, 202, 250, 0.186);
+  border-radius: 12px;
+  -moz-backdrop-filter: blur(4px) saturate(180%);
+  -webkit-backdrop-filter: blur(4px) saturate(180%);
+  backdrop-filter: blur(4px) saturate(180%);
+}
+
+@media (max-width: 768px) {
+  .event-day .events-row {
+    row-gap: 10px;
+    padding: 30px 0 5%;
+  }
+}
+
+.events-row .each-event {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  flex: 0 1 250px;
+  max-width: 70%;
+  min-height: 120px;
+  padding: 30px 0 2%;
+  border-radius: 10px;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(137, 116, 137, 0.27) 87%
+  );
+  cursor: pointer;
+}
+
+.events-row .each-event::before {
+  content: "";
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  top: -2%;
+  bottom: -4%;
+  border: 1px solid purple;
+  border-top: none;
+  border-bottom: none;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.events-row .each-event abbr {
+  display: block;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: 100%;
+  background: linear-gradient(
+    109.6deg,
+    rgb(123, 90, 224) 11.2%,
+    rgb(164, 46, 253) 32.6%,
+    rgb(213, 56, 234) 62.7%,
+    rgb(251, 138, 52) 100.2%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.6em;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.events-row .each-event p {
+  padding: 5px 0;
+  opacity: 0.7;
+  font-size: 3ex;
+  color: rgb(210, 210, 210);
+  line-height: 20px;
+}
+
+.events-row .each-event p span {
+  color: rgb(255, 255, 255);
+}
+
+@media screen and (max-width: 768px) {
+  .events-row .each-event p {
+    font-size: 2ex;
+  }
+}
+
+.events-row .each-event:hover {
+  background-image: linear-gradient(
+    to bottom,
+    transparent 10%,
+    rgba(137, 116, 137, 0.347) 87%
+  );
+}
+
+.events-row .each-event:hover p {
+  opacity: 1;
+}
+
+.events-row .each-event:hover abbr {
+  -webkit-text-fill-color: white;
+}
