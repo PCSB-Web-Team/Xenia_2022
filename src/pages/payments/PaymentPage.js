@@ -311,7 +311,7 @@ const Payment = (props) => {
           )}
         </label> */}
         <div className="flex flex-col items-center justify-center space-y-5">
-          {/* <div className="flex flex-col items-center justify-center space-x-3 space-y-2">
+          <div className="flex flex-col items-center justify-center space-x-3 space-y-2">
             <Modal fees={event?.fees} />
             <div className="text-white md:hidden">OR</div>
             <img
@@ -320,7 +320,7 @@ const Payment = (props) => {
               alt="logo"
               onClick={RedirectToPayment}
             />
-          </div> */}
+          </div>
 
           <input
             type="text"
