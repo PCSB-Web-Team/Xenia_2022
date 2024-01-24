@@ -202,7 +202,11 @@ const EventDetails = (props) => {
               </div>
               <div className="flex space-x-2">
                 <div className="text-gray-200 font-thin">Team Size: </div>
-                <div>{`${eventData?.teamSize?.min} - ${eventData?.teamSize?.max}`}</div>
+                <div>
+                  {eventData?.teamSize?.min !== eventData?.teamSize?.max
+                    ? `${eventData?.teamSize?.min} - ${eventData?.teamSize?.max}`
+                    : `${eventData?.teamSize?.max}`}
+                </div>
               </div>
             </div>
             {/* <p className="text-green-400">
