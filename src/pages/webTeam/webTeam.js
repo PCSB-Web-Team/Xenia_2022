@@ -18,10 +18,15 @@ let teamDetails = [
     pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1657451628937.png",
   },
 
+  // {
+  //   name: "Yash Pande",
+  //   linkedIn: "https://www.linkedin.com/in/yash-pande-1a5812206",
+  //   pic: "https://drive.google.com/uc?export=view&id=1LOq2Bb_04Yde_SfUtRs7AGZBekhnxony",
+  // },
   {
-    name: "Yash Pande",
-    linkedIn: "https://www.linkedin.com/in/yash-pande-1a5812206",
-    pic: "https://drive.google.com/uc?export=view&id=1LOq2Bb_04Yde_SfUtRs7AGZBekhnxony",
+    name: "Mansi Gundre",
+    linkedIn: "https://www.linkedin.com/in/mansi-gundre-a6a722207",
+    pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1657483448750.jpg",
   },
 ];
 let prernaSthhall = [
@@ -55,26 +60,48 @@ let prernaSthhall = [
 
 let team2 = [
   {
-    name: "Renuka Saraf",
-    linkedIn: "https://www.linkedin.com/in/renuka-saraf-538846240/",
-    pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1657819990252.jpg",
+    name: "Jayesh Pandav",
+    linkedIn: "https://www.linkedin.com/in/jayeshpandav/",
+    pic: "https://media.licdn.com/dms/image/D4D03AQGQGtPuIzPs2g/profile-displayphoto-shrink_200_200/0/1694241944995?e=1711584000&v=beta&t=LKJJfhsldd_d4yryR4rINs895G3coaoITZ370lWosTM",
+  }
+  ,
+  {
+    name: "Pranav Dalvi",
+    linkedIn: "https://www.linkedin.com/in/pranav-dalvi-26a37322a/",
+    pic: "https://media.licdn.com/dms/image/D4D03AQG5W_fIogUTRw/profile-displayphoto-shrink_200_200/0/1689696111085?e=1711584000&v=beta&t=u2m5dyt1_Ez8v3p7UX_gPURPhWDe26XvK7ZcIvPca3k",
   },
   {
-    name: "Dhiraj Thorat",
-    linkedIn: "https://www.linkedin.com/in/dhiraj-thorat-073970215",
-    pic: "https://drive.google.com/uc?export=view&id=1RsylnBWZoq3Qt9D0olutgO9_NsfdgJsS",
-  },
+    name: "Manav Mehta",
+    linkedIn: "https://www.linkedin.com/in/manav-mehta-05480622a/",
+    pic: "https://media.licdn.com/dms/image/D4D35AQEy9gcNlC-RCA/profile-framedphoto-shrink_200_200/0/1704379978035?e=1706666400&v=beta&t=2FvrjBKBt0vwXr-CiChwENvkk0fr8sSezrp2bQGQvxw"
 
+  }
+  ,
   {
-    name: "Vansh Teppalwar",
-    linkedIn: "https://www.linkedin.com/in/vansh-teppalwar-0b60b0217/",
-    pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1658743938457.jpg",
+    name: "Namam",
+    linkedIn: "https://www.linkedin.com/in/namam-sharma-5b8a1a1b6/",
+    pic: "https://media.licdn.com/dms/image/D4D35AQFy5iX1Q5lq2Q/profile-framedphoto-shrink_200_200/0/1626293676935?e=1626388800&v=beta&t=8mH3wNjZU6qQZqj7qz4zJn4UxX1KX8FqUQb4Jl4c6uQ"
   },
   {
-    name: "Vaishnavi Katkar",
-    linkedIn: "https://www.linkedin.com/in/vaishnavi-katkar-0a61a9211",
-    pic: "https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/eb7d93792dc6258a110491d24d9d5f/62ca636b7dffdc1069d3189f/sh_1658766834425.jpg",
+    name: "Manthan Adhav",
+    linkedIn: "https://www.linkedin.com/in/manthan-adhav-0289a8230/",
+    pic: "https://media.licdn.com/dms/image/D4D03AQHFyWvaWYifPg/profile-displayphoto-shrink_200_200/0/1701004597290?e=1711584000&v=beta&t=G-SV-V9ut5uDV2A1_jVzAE9YkeSkIA64q1txi0zKX40"
   },
+  {
+    name: "Kavita Thete",
+    linkedIn: "https://www.linkedin.com/in/kavitathete/",
+    pic: "https://avatars.githubusercontent.com/u/97501836?v=4"
+  },
+  {
+    name: "Soham",
+    linkedIn: "https://www.linkedin.com/in/soham-ghosh-4b1a1a1b6/",
+    pic: "https://media.licdn.com/dms/image/D4D35AQGy9Y8L5e9vqQ/profile-framedphoto-shrink_200_200/0/1626293676935?e=1626388800&v=beta&t=6XZkK1XyS5dXZa7b5KXtVxZnGzXbQ8P3ZJ8TQzTmMg4"
+  },
+  {
+    name: "Parth Sali",
+    linkedIn: "https://www.linkedin.com/in/parthsali/",
+    pic: "https://avatars.githubusercontent.com/u/108068631?v=4"
+  }
 ];
 
 let team3 = [
@@ -139,11 +166,9 @@ const webTeam = (props) => {
       {/* </header> */}
       {team}
       <br />
-      {teTeam}
-      <br />
       {seTeam}
-      <br />
-      {bTeam}
+
+
     </div>
   );
 };
