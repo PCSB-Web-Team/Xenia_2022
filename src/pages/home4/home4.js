@@ -7,6 +7,7 @@ import hex_2xblock_right from "../../assets/images/Block_x2_Right_shadowless.png
 import hex_3xblock_left from "../../assets/images/Block_x3_Left_shadow.png";
 import hex_3xblock_right from "../../assets/images/Block_x3_Right_shadowless.png";
 import sponsors_logo from "../../assets/images/Cion Logo_Horizontal Stacked_Green.svg";
+import csi_logo from '../../assets/images/CSI_Logo_blue.png'
 // import trial_image2 from "../../assets/images/trial_image2.png"; 
 import Xenia_Logo from "../../assets/images/xenia_logo_blank.png";
 import space from "../../assets/images/space.png";
@@ -202,19 +203,19 @@ function Homepage() {
       </div>
       <header className="homepage-contents">
         <div className="logos">
-          <a href="https://www.ciondigital.com/" target="_blank" rel="noopener noreferrer">
-            <img className="sponsors-logo" src={sponsors_logo} alt="sponsors-logo" title="Cion Digital"></img>
+          <a href="https://pictcsi.com/" target="_blank" rel="noopener noreferrer">
+            <img className="sponsors-logo" src={csi_logo} alt="CSI-logo" title="PICT CSI"></img>
           </a>
           <h1>PRESENTS</h1>
-          <img style={{width: '100%', height: 'auto'}}className="xenia-logo" src={Xenia_Logo} alt="Xenia'24 logo" title="Xenia 2024" />
+          <img style={{ width: '100%', height: 'auto' }} className="xenia-logo" src={Xenia_Logo} alt="Xenia'24 logo" title="Xenia 2024" />
         </div>
         <h2 className="animated-text">
-        <span className="fade-in">BRIDGING</span>
-        <span className="fade-in">IMAGINATION</span>
-        <span className="fade-in">&</span>
-        <span className="fade-in">REALITY</span>
-      </h2>
-        
+          <span className="fade-in">BRIDGING</span>
+          <span className="fade-in">IMAGINATION</span>
+          <span className="fade-in">&</span>
+          <span className="fade-in">REALITY</span>
+        </h2>
+
       </header>
     </div>
   );

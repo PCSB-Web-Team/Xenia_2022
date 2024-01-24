@@ -119,16 +119,9 @@ export default function Sponsors() {
       <div className="text-6xl font-semibold text-center text-white pb-12">
         Sponsors
       </div>
-      <h1 className="sponsors-head">Title Sponsor</h1>
-      <div className="sponsors-list title-sponsors">{titleSponsorsList}</div>
-      <div className="sponsors-head">Co Sponsors</div>
-      <div className="sponsors-list">{coSponsorsList}</div>
-      <div className="sponsors-head">Education Partners</div>
-      <div className="sponsors-list">{educationSponsorsList}</div>
-      <div className="sponsors-head">Event Sponsors</div>
-      <div className="sponsors-list">{eventSponsorsList}</div>
-      <div className="sponsors-head">Food Partners</div>
-      <div className="sponsors-list">{foodSponsorsList}</div>
+      <h1 className="text-4xl font-semibold text-center text-white pb-12">
+        We are open for sponsorship
+      </h1>
     </div>
   );
 }
