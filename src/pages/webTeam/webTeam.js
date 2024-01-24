@@ -1,5 +1,7 @@
 import "./webTeam.css";
 import ProfileCard from "./TeamProfile";
+import SohamPic from '../../assets/images/Soham.jpg'
+
 
 let teamDetails = [
   {
@@ -78,9 +80,9 @@ let team2 = [
   }
   ,
   {
-    name: "Namam",
-    linkedIn: "https://www.linkedin.com/in/namam-sharma-5b8a1a1b6/",
-    pic: "https://media.licdn.com/dms/image/D4D35AQFy5iX1Q5lq2Q/profile-framedphoto-shrink_200_200/0/1626293676935?e=1626388800&v=beta&t=8mH3wNjZU6qQZqj7qz4zJn4UxX1KX8FqUQb4Jl4c6uQ"
+    name: "Naman labhteshwar",
+    linkedIn: "https://www.linkedin.com/in/naman-labhsetwar-01638022a/",
+    pic: "https://media.licdn.com/dms/image/C4E03AQEGQN7FSkLouA/profile-displayphoto-shrink_200_200/0/1643719577550?e=1711584000&v=beta&t=_JSSrpoeh0T1151Grrp_OFFWLnyeYVV-YK4QDQTYkOA"
   },
   {
     name: "Manthan Adhav",
@@ -93,9 +95,9 @@ let team2 = [
     pic: "https://avatars.githubusercontent.com/u/97501836?v=4"
   },
   {
-    name: "Soham",
-    linkedIn: "https://www.linkedin.com/in/soham-ghosh-4b1a1a1b6/",
-    pic: "https://media.licdn.com/dms/image/D4D35AQGy9Y8L5e9vqQ/profile-framedphoto-shrink_200_200/0/1626293676935?e=1626388800&v=beta&t=6XZkK1XyS5dXZa7b5KXtVxZnGzXbQ8P3ZJ8TQzTmMg4"
+    name: "Soham Kulkarni",
+    linkedIn: "https://www.linkedin.com/in/soham-kulkarni-6a4103230/  ",
+    pic: SohamPic
   },
   {
     name: "Parth Sali",
