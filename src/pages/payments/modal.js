@@ -1,5 +1,5 @@
 import React from "react";
-import Qr from "./images/samyak_jain_upi_qr.jpg";
+import Qr from "./images/pict_upi_qr.png";
 
 export default function Modal({ fees }) {
   const [showModal, setShowModal] = React.useState(false);

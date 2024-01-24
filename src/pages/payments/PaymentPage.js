@@ -313,13 +313,13 @@ const Payment = (props) => {
         <div className="flex flex-col items-center justify-center space-y-5">
           <div className="flex flex-col items-center justify-center space-x-3 space-y-2">
             <Modal fees={event?.fees} />
-            <div className="text-white md:hidden">OR</div>
+            {/* <div className="text-white md:hidden">OR</div>
             <img
               className="h-10 hover:cursor-pointer md:hidden"
               src={Gpay}
               alt="logo"
               onClick={RedirectToPayment}
-            />
+            /> */}
           </div>
 
           <input
