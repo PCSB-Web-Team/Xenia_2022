@@ -203,7 +203,7 @@ function Homepage() {
       </div>
       <header className="homepage-contents">
         <div className="logos">
-          <a href="https://www.ciondigital.com/" target="_blank" rel="noopener noreferrer">
+          <a href="https://pictcsi.com/" target="_blank" rel="noopener noreferrer">
             <img className="sponsors-logo" src={csi_logo} alt="CSI-logo" title="PICT CSI"></img>
           </a>
           <h1>PRESENTS</h1>

@@ -75,7 +75,7 @@ let team2 = [
   {
     name: "Manav Mehta",
     linkedIn: "https://www.linkedin.com/in/manav-mehta-05480622a/",
-    pic: "https://media.licdn.com/dms/image/D4D35AQEy9gcNlC-RCA/profile-framedphoto-shrink_200_200/0/1704379978035?e=1706666400&v=beta&t=2FvrjBKBt0vwXr-CiChwENvkk0fr8sSezrp2bQGQvxw"
+    pic: "https://media.licdn.com/dms/image/D4D03AQF6vYGvItxlGg/profile-displayphoto-shrink_200_200/0/1689186653604?e=1711584000&v=beta&t=BerVpaNlWbjfI12f0exWBjB2jHPRqbcYi8uXz1pp0jU"
 
   }
   ,
