@@ -136,7 +136,7 @@ const EventDetails = (props) => {
                 id: participatedEvent.teamId,
               }));
             }
-            if (eventData?.teamSize > 1) {
+            if (eventData?.teamSize?.max > 1) {
               props.toast.toast(
                 `Registered for the event ${
                   participatedEvent.teamId &&
@@ -202,7 +202,7 @@ const EventDetails = (props) => {
               </div>
               <div className="flex space-x-2">
                 <div className="text-gray-200 font-thin">Team Size: </div>
-                <div>{eventData?.teamSize}</div>
+                <div>{`${eventData?.teamSize.min} - ${eventData?.teamSize.max}`}</div>
               </div>
             </div>
             {/* <p className="text-green-400">
@@ -223,7 +223,7 @@ const EventDetails = (props) => {
                         Login to participate
                       </div>
                     </Link>
-                  ) : eventData?.teamSize > 1 ? (
+                  ) : eventData?.teamSize?.max > 1 ? (
                     eventData.isParticipated ? (
                       <div>
                         <div className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-600 font-bold text-2xl tracking-widest">
@@ -271,7 +271,11 @@ const EventDetails = (props) => {
                               // onClick={handleCreateTeam}
                               onClick={() =>
                                 navigate(`/payment/${id}`, {
-                                  state: { event: eventData, team: team, type: "CREATE_TEAM"},
+                                  state: {
+                                    event: eventData,
+                                    team: team,
+                                    type: "CREATE_TEAM",
+                                  },
                                 })
                               }
                             >
@@ -296,7 +300,11 @@ const EventDetails = (props) => {
                             // onClick={handleJoinTeam}
                             onClick={() =>
                               navigate(`/payment/${id}`, {
-                                state: { event: eventData, team: team, type: "JOIN_TEAM"},
+                                state: {
+                                  event: eventData,
+                                  team: team,
+                                  type: "JOIN_TEAM",
+                                },
                               })
                             }
                           >
