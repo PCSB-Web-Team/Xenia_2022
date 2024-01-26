@@ -55,6 +55,7 @@ const EventDetails = (props) => {
     let { data } = await Request.createTeam({
       eventId: id,
       teamName: team?.name,
+      transactionID: 0,
     });
     if (data?.status) {
       props.toast.toast.success(
@@ -251,14 +252,19 @@ const EventDetails = (props) => {
                         {/*//! Team events are made free so no need of Razorpay!*/}
                         {eventData.fees ? (
                           <button
-                            className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl   focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium  px-5 py-2.5 text-center mr-2 mb-2 tracking-widest text-lg"
+                            className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium  px-5 py-2.5 text-center text-lg"
+                            // onClick={handleCreateTeam}
                             onClick={() =>
                               navigate(`/payment/${id}`, {
-                                state: { event: eventData },
+                                state: {
+                                  event: eventData,
+                                  team: team,
+                                  type: "CREATE_TEAM",
+                                },
                               })
                             }
                           >
-                            Pay and register
+                            Register as Team
                           </button>
                         ) : (
                           <div className="grid grid-cols-2 gap-2">
@@ -273,15 +279,7 @@ const EventDetails = (props) => {
                             <button
                               className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium  px-5 py-2.5 text-center text-lg"
                               // onClick={handleCreateTeam}
-                              onClick={() =>
-                                navigate(`/payment/${id}`, {
-                                  state: {
-                                    event: eventData,
-                                    team: team,
-                                    type: "CREATE_TEAM",
-                                  },
-                                })
-                              }
+                              onClick={handleCreateTeam}
                             >
                               Register as Team
                             </button>
