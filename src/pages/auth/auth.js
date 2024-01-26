@@ -224,8 +224,10 @@ const Login = (props) => {
                       setLoading(false);
                       if (status) {
                         props.toast.toast.success("Logged In!");
+                        window.location.reload();
                         setTimeout(() => {
                           return navigate(-1, { replace: true });
+                          window.location.reload();
                         }, 2000);
                       } else {
                         props.toast.toast.error("Error: " + error?.message);
