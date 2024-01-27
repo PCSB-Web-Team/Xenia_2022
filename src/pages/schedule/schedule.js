@@ -17,6 +17,11 @@ function Schedule() {
         platform: 'Offline'
       },
       {
+        name: "Codestrike",
+        time: '8:00 pm - 10:00 pm',
+        platform: 'Online'
+      },
+      {
         name: "CricWars",
         time: '10:00 pm - 11:00 pm',
         platform: 'Online'
@@ -89,7 +94,13 @@ function Schedule() {
         name: "CricWars",
         time: '10:00 am onwards',
         platform: 'IT/E&TC Seminar Hall'
-      }
+      },
+      {
+        name: "Ninja Coding",
+        time: '9:00 pm - 11:15 pm',
+        platform: 'Online'
+      },
+
     ],//*03rd
     [
       {
