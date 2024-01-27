@@ -4,6 +4,8 @@ import pubmatic from "../../assets/images/PubMatic_Logo.svg";
 import algoanalytics from "../../assets/images/algoanalytics.png";
 import budhani from "../../assets/images/budhani.jpeg";
 import harbinger from "../../assets/images/harbinger.png";
+import fiveminengineering from "../../assets/images/fiveminengineering.jpeg";
+import campustimes from '../../assets/images/campustimes.png';
 import "./sponsors.css";
 
 
@@ -30,15 +32,20 @@ const coSponsors = [
 
 const educationSponsors = [
   {
-    name: "AlgoAnalytics",
-    logo: algoanalytics,
-    website: "https://www.algoanalytics.com/",
+    name: "5 Minutes Engineering",
+    logo: fiveminengineering,
+    website: "https://5minutesengineering.com/",
   },
-  {
-    name: "Harbinger Group",
-    logo: harbinger,
-    website: "https://harbingergroup.com/",
-  }
+  // {
+  //   name: "AlgoAnalytics",
+  //   logo: algoanalytics,
+  //   website: "https://www.algoanalytics.com/",
+  // },
+  // {
+  //   name: "Harbinger Group",
+  //   logo: harbinger,
+  //   website: "https://harbingergroup.com/",
+  // }
 ];
 
 const eventSponsors = [
@@ -46,6 +53,17 @@ const eventSponsors = [
     name: "CION Digital",
     logo: cion,
     website: "https://www.ciondigital.com/",
+  },
+];
+
+const mediaPartners = [
+  {
+    name: "Campus Times Pune",
+    logo: campustimes,
+    // website: "https://campustimespune.com/",
+    // instagram: "https://www.instagram.com/campustimespune/",
+    // facebook: "https://www.facebook.com/campustimespune/",
+    // twitter: "https://twitter.com/campustimespune",
   },
 ];
 
@@ -112,6 +130,8 @@ const coSponsorsList = getList1(coSponsors);
 const educationSponsorsList = getList1(educationSponsors);
 const eventSponsorsList = getList1(eventSponsors);
 const foodSponsorsList = getList1(foodSponsors);
+const mediaPartnersList = getList1(mediaPartners);
+
 
 export default function Sponsors() {
   return (
@@ -119,9 +139,18 @@ export default function Sponsors() {
       <div className="text-6xl font-semibold text-center text-white pb-12">
         Sponsors
       </div>
-      <h1 className="text-4xl font-semibold text-center text-white pb-12">
-        We are open for sponsorship
-      </h1>
+      {/* <h1 className="sponsors-head">Title Sponsor</h1>
+      <div className="sponsors-list title-sponsors">{titleSponsorsList}</div>
+      <div className="sponsors-head">Co Sponsors</div>
+      <div className="sponsors-list">{coSponsorsList}</div> */}
+      <div className="sponsors-head">Education Partners</div>
+      <div className="sponsors-list">{educationSponsorsList}</div>
+      {/* <div className="sponsors-head">Event Sponsors</div>
+      <div className="sponsors-list">{eventSponsorsList}</div> */}
+      <div className="sponsors-head">Media Partners</div>
+      <div className="sponsors-list">{mediaPartnersList}</div>
+      <div className="sponsors-head">Food Partners</div>
+      <div className="sponsors-list">{foodSponsorsList}</div>
     </div>
   );
 }
