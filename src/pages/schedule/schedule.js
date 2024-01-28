@@ -3,132 +3,130 @@ import Timer from "../../components/countdownTimer";
 import EventDay from "./scheduleComponents/eventDay.tsx";
 
 function Schedule() {
-
   const eventsSchedule = [
     [
       {
         name: "Campus to Corporate",
-        time: '5:00 pm - 5:30 pm',
-        platform: 'IT/ENTC Seminar Hall'
+        time: "5:00 pm - 5:30 pm",
+        platform: "Online",
       },
       {
         name: "Decrypto Hunt",
-        time: '5:30 pm - 6:30 pm',
-        platform: 'Offline'
+        time: "5:30 pm - 6:30 pm",
+        platform: "Offline",
       },
       {
         name: "Codestrike",
-        time: '8:00 pm - 10:00 pm',
-        platform: 'Online'
+        time: "8:00 pm - 10:00 pm",
+        platform: "Online",
       },
       {
         name: "CricWars",
-        time: '10:00 pm - 11:00 pm',
-        platform: 'Online'
-      }
-    ],//*01st,
+        time: "10:00 pm - 11:00 pm",
+        platform: "Online",
+      },
+    ], //*01st,
     [
       {
         name: "AI Hackathon",
-        time: '3:30 pm - 4:30 pm',
-        platform: 'Auditorium'
+        time: "3:30 pm - 4:30 pm",
+        platform: "Auditorium",
       },
       {
         name: "CricWars",
-        time: '4:00 pm - 5:00 pm',
-        platform: 'E&TC Classrooms'
+        time: "4:00 pm - 5:00 pm",
+        platform: "E&TC Classrooms",
       },
       {
         name: "Fandom",
-        time: '4:15 pm - 6:15 pm',
-        platform: 'IT/E&TC Classrooms'
+        time: "4:15 pm - 6:15 pm",
+        platform: "IT/E&TC Classrooms",
       },
       {
         name: "Campus to Corporate",
-        time: '4:45 pm - 5:45 pm',
-        platform: 'Offline'
+        time: "4:45 pm - 5:45 pm",
+        platform: "Online",
       },
       {
         name: "Xenathon (Ideathon)",
-        time: '5:30 pm - 6:30 pm',
-        platform: 'Online'
+        time: "5:30 pm - 6:30 pm",
+        platform: "Online",
       },
       {
         name: "Xenogic",
-        time: '6:00 pm - 6:30 pm',
-        platform: 'Online'
-      }
-    ],//*02nd,
+        time: "6:00 pm - 6:30 pm",
+        platform: "Online",
+      },
+    ], //*02nd,
     [
       {
         name: "AI Hackathon",
-        time: 'To Be Decided',
-        platform: 'Online'
+        time: "To Be Decided",
+        platform: "Online",
       },
       {
         name: "Campus to Corporate",
-        time: '10:00 am - 11:00 am',
-        platform: 'E&TC Classrooms'
+        time: "10:00 am - 11:00 am",
+        platform: "Online",
       },
       {
         name: "Decrypto Hunt",
-        time: '11:00 am - 12:00 noon',
-        platform: 'Offline'
+        time: "11:00 am - 12:00 noon",
+        platform: "Offline",
       },
       {
         name: "Fandom",
-        time: '12:00 noon - 1:00 pm',
-        platform: 'E&TC Classrooms'
+        time: "12:00 noon - 1:00 pm",
+        platform: "E&TC Classrooms",
       },
       {
         name: "Xenogic",
-        time: '2:00 pm - 3:00 pm',
-        platform: 'F-Building Classroom'
+        time: "2:00 pm - 3:00 pm",
+        platform: "F-Building Classroom",
       },
       {
         name: "Xenalytics",
-        time: '3:30 pm - 5:30 pm',
-        platform: 'F-Building Classroom'
+        time: "3:30 pm - 5:30 pm",
+        platform: "F-Building Classroom",
       },
       {
         name: "CricWars",
-        time: '10:00 am onwards',
-        platform: 'IT/E&TC Seminar Hall'
+        time: "10:00 am onwards",
+        platform: "IT/E&TC Seminar Hall",
       },
       {
         name: "Ninja Coding",
-        time: '9:00 pm - 11:15 pm',
-        platform: 'Online'
+        time: "9:00 pm - 11:15 pm",
+        platform: "Online",
       },
-
-    ],//*03rd
+    ], //*03rd
     [
       {
         name: "AI Hackathon",
-        time: '9:00 am - 2:00 pm',
-        platform: 'Auditorium'
+        time: "9:00 am - 2:00 pm",
+        platform: "Auditorium",
       },
       {
         name: "Xenathon (ChannelExpo)",
-        time: '10:00 am - 12:00 noon',
-        platform: 'IT/E&TC Seminar Hall'
+        time: "10:00 am - 12:00 noon",
+        platform: "IT/E&TC Seminar Hall",
       },
       {
         name: "Xenogic",
-        time: '11:00 am - 12:00 noon',
-        platform: 'E&TC Classrooms'
+        time: "11:00 am - 12:00 noon",
+        platform: "E&TC Classrooms",
       },
       {
         name: "Xenathon (Ideathon)",
-        time: '1:00 pm - 3:00 pm',
-        platform: 'IT/E&TC Seminar Hall'
+        time: "1:00 pm - 3:00 pm",
+        platform: "IT/E&TC Seminar Hall",
       },
       {
         name: "Closing Ceremony",
-        time: 'To Be Decided',
-        platform: 'Auditorium'
+        time: "To Be Decided",
+        platform: "Auditorium",
       },
-    ]//*04th
+    ], //*04th
   ];
 
   const renderSchedule = eventsSchedule.map((eventDay, index) => (
