@@ -12,7 +12,8 @@ function GenerateCredential(props) {
   });
 
   function checkIsTeamEvent(eventid) {
-    return props.events?.find((event) => event?._id === eventid)?.teamSize > 1
+    return props.events?.find((event) => event?._id === eventid)?.teamSize
+      ?.max > 1
       ? true
       : false;
   }
