@@ -6,7 +6,13 @@ import budhani from "../../assets/images/budhani.jpeg";
 import harbinger from "../../assets/images/harbinger.png";
 import fiveminengineering from "../../assets/images/fiveminengineering.jpeg";
 import campustimes from '../../assets/images/campustimes.png';
+import IMS from '../../assets/images/IMS.jpg';
+import GoodLuck from '../../assets/images/Goodluck.png';
+import Sushiv from '../../assets/images/Sushiv.jpg';
+import Finance from '../../assets/images/Finance.png';
+import WorqHat from '../../assets/images/WorqHat.png';
 import "./sponsors.css";
+
 
 
 const titleSponsors = [
@@ -32,9 +38,9 @@ const coSponsors = [
 
 const educationSponsors = [
   {
-    name: "5 Minutes Engineering",
-    logo: fiveminengineering,
-    website: "https://5minutesengineering.com/",
+    name: "IMS",
+    logo: IMS,
+    website: "https://www.imsindia.com/",
   },
   // {
   //   name: "AlgoAnalytics",
@@ -50,17 +56,31 @@ const educationSponsors = [
 
 const eventSponsors = [
   {
-    name: "CION Digital",
-    logo: cion,
-    website: "https://www.ciondigital.com/",
+    name: "Sushiv Technologies LLP",
+    event: "Campus to Corporate",
+    logo: Sushiv,
+    website: "https://sushiv.in/",
   },
+  {
+    name: "PICT Finance Society",
+    event: "Xenalytics",
+    logo: Finance,
+    website: "https://www.pfisoc.com/",
+  },
+  {
+    name: "WorqHat",
+    event: "Hack-AI-thon",
+    logo: WorqHat,
+    website: "https://worqhat.com/",
+  }
+
 ];
 
 const mediaPartners = [
   {
     name: "Campus Times Pune",
     logo: campustimes,
-    // website: "https://campustimespune.com/",
+    website: "https://campustimespune.com/",
     // instagram: "https://www.instagram.com/campustimespune/",
     // facebook: "https://www.facebook.com/campustimespune/",
     // twitter: "https://twitter.com/campustimespune",
@@ -72,8 +92,15 @@ const foodSponsors = [
     name: "Budhani Bros Waferwala",
     logo: budhani,
     website: "https://www.budhanibros.com/",
-    instagram: "https://www.instagram.com/budhanibroswaferwala/"
-  }
+    // instagram: "https://www.instagram.com/budhanibroswaferwala/"
+  },
+  {
+    name: "Goodluck Cafe",
+    logo: GoodLuck,
+    // website: "https://www.goodluckcafe.in/",
+    // instagram: "https://www.instagram.com/goodluckcafe_pune/"
+    facebook: "https://www.facebook.com/goodluckcafepvtltd/",
+  },
 ]
 
 const getList1 = (sponsorsArray) => {
@@ -87,6 +114,7 @@ const getList1 = (sponsorsArray) => {
           {/* <img src={sponsor.logo}/> */}
         </div>
         <p className="sponsor-name">{sponsor.name}</p>
+        {sponsor.event && <p className="sponsor-event">{sponsor.event}</p>}
         <div className="sponsor-social">
           {sponsor.website && (
             <a href={sponsor.website} target="_blank" rel="noopener noreferrer">
@@ -145,8 +173,8 @@ export default function Sponsors() {
       <div className="sponsors-list">{coSponsorsList}</div> */}
       <div className="sponsors-head">Education Partner</div>
       <div className="sponsors-list">{educationSponsorsList}</div>
-      {/* <div className="sponsors-head">Event Sponsors</div>
-      <div className="sponsors-list">{eventSponsorsList}</div> */}
+      <div className="sponsors-head">Event Sponsors</div>
+      <div className="sponsors-list">{eventSponsorsList}</div>
       <div className="sponsors-head">Media Partner</div>
       <div className="sponsors-list">{mediaPartnersList}</div>
       <div className="sponsors-head">Food Partner</div>

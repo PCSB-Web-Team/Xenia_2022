@@ -7,14 +7,24 @@ function Schedule() {
   const eventsSchedule = [
     [
       {
-        name: "Campus to Corporate",
-        time: '5:00 pm - 5:30 pm',
-        platform: 'IT/ENTC Seminar Hall'
+        name: "XENIA Inauguration Ceremony",
+        time: '4:00 pm - 4:30 pm',
+        platform: 'Auditorium'
       },
       {
-        name: "Decrypto Hunt",
-        time: '5:30 pm - 6:30 pm',
-        platform: 'Offline'
+        name: "AI Hackathon Workshop",
+        time: '4:30 pm - 6:00 pm',
+        platform: 'Auditorium'
+      },
+      {
+        name: "Campus to Corporate",
+        time: '6:00 pm - 7:00 pm',
+        platform: 'Online'
+      },
+      {
+        name: "Fandom",
+        time: '7:00 pm - 7:30 pm',
+        platform: 'Online'
       },
       {
         name: "Codestrike",
@@ -29,24 +39,20 @@ function Schedule() {
     ],//*01st,
     [
       {
-        name: "AI Hackathon",
-        time: '3:30 pm - 4:30 pm',
+        name: "Session by IMS",
+        time: '3:00 pm - 4:00 pm',
         platform: 'Auditorium'
       },
       {
-        name: "CricWars",
+        name: "Decrypto Hunt",
         time: '4:00 pm - 5:00 pm',
-        platform: 'E&TC Classrooms'
+        platform: 'PICT Campus'
       },
-      {
-        name: "Fandom",
-        time: '4:15 pm - 6:15 pm',
-        platform: 'IT/E&TC Classrooms'
-      },
+
       {
         name: "Campus to Corporate",
-        time: '4:45 pm - 5:45 pm',
-        platform: 'Offline'
+        time: '5:00 pm - 6:00 pm',
+        platform: 'Online '
       },
       {
         name: "Xenathon (Ideathon)",
@@ -57,7 +63,17 @@ function Schedule() {
         name: "Xenogic",
         time: '6:00 pm - 6:30 pm',
         platform: 'Online'
-      }
+      },
+      {
+        name: "Ninja Coding",
+        time: '7:00 pm - 8:00 pm',
+        platform: 'Online'
+      },
+      {
+        name: "Code Strike",
+        time: '9:00 pm - 11:00 pm',
+        platform: 'Online'
+      },
     ],//*02nd,
     [
       {
@@ -68,16 +84,16 @@ function Schedule() {
       {
         name: "Campus to Corporate",
         time: '10:00 am - 11:00 am',
-        platform: 'E&TC Classrooms'
+        platform: 'Hybrid'
       },
       {
-        name: "Decrypto Hunt",
+        name: "CricWars",
         time: '11:00 am - 12:00 noon',
         platform: 'Offline'
       },
       {
         name: "Fandom",
-        time: '12:00 noon - 1:00 pm',
+        time: '12:00 noon - 2:00 pm',
         platform: 'E&TC Classrooms'
       },
       {
@@ -91,9 +107,9 @@ function Schedule() {
         platform: 'F-Building Classroom'
       },
       {
-        name: "CricWars",
-        time: '10:00 am onwards',
-        platform: 'IT/E&TC Seminar Hall'
+        name: "Decrypto Hunt",
+        time: '4:30 pm - 5:30 pm',
+        platform: 'Offline'
       },
       {
         name: "Ninja Coding",
@@ -109,10 +125,21 @@ function Schedule() {
         platform: 'Auditorium'
       },
       {
+        name: "Cricwars",
+        time: '9:00 am - 3:00 pm',
+        platform: 'IT/E&TC Seminar Hall'
+      },
+      {
         name: "Xenathon (ChannelExpo)",
         time: '10:00 am - 12:00 noon',
         platform: 'IT/E&TC Seminar Hall'
       },
+      {
+        name: "Fandom",
+        time: '10:00 am - 12:00 noon',
+        platform: 'IT/E&TC Seminar Hall'
+      },
+
       {
         name: "Xenogic",
         time: '11:00 am - 12:00 noon',
@@ -125,7 +152,7 @@ function Schedule() {
       },
       {
         name: "Closing Ceremony",
-        time: 'To Be Decided',
+        time: '4:00 pm - 5:00 pm',
         platform: 'Auditorium'
       },
     ]//*04th
