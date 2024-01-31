@@ -251,21 +251,31 @@ const EventDetails = (props) => {
                         /> */}{" "}
                         {/*//! Team events are made free so no need of Razorpay!*/}
                         {eventData.fees ? (
-                          <button
-                            className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium  px-5 py-2.5 text-center text-lg"
-                            // onClick={handleCreateTeam}
-                            onClick={() =>
-                              navigate(`/payment/${id}`, {
-                                state: {
-                                  event: eventData,
-                                  team: team,
-                                  type: "CREATE_TEAM",
-                                },
-                              })
-                            }
-                          >
-                            Register as Team
-                          </button>
+                          <div className="grid grid-cols-2 gap-2">
+                            <input
+                              type="text"
+                              className="p-2 px-4 bg-black/20 outline-none block"
+                              name="name"
+                              placeholder="Create Team Name"
+                              onChange={handleInputChange}
+                              value={team?.name}
+                            />
+                            <button
+                              className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium  px-5 py-2.5 text-center text-lg"
+                              // onClick={handleCreateTeam}
+                              onClick={() =>
+                                navigate(`/payment/${id}`, {
+                                  state: {
+                                    event: eventData,
+                                    team: team,
+                                    type: "CREATE_TEAM",
+                                  },
+                                })
+                              }
+                            >
+                              Register as Team
+                            </button>
+                          </div>
                         ) : (
                           <div className="grid grid-cols-2 gap-2">
                             <input

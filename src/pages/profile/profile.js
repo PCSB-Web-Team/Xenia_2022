@@ -23,11 +23,14 @@ function RegisteredEventCard(eve) {
       <div className="text-lg md:text-3xl text-blue-400 font-bold">
         {details?.name}
       </div>
-      {details?.teamSize > 1 && (
+      {details?.teamSize?.max > 1 && (
         <>
           <div className="text-white">
             Team ID: {eve.details?.teamId || "N.A"}
           </div>
+          {/* <div className="text-white">
+            Team Name: {eve.details?.teamId || "N.A"}
+          </div> */}
         </>
       )}
       <div className="text-gray-300 font-thin">
