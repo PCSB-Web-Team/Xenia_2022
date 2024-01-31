@@ -55,11 +55,6 @@ function Schedule() {
         platform: 'Online '
       },
       {
-        name: "Xenathon (Ideathon)",
-        time: '5:30 pm - 6:30 pm',
-        platform: 'Online'
-      },
-      {
         name: "Xenogic",
         time: '6:00 pm - 6:30 pm',
         platform: 'Online'
@@ -76,11 +71,7 @@ function Schedule() {
       },
     ],//*02nd,
     [
-      {
-        name: "AI Hackathon",
-        time: 'To Be Decided',
-        platform: 'Online'
-      },
+
       {
         name: "Campus to Corporate",
         time: '10:00 am - 11:00 am',
@@ -130,7 +121,7 @@ function Schedule() {
         platform: 'IT/E&TC Seminar Hall'
       },
       {
-        name: "Xenathon (ChannelExpo)",
+        name: "Xenathon",
         time: '10:00 am - 12:00 noon',
         platform: 'IT/E&TC Seminar Hall'
       },
