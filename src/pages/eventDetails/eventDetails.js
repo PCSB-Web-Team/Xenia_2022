@@ -214,7 +214,7 @@ const EventDetails = (props) => {
               Registrations are currently being done manually. Sorry for
               inconvenience:(
             </p> */}
-            {!true ? (
+            {eventData?.name === "Campus to Corporate" ? (
               <p className="text-red-400 font-medium event-register-buttons disabled">
                 Registrations closed! Try with other events.
               </p>
