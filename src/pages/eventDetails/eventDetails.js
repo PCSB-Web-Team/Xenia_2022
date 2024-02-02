@@ -217,7 +217,8 @@ const EventDetails = (props) => {
             {eventData?.name === "Campus to Corporate" ||
             eventData?.name === "Fandom" ||
             eventData?.name === "CricWars" ||
-            eventData?.name === "Codestrike" ? (
+            eventData?.name === "Codestrike" ||
+            eventData?.name === "Xenogic" ? (
               <p className="text-red-400 font-medium event-register-buttons disabled">
                 Registrations closed! Try with other events.
               </p>
