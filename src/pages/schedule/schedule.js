@@ -55,7 +55,7 @@ function Schedule() {
       },
       {
         name: "Xenogic",
-        time: "6:00 pm - 6:30 pm",
+        time: "6:45 pm - 7:15 pm",
         platform: "Online",
       },
       {
